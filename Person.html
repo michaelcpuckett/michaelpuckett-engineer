@@ -1,0 +1,113 @@
+<template
+	data-type="Person"
+	data-props="name,image,jobTitle,sameAs,worksFor,alumniOf">
+	<div role="presentation">
+		<header>
+			<h1 class="primary-heading">
+				<img
+					class="primary-heading-image"
+					:src="image"
+					role="presentation"
+					alt="Photograph"
+					draggable="false"
+				/>
+				<span class="primary-heading-name">
+					{{ name }}
+				</span>
+				<span class="primary-heading-jobTitle">
+					{{ jobTitle }}
+				</span>
+			</h1>
+			<ul class="links-list">
+				<li
+					v-for="link in sameAs"
+					:key="link"
+					class="link-item">
+					<a
+						:href="link">
+						{{ new URL(link).hostname.split('.com').shift() }}	
+					</a>
+				</li>
+			</ul>
+		</header>
+		<section>
+			<h2>Work Experience</h2>
+			<type-work-item
+				v-for="workItem in worksFor"
+				v-if="[
+					'Corporation',
+					'GovernmentOrganization'
+				].includes(workItem.worksFor.type) && (!workItem.endDate || workItem.endDate >= (new Date().getFullYear() - 10))"
+				:key="workItem.worksFor.name"
+				v-bind="workItem"
+			/>
+		</section>
+		<section>
+			<h2>Past Projects</h2>
+			<type-work-item
+				v-for="workItem in worksFor"
+				v-if="![
+					'Corporation',
+					'GovernmentOrganization'
+				].includes(workItem.worksFor.type) || [
+					'Corporation',
+					'GovernmentOrganization'
+				].includes(workItem.worksFor.type) && workItem.endDate < (new Date().getFullYear() - 10)"
+				:key="workItem.worksFor.name"
+				v-bind="workItem"
+			/>
+		</section>
+		<section>
+			<h2>Education</h2>
+			<details
+				v-for="{
+					roleName,
+					startDate,
+					endDate,
+					alumniOf
+				} in alumniOf"
+				:key="alumniOf.name">
+				<summary>
+					<span class="education-item item">
+						<span class="education-roleName property-roleName">
+							{{ roleName }}
+						</span>
+						<span class="property-dateRange">
+							<time
+								:datetime="startDate"
+								class="education-startDate property-startDate"><!--
+								-->{{ startDate }}<!--
+							--></time>
+							<time
+								:datetime="endDate || new Date().getFullYear()"
+								class="education-endDate property-endDate"><!--
+								-->{{ endDate || 'Present' }}<!--
+							--></time>
+						</span>
+						<a
+							v-if="alumniOf.sameAs"
+							:href="alumniOf.sameAs"
+							class="education-institution-name property-organization-name"><!--
+							-->{{ alumniOf.name }}<!--
+						--></a>
+						<span
+							v-else
+							class="education-institution-name property-organization-name">
+							{{ alumniOf.name }}
+						</span>
+						<template v-if="alumniOf.address">
+							<span
+								class="education-institution-location property-organization-location"
+								v-for="address in [ alumniOf.address ]"><!--
+								-->{{ address.addressLocality }}, {{ address.addressRegion }}<!--
+							--></span>
+						</template>
+					</span>
+				</summary>
+				<p>
+					Wow
+				</p>
+			</details>
+		</section>
+	</div>
+</template>
