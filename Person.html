@@ -7,8 +7,8 @@
 				<img
 					class="person-image property-image"
 					:src="image"
-					role="presentation"
 					alt="Photograph"
+					aria-hidden="true"
 					draggable="false"
 				/>
 				<span class="person-name property-name">
@@ -35,13 +35,14 @@
 			<h2>Work Experience</h2>
 			<ul class="unstyled-list">
 			<li 
-				v-for="workItem in worksFor"
+				v-for="(workItem, i) in worksFor"
 				v-if="[
 					'Corporation',
 					'GovernmentOrganization'
 				].includes(workItem.worksFor.type) && (!workItem.endDate || workItem.endDate >= (new Date().getFullYear() - 10))"
 				:key="workItem.worksFor.name">
 			<type-work-item
+			   :open="i === 0 ? 'open' : null"
 				v-bind="workItem"
 			/>
 			</li>

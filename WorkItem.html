@@ -1,7 +1,7 @@
 <template
 	data-type="WorkItem"
-	data-props="roleName,startDate,endDate,worksFor,description">
-	<details>
+	data-props="roleName,startDate,endDate,worksFor,description,open">
+	<details :open="open">
 		<summary>
 			<span class="work-item item">
 				<template
