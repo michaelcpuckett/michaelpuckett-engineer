@@ -7,25 +7,22 @@
 <link rel="stylesheet" href="index.css">
 <body>
 <template data-app>
-	<main>
-		<component
-			:is="'Type' + config.type"
-			v-bind="config"
-		/>
-	</main>
+  <main>
+    <component :is="'Type' + config.type" v-bind="config" />
+  </main>
 </template>
 <script type="text/html" src="Person.html"></script>
 <script type="text/html" src="WorkItem.html"></script>
 <script type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "Person",
-		"name": "Michael Puckett",
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Michael Puckett",
     "givenName": "Michael",
     "familyName": "Puckett",
-		"url": "https://pickpuck.com",
+    "url": "https://pickpuck.com",
     "mainEntityOfPage": "https://pickpuck.com",
-		"image": "https://pickpuck.com/avatar.jpg",
+    "image": "https://pickpuck.com/avatar.jpg",
     "email": "michaelcpuckett@gmail.com",
     "address": {
       "@type": "PostalAddress",
@@ -34,9 +31,9 @@
       "postalCode": "40204"
     },
     "birthDate": "1987-06-17",
-		"gender": "male",
+    "gender": "male",
     "honorificPrefix": "Mr",
-      "description": "I'm a software engineer currently based in Louisville, KY specializing in building accessible digital experiences.",
+    "description": "I'm a software engineer currently based in Louisville, KY specializing in building accessible digital experiences.",
     "hasOccupation": {
       "@type": "Occupation",
       "name": "UI Engineer",
@@ -48,7 +45,7 @@
       "description": "S''oftware engineer specializing in building usable, accessible digital experiences",
       "sameAs": "https://en.wikipedia.org/wiki/Software_engineer"
     },
-		"jobTitle": "UI Engineer",
+    "jobTitle": "UI Engineer",
     "worksFor": [{
       "@type": "OrganizationRole",
       "worksFor": {
@@ -250,10 +247,10 @@
       "endDate": "2009",
       "description": [
         "I started an online culture magazine that covered my local community. I built and maintained the website, produced and edited online content, art directed photo shoots, coordinated fundraising events, and managed a staff of student writers, photographers and videographers.",
-"The magazine won the 2007 Society of Professional Journalists Mark of Excellence Award for \"Best All-Around Independent Online Student Publication.\""
+        "The magazine won the 2007 Society of Professional Journalists Mark of Excellence Award for \"Best All-Around Independent Online Student Publication.\""
       ]
     }],
-		"alumniOf": [{
+    "alumniOf": [{
       "@type": "OrganizationRole",
       "alumniOf": {
         "@type": "CollegeOrUniversity",
@@ -265,7 +262,7 @@
         },
         "sameAs": "https://www.wku.edu"
       },
-			"roleName": "BA, Advertising & Graphic Design",
+      "roleName": "BA, Advertising & Graphic Design",
       "startDate": "2005",
       "endDate": "2009",
       "description": [
@@ -290,7 +287,7 @@
       "sameAs": "https://en.wikipedia.org/wiki/WAI-ARIA"
     }, {
       "@type": "ComputerLanguage",
-      "name": "<Vue.js",
+      "name": "Vue.js",
       "sameAs": "https://en.wikipedia.org/wiki/Vue.js"
     }],
     "knowsLanguage": {
@@ -299,11 +296,11 @@
       "alternateName": "en",
       "sameAs": "https://en.wikipedia.org/wiki/English_language"
     },
-		"sameAs": [
+    "sameAs": [
       "https://github.com/michaelcpuckett",
-			"https://stackoverflow.com/users/1226227/michaelpuckett",
-			"https://linkedin.com/in/michaelcpuckett"
-		]
-	}
+      "https://stackoverflow.com/users/1226227/michaelpuckett",
+      "https://linkedin.com/in/michaelcpuckett"
+    ]
+  }
 </script>
 <script src="index.mjs" type="module"></script>
