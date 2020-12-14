@@ -24,7 +24,7 @@ h2 {
 main {
 	padding: 20px 40px;
 	width: 100%;
-	max-width: 680px;
+	max-width: 620px;
 	margin: 0 auto;
 }
 
@@ -33,67 +33,47 @@ section {
 	padding: 20px;
 }
 
+@media (min-width: 480px) {
 header {
 	text-align: center;
 }
+}
 
-.primary-heading-name {
+.person-name {
 	font-size: xx-large;
   font-weight: bold;
 	display: block;
 }
 
-.primary-heading-jobTitle {
+.person-jobTitle {
 	display: block;
 	font-size: x-large;
-/* 	font-weight: bold; */
 	color: #797979;
 	margin: 5px 0;
 	letter-spacing: 2px;
 	text-transform: uppercase;
-	position: relative;
 }
 
-.primary-heading-jobTitle:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-image: linear-gradient(var(--a), var(--b));
-	mix-blend-mode: screen;
-	animation: fun 1s linear infinite running;
-}
-
-@keyframes fun {
-	0% {
-		--a: deepskyblue;
-		--b: deeppink;
-	}
-	50% {
-		--a: deeppink;
-		--b: deepskyblue;
-	}
-	100% {
-		--a: deepskyblue;
-		--b: deeppink;
-	}
-}
-
-.primary-heading-image {
+.person-image {
 	max-width: 100%;
 	width: 80px;
 	border-radius: 50%;
+}
+
+.person-description {
+  font-size: large;
+  margin: 20px 0;
 }
 
 .property-roleName {
 /* 	font-weight: bold; */
 }
 
-.property-dateRange,
-.property-organization-location {
-	text-align: right;
+@media (min-width: 480px) {
+  .property-dateRange,
+  .property-organization-location {
+    text-align: right;
+  }
 }
 
 .property-endDate:before {
@@ -108,20 +88,62 @@ a {
 	font-weight: bold;
 }
 
+details {
+	margin: 20px 0;
+}
+
 .item {
 	color: #797979;
 	list-style: none;
-	margin-bottom: .5em;
-	padding-bottom: 1em;
-	border-bottom: 1px solid #ddd;
+}
+
+
+summary::marker,
+summary::-webkit-details-marker {
+  color: blue;  
+}
+
+.property-organization-name {
+  color: black;
+}
+
+.work-description,
+.education-description {
+  padding-left: 20px;
+}
+
+details:not([open]) summary {
+	border-bottom-color: #ddd;
+}
+
+summary {
+	border-bottom: 1px solid transparent;
+	padding-bottom: 20px;
+}
+
+:focus,
+summary:focus > span {
+  outline: 0;
+  box-shadow:
+    0 0 0 6px white,
+    0 0 0 8px blue;
+}
+
+summary:focus {
+  box-shadow: none;
 }
 
 summary > span {
-	display: grid;
+  display: grid;
+  width: calc(100% - 20px);
+  float: right;
+}
+
+@media (min-width: 480px) {
+  summary > span {
 	grid-template-columns: minmax(50%, max-content) minmax(50%, max-content);
 	grid-template-rows: max-content max-content;
-	width: calc(100% - 40px);
-	float: right;
+  }
 }
 
 summary:after {
@@ -130,30 +152,38 @@ summary:after {
 	display: grid;
 }
 
-.item > summary > span {
-	color: black;
+details .property-description {
+  border-bottom: 1px solid #ddd;
 }
 
-.item > summary > span > span.property-organization-name {
-	color: black;
+details p {
+  margin: 0 0 20px 0;
 }
 
 .links-list {
-	margin-top: 10px;
+  margin: 0;
+  padding: 0;
+	list-style: none;
 }
 
 .link-item {
-	display: inline-grid;
+	list-style: none;
+}
+@media (min-width: 480px) {
+  .link-item {
+    
 	line-height: 1;
+	  display: inline-grid;
+  }
+  .link-item:not(:last-of-type) {
+    	padding-right: 5px;
+    	border-right: 1px solid #797979;
+    	margin-right: 5px;
+  }
 }
 
-.link-item:not(:last-of-type) {
-	padding-right: 5px;
-	border-right: 1px solid #797979;
-	margin-right: 5px;
-}
-
-.work-item,
-.education-item {
-	margin-bottom: 1em;
+.unstyled-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }

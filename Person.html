@@ -1,23 +1,24 @@
 <template
 	data-type="Person"
-	data-props="name,image,jobTitle,sameAs,worksFor,alumniOf">
+	data-props="name,image,jobTitle,sameAs,description,worksFor,alumniOf">
 	<div role="presentation">
 		<header>
 			<h1 class="primary-heading">
 				<img
-					class="primary-heading-image"
+					class="person-image property-image"
 					:src="image"
 					role="presentation"
 					alt="Photograph"
 					draggable="false"
 				/>
-				<span class="primary-heading-name">
+				<span class="person-name property-name">
 					{{ name }}
 				</span>
-				<span class="primary-heading-jobTitle">
+				<span class="person-jobTitle property-jobTitle">
 					{{ jobTitle }}
 				</span>
 			</h1>
+			<p class="person-description property-description"> {{ description }}</p>
 			<ul class="links-list">
 				<li
 					v-for="link in sameAs"
@@ -32,19 +33,24 @@
 		</header>
 		<section>
 			<h2>Work Experience</h2>
-			<type-work-item
+			<ul class="unstyled-list">
+			<li 
 				v-for="workItem in worksFor"
 				v-if="[
 					'Corporation',
 					'GovernmentOrganization'
 				].includes(workItem.worksFor.type) && (!workItem.endDate || workItem.endDate >= (new Date().getFullYear() - 10))"
-				:key="workItem.worksFor.name"
+				:key="workItem.worksFor.name">
+			<type-work-item
 				v-bind="workItem"
 			/>
+			</li>
+			</ul>
 		</section>
 		<section>
 			<h2>Past Projects</h2>
-			<type-work-item
+			<ul class="unstyled-list">
+			<li
 				v-for="workItem in worksFor"
 				v-if="![
 					'Corporation',
@@ -53,22 +59,38 @@
 					'Corporation',
 					'GovernmentOrganization'
 				].includes(workItem.worksFor.type) && workItem.endDate < (new Date().getFullYear() - 10)"
-				:key="workItem.worksFor.name"
+				:key="workItem.worksFor.name">
+			<type-work-item
 				v-bind="workItem"
 			/>
+			</li>
+			</ul>
 		</section>
 		<section>
 			<h2>Education</h2>
-			<details
+			<ul class="unstyled-list">
+			<li 
 				v-for="{
 					roleName,
 					startDate,
 					endDate,
-					alumniOf
+					alumniOf,
+					description
 				} in alumniOf"
 				:key="alumniOf.name">
+			<details>
 				<summary>
 					<span class="education-item item">
+						<span class="education-institution-name property-organization-name">
+							{{ alumniOf.name }}
+						</span>
+						<template v-if="alumniOf.address">
+							<span
+								class="education-institution-location property-organization-location"
+								v-for="address in [ alumniOf.address ]"><!--
+								-->{{ address.addressLocality }}, {{ address.addressRegion }}<!--
+							--></span>
+						</template>
 						<span class="education-roleName property-roleName">
 							{{ roleName }}
 						</span>
@@ -84,30 +106,16 @@
 								-->{{ endDate || 'Present' }}<!--
 							--></time>
 						</span>
-						<a
-							v-if="alumniOf.sameAs"
-							:href="alumniOf.sameAs"
-							class="education-institution-name property-organization-name"><!--
-							-->{{ alumniOf.name }}<!--
-						--></a>
-						<span
-							v-else
-							class="education-institution-name property-organization-name">
-							{{ alumniOf.name }}
-						</span>
-						<template v-if="alumniOf.address">
-							<span
-								class="education-institution-location property-organization-location"
-								v-for="address in [ alumniOf.address ]"><!--
-								-->{{ address.addressLocality }}, {{ address.addressRegion }}<!--
-							--></span>
-						</template>
 					</span>
 				</summary>
-				<p>
-					Wow
-				</p>
+		<div class="education-description property-description" v-if="description">
+    		<p v-for="p in description">
+    			{{ p }}
+    		</p>
+    	</div>
 			</details>
+			</li>
+			</ul>
 		</section>
 	</div>
 </template>

@@ -1,9 +1,23 @@
 <template
 	data-type="WorkItem"
-	data-props="roleName,startDate,endDate,worksFor">
+	data-props="roleName,startDate,endDate,worksFor,description">
 	<details>
 		<summary>
 			<span class="work-item item">
+				<template
+					v-for="employer in [ worksFor ]"
+					:key="employer.name">
+					<span class="work-employer-name property-organization-name"><!--
+			  	     -->{{ employer.name }}<!--
+					--></span>
+					<template v-if="employer.address">
+						<span
+							class="work-employer-location property-organization-location"
+							v-for="address in [ employer.address ]"><!--
+							-->{{ address.addressLocality }}, {{ address.addressRegion }}<!--
+						--></span>
+					</template>
+				</template>
 				<span class="work-roleName property-roleName">
 					{{ roleName }}
 				</span>
@@ -19,32 +33,12 @@
 						-->{{ endDate || 'Present' }}<!--
 					--></time>
 				</span>
-				<template
-					v-for="employer in [ worksFor ]"
-					:key="employer.name">
-					<a
-						v-if="employer.sameAs"
-						:href="employer.sameAs"
-						class="work-employer-name property-organization-name"><!--
-						-->{{ employer.name }}<!--
-					--></a>
-					<span
-						v-else
-						class="work-employer-name property-organization-name"><!--
-						-->{{ employer.name }}<!--
-					--></span>
-					<template v-if="employer.address">
-						<span
-							class="work-employer-location property-organization-location"
-							v-for="address in [ employer.address ]"><!--
-							-->{{ address.addressLocality }}, {{ address.addressRegion }}<!--
-						--></span>
-					</template>
-				</template>
 			</span>
 		</summary>
-		<p>
-			Wow!
-		</p>
+		<div class="work-description property-description" v-if="description">
+    		<p v-for="p in description">
+    			{{ p }}
+    		</p>
+    	</div>
 	</details>
 </template>
