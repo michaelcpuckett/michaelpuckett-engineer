@@ -133,24 +133,26 @@ const prepareOutput = async ({
   `
 }
 
+const addDownloadLink = html => {
+  const file = new File([ html ], 'index.html', {
+    type: 'text/html'
+  })
+  const url = window.URL.createObjectURL(file)
+  const downloadLinkEl = createElement('a')
+  downloadLinkEl.setAttribute('download', 'index.html')
+  downloadLinkEl.innerText = 'Download'
+  downloadLinkEl.setAttribute('href', url)
+  downloadLinkEl.style.position = 'fixed'
+  downloadLinkEl.style.top = '10px'
+  downloadLinkEl.style.right = '10px'
+  downloadLinkEl.style.backgroundColor = 'var(--swatch-text-color)'
+  downloadLinkEl.style.color = 'var(--swatch-background-color)'
+  downloadLinkEl.style.padding = '5px 10px'
+  window.document.body.appendChild(downloadLinkEl)
+}
+
 domContentLoadedPromise
   .then(getConfig)
   .then(render)
   .then(prepareOutput)
-  .then(html => {
-    const file = new File([ html ], 'index.html', {
-      type: 'text/html'
-    })
-    const url = window.URL.createObjectURL(file)
-    const downloadLinkEl = createElement('a')
-    downloadLinkEl.setAttribute('download', 'index.html')
-    downloadLinkEl.innerText = 'Download'
-    downloadLinkEl.setAttribute('href', url)
-    downloadLinkEl.style.position = 'fixed'
-    downloadLinkEl.style.top = '10px'
-    downloadLinkEl.style.right = '10px'
-    downloadLinkEl.style.backgroundColor = 'var(--swatch-text-color)'
-    downloadLinkEl.style.color = 'var(--swatch-background-color)'
-    downloadLinkEl.style.padding = '5px 10px'
-    window.document.body.appendChild(downloadLinkEl)
-  })
+  .then(addDownloadLink)
