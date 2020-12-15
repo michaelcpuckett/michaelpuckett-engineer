@@ -88,10 +88,17 @@ domContentLoadedPromise.then(async () => {
 
   await Promise.all([
     registerComponents(),
-    renderHead(appData),
     renderApp(appData)
   ])
   
+  await renderHead(appData)
+
+  const stylesheetEl = queryFor('link[rel="stylesheet"]')
+  const style = await fetchTextContent(stylesheetEl.getAttribute('href'))
+  const styleEl = createElement('style')
+  styleEl.innerHTML = style
+  stylesheetEl.parentElement.replaceChild(styleEl, stylesheetEl)
+
   queryFor('script[type="module"]').remove()
   console.log(`
     <!doctype html>
