@@ -111,6 +111,7 @@ const inlineStyles = async () => {
 }
 
 const prepareOutput = async ({
+  identifier,
   knowsLanguage: [{
     alternateName: lang
   }]
@@ -126,7 +127,7 @@ const prepareOutput = async ({
       </head>
       <body>
         ${window.document.body.innerHTML}
-        ${analyticsScript}
+        ${analyticsScript({ identifier })}
       </body>
     </html>
   `

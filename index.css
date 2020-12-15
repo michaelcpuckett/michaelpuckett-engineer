@@ -94,6 +94,7 @@ header, section {
 		max-width: 100%;
 		width: 65px;
 		height: 65px;
+		object-fit: cover;
 		border-radius: 50%;
 		border: 2px solid white;
 }
@@ -130,7 +131,7 @@ summary {
 }
 summary::marker,
 summary::-webkit-details-marker {
-		color: var(--swatch-interactive);i
+		color: var(--swatch-interactive);
 }
 details[open] summary::marker,
 details[open] summary::-webkit-details-marker {

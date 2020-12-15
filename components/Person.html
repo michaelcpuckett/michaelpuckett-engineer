@@ -50,7 +50,13 @@
 			</li>
 			</ul>
 		</section>
-		<section>
+		<section v-if="worksFor.find(workItem => ![
+			'Corporation',
+			'GovernmentOrganization'
+		].includes(workItem.worksFor.type) || [
+			'Corporation',
+			'GovernmentOrganization'
+		].includes(workItem.worksFor.type) && workItem.endDate < (new Date().getFullYear() - 10))">
 			<h2>Past Projects</h2>
 			<ul class="unstyled-list">
 			<li
