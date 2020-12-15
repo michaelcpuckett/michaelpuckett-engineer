@@ -1,36 +1,102 @@
 import Vue from 'https://unpkg.com/vue@2.6.12/dist/vue.esm.browser.min.js'
-const config = JSON.parse(window.document.querySelector('script[  type="application/ld+json"]').innerHTML.replace(/\"@/g, '"'))
+import {
+  createElement,
+  queryFor,
+  queryAll,
+  getTemplateContents,
+  fetchTextContent,
+  fetchTemplateFromScript,
+  domContentLoadedPromise
+} from './util/index.js'
 
-const getTemplateContents = el => [el.content.firstElementChild].reduce((string, child) => {
-	const divEl = window.document.createElement('div')
-	divEl.append(child)
-	return `${string} ${divEl.innerHTML}`
-}, '').trim()
+const registerComponents = async () => {
+  const componentScriptEls = queryAll('script[data-component]')
 
-;(async () => {
-	await Promise.all([...window.document.querySelectorAll('script[type="text/html"]')].map(async componentScriptEl => {
-		const html = await fetch(componentScriptEl.getAttribute('src')).then(async res => await res.text())
-		const divEl = window.document.createElement('div')
-		divEl.innerHTML = html
-		const componentEl = divEl.firstElementChild
-		Vue.component(`Type${componentEl.getAttribute('data-type')}`,
-		{
-			inheritAttrs: false,
-			props: componentEl.getAttribute('data-props').split(','),
-			template: getTemplateContents(componentEl)
-		})
-	}))
+  return await Promise.all(componentScriptEls.map(async scriptEl => {
+    const templateEl = await fetchTemplateFromScript(scriptEl)
+    const template = getTemplateContents(templateEl)
+    const props = templateEl.getAttribute('data-props').split(',')
+    const type = templateEl.getAttribute('data-type')
+    const name = `Type${type}`
+    Vue.component(name, {
+      inheritAttrs: false,
+      props,
+      template
+    })
+    scriptEl.remove()
+  }))
+}
 
-	const el = window.document.querySelector('template[data-app]')
-	const template = getTemplateContents(el)
+const getHeadTemplate = async () => {
+  const el = queryFor('script[data-head]')
+  const template = await fetchTemplateFromScript(el)
+    .then(getTemplateContents)
+  el.remove()
+  return template
+}
 
-	new Vue({
-		el,
-		data: () => ({
-			config: {
-				...config
-			}
-		}),
-		template
-	})
-})()
+const renderHead = async data => {
+  const el = createElement('div')
+  window.document.body.append(el)
+  
+  new Vue({
+    el,
+  	data: () => ({
+  		config: {
+  			...data
+  		}
+  	}), 
+    template: await getHeadTemplate(),
+    mounted() {
+      ;[...this.$el.children].forEach(el => {
+        window.document.head.append(el)
+      })
+      this.$destroy()
+    },
+    beforeDestroy() {
+      this.$el.remove()
+    }
+  })
+}
+
+const getAppTemplate = async () => {
+  const el = queryFor('script[data-app]')
+  const template = await fetchTemplateFromScript(el)
+    .then(getTemplateContents)
+  el.remove()
+  return template
+}
+
+const renderApp = async data => {
+  const el = createElement('div')
+  window.document.body.append(el)
+
+  return new Vue({
+    	el,
+    	data: () => ({
+    		config: {
+    			...data
+    		}
+    	}),
+      template: await getAppTemplate()
+    })
+}
+
+domContentLoadedPromise.then(async () => {
+  const dataEl = queryFor('[type="application/ld+json"]')
+  const appData = JSON.parse(dataEl.innerHTML.replace(/\"@/g, '"'))
+
+  await Promise.all([
+    registerComponents(),
+    renderHead(appData),
+    renderApp(appData)
+  ])
+  
+  queryFor('script[type="module"]').remove()
+  console.log(`
+    <!doctype html>
+    <html lang="en">
+      ${window.document.documentElement.innerHTML}
+    </html>
+  `)
+})

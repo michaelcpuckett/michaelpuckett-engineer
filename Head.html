@@ -1,0 +1,6 @@
+<template>
+  <div v-for="{ name, jobTitle, description } in [ config ]">
+    <title>{{ name }} - {{ jobTitle }} - CV</title>
+    <meta name="description" :content="description">
+  </div>
+ </template>

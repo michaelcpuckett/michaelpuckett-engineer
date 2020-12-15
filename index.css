@@ -20,6 +20,7 @@
 
 @media (prefers-color-scheme: dark) {
 	:root {
+	  /*
 		--swatch-light-gray: #777;
 		--swatch-dark-gray: #dadada;
 		--swatch-text-color: white;
@@ -27,6 +28,7 @@
 		--swatch-alt-background-color: rgb(211, 14, 242, .25);
 		--swatch-interactive: #4C93FE;
 		--swatch-interactive-completed: #D30EF2;
+	  */
 	}
 }
 
@@ -37,10 +39,9 @@ body {
 
 body {
 	background: var(--swatch-background-color);
-	background-image:
-		radial-gradient(var(--swatch-background-color) 0%, var(--swatch-background-color) 50%, var(--swatch-alt-background-color) 100%);
 	background-attachment: fixed;
 	color: var(--swatch-text-color);
+	font-size: large;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -91,11 +92,13 @@ header, section {
 
 .person-image {
 		max-width: 100%;
-		width: 80px;
+		width: 65px;
+		height: 65px;
 		border-radius: 50%;
+		border: 2px solid white;
 }
 .person-description {
-		font-size: large;
+		font-size: 1.125em;
 		margin: 20px 0;
 }
 @media (min-width: 480px) {
@@ -107,9 +110,6 @@ header, section {
 		content: ' - ';
 }
 .property-organization-name {
-		font-weight: bold;
-}
-a {
 		font-weight: bold;
 }
 a:not(:visited) {
@@ -130,7 +130,7 @@ summary {
 }
 summary::marker,
 summary::-webkit-details-marker {
-		color: var(--swatch-interactive);
+		color: var(--swatch-interactive);i
 }
 details[open] summary::marker,
 details[open] summary::-webkit-details-marker {
@@ -194,9 +194,9 @@ details p {
 				display: inline-grid;
 		}
 		.link-item:not(:last-of-type) {
-				padding-right: 5px;
+				padding-right: 10px;
 				border-right: 1px solid var(--swatch-dark-gray);
-				margin-right: 5px;
+				margin-right: 10px;
 		}
 }
 .unstyled-list {
