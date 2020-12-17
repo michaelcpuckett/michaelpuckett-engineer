@@ -92,8 +92,8 @@ header, section {
 
 .person-image {
 		max-width: 100%;
-		width: 65px;
-		height: 65px;
+		width: 75px;
+		height: 75px;
 		object-fit: cover;
 		border-radius: 50%;
 		border: 2px solid white;
@@ -109,9 +109,6 @@ header, section {
 }
 .property-endDate:before {
 		content: ' - ';
-}
-.property-organization-name {
-		font-weight: bold;
 }
 a:not(:visited) {
 	color: var(--swatch-interactive);
@@ -137,7 +134,8 @@ details[open] summary::marker,
 details[open] summary::-webkit-details-marker {
 		color: var(--swatch-interactive-completed);
 }
-.property-organization-name {
+.property-name {
+		font-weight: bold;
 		color: var(--swatch-text-color);
 }
 .work-description,

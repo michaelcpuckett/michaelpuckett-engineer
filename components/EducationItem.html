@@ -1,0 +1,46 @@
+<template
+  data-type="EducationItem"
+  data-props="
+    roleName,
+    startDate,
+    endDate,
+    alumniOf,
+    description
+  ">
+			<details>
+				<summary>
+					<span class="education-item item">
+						<span class="education-institution-name property-name">
+							{{ alumniOf.name }}
+						</span>
+						<template v-if="alumniOf.address">
+							<span
+								class="education-institution-location property-organization-location"
+								v-for="address in [ alumniOf.address ]"><!--
+								-->{{ address.addressLocality }}, {{ address.addressRegion }}<!--
+							--></span>
+						</template>
+						<span class="education-roleName property-roleName">
+							{{ roleName }}
+						</span>
+						<span class="property-dateRange">
+							<time
+								:datetime="startDate"
+								class="education-startDate property-startDate"><!--
+								-->{{ startDate }}<!--
+							--></time>
+							<time
+								:datetime="endDate || new Date().getFullYear()"
+								class="education-endDate property-endDate"><!--
+								-->{{ endDate || 'Present' }}<!--
+							--></time>
+						</span>
+					</span>
+				</summary>
+		<div class="education-description property-description" v-if="description">
+    		<p v-for="p in description">
+    			{{ p }}
+    		</p>
+  	  </div>
+	</details>
+</template>

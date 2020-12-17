@@ -1,0 +1,35 @@
+<template
+	data-section="Header"
+	data-props="name,image,jobTitle,sameAs,description">
+    <header>
+			<h1 class="primary-heading">
+				<img
+					class="person-image property-image"
+					:src="image"
+					alt="Photograph"
+					aria-hidden="true"
+					draggable="false"
+					width="75"
+					height="75"
+				/>
+				<span class="person-name property-name">
+					{{ name }}
+				</span>
+				<span class="person-jobTitle property-jobTitle">
+					{{ jobTitle }}
+				</span>
+			</h1>
+			<p class="person-description property-description"> {{ description }}</p>
+			<ul class="links-list">
+				<li
+					v-for="link in sameAs"
+					:key="link"
+					class="link-item">
+					<a
+						:href="link">
+						{{ new URL(link).hostname.split('.com').shift() }}	
+					</a>
+				</li>
+			</ul>
+		</header>
+</template>

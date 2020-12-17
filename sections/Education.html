@@ -1,0 +1,16 @@
+<template
+  data-section="Education"
+  data-props="alumniOf">
+		<section>
+			<h2>Education</h2>
+			<ul class="unstyled-list">
+			<li 
+				v-for="educationItem in alumniOf"
+				:key="educationItem.alumniOf.name">
+  			<type-education-item
+  			  v-bind="educationItem">
+  			</type-education-item>
+  			</li>
+			</ul>
+		</section>
+</template>

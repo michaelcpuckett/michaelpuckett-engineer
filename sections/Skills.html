@@ -1,0 +1,12 @@
+<template
+	data-section="Skills"
+	data-props="knowsAbout">
+		<section>
+			<h2>Skills</h2>
+			<ul class="unstyled-list">
+			  <li v-for="skill in knowsAbout">
+			    <type-skill v-bind="skill"></type-skill>
+			  </li>
+			</ul>
+	  </section>
+</template>

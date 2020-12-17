@@ -1,13 +1,20 @@
 <template
 	data-type="WorkItem"
-	data-props="roleName,startDate,endDate,worksFor,description,open">
+	data-props="
+	  roleName,
+	  startDate,
+	  endDate,
+	  worksFor,
+	  description,
+	  open
+	">
 	<details :open="open">
 		<summary>
 			<span class="work-item item">
 				<template
 					v-for="employer in [ worksFor ]"
 					:key="employer.name">
-					<span class="work-employer-name property-organization-name"><!--
+					<span class="work-employer-name property-name"><!--
 			  	     -->{{ employer.name }}<!--
 					--></span>
 					<template v-if="employer.address">

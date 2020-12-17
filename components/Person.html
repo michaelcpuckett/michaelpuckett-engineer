@@ -1,130 +1,44 @@
 <template
 	data-type="Person"
-	data-props="name,image,jobTitle,sameAs,description,worksFor,alumniOf">
+	data-props="
+	  name,
+	  image,
+	  jobTitle,
+	  sameAs,
+	  description,
+	  worksFor,
+	  knowsAbout,
+	  alumniOf
+   ">
 	<div role="presentation">
-		<header>
-			<h1 class="primary-heading">
-				<img
-					class="person-image property-image"
-					:src="image"
-					alt="Photograph"
-					aria-hidden="true"
-					draggable="false"
-					width="65"
-					height="65"
-				/>
-				<span class="person-name property-name">
-					{{ name }}
-				</span>
-				<span class="person-jobTitle property-jobTitle">
-					{{ jobTitle }}
-				</span>
-			</h1>
-			<p class="person-description property-description"> {{ description }}</p>
-			<ul class="links-list">
-				<li
-					v-for="link in sameAs"
-					:key="link"
-					class="link-item">
-					<a
-						:href="link">
-						{{ new URL(link).hostname.split('.com').shift() }}	
-					</a>
-				</li>
-			</ul>
-		</header>
-		<section>
-			<h2>Work Experience</h2>
-			<ul class="unstyled-list">
-			<li 
-				v-for="(workItem, i) in worksFor"
-				v-if="[
-					'Corporation',
-					'GovernmentOrganization'
-				].includes(workItem.worksFor.type) && (!workItem.endDate || workItem.endDate >= (new Date().getFullYear() - 10))"
-				:key="workItem.worksFor.name">
-			<type-work-item
-			   :open="i === 0 ? 'open' : null"
-				v-bind="workItem"
-			/>
-			</li>
-			</ul>
-		</section>
-		<section v-if="worksFor.find(workItem => ![
-			'Corporation',
-			'GovernmentOrganization'
-		].includes(workItem.worksFor.type) || [
-			'Corporation',
-			'GovernmentOrganization'
-		].includes(workItem.worksFor.type) && workItem.endDate < (new Date().getFullYear() - 10))">
-			<h2>Past Projects</h2>
-			<ul class="unstyled-list">
-			<li
-				v-for="workItem in worksFor"
-				v-if="![
-					'Corporation',
-					'GovernmentOrganization'
-				].includes(workItem.worksFor.type) || [
-					'Corporation',
-					'GovernmentOrganization'
-				].includes(workItem.worksFor.type) && workItem.endDate < (new Date().getFullYear() - 10)"
-				:key="workItem.worksFor.name">
-			<type-work-item
-				v-bind="workItem"
-			/>
-			</li>
-			</ul>
-		</section>
-		<section>
-			<h2>Education</h2>
-			<ul class="unstyled-list">
-			<li 
-				v-for="{
-					roleName,
-					startDate,
-					endDate,
-					alumniOf,
-					description
-				} in alumniOf"
-				:key="alumniOf.name">
-			<details>
-				<summary>
-					<span class="education-item item">
-						<span class="education-institution-name property-organization-name">
-							{{ alumniOf.name }}
-						</span>
-						<template v-if="alumniOf.address">
-							<span
-								class="education-institution-location property-organization-location"
-								v-for="address in [ alumniOf.address ]"><!--
-								-->{{ address.addressLocality }}, {{ address.addressRegion }}<!--
-							--></span>
-						</template>
-						<span class="education-roleName property-roleName">
-							{{ roleName }}
-						</span>
-						<span class="property-dateRange">
-							<time
-								:datetime="startDate"
-								class="education-startDate property-startDate"><!--
-								-->{{ startDate }}<!--
-							--></time>
-							<time
-								:datetime="endDate || new Date().getFullYear()"
-								class="education-endDate property-endDate"><!--
-								-->{{ endDate || 'Present' }}<!--
-							--></time>
-						</span>
-					</span>
-				</summary>
-		<div class="education-description property-description" v-if="description">
-    		<p v-for="p in description">
-    			{{ p }}
-    		</p>
-    	</div>
-			</details>
-			</li>
-			</ul>
-		</section>
+		<section-header
+		  v-bind="{
+		    name,
+    	    image,
+    	    jobTitle,
+    	    sameAs,
+    	    description
+    	 }">
+		 </section-header>
+		 <section-work-experience
+		   v-bind="{
+		     worksFor
+		   }">
+		 </section-work-experience>
+		 <section-skills
+		   v-bind="{
+		     knowsAbout
+		   }">
+		 </section-skills>
+		 <section-past-projects
+		   v-bind="{
+		     worksFor
+		   }">
+		 </section-past-projects>
+		<section-education
+		  v-bind="{
+		    alumniOf
+		  }">
+		 </section-education>
 	</div>
 </template>

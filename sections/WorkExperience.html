@@ -1,0 +1,20 @@
+<template
+  data-section="WorkExperience"
+  data-props="worksFor">
+		<section>
+			<h2>Work Experience</h2>
+			<ul class="unstyled-list">
+			<li 
+				v-for="(workItem, i) in worksFor"
+				v-if="[
+					'Corporation',
+					'GovernmentOrganization'
+				].includes(workItem.worksFor.type) && (!workItem.endDate || workItem.endDate >= (new Date().getFullYear() - 10))"
+				:key="workItem.worksFor.name">
+			<type-work-item
+				v-bind="workItem">
+			</type-work-item>
+			</li>
+			</ul>
+	</section>
+</template>

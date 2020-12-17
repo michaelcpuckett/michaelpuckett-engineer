@@ -1,33 +1,42 @@
-<!doctype html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-text-size-adjust: 100%;
-            -webkit-tap-highlight-color: transparent;
-        }
+    <!doctype html>
+    <html lang="en">
+      <head>
+        
 
-        :root {
-            font-family: 'Helvetica Neue', sans-serif;
-            line-height: 1.333;
-            --swatch-text-color: black;
-            --swatch-background-color: white;
-            --swatch-alt-background-color: rgb(246, 191, 254, .5);
-            --swatch-light-gray: #ddd;
-            --swatch-dark-gray: #797979;
-            --swatch-interactive: blue;
-            --swatch-interactive-completed: purple;
-        }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                /*
+
+
+
+
+
+
+
+
+
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Michael Puckett - UI Engineer - CV</title><meta name="description" content="I'm a software engineer currently based in Louisville, KY specializing in architecting accessible digital experiences."><style>* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+}
+
+:root {
+	font-family: 'Helvetica Neue', sans-serif;
+	line-height: 1.333;
+	--swatch-text-color: black;
+	--swatch-background-color: white;
+	--swatch-alt-background-color: rgb(246, 191, 254, .5);
+	--swatch-light-gray: #ddd;
+	--swatch-dark-gray: #797979;
+	--swatch-interactive: blue;
+	--swatch-interactive-completed: purple;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+	  /*
 		--swatch-light-gray: #777;
 		--swatch-dark-gray: #dadada;
 		--swatch-text-color: white;
@@ -36,627 +45,568 @@
 		--swatch-interactive: #4C93FE;
 		--swatch-interactive-completed: #D30EF2;
 	  */
-            }
-        }
+	}
+}
 
-        html,
-        body {
-            overscroll-behavior: none;
-        }
+html,
+body {
+	overscroll-behavior: none;
+}
 
-        body {
-            background: var(--swatch-background-color);
-            background-attachment: fixed;
-            color: var(--swatch-text-color);
-            font-size: large;
-        }
+body {
+	background: var(--swatch-background-color);
+	background-attachment: fixed;
+	color: var(--swatch-text-color);
+	font-size: large;
+}
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-weight: normal;
-            line-height: inherit;
-        }
+h1,h2,h3,h4,h5,h6 {
+	font-weight: normal;
+	line-height: inherit;
+}
 
-        h2 {
-            font-size: x-large;
-            margin-bottom: .75em;
-            padding-bottom: .25em;
-            border-bottom: 1px solid var(--swatch-light-gray);
-        }
+h2 {
+	font-size: x-large;
+	margin-bottom: .75em;
+	padding-bottom: .25em;
+	border-bottom: 1px solid var(--swatch-light-gray);
+}
 
-        main {
-            width: 100%;
-            max-width: 620px;
-            margin: 0 auto;
-            padding: 10px;
-        }
+main {
+	width: 100%;
+	max-width: 620px;
+	margin: 0 auto;
+	padding: 10px;
+}
 
-        @media (min-width: 480px) {
-            main {
-                padding: 20px 40px;
-            }
-        }
+@media (min-width: 480px) {
+	main {     
+	padding: 20px 40px;
+	} 
+}
+header, section {
+		padding: 20px;
+}
+@media (min-width: 480px) {
+		header {
+				text-align: center;
+		}
+}
+.person-name {
+		font-size: xx-large;
+		font-weight: bold;
+		display: block;
+}
+.person-jobTitle {
+		display: block;
+		font-size: x-large;
+		color: var(--swatch-dark-gray);
+		margin: 5px 0;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+}
 
-        header,
-        section {
-            padding: 20px;
-        }
+.person-image {
+		max-width: 100%;
+		width: 75px;
+		height: 75px;
+		object-fit: cover;
+		border-radius: 50%;
+		border: 2px solid white;
+}
+.person-description {
+		font-size: 1.125em;
+		margin: 20px 0;
+}
+@media (min-width: 480px) {
+		.property-dateRange, .property-organization-location {
+				text-align: right;
+		}
+}
+.property-endDate:before {
+		content: ' - ';
+}
+a:not(:visited) {
+	color: var(--swatch-interactive);
+}
+a:visited {
+	color: var(--swatch-interactive-completed);
+}
+details {
+		margin: 20px 0;
+}
+.item {
+		color: var(--swatch-dark-gray);
+		list-style: none;
+}
+summary {
+	cursor: pointer;
+}
+summary::marker,
+summary::-webkit-details-marker {
+		color: var(--swatch-interactive);
+}
+details[open] summary::marker,
+details[open] summary::-webkit-details-marker {
+		color: var(--swatch-interactive-completed);
+}
+.property-name {
+		font-weight: bold;
+		color: var(--swatch-text-color);
+}
+.work-description,
+.education-description {
+		padding-left: 20px;
+}
+details:not([open]) summary {
+		border-bottom-color: var(--swatch-light-gray);
+}
+summary {
+		border-bottom: 1px solid transparent;
+		padding-bottom: 20px;
+}
+:focus,
+summary:focus>span {
+		outline: 0;
+		box-shadow: 0 0 0 6px 2px var(--swatch-interactive);
+}
+summary:focus {
+		box-shadow: none;
+}
+summary>span {
+		display: grid;
+		width: calc(100% - 20px);
+		float: right;
+}
+@media (min-width: 480px) {
+		summary>span {
+				grid-template-columns: minmax(50%, max-content) minmax(50%, max-content);
+				grid-template-rows: max-content max-content;
+		}
+}
+summary:after {
+		content: '';
+		clear: both;
+		display: grid;
+}
+details .property-description {
+		border-bottom: 1px solid var(--swatch-light-gray);
+}
+details p {
+		margin: 0 0 20px 0;
+}
+.links-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+}
+.link-item {
+		list-style: none;
+}
+@media (min-width: 480px) {
+		.link-item {
+				line-height: 1;
+				display: inline-grid;
+		}
+		.link-item:not(:last-of-type) {
+				padding-right: 10px;
+				border-right: 1px solid var(--swatch-dark-gray);
+				margin-right: 10px;
+		}
+}
+.unstyled-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+}</style>
+      </head>
+      <body>
+        <main><div role="presentation"><header><h1 class="primary-heading"><img src="https://pickpuck.com/avatar.jpg" alt="Photograph" aria-hidden="true" draggable="false" width="75" height="75" class="person-image property-image"> <span class="person-name property-name">
+					Michael Puckett
+				</span> <span class="person-jobTitle property-jobTitle">
+					UI Engineer
+				</span></h1> <p class="person-description property-description"> I'm a software engineer currently based in Louisville, KY specializing in architecting accessible digital experiences.</p> <ul class="links-list"><li class="link-item"><a href="https://github.com/michaelcpuckett">
+						github	
+					</a></li><li class="link-item"><a href="https://stackoverflow.com/users/1226227/michaelpuckett">
+						stackoverflow	
+					</a></li><li class="link-item"><a href="https://linkedin.com/in/michaelcpuckett">
+						linkedin	
+					</a></li></ul></header> <section><h2>Work Experience</h2> <ul class="unstyled-list"><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">LiveSchool</span> <span class="work-employer-location property-organization-location">Nashville, TN</span> <span class="work-roleName property-roleName">
+					Frontend Engineer
+				</span> <span class="property-dateRange"><time datetime="2018" class="work-startDate property-startDate">2018</time> <time datetime="2020" class="work-endDate property-endDate">Present</time></span></span></summary> <div class="work-description property-description"><p>
+    			LiveSchool is a classroom behavior-tracking management platform with an audience of teachers, parents, and students.
+    		</p><p>
+    			I build the interface with Vue.js / Svelte.js.
+    		</p></div></details></li><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">Humana</span> <span class="work-employer-location property-organization-location">Louisville, KY</span> <span class="work-roleName property-roleName">
+					Web Developer
+				</span> <span class="property-dateRange"><time datetime="2016" class="work-startDate property-startDate">2016</time> <time datetime="2018" class="work-endDate property-endDate">2018</time></span></span></summary> <div class="work-description property-description"><p>
+    			I built and maintained a library of accessible web components that was shared across many enterprise products.
+    		</p></div></details></li><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">Apple</span> <span class="work-employer-location property-organization-location">Cupertino, CA</span> <span class="work-roleName property-roleName">
+					UI Engineer
+				</span> <span class="property-dateRange"><time datetime="2013" class="work-startDate property-startDate">2013</time> <time datetime="2016" class="work-endDate property-endDate">2016</time></span></span></summary> <div class="work-description property-description"><p>
+    			I built interfaces to support product launches, campaigns, and transactions on apple.com.
+    		</p></div></details></li><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">CNN</span> <span class="work-employer-location property-organization-location">Atlanta, GA</span> <span class="work-roleName property-roleName">
+					Senior Web Developer
+				</span> <span class="property-dateRange"><time datetime="2013" class="work-startDate property-startDate">2013</time> <time datetime="2013" class="work-endDate property-endDate">2013</time></span></span></summary> <div class="work-description property-description"><p>
+    			I worked on the responsive redesign and replatforming of cnn.com.
+    		</p></div></details></li><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">iostudio</span> <span class="work-employer-location property-organization-location">Nashville, TN</span> <span class="work-roleName property-roleName">
+					Frontend Developer
+				</span> <span class="property-dateRange"><time datetime="2012" class="work-startDate property-startDate">2012</time> <time datetime="2013" class="work-endDate property-endDate">2013</time></span></span></summary> <div class="work-description property-description"><p>
+    			I built marketing websites and web apps for national clients, including the National Guard.
+    		</p></div></details></li><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">Fruit of the Loom</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName">
+					Designer/Developer
+				</span> <span class="property-dateRange"><time datetime="2011" class="work-startDate property-startDate">2011</time> <time datetime="2012" class="work-endDate property-endDate">2012</time></span></span></summary> <div class="work-description property-description"><p>
+    			I designed and developed a relaunch of jerzees.com.
+    		</p></div></details></li><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">2-Com</span> <span class="work-employer-location property-organization-location">Nashville, TN</span> <span class="work-roleName property-roleName">
+					Designer/Developer
+				</span> <span class="property-dateRange"><time datetime="2010" class="work-startDate property-startDate">2010</time> <time datetime="2012" class="work-endDate property-endDate">2012</time></span></span></summary> <div class="work-description property-description"><p>
+    			I worked on a web app that generated print marketing materials for small businesses.
+    		</p></div></details></li><!----><!----><!----><!----></ul></section> <section><h2>Skills</h2> <ul class="unstyled-list"><li><details><summary><span class="skill-name property-name">
+        Frontend Architecture
+      </span></summary> <p>
+      At several points in my career, I have evaluated the popular JavaScript frameworks for use at enterprise scale, balancing various factors, including functionality and performance.
+    </p><p>
+      I have found that Vue.js strikes the right balance for projects of various sizes, with great expressive power and a simple API.
+    </p><p>
+      I have also built sites and apps using React, Svelte, Can.js, Backbone, and Angular. I have dug into the details of several rendering strategies and created my own toy reactive frameworks to understand the underlying mechanisms.
+    </p><p>
+      Moreover, I believe we are at a point where any framework component can be compiled to a native Web Component, alleviating the need to lock in to one particular framework. I consider this a paradigm shift and foresee the need to develop new architectural strategies to suit a mix-and-match method.
+    </p></details></li><li><details><summary><span class="skill-name property-name">
+        Accessibility
+      </span></summary> <p>
+      Everyone has some kind of disability at some point in their lives: Consider how grogginess, a sore wrist, or a broken arm could affect a user's experience of an app or website.
+    </p><p>
+      To accommodate all users, including those using assistive technologies such as screen readers or voice control, I implement semantic markup using ARIA best practices.
+    </p></details></li><li><details><summary><span class="skill-name property-name">
+        Design Systems
+      </span></summary> <p>
+      I've found that developers can better collaborate with designers by building a living library of reusable components that acts as a shared visual vocabulary.
+    </p></details></li></ul></section> <section><h2>Past Projects</h2> <ul class="unstyled-list"><!----><!----><!----><!----><!----><!----><!----><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">Imagewest</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName">
+					Jr. Designer/Developer
+				</span> <span class="property-dateRange"><time datetime="2010" class="work-startDate property-startDate">2010</time> <time datetime="2012" class="work-endDate property-endDate">2012</time></span></span></summary> <div class="work-description property-description"><p>
+    			I designed logos, brochures, signage and websites for local clients with a team of junior designers.
+    		</p></div></details></li><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">Bowling Green, KY Area Convention and Visitors Bureau</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName">
+					Design/Development Intern
+				</span> <span class="property-dateRange"><time datetime="2009" class="work-startDate property-startDate">2009</time> <time datetime="2009" class="work-endDate property-endDate">2009</time></span></span></summary> <div class="work-description property-description"><p>
+    			I launched a website overhaul that increased search engine rankings.
+    		</p></div></details></li><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">City of Bowling Green, KY</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName">
+					Design/Development Intern
+				</span> <span class="property-dateRange"><time datetime="2008" class="work-startDate property-startDate">2008</time> <time datetime="2009" class="work-endDate property-endDate">2009</time></span></span></summary> <div class="work-description property-description"><p>
+    			I assisted in managing a 10,000-page website serving 50,000 constituents.
+    		</p></div></details></li><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">Rise Over Run Magazine</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName">
+					Founder/Editor-in-Chief
+				</span> <span class="property-dateRange"><time datetime="2007" class="work-startDate property-startDate">2007</time> <time datetime="2009" class="work-endDate property-endDate">2009</time></span></span></summary> <div class="work-description property-description"><p>
+    			I started an online culture magazine that covered my local community. I built and maintained the website, produced and edited online content, art directed photo shoots, coordinated fundraising events, and managed a staff of student writers, photographers and videographers.
+    		</p><p>
+    			The magazine won the 2007 Society of Professional Journalists Mark of Excellence Award for "Best All-Around Independent Online Student Publication."
+    		</p></div></details></li></ul></section> <section><h2>Education</h2> <ul class="unstyled-list"><li><details><summary><span class="education-item item"><span class="education-institution-name property-name">
+							Western Kentucky University
+						</span> <span class="education-institution-location property-organization-location">Bowling Green, KY</span> <span class="education-roleName property-roleName">
+							BA, Advertising &amp; Graphic Design
+						</span> <span class="property-dateRange"><time datetime="2005" class="education-startDate property-startDate">2005</time> <time datetime="2009" class="education-endDate property-endDate">2009</time></span></span></summary> <div class="education-description property-description"><p>
+    			3.9 GPA
+    		</p></div></details></li></ul></section></div></main><script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Michael Puckett",
+      "givenName": "Michael",
+      "familyName": "Puckett",
+      "description": "I'm a software engineer currently based in Louisville, KY specializing in architecting accessible digital experiences.",
+      "jobTitle": "UI Engineer",
+      "image": "https://pickpuck.com/avatar.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Louisville",
+        "addressRegion": "KY",
+        "postalCode": "40204"
+      },
+      "sameAs": [
+        "https://github.com/michaelcpuckett",
+        "https://stackoverflow.com/users/1226227/michaelpuckett",
+        "https://linkedin.com/in/michaelcpuckett"
+      ],
+      "url": "https://pickpuck.com",
+      "mainEntityOfPage": "https://pickpuck.com",
+      "email": "michaelcpuckett@gmail.com",
+      "birthDate": "1987-06-17",
+      "gender": "male",
+      "honorificPrefix": "Mr",
+      "worksFor": [{
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "Corporation",
+          "name": "LiveSchool",
+          "legalName": "LiveSchool, Inc.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Nashville",
+            "addressRegion": "TN"
+          },
+          "sameAs": "https://www.whyliveschool.com"
+        },
+        "roleName": "Frontend Engineer",
+        "startDate": "2018",
+        "description": [
+          "LiveSchool is a classroom behavior-tracking management platform with an audience of teachers, parents, and students.",
+          "I build the interface with Vue.js / Svelte.js."
+        ]
+      }, {
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "Corporation",
+          "name": "Humana",
+          "legalName": "Humana, Inc.",
+          "tickerSymbol": "HUM",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Louisville",
+            "addressRegion": "KY"
+          },
+          "sameAs": "https://www.humana.com"
+        },
+        "roleName": "Web Developer",
+        "startDate": "2016",
+        "endDate": "2018",
+        "description": [
+          "I built and maintained a library of accessible web components that was shared across many enterprise products."
+        ]
+      }, {
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "Corporation",
+          "name": "Apple",
+          "legalName": "Apple, Inc.",
+          "tickerSymbol": "AAPL",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cupertino",
+            "addressRegion": "CA"
+          },
+          "sameAs": "https://www.apple.com"
+        },
+        "roleName": "UI Engineer",
+        "startDate": "2013",
+        "endDate": "2016",
+        "description": [
+          "I built interfaces to support product launches, campaigns, and transactions on apple.com."
+        ]
+      }, {
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "Corporation",
+          "name": "CNN",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Atlanta",
+            "addressRegion": "GA"
+          },
+          "sameAs": "https://www.cnn.com"
+        },
+        "roleName": "Senior Web Developer",
+        "startDate": "2013",
+        "endDate": "2013",
+        "description": [
+          "I worked on the responsive redesign and replatforming of cnn.com."
+        ]
+      }, {
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "Corporation",
+          "name": "iostudio",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Nashville",
+            "addressRegion": "TN"
+          },
+          "sameAs": "https://www.iostudio.com"
+        },
+        "roleName": "Frontend Developer",
+        "startDate": "2012",
+        "endDate": "2013",
+        "description": [
+          "I built marketing websites and web apps for national clients, including the National Guard."
+        ]
+      }, {
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "Corporation",
+          "name": "Fruit of the Loom",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bowling Green",
+            "addressRegion": "KY"
+          },
+          "sameAs": "https://www.fruit.com"
+        },
+        "roleName": "Designer/Developer",
+        "startDate": "2011",
+        "endDate": "2012",
+        "description": [
+          "I designed and developed a relaunch of jerzees.com."
+        ]
+      }, {
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "Corporation",
+          "name": "2-Com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Nashville",
+            "addressRegion": "TN"
+          },
+          "sameAs": "https://www.2-com.net"
+        },
+        "roleName": "Designer/Developer",
+        "startDate": "2010",
+        "endDate": "2012",
+        "description": [
+          "I worked on a web app that generated print marketing materials for small businesses."
+        ]
+      }, {
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "LocalBusiness",
+          "name": "Imagewest",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bowling Green",
+            "addressRegion": "KY"
+          },
+          "sameAs": "https://www.wkuimagewest.com"
+        },
+        "roleName": "Jr. Designer/Developer",
+        "startDate": "2010",
+        "endDate": "2012",
+        "description": [
+          "I designed logos, brochures, signage and websites for local clients with a team of junior designers."
+        ]
+      }, {
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "GovernmentOrganization",
+          "name": "Bowling Green, KY Area Convention and Visitors Bureau",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bowling Green",
+            "addressRegion": "KY"
+          },
+          "sameAs": "https://www.visitbgky.com"
+        },
+        "roleName": "Design/Development Intern",
+        "startDate": "2009",
+        "endDate": "2009",
+        "description": [
+          "I launched a website overhaul that increased search engine rankings."
+        ]
+      }, {
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "GovernmentOrganization",
+          "name": "City of Bowling Green, KY",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bowling Green",
+            "addressRegion": "KY"
+          },
+          "sameAs": "https://www.bgky.org"
+        },
+        "roleName": "Design/Development Intern",
+        "startDate": "2008",
+        "endDate": "2009",
+        "description": [
+          "I assisted in managing a 10,000-page website serving 50,000 constituents."
+        ]
+      }, {
+        "@type": "OrganizationRole",
+        "worksFor": {
+          "@type": "NewsMediaOrganization",
+          "name": "Rise Over Run Magazine",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bowling Green",
+            "addressRegion": "KY"
+          }
+        },
+        "roleName": "Founder/Editor-in-Chief",
+        "startDate": "2007",
+        "endDate": "2009",
+        "description": [
+          "I started an online culture magazine that covered my local community. I built and maintained the website, produced and edited online content, art directed photo shoots, coordinated fundraising events, and managed a staff of student writers, photographers and videographers.",
+          "The magazine won the 2007 Society of Professional Journalists Mark of Excellence Award for \"Best All-Around Independent Online Student Publication.\""
+        ]
+      }],
+      "alumniOf": [{
+        "@type": "OrganizationRole",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Western Kentucky University",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bowling Green",
+            "addressRegion": "KY"
+          },
+          "sameAs": "https://www.wku.edu"
+        },
+        "roleName": "BA, Advertising & Graphic Design",
+        "startDate": "2005",
+        "endDate": "2009",
+        "description": [
+          "3.9 GPA"
+        ]
+      }],
+      "knowsAbout": [{
+        "@type": "Thing",
+        "name": "Frontend Architecture",
+        "description": [
+          "At several points in my career, I have evaluated the popular JavaScript frameworks for use at enterprise scale, balancing various factors, including functionality and performance.",
+          "I have found that Vue.js strikes the right balance for projects of various sizes, with great expressive power and a simple API.",
+          "I have also built sites and apps using React, Svelte, Can.js, Backbone, and Angular. I have dug into the details of several rendering strategies and created my own toy reactive frameworks to understand the underlying mechanisms.",
+          "Moreover, I believe we are at a point where any framework component can be compiled to a native Web Component, alleviating the need to lock in to one particular framework. I consider this a paradigm shift and foresee the need to develop new architectural strategies to suit a mix-and-match method."
+        ]
+      }, {
+        "@type": "Thing",
+        "name": "Accessibility",
+        "description": [
+          "Everyone has some kind of disability at some point in their lives: Consider how grogginess, a sore wrist, or a broken arm could affect a user's experience of an app or website.",
+          "To accommodate all users, including those using assistive technologies such as screen readers or voice control, I implement semantic markup using ARIA best practices."
+        ]
+      }, {
+        "@type": "Thing",
+        "name": "Design Systems",
+        "description": [
+          "I've found that developers can better collaborate with designers by building a living library of reusable components that acts as a shared visual vocabulary."
+        ]
+      }],
+      "knowsLanguage": [{
+        "@type": "Language",
+        "name": "English",
+        "alternateName": "en",
+        "sameAs": "https://en.wikipedia.org/wiki/English_language"
+      }],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "UI Engineer",
+        "alternateName": [
+          "Software Engineer",
+          "Frontend Engineer",
+          "Web Developer"
+        ],
+        "description": "Software engineer specializing in building usable, accessible digital interfaces",
+        "sameAs": "https://en.wikipedia.org/wiki/Software_engineer"
+      }
+    }
+  </script>
+        
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=undefined"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'undefined');
+  </script>
 
-        @media (min-width: 480px) {
-            header {
-                text-align: center;
-            }
-        }
-
-        .person-name {
-            font-size: xx-large;
-            font-weight: bold;
-            display: block;
-        }
-
-        .person-jobTitle {
-            display: block;
-            font-size: x-large;
-            color: var(--swatch-dark-gray);
-            margin: 5px 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .person-image {
-            max-width: 100%;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            border: 2px solid white;
-        }
-
-        .person-description {
-            font-size: 1.125em;
-            margin: 20px 0;
-        }
-
-        @media (min-width: 480px) {
-
-            .property-dateRange,
-            .property-organization-location {
-                text-align: right;
-            }
-        }
-
-        .property-endDate:before {
-            content: ' - ';
-        }
-
-        .property-organization-name {
-            font-weight: bold;
-        }
-
-        a:not(:visited) {
-            color: var(--swatch-interactive);
-        }
-
-        a:visited {
-            color: var(--swatch-interactive-completed);
-        }
-
-        details {
-            margin: 20px 0;
-        }
-
-        .item {
-            color: var(--swatch-dark-gray);
-            list-style: none;
-        }
-
-        summary {
-            cursor: pointer;
-        }
-
-        summary::marker,
-        summary::-webkit-details-marker {
-            color: var(--swatch-interactive);
-            i
-        }
-
-        details[open] summary::marker,
-        details[open] summary::-webkit-details-marker {
-            color: var(--swatch-interactive-completed);
-        }
-
-        .property-organization-name {
-            color: var(--swatch-text-color);
-        }
-
-        .work-description,
-        .education-description {
-            padding-left: 20px;
-        }
-
-        details:not([open]) summary {
-            border-bottom-color: var(--swatch-light-gray);
-        }
-
-        summary {
-            border-bottom: 1px solid transparent;
-            padding-bottom: 20px;
-        }
-
-        :focus,
-        summary:focus>span {
-            outline: 0;
-            box-shadow: 0 0 0 6px 2px var(--swatch-interactive);
-        }
-
-        summary:focus {
-            box-shadow: none;
-        }
-
-        summary>span {
-            display: grid;
-            width: calc(100% - 20px);
-            float: right;
-        }
-
-        @media (min-width: 480px) {
-            summary>span {
-                grid-template-columns: minmax(50%, max-content) minmax(50%, max-content);
-                grid-template-rows: max-content max-content;
-            }
-        }
-
-        summary:after {
-            content: '';
-            clear: both;
-            display: grid;
-        }
-
-        details .property-description {
-            border-bottom: 1px solid var(--swatch-light-gray);
-        }
-
-        details p {
-            margin: 0 0 20px 0;
-        }
-
-        .links-list {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .link-item {
-            list-style: none;
-        }
-
-        @media (min-width: 480px) {
-            .link-item {
-                line-height: 1;
-                display: inline-grid;
-            }
-
-            .link-item:not(:last-of-type) {
-                padding-right: 10px;
-                border-right: 1px solid var(--swatch-dark-gray);
-                margin-right: 10px;
-            }
-        }
-
-        .unstyled-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-    <title>Michael Puckett - UI Engineer - CV</title>
-    <meta name="description" content="I'm a software engineer currently based in Louisville, KY specializing in building accessible digital experiences.">
-</head>
-
-<body>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Michael Puckett",
-            "givenName": "Michael",
-            "familyName": "Puckett",
-            "url": "https://pickpuck.com",
-            "mainEntityOfPage": "https://pickpuck.com",
-            "image": "https://pickpuck.com/avatar.jpg",
-            "email": "michaelcpuckett@gmail.com",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Louisville",
-                "addressRegion": "KY",
-                "postalCode": "40204"
-            },
-            "birthDate": "1987-06-17",
-            "gender": "male",
-            "honorificPrefix": "Mr",
-            "description": "I'm a software engineer currently based in Louisville, KY specializing in building accessible digital experiences.",
-            "hasOccupation": {
-                "@type": "Occupation",
-                "name": "UI Engineer",
-                "alternateName": ["Software Engineer", "Frontend Engineer", "Web Developer"],
-                "description": "S''oftware engineer specializing in building usable, accessible digital experiences",
-                "sameAs": "https://en.wikipedia.org/wiki/Software_engineer"
-            },
-            "jobTitle": "UI Engineer",
-            "worksFor": [{
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "Corporation",
-                    "name": "LiveSchool",
-                    "legalName": "LiveSchool, Inc.",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Nashville",
-                        "addressRegion": "TN"
-                    },
-                    "sameAs": "https://www.whyliveschool.com"
-                },
-                "roleName": "Frontend Engineer",
-                "startDate": "2018",
-                "description": ["LiveSchool is a classroom behavior-tracking management platform with an audience of teachers, parents, and students.", "I build the interface with Vue.js / Svelte.js."]
-            }, {
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "Corporation",
-                    "name": "Humana",
-                    "legalName": "Humana, Inc.",
-                    "tickerSymbol": "HUM",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Louisville",
-                        "addressRegion": "KY"
-                    },
-                    "sameAs": "https://www.humana.com"
-                },
-                "roleName": "Web Developer",
-                "startDate": "2016",
-                "endDate": "2018",
-                "description": ["I built and maintained a library of accessible web components that was shared across many enterprise products."]
-            }, {
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "Corporation",
-                    "name": "Apple",
-                    "legalName": "Apple, Inc.",
-                    "tickerSymbol": "AAPL",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Cupertino",
-                        "addressRegion": "CA"
-                    },
-                    "sameAs": "https://www.apple.com"
-                },
-                "roleName": "UI Engineer",
-                "startDate": "2013",
-                "endDate": "2016",
-                "description": ["I built interfaces to support product launches, campaigns, and transactions on apple.com."]
-            }, {
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "Corporation",
-                    "name": "CNN",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Atlanta",
-                        "addressRegion": "GA"
-                    },
-                    "sameAs": "https://www.cnn.com"
-                },
-                "roleName": "Senior Web Developer",
-                "startDate": "2013",
-                "endDate": "2013",
-                "description": ["I worked on the responsive redesign and replatforming of cnn.com."]
-            }, {
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "Corporation",
-                    "name": "iostudio",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Nashville",
-                        "addressRegion": "TN"
-                    },
-                    "sameAs": "https://www.iostudio.com"
-                },
-                "roleName": "Frontend Developer",
-                "startDate": "2012",
-                "endDate": "2013",
-                "description": ["I built marketing websites and web apps for national clients, including the National Guard."]
-            }, {
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "Corporation",
-                    "name": "Fruit of the Loom",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Bowling Green",
-                        "addressRegion": "KY"
-                    },
-                    "sameAs": "https://www.fruit.com"
-                },
-                "roleName": "Designer/Developer",
-                "startDate": "2011",
-                "endDate": "2012",
-                "description": ["I designed and developed a relaunch of jerzees.com."]
-            }, {
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "Corporation",
-                    "name": "2-Com",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Nashville",
-                        "addressRegion": "TN"
-                    },
-                    "sameAs": "https://www.2-com.net"
-                },
-                "roleName": "Designer/Developer",
-                "startDate": "2010",
-                "endDate": "2012",
-                "description": ["I worked on a web app that generated print marketing materials for small businesses."]
-            }, {
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "LocalBusiness",
-                    "name": "Imagewest",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Bowling Green",
-                        "addressRegion": "KY"
-                    },
-                    "sameAs": "https://www.wkuimagewest.com"
-                },
-                "roleName": "Jr. Designer/Developer",
-                "startDate": "2010",
-                "endDate": "2012",
-                "description": ["I designed logos, brochures, signage and websites for local clients with a team of junior designers."]
-            }, {
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "GovernmentOrganization",
-                    "name": "Bowling Green, KY Area Convention and Visitors Bureau",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Bowling Green",
-                        "addressRegion": "KY"
-                    },
-                    "sameAs": "https://www.visitbgky.com"
-                },
-                "roleName": "Design/Development Intern",
-                "startDate": "2009",
-                "endDate": "2009",
-                "description": ["I launched a website overhaul that increased search engine rankings."]
-            }, {
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "GovernmentOrganization",
-                    "name": "City of Bowling Green, KY",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Bowling Green",
-                        "addressRegion": "KY"
-                    },
-                    "sameAs": "https://www.bgky.org"
-                },
-                "roleName": "Design/Development Intern",
-                "startDate": "2008",
-                "endDate": "2009",
-                "description": ["I assisted in managing a 10,000-page website serving 50,000 constituents."]
-            }, {
-                "@type": "OrganizationRole",
-                "worksFor": {
-                    "@type": "NewsMediaOrganization",
-                    "name": "Rise Over Run Magazine",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Bowling Green",
-                        "addressRegion": "KY"
-                    }
-                },
-                "roleName": "Founder/Editor-in-Chief",
-                "startDate": "2007",
-                "endDate": "2009",
-                "description": ["I started an online culture magazine that covered my local community. I built and maintained the website, produced and edited online content, art directed photo shoots, coordinated fundraising events, and managed a staff of student writers, photographers and videographers.", "The magazine won the 2007 Society of Professional Journalists Mark of Excellence Award for \"Best All-Around Independent Online Student Publication.\""]
-            }],
-            "alumniOf": [{
-                "@type": "OrganizationRole",
-                "alumniOf": {
-                    "@type": "CollegeOrUniversity",
-                    "name": "Western Kentucky University",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": "Bowling Green",
-                        "addressRegion": "KY"
-                    },
-                    "sameAs": "https://www.wku.edu"
-                },
-                "roleName": "BA, Advertising & Graphic Design",
-                "startDate": "2005",
-                "endDate": "2009",
-                "description": ["3.9 GPA"]
-            }],
-            "knowsAbout": [{
-                "@type": "ComputerLanguage",
-                "name": "JavaScript",
-                "sameAs": "https://en.wikipedia.org/wiki/JavaScript"
-            }, {
-                "@type": "ComputerLanguage",
-                "name": "HTML",
-                "sameAs": "https://en.wikipedia.org/wiki/HTML"
-            }, {
-                "@type": "ComputerLanguage",
-                "name": "CSS",
-                "sameAs": "https://en.wikipedia.org/wiki/CSS"
-            }, {
-                "@type": "ComputerLanguage",
-                "name": "WAI-ARIA",
-                "sameAs": "https://en.wikipedia.org/wiki/WAI-ARIA"
-            }, {
-                "@type": "ComputerLanguage",
-                "name": "Vue.js",
-                "sameAs": "https://en.wikipedia.org/wiki/Vue.js"
-            }],
-            "knowsLanguage": {
-                "@type": "Language",
-                "name": "English",
-                "alternateName": "en",
-                "sameAs": "https://en.wikipedia.org/wiki/English_language"
-            },
-            "sameAs": ["https://github.com/michaelcpuckett", "https://stackoverflow.com/users/1226227/michaelpuckett", "https://linkedin.com/in/michaelcpuckett"]
-        }
-    </script>
-    <main>
-        <div role="presentation">
-            <header>
-                <h1 class="primary-heading"><img src="https://pickpuck.com/avatar.jpg" alt="Photograph" aria-hidden="true" draggable="false" width="65" height="65" class="person-image property-image"> <span class="person-name property-name"> Michael Puckett </span> <span class="person-jobTitle property-jobTitle"> UI Engineer </span></h1>
-                <p class="person-description property-description"> I'm a software engineer currently based in Louisville, KY specializing in building accessible digital experiences.</p>
-                <ul class="links-list">
-                    <li class="link-item"><a href="https://github.com/michaelcpuckett"> github </a></li>
-                    <li class="link-item"><a href="https://stackoverflow.com/users/1226227/michaelpuckett"> stackoverflow </a></li>
-                    <li class="link-item"><a href="https://linkedin.com/in/michaelcpuckett"> linkedin </a></li>
-                </ul>
-            </header>
-            <section>
-                <h2>Work Experience</h2>
-                <ul class="unstyled-list">
-                    <li>
-                        <details open="open">
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">LiveSchool</span> <span class="work-employer-location property-organization-location">Nashville, TN</span> <span class="work-roleName property-roleName"> Frontend Engineer </span> <span class="property-dateRange"><time datetime="2018" class="work-startDate property-startDate">2018</time> <time datetime="2020" class="work-endDate property-endDate">Present</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> LiveSchool is a classroom behavior-tracking management platform with an audience of teachers, parents, and students. </p>
-                                <p> I build the interface with Vue.js / Svelte.js. </p>
-                            </div>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">Humana</span> <span class="work-employer-location property-organization-location">Louisville, KY</span> <span class="work-roleName property-roleName"> Web Developer </span> <span class="property-dateRange"><time datetime="2016" class="work-startDate property-startDate">2016</time> <time datetime="2018" class="work-endDate property-endDate">2018</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> I built and maintained a library of accessible web components that was shared across many enterprise products. </p>
-                            </div>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">Apple</span> <span class="work-employer-location property-organization-location">Cupertino, CA</span> <span class="work-roleName property-roleName"> UI Engineer </span> <span class="property-dateRange"><time datetime="2013" class="work-startDate property-startDate">2013</time> <time datetime="2016" class="work-endDate property-endDate">2016</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> I built interfaces to support product launches, campaigns, and transactions on apple.com. </p>
-                            </div>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">CNN</span> <span class="work-employer-location property-organization-location">Atlanta, GA</span> <span class="work-roleName property-roleName"> Senior Web Developer </span> <span class="property-dateRange"><time datetime="2013" class="work-startDate property-startDate">2013</time> <time datetime="2013" class="work-endDate property-endDate">2013</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> I worked on the responsive redesign and replatforming of cnn.com. </p>
-                            </div>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">iostudio</span> <span class="work-employer-location property-organization-location">Nashville, TN</span> <span class="work-roleName property-roleName"> Frontend Developer </span> <span class="property-dateRange"><time datetime="2012" class="work-startDate property-startDate">2012</time> <time datetime="2013" class="work-endDate property-endDate">2013</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> I built marketing websites and web apps for national clients, including the National Guard. </p>
-                            </div>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">Fruit of the Loom</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName"> Designer/Developer </span> <span class="property-dateRange"><time datetime="2011" class="work-startDate property-startDate">2011</time> <time datetime="2012" class="work-endDate property-endDate">2012</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> I designed and developed a relaunch of jerzees.com. </p>
-                            </div>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">2-Com</span> <span class="work-employer-location property-organization-location">Nashville, TN</span> <span class="work-roleName property-roleName"> Designer/Developer </span> <span class="property-dateRange"><time datetime="2010" class="work-startDate property-startDate">2010</time> <time datetime="2012" class="work-endDate property-endDate">2012</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> I worked on a web app that generated print marketing materials for small businesses. </p>
-                            </div>
-                        </details>
-                    </li>
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                </ul>
-            </section>
-            <section>
-                <h2>Past Projects</h2>
-                <ul class="unstyled-list">
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <!---->
-                    <li>
-                        <details>
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">Imagewest</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName"> Jr. Designer/Developer </span> <span class="property-dateRange"><time datetime="2010" class="work-startDate property-startDate">2010</time> <time datetime="2012" class="work-endDate property-endDate">2012</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> I designed logos, brochures, signage and websites for local clients with a team of junior designers. </p>
-                            </div>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">Bowling Green, KY Area Convention and Visitors Bureau</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName"> Design/Development Intern </span> <span class="property-dateRange"><time datetime="2009" class="work-startDate property-startDate">2009</time> <time datetime="2009" class="work-endDate property-endDate">2009</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> I launched a website overhaul that increased search engine rankings. </p>
-                            </div>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">City of Bowling Green, KY</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName"> Design/Development Intern </span> <span class="property-dateRange"><time datetime="2008" class="work-startDate property-startDate">2008</time> <time datetime="2009" class="work-endDate property-endDate">2009</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> I assisted in managing a 10,000-page website serving 50,000 constituents. </p>
-                            </div>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary><span class="work-item item"><span class="work-employer-name property-organization-name">Rise Over Run Magazine</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName"> Founder/Editor-in-Chief </span> <span class="property-dateRange"><time datetime="2007" class="work-startDate property-startDate">2007</time> <time datetime="2009" class="work-endDate property-endDate">2009</time></span></span></summary>
-                            <div class="work-description property-description">
-                                <p> I started an online culture magazine that covered my local community. I built and maintained the website, produced and edited online content, art directed photo shoots, coordinated fundraising events, and managed a staff of student writers, photographers and videographers. </p>
-                                <p> The magazine won the 2007 Society of Professional Journalists Mark of Excellence Award for "Best All-Around Independent Online Student Publication." </p>
-                            </div>
-                        </details>
-                    </li>
-                </ul>
-            </section>
-            <section>
-                <h2>Education</h2>
-                <ul class="unstyled-list">
-                    <li>
-                        <details>
-                            <summary><span class="education-item item"><span class="education-institution-name property-organization-name"> Western Kentucky University </span> <span class="education-institution-location property-organization-location">Bowling Green, KY</span> <span class="education-roleName property-roleName"> BA, Advertising &amp; Graphic Design </span> <span class="property-dateRange"><time datetime="2005" class="education-startDate property-startDate">2005</time> <time datetime="2009" class="education-endDate property-endDate">2009</time></span></span></summary>
-                            <div class="education-description property-description">
-                                <p> 3.9 GPA </p>
-                            </div>
-                        </details>
-                    </li>
-                </ul>
-            </section>
-        </div>
-    </main>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128368551-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-128368551-1');
-    </script>
-</body>
-
-</html>
+      </body>
+    </html>
+  

@@ -1,0 +1,16 @@
+<template
+  data-type="Skill"
+  data-props="
+    name,
+    description
+  ">
+  <details>
+    <summary>
+      <span class="skill-name property-name">
+        {{ name }}
+      </span>
+    </summary>
+    <p v-for="p in description">
+      {{ p }}
+    </p>
+</template>
