@@ -103,7 +103,9 @@ header, section {
 		margin: 20px 0;
 }
 @media (min-width: 480px) {
-		.property-dateRange, .property-organization-location {
+		.skill-alternate-name,
+		.property-dateRange,
+		.property-organization-location {
 				text-align: right;
 		}
 }
@@ -142,9 +144,6 @@ details[open] summary::-webkit-details-marker {
 .education-description,
 .skill-description {
 	padding-left: 20px;
-}
-.skill-alternate-name {
-	text-align: right;
 }
 details:not([open]) summary {
 		border-bottom-color: var(--swatch-light-gray);
