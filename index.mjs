@@ -1,5 +1,5 @@
 import Vue from 'https://unpkg.com/vue@2.6.12/dist/vue.esm.browser.min.js'
-import analyticsScript from './analyticsScript.mjs'
+import analyticsScript from './base/analyticsScript.mjs'
 import {
   createElement,
   queryFor,
