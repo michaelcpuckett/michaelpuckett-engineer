@@ -139,8 +139,12 @@ details[open] summary::-webkit-details-marker {
 		color: var(--swatch-text-color);
 }
 .work-description,
-.education-description {
-		padding-left: 20px;
+.education-description,
+.skill-description {
+	padding-left: 20px;
+}
+.skill-alternate-name {
+	text-align: right;
 }
 details:not([open]) summary {
 		border-bottom-color: var(--swatch-light-gray);

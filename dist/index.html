@@ -155,8 +155,12 @@ details[open] summary::-webkit-details-marker {
 		color: var(--swatch-text-color);
 }
 .work-description,
-.education-description {
-		padding-left: 20px;
+.education-description,
+.skill-description {
+	padding-left: 20px;
+}
+.skill-alternate-name {
+	text-align: right;
 }
 details:not([open]) summary {
 		border-bottom-color: var(--swatch-light-gray);
@@ -261,31 +265,33 @@ details p {
 					Designer/Developer
 				</span> <span class="property-dateRange"><time datetime="2010" class="work-startDate property-startDate">2010</time> <time datetime="2012" class="work-endDate property-endDate">2012</time></span></span></summary> <div class="work-description property-description"><p>
     			I worked on a web app that generated print marketing materials for small businesses.
-    		</p></div></details></li><!----><!----><!----><!----></ul></section> <section><h2>Skills</h2> <ul class="unstyled-list"><li><details><summary><span class="skill-name property-name">
-        Frontend Architecture
-      </span></summary> <p>
-      I have been responsible for making technology decisions that affect millions of users.
-    </p><p>
-      One reoccuring responsibility throughout my career has been evaluating JavaScript frameworks for use at enterprise scale, balancing various factors, including functionality and performance.
-    </p><p>
-      I have found that Vue.js strikes the right balance for projects of various sizes, with great expressive power and a simple API.
-    </p><p>
-      I have also built sites and apps using React, Svelte, Can.js, Backbone, and Angular. I have dug into the details of several rendering strategies and created my own toy reactive frameworks to understand the underlying mechanisms.
-    </p><p>
-      Moving forward, now that most framework components can be compiled to native Web Components, alleviating the need to lock in to one particular framework, I foresee a paradigm shift and new architectural strategies to suit a mix-and-match method.
-    </p></details></li><li><details><summary><span class="skill-name property-name">
-        Accessibility
-      </span></summary> <p>
-      I'm a passionate advocate of keeping accessibility top of mind when designing and building websites and apps.
-    </p><p>
-      Consider that everyone has some kind of disability at some point in their lives: grogginess, a sore wrist, or misplacing your glasses could all affect your user experience in various ways.
-    </p><p>
-      To accommodate all users, including those using assistive technologies such as screen readers or voice control, I implement semantic markup using ARIA and follow WCAG best practices.
-    </p></details></li><li><details><summary><span class="skill-name property-name">
-        Design Systems
-      </span></summary> <p>
-      I've found that developers can better collaborate with designers by building a living library of reusable components that acts as a shared visual vocabulary.
-    </p></details></li></ul></section> <section><h2>Past Projects</h2> <ul class="unstyled-list"><!----><!----><!----><!----><!----><!----><!----><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">Imagewest</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName">
+    		</p></div></details></li><!----><!----><!----><!----></ul></section> <section><h2>Skills</h2> <ul class="unstyled-list"><li><details><summary><span class="skill-item item"><span class="skill-name property-name">
+          Frontend Architecture
+        </span> <span class="skill-alternate-name property-alternate-name">
+          Technical Project Planning, Developer Experience
+        </span></span></summary> <div class="property-description"><p>
+        I've worked in large cross-functional teams, evaluating technical strategies, providing trade-offs, and leading engineers to project success.
+      </p><p>
+        I've been responsible for making technology decisions that affect millions of users. I have evaluated JavaScript frameworks for use at enterprise scale, balancing various factors, including functionality and performance.
+      </p><p>
+        I have built sites and apps using Vue.js, React, Svelte, Can.js, Backbone, and Angular. I have dug into the details of several rendering strategies and created toy reactive frameworks to understand the underlying mechanisms.
+      </p></div></details></li><li><details><summary><span class="skill-item item"><span class="skill-name property-name">
+          Accessibility
+        </span> <span class="skill-alternate-name property-alternate-name">
+          Section 508 Compliance, Manual Testing
+        </span></span></summary> <div class="property-description"><p>
+        I'm a passionate advocate of keeping accessibility top of mind when designing and building websites and apps.
+      </p><p>
+        Consider that everyone has some kind of disability at some point in their lives: grogginess, a sore wrist, or misplacing your glasses could all affect your user experience in various ways.
+      </p><p>
+        To accommodate all users, including those using assistive technologies such as screen readers or voice control, I implement semantic markup using ARIA and follow WCAG best practices.
+      </p></div></details></li><li><details><summary><span class="skill-item item"><span class="skill-name property-name">
+          Design Systems
+        </span> <span class="skill-alternate-name property-alternate-name">
+          Component Libraries, Styleguides
+        </span></span></summary> <div class="property-description"><p>
+        I've found that developers can better collaborate with designers by building a living library of reusable components that acts as a shared visual vocabulary.
+      </p></div></details></li></ul></section> <section><h2>Past Projects</h2> <ul class="unstyled-list"><!----><!----><!----><!----><!----><!----><!----><li><details><summary><span class="work-item item"><span class="work-employer-name property-name">Imagewest</span> <span class="work-employer-location property-organization-location">Bowling Green, KY</span> <span class="work-roleName property-roleName">
 					Jr. Designer/Developer
 				</span> <span class="property-dateRange"><time datetime="2010" class="work-startDate property-startDate">2010</time> <time datetime="2012" class="work-endDate property-endDate">2012</time></span></span></summary> <div class="work-description property-description"><p>
     			I designed logos, brochures, signage and websites for local clients with a team of junior designers.
@@ -563,16 +569,16 @@ details p {
       "knowsAbout": [{
         "@type": "Thing",
         "name": "Frontend Architecture",
+        "alternateName": "Technical Project Planning, Developer Experience",
         "description": [
-          "I have been responsible for making technology decisions that affect millions of users.",
-          "One reoccuring responsibility throughout my career has been evaluating JavaScript frameworks for use at enterprise scale, balancing various factors, including functionality and performance.",
-          "I have found that Vue.js strikes the right balance for projects of various sizes, with great expressive power and a simple API.",
-          "I have also built sites and apps using React, Svelte, Can.js, Backbone, and Angular. I have dug into the details of several rendering strategies and created my own toy reactive frameworks to understand the underlying mechanisms.",
-          "Moving forward, now that most framework components can be compiled to native Web Components, alleviating the need to lock in to one particular framework, I foresee a paradigm shift and new architectural strategies to suit a mix-and-match method."
+          "I've worked in large cross-functional teams, evaluating technical strategies, providing trade-offs, and leading engineers to project success.",
+          "I've been responsible for making technology decisions that affect millions of users. I have evaluated JavaScript frameworks for use at enterprise scale, balancing various factors, including functionality and performance.",
+          "I have built sites and apps using Vue.js, React, Svelte, Can.js, Backbone, and Angular. I have dug into the details of several rendering strategies and created toy reactive frameworks to understand the underlying mechanisms."
         ]
       }, {
         "@type": "Thing",
         "name": "Accessibility",
+        "alternateName": "Section 508 Compliance, Manual Testing",
         "description": [
           "I'm a passionate advocate of keeping accessibility top of mind when designing and building websites and apps.",
           "Consider that everyone has some kind of disability at some point in their lives: grogginess, a sore wrist, or misplacing your glasses could all affect your user experience in various ways.",
@@ -581,6 +587,7 @@ details p {
       }, {
         "@type": "Thing",
         "name": "Design Systems",
+        "alternateName": "Component Libraries, Styleguides",
         "description": [
           "I've found that developers can better collaborate with designers by building a living library of reusable components that acts as a shared visual vocabulary."
         ]

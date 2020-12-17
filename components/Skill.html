@@ -2,15 +2,25 @@
   data-type="Skill"
   data-props="
     name,
+    alternateName,
     description
   ">
   <details>
     <summary>
-      <span class="skill-name property-name">
-        {{ name }}
+      <span  class="skill-item item">
+        <span class="skill-name property-name">
+          {{ name }}
+        </span>
+        <span
+          v-if="alternateName"
+          class="skill-alternate-name property-alternate-name">
+          {{ alternateName }}
+        </span>
       </span>
     </summary>
-    <p v-for="p in description">
-      {{ p }}
-    </p>
+    <div class="property-description">
+      <p v-for="p in description">
+        {{ p }}
+      </p>
+    </div>
 </template>
