@@ -1,0 +1,27 @@
+<template
+	data-name="type-discussion-forum-posting"
+	data-props="sharedContent,comment,interactionStatistic">
+	<details>
+		<summary>
+			<span class="item">
+				<span class="property-name">
+					{{ sharedContent.name }}
+				</span>
+			</span>
+		</summary>
+		<div class="property-description">
+			<type-comment v-if="comment.length" v-bind="comment[0]"></type-comment>
+			<p>
+				<a :href="sharedContent.url">Story</a>
+			</p>
+			<p>
+				<a :href="'https://news.ycombinator.com/item?id=' + sharedContent.identifier">
+					{{ interactionStatistic.userInteractionCount }} {{ interactionStatistic.interactionType.split('Action').shift() }}s
+				</a>
+			</p>
+			<p>
+				Submitted by {{ sharedContent.author.name }}
+			</p>
+		</div>
+	</details>
+</template>

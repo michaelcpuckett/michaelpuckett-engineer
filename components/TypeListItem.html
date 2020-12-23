@@ -1,0 +1,7 @@
+<template
+	data-name="type-list-item"
+	data-props="item">
+	<li>
+		<component :is="'type' + item.type.replace(/[A-Z]/g, char => `-${char.toLowerCase()}`)" v-bind="item"></component>
+	</li>
+</template>

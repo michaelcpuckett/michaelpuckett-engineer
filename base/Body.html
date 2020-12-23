@@ -1,8 +1,6 @@
 <template>
   <main>
-    <component
-      :is="'Type' + config.type"
-      v-bind="config"
-    />
+		<h1>Digest</h1>
+    <type-item-list v-bind="config"></type-item-list>
   </main>
 </template>

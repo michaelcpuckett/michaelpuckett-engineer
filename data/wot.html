@@ -1,0 +1,89 @@
+<template>
+  <script type="application/ld+json">
+	{
+    "properties": {
+        "status": {
+            "description" : "Shows the current status of the lamp",
+            "type": "boolean",
+            "forms": [{
+                "op": "readproperty",
+                "href": "https://pickpuck.com/schema/lamp/properties/status",
+                "cov:methodName" : "GET" 
+            }]
+        }
+    },
+    "actions": {
+				"on": {
+					"forms" [{
+						"op": "invokeaction",
+						"href": "https://pickpuck.com/schema/lamp/actions/on"
+					}]
+				},
+				"off": {
+					"forms" [{
+						"op": "invokeaction",
+						"href": "https://pickpuck.com/schema/lamp/actions/off"
+					}]
+				},
+        "toggle": {
+					"forms": [{
+						"op": "invokeaction",
+						"href": "https://pickpuck.com/schema/lamp/actions/toggle"
+					}]
+        },
+				"set_brightness": {
+					"input": {
+						"type": "object",
+						"properties": {
+							"value": {
+								"type": "integer",
+								"minimum": 0,
+								"maximum": 100
+							}
+						}
+					},
+					"forms": [{
+						"op": "invokeaction",
+						"href": "https://pickpuck.com/schema/lamp/actions/set_brightness"
+					}]
+				},
+				"fade": {
+					"input": {
+							"type": "object",
+							"properties": {
+									"from": {
+											"type": "integer",
+											"minimum": 0,
+											"maximum": 100
+									},
+									"to": {
+											"type": "integer",
+											"minimum": 0,
+											"maximum": 100
+									},
+									"duration": {"type": "number"}
+							},
+							"required": ["to","duration"],
+					},
+					"forms": [{
+							"op": "invokeaction",
+							"href": "https://pickpuck.com/schema/lamp/actions/fade"
+					}]
+				}
+    },
+    "events": {
+        "overheating": {
+            "description" : "Lamp reaches a critical temperature (overheating)",
+            "data": {
+                "type": "string",
+                "readOnly" : false,
+                "writeOnly" : false
+						},
+            "forms": [{
+                "op": "subscribeevent",
+                "href": "https://pickpuck.com/schema/lamp/events/overheating"
+            }]
+        }
+    }
+	</script>
+</template>

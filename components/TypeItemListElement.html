@@ -1,0 +1,7 @@
+<template
+	data-name="type-list-item"
+	data-props="item">
+	<li>
+		<component :is="'Type' + item.type" v-bind="item"></component>
+	</li>
+</template>

@@ -1,7 +1,11 @@
-<template>
-  <script type="application/ld+json">
+
     {
-      "@context": "https://schema.org",
+      "@context": [
+				"https://schema.org",
+				{
+					"wot": "https://www.w3.org/2019/wot/td/v1"
+				}
+			],
       "@type": "Person",
       "name": "Michael Puckett",
       "givenName": "Michael",
@@ -291,7 +295,42 @@
         ],
         "description": "Software engineer specializing in building usable, accessible digital interfaces",
         "sameAs": "https://en.wikipedia.org/wiki/Software_engineer"
-      }
+      },
+			"wot:properties": [{
+				"@type": "wot:PropertyAffordance"
+				"wot:name": "online",
+				"wot:type": "boolean",
+				"wot:forms": [{
+					"wot:op": "wot:observeproperty",
+					"wot:href": "https://pickpuck.com/schema/me/properties/online",
+					"wot:subprotocol": "longpoll"
+				}]
+			}],
+			"wot:actions": [{
+				"@type": "wot:ActionAffordance",
+				"wot:name": "send_email"
+				"wot:title": "Contact",
+				"wot:forms": [{
+					"wot:op": "wot:invokeaction",
+					"wot:href": "https://pickpuck.com/schema/me/actions/send_email"
+				}],
+				"wot:input": {
+					"wot:type": "object",
+					"wot:properties": {
+						"subject": {
+							"wot:title": "Subject",
+							"wot:type": "wot:string"
+						},
+						"from": {
+							"wot:title": "From",
+							"wot:type": "wot:string",
+							"wot:format": "email"
+						},
+						"body": {
+							"wot:title": "Body",
+							"wot:type": "wot:string"
+						}
+					}
+				}
+			}]
     }
-  </script>
-</template>

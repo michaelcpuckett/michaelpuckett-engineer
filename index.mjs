@@ -1,5 +1,4 @@
 import Vue from 'https://unpkg.com/vue@2.6.12/dist/vue.esm.browser.min.js'
-import analyticsScript from './base/analyticsScript.mjs'
 import {
   createElement,
   queryFor,
@@ -12,12 +11,49 @@ import {
 
 const getConfig = async () => {
   const scriptEl = queryFor('script[data-config]')
-  const templateEl = await fetchTemplateFromScript(scriptEl)
-  const jsonScriptEl = templateEl.content.firstElementChild
-  window.document.body.append(jsonScriptEl)
-  scriptEl.remove()
-  const jsonString = jsonScriptEl.innerHTML
-  return JSON.parse(jsonString.replace(/"@/g, '"'))
+	const src = scriptEl.getAttribute('src')
+	const itemSrc = scriptEl.getAttribute('data-item-src')
+	scriptEl.remove()
+  const items = await fetch(src)
+		.then(res => res.json())
+		.then(items => items.slice(0, 15))
+		.then(async items =>
+			await Promise.all(items.map(async id =>
+				await fetch(itemSrc.replace('{id}', id))
+					.then(data => data.json())
+				)
+			)
+		)
+	return {
+		type: 'ItemList',
+		itemListElement: await Promise.all(items.map(async item => ({
+			type: 'ListItem',
+			item: {
+				type: 'DiscussionForumPosting',
+				sharedContent: {
+					type: 'CreativeWork',
+					name: item.title,
+					url: item.url,
+					identifier: item.id,
+					author: {
+						type: 'Person',
+						name: item.by
+					}
+				},
+				interactionStatistic: {
+					type: 'InteractionCounter',
+					interactionType: 'CommentAction',
+					userInteractionCount: item.descendants
+				},
+				comment: await Promise.all((item.kids || []).map(async (kid, i) => ({
+					type: 'Comment',
+					identifier: kid,
+					...i === 0 ? await fetch(itemSrc.replace('{id}', kid))
+						.then(data => data.json()) : null
+				})))
+			}
+		})))
+	}
 }
 
 const registerComponents = async () => {
@@ -29,28 +65,7 @@ const registerComponents = async () => {
     const props = templateEl.getAttribute('data-props')
       .split(',')
       .map(string => string.trim())
-    const type = templateEl.getAttribute('data-type')
-    const name = `Type${type}`
-    Vue.component(name, {
-      inheritAttrs: false,
-      props,
-      template
-    })
-    scriptEl.remove()
-  }))
-}
-
-const registerSections = async () => {
-  const sectionScriptEls = queryAll('script[data-section]')
-
-  return await Promise.all(sectionScriptEls.map(async scriptEl => {
-    const templateEl = await fetchTemplateFromScript(scriptEl)
-    const template = getTemplateContents(templateEl)
-    const props = templateEl.getAttribute('data-props')
-      .split(',')
-      .map(string => string.trim())
-    const section = templateEl.getAttribute('data-section')
-    const name = `Section${section}`
+    const name = templateEl.getAttribute('data-name')
     Vue.component(name, {
       inheritAttrs: false,
       props,
@@ -118,68 +133,15 @@ const renderBody = async config => {
 }
 
 const render = async config => {
-  await Promise.all([
-    registerSections(),
-    registerComponents()
-  ])
+	await registerComponents()
+	console.log(config)
   await Promise.all([
     renderBody(config),
-    renderHead(config),
+    renderHead(config)
   ])
   return config
-}
-
-const inlineStyles = async () => {
-  const styleSheetEl = queryFor('link[rel="stylesheet"]')
-  const style = await fetchTextContent(styleSheetEl.getAttribute('href'))
-  const styleEl = createElement('style')
-  styleEl.innerHTML = style
-  styleSheetEl.parentElement.replaceChild(styleEl, styleSheetEl)
-}
-
-const prepareOutput = async ({
-  identifier,
-  knowsLanguage: [{
-    alternateName: lang
-  }]
-}) => {
-  await inlineStyles()
-  queryFor('script[type="module"]').remove()
-
-  return `
-    <!doctype html>
-    <html lang="${lang}">
-      <head>
-        ${window.document.head.innerHTML}
-      </head>
-      <body>
-        ${window.document.body.innerHTML}
-        ${analyticsScript({ identifier })}
-      </body>
-    </html>
-  `
-}
-
-const addDownloadLink = html => {
-  const file = new File([ html ], 'index.html', {
-    type: 'text/html'
-  })
-  const url = window.URL.createObjectURL(file)
-  const downloadLinkEl = createElement('a')
-  downloadLinkEl.setAttribute('download', 'index.html')
-  downloadLinkEl.innerText = 'Download'
-  downloadLinkEl.setAttribute('href', url)
-  downloadLinkEl.style.position = 'fixed'
-  downloadLinkEl.style.top = '10px'
-  downloadLinkEl.style.right = '10px'
-  downloadLinkEl.style.backgroundColor = 'var(--swatch-text-color)'
-  downloadLinkEl.style.color = 'var(--swatch-background-color)'
-  downloadLinkEl.style.padding = '5px 10px'
-  window.document.body.appendChild(downloadLinkEl)
 }
 
 domContentLoadedPromise
   .then(getConfig)
   .then(render)
-  .then(prepareOutput)
-  .then(addDownloadLink)

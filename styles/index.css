@@ -7,29 +7,15 @@
 }
 
 :root {
-	font-family: 'Helvetica Neue', sans-serif;
+	font-family: sans-serif;
 	line-height: 1.333;
-	--swatch-text-color: black;
-	--swatch-background-color: white;
+	--swatch-text-color: white;
+	--swatch-background-color: black;
 	--swatch-alt-background-color: rgb(246, 191, 254, .5);
-	--swatch-light-gray: #ddd;
+	--swatch-light-gray: deeppink;
 	--swatch-dark-gray: #797979;
-	--swatch-interactive: blue;
-	--swatch-interactive-completed: purple;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-	  /*
-		--swatch-light-gray: #777;
-		--swatch-dark-gray: #dadada;
-		--swatch-text-color: white;
-		--swatch-background-color: #03091A;
-		--swatch-alt-background-color: rgb(211, 14, 242, .25);
-		--swatch-interactive: #4C93FE;
-		--swatch-interactive-completed: #D30EF2;
-	  */
-	}
+	--swatch-interactive: white;
+	--swatch-interactive-completed: blue;
 }
 
 html,
@@ -58,16 +44,9 @@ h2 {
 
 main {
 	width: 100%;
-	max-width: 620px;
 	margin: 0 auto;
-	padding: 10px;
 }
 
-@media (min-width: 480px) {
-	main {     
-	padding: 20px 40px;
-	} 
-}
 header, section {
 		padding: 20px;
 }
@@ -76,12 +55,12 @@ header, section {
 				text-align: center;
 		}
 }
-.person-name {
-		font-size: xx-large;
+.itemList-name {
+		font-size: 36px;
 		font-weight: bold;
 		display: block;
 }
-.person-jobTitle {
+.itemList-description {
 		display: block;
 		font-size: x-large;
 		color: var(--swatch-dark-gray);
@@ -90,25 +69,6 @@ header, section {
 		text-transform: uppercase;
 }
 
-.person-image {
-		max-width: 100%;
-		width: 75px;
-		height: 75px;
-		object-fit: cover;
-		border-radius: 50%;
-		border: 2px solid white;
-}
-.person-description {
-		font-size: 1.125em;
-		margin: 20px 0;
-}
-@media (min-width: 480px) {
-		.skill-alternate-name,
-		.property-dateRange,
-		.property-organization-location {
-				text-align: right;
-		}
-}
 .property-endDate:before {
 		content: ' - ';
 }
@@ -118,15 +78,15 @@ a:not(:visited) {
 a:visited {
 	color: var(--swatch-interactive-completed);
 }
-details {
-		margin: 20px 0;
-}
 .item {
 		color: var(--swatch-dark-gray);
 		list-style: none;
 }
 summary {
 	cursor: pointer;
+	 padding: 1rem;
+    border-top: 4px solid var(--swatch-light-gray);
+		background-color: #432a82;
 }
 summary::marker,
 summary::-webkit-details-marker {
@@ -134,23 +94,18 @@ summary::-webkit-details-marker {
 }
 details[open] summary::marker,
 details[open] summary::-webkit-details-marker {
-		color: var(--swatch-interactive-completed);
+		color: var(--swatch-interactive);
+}
+summary .property-name {
+		font-size: 21px;
+		font-weight: bold;
 }
 .property-name {
 		font-weight: bold;
 		color: var(--swatch-text-color);
 }
-.work-description,
-.education-description,
-.skill-description {
+.property-description {
 	padding-left: 20px;
-}
-details:not([open]) summary {
-		border-bottom-color: var(--swatch-light-gray);
-}
-summary {
-		border-bottom: 1px solid transparent;
-		padding-bottom: 20px;
 }
 :focus,
 summary:focus>span {
@@ -165,22 +120,14 @@ summary>span {
 		width: calc(100% - 20px);
 		float: right;
 }
-@media (min-width: 480px) {
-		summary>span {
-				grid-template-columns: minmax(50%, max-content) minmax(50%, max-content);
-				grid-template-rows: max-content max-content;
-		}
-}
+
 summary:after {
 		content: '';
 		clear: both;
 		display: grid;
 }
-details .property-description {
-		border-bottom: 1px solid var(--swatch-light-gray);
-}
 details p {
-		margin: 0 0 20px 0;
+		margin: 0 20px 20px 0;
 }
 .links-list {
 		margin: 0;
