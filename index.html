@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Michael Puckett - UX Engineer - CV</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1"
+    />
+    <meta
+      name="description"
+      content="I’m a creative technologist with over 10 years of professional JavaScript experience and an educational background in graphic design."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        -webkit-text-size-adjust: 100%;
+      }
+      :root {
+        font-family: system-ui, sans-serif;
+        line-height: 1.4;
+        font-size: 100%;
+        --swatch-text-color: CanvasText;
+        --swatch-background-color: Canvas;
+        --swatch-gray: GrayText;
+        --swatch-interactive: LinkText;
+        --swatch-interactive-completed: VisitedText;
+        --swatch-focused: Highlight;
+        --swatch-button-text: CanvasText;
+        --swatch-page: #242424;
+        --swatch-button-face: #f0f0f0;
+      }
+      @media (forced-colors: active) {
+        :root {
+          --swatch-page: Canvas;
+          --swatch-button-face: Canvas;
+        }
+      }
+      body {
+        background: #242424;
+        background: var(--swatch-page);
+        color: CanvasText;
+        color: var(--swatch-text-color);
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+      }
+      .container {
+        --gap: 2.5em;
+        background: Canvas;
+        background: var(--swatch-background-color);
+        width: 100%;
+        max-width: min(calc(100% - 2em), 860px);
+        margin: 0 auto var(--gap);
+        padding: 3em;
+        display: grid;
+        grid-gap: calc(var(--gap) / 2);
+        border-radius: 1em;
+        justify-self: center;
+        box-shadow: 0 0 2em rgba(0, 0, 0, 0.125);
+        grid-template-columns: 100%;
+      }
+      @media (max-width: 959px) {
+        .container {
+          margin: 0 auto;
+          padding: 2em;
+          max-width: 100%;
+          border-radius: 0;
+        }
+      }
+      @media (min-width: 960px) {
+        .container {
+          margin-top: 5em;
+        }
+      }
+      body:not(.is-loaded) .container {
+        display: none;
+      }
+      main {
+        display: grid;
+        grid-gap: var(--gap);
+      }
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        grid-gap: 1em;
+        gap: 1em;
+        justify-content: space-between;
+      }
+      .h1-name {
+        font-size: 2em;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .h1-title {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        line-height: 1.25;
+        font-size: 1.25em;
+      }
+      header {
+        display: grid;
+        justify-content: center;
+      }
+      p {
+        margin: 1em 0 0;
+      }
+      a {
+        color: LinkText;
+        color: var(--swatch-interactive);
+        text-align: center;
+        font-weight: 700;
+        font-size: 0.875em;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        white-space: nowrap;
+        clip: rect(0 0 0 0);
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      :focus {
+        outline: 0;
+      }
+      a:focus {
+        outline-offset: 4px;
+        outline: 4px solid Highlight;
+        outline: 4px solid var(--swatch-focused);
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 400;
+        line-height: inherit;
+        margin: 0;
+      }
+      h1 {
+        display: flex;
+        flex-direction: column;
+        align-content: stretch;
+        justify-self: flex-start;
+        font-size: 1.5rem;
+        grid-row-gap: 0.5em;
+        row-gap: 0.5em;
+        grid-column-gap: 1em;
+        -moz-column-gap: 1em;
+        column-gap: 1em;
+        width: 100%;
+        letter-spacing: -0.05rem;
+      }
+      h2 {
+        line-height: 1;
+        letter-spacing: -0.025rem;
+        font-size: 2rem;
+        border-bottom: 2px solid;
+        padding-bottom: 0.25em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="nav">
+        <a href="mailto:michael@puckett.contact">michael@puckett.contact</a>
+        <div class="nav">
+          <a href="projects.html">Projects</a>
+          <a href="michael_puckett_resume.pdf">Résumé</a>
+        </div>
+      </nav>
+      <main>
+        <header>
+          <h1>
+            <span class="h1-name">Michael Puckett</span>
+            <span class="h1-title">UX Engineer</span>
+          </h1>
+          <p>
+            I'm a creative technologist with over 10 years of
+            professional JavaScript experience and an educational
+            background in graphic design.
+          </p>
+          <p>
+            I'm a passionate advocate of digital accessibility, and I
+            specialize in building accessible digital products and
+            tools.
+          </p>
+        </header>
+        <section aria-labelledby="section-header-skills">
+          <h2 id="section-header-skills">Skills</h2>
+          <div role="list">
+            <expandable-card role="listitem">
+              <span slot="summary">Accessibility</span>
+              <p>
+                To accommodate all users, including those using
+                assistive technologies, such as screen readers or
+                voice control, I implement semantic markup, using
+                ARIA where appropriate, and follow best practices.
+              </p>
+              <p>
+                I have worked on websites subject to legal action on
+                the grounds of inaccessibility. The code I wrote
+                needed to pass internal standards and external
+                audits.
+              </p>
+              <p>
+                I adhere to WCAG in both letter and spirit, as I
+                believe that any set of accessibility guidelines
+                stems from a universal right to information.
+              </p>
+            </expandable-card>
+
+            <expandable-card role="listitem">
+              <span slot="summary">JavaScript</span>
+              <p>
+                I have an advanced understanding of ES/JavaScript,
+                along with a strong familiarity with TypeScript.
+              </p>
+              <p>
+                I am highly efficient working with Vue, Lit, Svelte,
+                React, and similar reactive MVC frameworks. I also
+                have a solid understanding of the DOM and other
+                native web APIs.
+              </p>
+              <p>
+                Although I specialize in client-side development, I
+                have set up servers in Node.js and am comfortable
+                coding for the backend.
+              </p>
+            </expandable-card>
+
+            <expandable-card role="listitem">
+              <span slot="summary">Standards Engineering</span>
+              <p>
+                I have architected the development of complex
+                brand-wide design systems, utilizing both Design
+                Tokens and Atomic Design principles.
+              </p>
+              <p>
+                I have also led successful projects to define and
+                standardize coding guidelines for large engineering
+                teams.
+              </p>
+            </expandable-card>
+          </div>
+        </section>
+        <section aria-labelledby="section-header-experience">
+          <h2 id="section-header-experience">Experience</h2>
+          <div role="list">
+            <expandable-card role="listitem">
+              <span slot="summary">Google, UX Engineer</span>
+              <span slot="start-date">2022</span>
+              <span slot="end-date">Present</span>
+              <p>
+                I'm building digital experiences for the Google
+                brand, using Lit and TypeScript.
+              </p>
+            </expandable-card>
+
+            <expandable-card role="listitem">
+              <span slot="summary">PRO Unlimited, UX Engineer at Google</span>
+              <span slot="start-date">2021</span>
+              <span slot="end-date">2022</span>
+              <p>
+                I contracted at Google for a year prior to joining.
+              </p>
+            </expandable-card>
+
+            <expandable-card role="listitem">
+              <span slot="summary">LiveSchool, Frontend Engineer</span>
+              <span slot="start-date">2018</span>
+              <span slot="end-date">2021</span>
+              <p>
+                I built the front-end for LiveSchool's realtime
+                classroom behavior-tracking platform.
+              </p>
+            </expandable-card>
+            
+            <expandable-card role="listitem">
+              <span slot="summary">Prosoft, Web Developer at Humana</span>
+              <span slot="start-date">2016</span>
+              <span slot="end-date">2018</span>
+              <p>
+                I built a library of accessible web components that
+                was shared across many enterprise products for the
+                third largest health insurer in the US.
+              </p>
+            </expandable-card>
+
+            <expandable-card role="listitem">
+              <span slot="summary">Apple, UI Engineer</span>
+              <span slot="start-date">2013</span>
+              <span slot="end-date">2016</span>
+              <p>
+                I built interfaces to support product launches,
+                campaigns, and transactions on apple.com. I was part
+                of a team that created a company-wide SCSS
+                framework.
+              </p>
+            </expandable-card>
+
+            <expandable-card role="listitem">
+              <span slot="summary">TekSystems, Web Developer at CNN</span>
+              <span slot="start-date">2013</span>
+              <span slot="end-date">2013</span>
+              <p>
+                I worked on a responsive redesign and replatforming of cnn.com.
+              </p>
+            </expandable-card>
+
+            <expandable-card role="listitem">
+              <span slot="summary">iostudio, Frontend Developer</span>
+              <span slot="start-date">2012</span>
+              <span slot="end-date">2013</span>
+              <p>
+                I built marketing websites and web apps for national
+                clients, including the National Guard.
+              </p>
+            </expandable-card>
+
+            <expandable-card role="listitem">
+              <span slot="summary">Fruit of the Loom, Web Developer</span>
+              <span slot="start-date">2012</span>
+              <span slot="end-date">2012</span>
+              <p>
+                I designed and developed a relaunch of jerzees.com.
+              </p>
+            </expandable-card>
+
+            <expandable-card role="listitem">
+              <span slot="summary">Communication Components, Web Developer</span>
+              <span slot="start-date">2010</span>
+              <span slot="end-date">2012</span>
+              <p>
+                I worked on a web app that generated print marketing
+                materials for small businesses.
+              </p>
+            </expandable-card>
+          </div>
+        </section>
+        <section aria-labelledby="section-header-education">
+          <h2 id="section-header-education">Education</h2>
+          <div role="list">
+            <expandable-card role="listitem">
+              <span slot="summary">
+                Western Kentucky University, BA, Advertising &
+                Graphic Design
+              </span>
+              <span slot="start-date">2005</span>
+              <span slot="end-date">2009</span>
+              <p>
+                Graduated Summa Cum Laude (3.9 GPA).
+              </p>
+              <p>
+                Coursework included Art, Design, Digital Media, and
+                Creative Strategy.
+              </p>
+            </expandable-card>
+          </li>
+        </section>
+      </main>
+    </div>
+    <script type="module">
+      import {LitElement, html, createRef, nothing, ref} from './lit.all.min.js';
+
+      const cardStyles = new CSSStyleSheet();
+      cardStyles.replaceSync(`
+        :host {
+          display: block;
+          margin: 1em 0;
+        }
+        details {
+          cursor: pointer;
+          border-radius: 1em;
+          padding: 1.5em;
+          box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.25);
+          background-color: #f0f0f0;
+          background-color: var(--swatch-button-face);
+        }
+        summary {
+          font-weight: 700;
+          color: LinkText;
+          color: var(--swatch-interactive);
+        }
+        summary ::slotted(span) {
+          color: CanvasText;
+          color: var(--swatch-text-color);
+        }
+        summary:focus {
+          outline: 0;
+        }
+        details[focus-within] {
+          outline: 4px solid Highlight;
+          outline: 4px solid var(--swatch-focused);
+        }
+        details:focus-within {
+          outline: 4px solid Highlight;
+          outline: 4px solid var(--swatch-focused);
+        }
+        [role="list"] {
+          display: flex;
+        }
+        [role="term"] {
+          clip: rect(1px, 1px, 1px, 1px);
+          height: 1px;
+          overflow: hidden;
+          position: absolute;
+          width: 1px;
+        }
+        [role="definition"] {
+          padding: 0;
+          margin: 0;
+          font-size: 0.875em;
+        }
+        [role="definition"]:not(:last-of-type):after {
+          content: "–\\00a0";
+        }
+      `);
+
+      class ExperienceCard extends LitElement {
+        static styles = [cardStyles];
+        static properties = {
+          isShowingStartDate: {type: Boolean, default: true},
+          isShowingEndDate: {type: Boolean, default: true},
+        };
+
+        summaryElement = createRef();
+
+        startDateSlotElement = createRef();
+
+        endDateSlotElement = createRef();
+
+        toggle(event) {
+          const isSummaryTarget = !!event.composedPath().find((element) => {
+            return element === this.summaryElement.value;
+          });
+
+          if (isSummaryTarget) {
+            return;
+          }
+
+          this.summaryElement.value?.click();
+        }
+
+        constructor() {
+          super();
+          this.isShowingStartDate = true;
+          this.isShowingEndDate = true;
+        }
+
+        firstUpdated() {
+          this.isShowingStartDate = !!this.startDateSlotElement.value?.assignedNodes().length;
+          this.isShowingEndDate = !!this.endDateSlotElement.value?.assignedNodes().length;
+        }
+
+        render() {
+          return html`
+            <details @click=${this.toggle}>
+              <summary ${ref(this.summaryElement)}>
+                <slot name="summary"></slot>
+              </summary>
+              <div>
+                <div role="list">
+                  ${this.isShowingStartDate ? html`
+                    <span role="term">Start Date</span>
+                    <span role="definition"><slot ${ref(this.startDateSlotElement)} name="start-date"></slot></span>
+                  ` : nothing}
+                  ${this.isShowingEndDate ? html`
+                    <span role="term">End Date</span>
+                    <span role="definition"><slot ${ref(this.endDateSlotElement)} name="end-date"></slot></span>
+                  ` : nothing}
+                </div>
+                <slot></slot>
+              </div>
+            </details>
+          `;
+        }
+      }
+
+      window.customElements.define('expandable-card', ExperienceCard);
+      window.document.body.classList.add('is-loaded');
+    </script>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"Person","name":"Michael Puckett","givenName":"Michael","familyName":"Puckett","jobTitle":"UX Engineer","description":["I'm a creative technologist with over 10 years of professional JavaScript experience and an educational background in graphic design.","I'm a passionate advocate of digital accessibility, and I specialize in building accessible digital products and tools."],"image":"https://michaelpuckett.engineer/avatar.jpg","address":{"@type":"PostalAddress","addressLocality":"Louisville","addressRegion":"Kentucky","postalCode":"40204"},"sameAs":[{"@type":"SoftwareApplication","name":"LinkedIn","url":"https://linkedin.com/in/michaelcpuckett"},{"@type":"SoftwareApplication","name":"Github","url":"https://github.com/michaelcpuckett"},{"@type":"SoftwareApplication","name":"Stack Overflow","url":"https://stackoverflow.com/users/1226227/michaelpuckett"},{"@type":"SoftwareApplication","name":"Twitter","url":"https://twitter.com/mpuckett"}],"url":"https://michaelpuckett.engineer","mainEntityOfPage":"https://michaelpuckett.engineer","email":"michael@puckett.contact","birthDate":"1987-06-17","gender":"male","honorificPrefix":"Mr","identifier":"UA-128368551-1","worksFor":[{"@type":"OrganizationRole","worksFor":{"@type":"Corporation","name":"Google","sameAs":"https://about.google"},"roleName":"UX Engineer","startDate":"2022","description":["I'm building digital experiences for the Google brand, using Lit and TypeScript."]},{"@type":"OrganizationRole","worksFor":{"@type":"Corporation","name":"PRO Unlimited","sameAs":"https://www.prounlimited.com"},"roleName":"UX Engineer at Google","startDate":"2021","endDate":"2022","description":["I contracted at Google for a year prior to joining."]},{"@type":"OrganizationRole","worksFor":{"@type":"Corporation","name":"LiveSchool","legalName":"LiveSchool, Inc.","sameAs":"https://www.whyliveschool.com"},"roleName":"Frontend Engineer","startDate":"2018","endDate":"2021","description":["I built the front-end for LiveSchool's realtime classroom behavior-tracking platform.","I ideated and prototyped accessible UX patterns with a cross-functional team."]},{"@type":"OrganizationRole","worksFor":{"@type":"Corporation","name":"Prosoft"},"roleName":"Web Developer at Humana","startDate":"2016","endDate":"2018","description":["I built a library of accessible web components that was shared across many enterprise products for the third largest health insurer in the US."]},{"@type":"OrganizationRole","worksFor":{"@type":"Corporation","name":"Apple","legalName":"Apple, Inc.","tickerSymbol":"AAPL","address":{"@type":"PostalAddress","addressLocality":"Cupertino","addressRegion":"California"},"sameAs":"https://www.apple.com"},"roleName":"UI Engineer","startDate":"2013","endDate":"2016","description":["I built interfaces to support product launches, campaigns, and transactions on apple.com. I was part of a team that created a company-wide SCSS framework."]},{"@type":"OrganizationRole","worksFor":{"@type":"Corporation","name":"TekSystems","address":{"@type":"PostalAddress","addressLocality":"Atlanta","addressRegion":"Georgia"}},"roleName":"Web Developer at CNN","startDate":"2013","endDate":"2013","description":["I worked on the responsive redesign and replatforming of cnn.com."]},{"@type":"OrganizationRole","worksFor":{"@type":"Corporation","name":"iostudio","address":{"@type":"PostalAddress","addressLocality":"Nashville","addressRegion":"Tennessee"},"sameAs":"https://www.iostudio.com"},"roleName":"Frontend Developer","startDate":"2012","endDate":"2013","description":["I built marketing websites and web apps for national clients, including the National Guard."]},{"@type":"OrganizationRole","worksFor":{"@type":"Corporation","name":"Fruit of the Loom","address":{"@type":"PostalAddress","addressLocality":"Bowling Green","addressRegion":"Kentucky"},"sameAs":"https://www.fruit.com"},"roleName":"Web Developer","startDate":"2011","endDate":"2012","description":["I designed and developed a relaunch of jerzees.com."]},{"@type":"OrganizationRole","worksFor":{"@type":"Corporation","name":"Communication Components","address":{"@type":"PostalAddress","addressLocality":"Nashville","addressRegion":"Tennessee"},"sameAs":"https://www.2-com.net"},"roleName":"Web Developer","startDate":"2010","endDate":"2012","description":["I worked on a web app that generated print marketing materials for small businesses."]},{"@type":"OrganizationRole","worksFor":{"@type":"LocalBusiness","name":"Imagewest","address":{"@type":"PostalAddress","addressLocality":"Bowling Green","addressRegion":"Kentucky"},"sameAs":"https://www.wkuimagewest.com"},"roleName":"Web Developer","startDate":"2009","endDate":"2009","description":["I developed websites for local clients."]},{"@type":"OrganizationRole","worksFor":{"@type":"GovernmentOrganization","name":"City of Bowling Green, KY","address":{"@type":"PostalAddress","addressLocality":"Bowling Green","addressRegion":"Kentucky"},"sameAs":"https://www.bgky.org"},"roleName":"Web Developer","startDate":"2008","endDate":"2009","description":["I developed web applications for public use, such as a business licensing wizard, and assisted in managing over 10,000 informational pages."]},{"@type":"OrganizationRole","worksFor":{"@type":"NewsMediaOrganization","name":"Rise Over Run Magazine","address":{"@type":"PostalAddress","addressLocality":"Bowling Green","addressRegion":"Kentucky"}},"roleName":"Founder/Editor-in-Chief","startDate":"2007","endDate":"2009","description":["I started an online culture magazine that covered my local community. I built and maintained the website, produced and edited online content, art directed photo shoots, coordinated fundraising events, and managed a staff of student writers, photographers and videographers.","The magazine won the 2007 Society of Professional Journalists Mark of Excellence Award for "Best All-Around Independent Online Student Publication.""]}],"alumniOf":[{"@type":"OrganizationRole","alumniOf":{"@type":"CollegeOrUniversity","name":"Western Kentucky University","address":{"@type":"PostalAddress","addressLocality":"Bowling Green","addressRegion":"Kentucky"},"sameAs":"https://www.wku.edu"},"roleName":"BA, Advertising & Graphic Design","startDate":"2005","endDate":"2009","description":["Graduated Summa Cum Laude (3.9 GPA).","Coursework included Art, Design, Digital Media, and Creative Strategy."]}],"knowsAbout":[{"@type":"Thing","name":"Accessibility","description":["To accommodate all users, including those using assistive technologies, such as screen readers or voice control, I implement semantic markup, using ARIA where appropriate, and follow best practices.","I have worked on websites subject to legal action on the grounds of inaccessibility. The code I wrote needed to pass internal standards and external audits.","I adhere to WCAG in both letter and spirit, as I believe that any set of accessibility guidelines stems from a universal right to information."]},{"@type":"Thing","name":"JavaScript","description":["I have an advanced understanding of ES/JavaScript, along with a strong familiarity with TypeScript.","I am highly efficient working with Vue, Lit, Svelte, React, and similar reactive MVC frameworks. I also have a solid understanding of the DOM and other native web APIs.","Although I specialize in client-side development, I have set up servers in Node.js and am comfortable coding for the backend."]},{"@type":"Thing","name":"Standards Engineering","description":["I have architected the development of complex brand-wide design systems, utilizing both Design Tokens and Atomic Design principles.","I have also led successful projects to define and standardize coding guidelines for large engineering teams."]}],"knowsLanguage":[{"@type":"Language","name":"English","alternateName":"en","sameAs":"https://en.wikipedia.org/wiki/English_language"}],"hasOccupation":{"@type":"Occupation","name":"UX Engineer","alternateName":["UI Engineer","Software Engineer","Frontend Engineer","Frontend Developer","Web Developer"],"description":"Software engineer specializing in building usable, accessible digital interfaces.","sameAs":"https://en.wikipedia.org/wiki/Software_engineer"}}
+    </script>
+  </body>
+</html>
