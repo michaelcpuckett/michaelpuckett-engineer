@@ -170,3 +170,10 @@ dt {
   padding: 0;
   list-style: none;
 }
+.projects {
+  display: grid;
+  grid-gap: 2rem;
+}
+.projects details {
+  margin: .5rem 0;
+}

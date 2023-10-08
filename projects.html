@@ -5,7 +5,7 @@
     <title>Projects - Michael Puckett - UX Engineer</title>
     <meta
       name="viewport"
-      content="width=device-width,initial-scale=1"
+      content="wih3h=device-wih3h,initial-scale=1"
     />
     <meta
       name="description"
@@ -38,238 +38,229 @@
       </header>
       <main>
         <h1 class="visually-hidden">Projects</h1>
+        <div class="projects">
+          <section aria-labelledby="section-header-yis-2021">
+            <h2 id="section-header-yis-2021">
+              <a href="https://about.google/stories/year-in-search-2021/" target="_blank">
+                Google Year in Search 2021
+              </a>
+            </h2>
+            <details>
+              <summary>
+                Accessible Responsive Content Reveal
+              </summary>
+              <div>
+                  <h3>
+                    Spec
+                  </h3>
+                  <p>
+                    Cards going down the page have preview snippets. When a card is clicked, its detailed view is revealed, with more information and shareable links. On small screens, the detailed view shows as a modal dialog. On wide screens, the detailed view opens to the left of the main content, and the main content remains interactive and independently scrollable while the detailed view is open.
+                  </p>
+                  <h3>
+                    Challenge
+                  </h3>
+                  <p>
+                    The modal dialog is straightforward, but its relationship to the view that opens to the left side and the mechanism for transitioning between the two in a responsive manner are unclear.
+                  </p>
+                  <h3>
+                    Strategy
+                  </h3>
+                  <p>
+                    The detailed view that opens on the left side should be considered a non-modal dialog, since it presents an additional interactive context without inhibiting interaction with the original context. As such, converting between the two requires flipping the aria-modal="true|false" state of the dialog and the inert="true|false" state of the main content.
+                  </p>
+                  <h3>
+                    Result
+                  </h3>
+                  <figure>
+                    <img src="yis_2021_dialog_open.jpg" alt="The modal dialog shows in full screen on narrow screens, and to the left of the main content on wide screens." />
+                    <figcaption>
+                      Dialog modal open on mobile, and non-modal dialog open on desktop.
+                    </figcaption>
+                  </figure>
+                </dl>
+              </div>
+            </details>
+          </section>
 
-        <section aria-labelledby="section-header-yis-2021">
-          <h2 id="section-header-yis-2021">
-            <a href="https://about.google/stories/year-in-search-2021/" target="_blank">
-              Year in Search 2021
-            </a>
-          </h2>
-          <div role="region" aria-labelledby="region-header-responsive-dialog">
-            <h3 id="region-header-responsive-dialog">
-              Accessible Responsive Content Reveal
-            </h3>
-            <dl>
-              <dt>
-                Spec
-              </dt>
-              <dd>
-                Cards going down the page have preview snippets. When a card is clicked, its detailed view is revealed, with more information and shareable links. On small screens, the detailed view shows as a modal dialog. On wide screens, the detailed view opens to the left of the main content, and the main content remains interactive and independently scrollable while the detailed view is open.
-              </dd>
-              <dt>
-                Challenge
-              </dt>
-              <dd>
-                The modal dialog is straightforward, but its relationship to the view that opens to the left side and the mechanism for transitioning between the two in a responsive manner are unclear.
-              </dd>
-              <dt>
-                Strategy
-              </dt>
-              <dd>
-                The detailed view that opens on the left side should be considered a non-modal dialog, since it presents an additional interactive context without inhibiting interaction with the original context. As such, converting between the two requires flipping the aria-modal="true|false" state of the dialog and the inert="true|false" state of the main content.
-              </dd>
-            </dl>
+          <section aria-labelledby="section-header-belonging">
+            <h2 id="section-header-belonging">
+              <a href="https://belonging.google/" target="_blank">
+                belonging.google
+              </a>
+            </h2>
             <details>
               <summary>
-                Result
+                2-Column Masonry Layout
               </summary>
-              <figure>
-                <img src="yis_2021_dialog_open.jpg" alt="The modal dialog shows in full screen on narrow screens, and to the left of the main content on wide screens." />
-                <figcaption>
-                  Dialog modal open on mobile, and non-modal dialog open on desktop.
-                </figcaption>
-              </figure>
+              <div>
+                <h3>
+                  Spec
+                </h3>
+                <p>
+                  Cards are arranged into two columns of equal height. Consistent spacing is maintained between the cards, but the cards themselves may grow in height to fit. Keyboard users traverse the cards using the tab key, progressing from left-to-right, top-to-bottom.
+                </p>
+                <h3>
+                  Challenge
+                </h3>
+                <p>
+                  The challenge is maintaining equal height columns. CSS masonry layout support is still experimental and extremely limited. CSS multicolumn layout would place cards into columns and the focus order would be top-to-bottom, left-to-right instead of the intuitive order. With CSS flexbox, the focus order could get muddled if a card in one column is much bigger than one in the other column.
+                </p>
+                <h3>
+                  Strategy
+                </h3>
+                <p>
+                  Starting with a CSS grid layout of 2 equal-wih3h columns ensures that the focus order is maintained even if JavaScript is not enabled.
+                </p>
+                <p>
+                  Then, using JavaScript, calculate the heights of the cards in each column. For the shorter column, evenly distribute the difference in height relative to the other column among the cards. Render the result with fixed heights and absolute positioning. The total height must be applied to the container since its children are all absolutely positioned. Recalculate upon throttled window resize.
+                </p>
+                <h3>
+                  Result
+                </h3>
+                <figure>
+                  <img src="belonging_cards.jpg" alt="On desktop, many cards are displayed into two columns." />
+                  <figcaption>
+                    Two equal-height columns of cards.
+                  </figcaption>
+                </figure>
+              </div>
             </details>
-          </div>
-        </section>
-
-        <section aria-labelledby="section-header-belonging">
-          <h2 id="section-header-belonging">
-            <a href="https://belonging.google/" target="_blank">
-              belonging.google
-            </a>
-          </h2>
-          <div role="region" aria-labelledby="region-header-masonry-layout">
-            <h3 id="region-header-masonry-layout">
-              2-Column Masonry Layout
-            </h3>
-            <dl>
-              <dt>
-                Spec
-              </dt>
-              <dd>
-                Cards are arranged into two columns of equal height. Consistent spacing is maintained between the cards, but the cards themselves may grow in height to fit. Keyboard users traverse the cards using the tab key, progressing from left-to-right, top-to-bottom.
-              </dd>
-              <dt>
-                Challenge
-              </dt>
-              <dd>
-                The challenge is maintaining equal height columns. CSS masonry layout support is still experimental and extremely limited. CSS multicolumn layout would place cards into columns and the focus order would be top-to-bottom, left-to-right instead of the intuitive order. With CSS flexbox, the focus order could get muddled if a card in one column is much bigger than one in the other column.
-              </dd>
-              <dt>
-                Strategy
-              </dt>
-              <dd>
-                Starting with a CSS grid layout of 2 equal-width columns ensures that the focus order is maintained even if JavaScript is not enabled.
-                <br /><br />
-                Then, using JavaScript, calculate the heights of the cards in each column. For the shorter column, evenly distribute the difference in height relative to the other column among the cards. Render the result with fixed heights and absolute positioning. The total height must be applied to the container since its children are all absolutely positioned. Recalculate upon throttled window resize.
-              </dd>
-            </dl>
             <details>
               <summary>
-                Result
+                Responsive Columns with Expandable Content
               </summary>
-              <figure>
-                <img src="belonging_cards.jpg" alt="On desktop, many cards are displayed into two columns." />
-                <figcaption>
-                  Two equal-height columns of cards.
-                </figcaption>
-              </figure>
+              <div>
+                <h3>
+                  Spec
+                </h3>
+                <p>
+                  Expandable disclosure widgets are broken up evenly into columns. The space is distributed evenly such that the columns have similar heights when all the expandable widgets are closed. Multiple disclosure widgets can be open at once. When expanded, the widgets must not shift to different columns. The number of columns displayed varies based on screen size.
+                </p>
+                <h3>
+                  Challenge
+                </h3>
+                <p>
+                  The CSS multicolumn layout algorithm is the best option, but the layout gets recalculated when the expandable widgets are opened. The challenge is preventing the items from moving between columns as they are expanded.
+                </p>
+                <h3>
+                  Strategy
+                </h3>
+                <p>
+                  First, use CSS `columns` to determine the best way to distribute the closed disclosure widgets into columns. If JavaScript is not enabled, the cards will move between columns, but the layout is functional. Then, with JavaScript, determine column order for each item and manually apply the groupings into columns, using flexbox layout for positioning.
+                </p>
+                <h3>
+                  Result
+                </h3>
+                <ul class="no-bullet">
+                  <li>
+                    <figure>
+                      <img src="belonging_columns_closed.jpg" alt="On desktop, expandable widgets fill 3 columns." />
+                      <figcaption>
+                        The expandable widgets are closed.
+                      </figcaption>
+                    </figure>
+                  </li>
+                  <li>
+                    <figure>
+                      <img src="belonging_columns_open.jpg" alt="On desktop, expanded widgets fill 3 columns." />
+                      <figcaption>
+                        The expandable widgets are all open.
+                      </figcaption>
+                    </figure>
+                  </li>
+                </ul>
+              </div>
             </details>
-          </div>
-          <hr role="none" />
-          <div role="region" aria-labelledby="region-header-responsive-columns">
-            <h3 id="region-header-responsive-columns">
-              Responsive Columns with Expandable Content
-            </h3>
-            <dl>
-              <dt>
-                Spec
-              </dt>
-              <dd>
-                Expandable disclosure widgets are broken up evenly into columns. The space is distributed evenly such that the columns have similar heights when all the expandable widgets are closed. Multiple disclosure widgets can be open at once. When expanded, the widgets must not shift to different columns. The number of columns displayed varies based on screen size.
-              </dd>
-              <dt>
-                Challenge
-              </dt>
-              <dd>
-                The CSS multicolumn layout algorithm is the best option, but the layout gets recalculated when the expandable widgets are opened. The challenge is preventing the items from moving between columns as they are expanded.
-              </dd>
-              <dt>
-                Strategy
-              </dt>
-              <dd>
-                First, use CSS `columns` to determine the best way to distribute the closed disclosure widgets into columns. If JavaScript is not enabled, the cards will move between columns, but the layout is functional. Then, with JavaScript, determine column order for each item and manually apply the groupings into columns, using flexbox layout for positioning.
-              </dd>
-            </dl>
             <details>
               <summary>
-                Result
+                Accessible Definition Tooltip
               </summary>
-              <ul class="no-bullet">
-                <li>
-                  <figure>
-                    <img src="belonging_columns_closed.jpg" alt="On desktop, expandable widgets fill 3 columns." />
-                    <figcaption>
-                      The expandable widgets are closed.
-                    </figcaption>
-                  </figure>
-                </li>
-                <li>
-                  <figure>
-                    <img src="belonging_columns_open.jpg" alt="On desktop, expanded widgets fill 3 columns." />
-                    <figcaption>
-                      The expandable widgets are all open.
-                    </figcaption>
-                  </figure>
-                </li>
-              </ul>
+              <div>
+                <h3>
+                  Spec
+                </h3>
+                <p>
+                  Certain words within a headline or paragraph are terms that have definitions that should show as popups on hover.
+                </p>
+                <h3>
+                  Challenge
+                </h3>
+                <p>
+                  The ARIA tooltip role seems like a good match, but it works similar to aria-describedby. The length of the definition, especially when in the middle of a paragraph, could make the flow confusing if read along with the rest of the content.
+                </p>
+                <h3>
+                  Strategy
+                </h3>
+                <p>
+                  Particularly because the definition is ancillary and could be skipped over without being announced automatically, it should also be revealed on keyboard focus, and overall treated like an expandable disclosure widget.
+                </p>
+                <h3>
+                  Result
+                </h3>
+                <figure>
+                  <img src="belonging_tooltip.jpg" alt="The definition tooltip shows underneath the term." />
+                  <figcaption>
+                    The definition tooltip opens on hover or click.
+                  </figcaption>
+                </figure>
+              </div>
             </details>
-          </div>
-          <hr role="none" />
-          <div role="region" aria-labelledby="region-header-tooltip">
-            <h3 id="region-header-tooltip">
-              Accessible Definition Tooltip
-            </h3>
-            <dl>
-              <dt>
-                Spec
-              </dt>
-              <dd>
-                Certain words within a headline or paragraph are terms that have definitions that should show as popups on hover.
-              </dd>
-              <dt>
-                Challenge
-              </dt>
-              <dd>
-                The ARIA tooltip role seems like a good match, but it works similar to aria-describedby. The length of the definition, especially when in the middle of a paragraph, could make the flow confusing if read along with the rest of the content.
-              </dd>
-              <dt>
-                Strategy
-              </dt>
-              <dd>
-                Particularly because the definition is ancillary and could be skipped over without being announced automatically, it should also be revealed on keyboard focus, and overall treated like an expandable disclosure widget.
-              </dd>
-            </dl>
+          </section>
+          
+          <section aria-labelledby="section-header-pride-spaces">
+            <h2 id="section-header-pride-spaces">
+              <a href="https://pride.google/space-to-belong/" target="_blank">
+                pride.google
+              </a>
+            </h2>
             <details>
               <summary>
-                Result
+                Responsive Editorial Layouts
               </summary>
-              <figure>
-                <img src="belonging_tooltip.jpg" alt="The definition tooltip shows underneath the term." />
-                <figcaption>
-                  The definition tooltip opens on hover or click.
-                </figcaption>
-              </figure>
+              <div>
+                <h3>
+                  Spec
+                </h3>
+                <p>
+                  Content is featured in magazine/editorial style, with roomy white space, asymmetrical layouts, and a focus on imagery. The dynamism of the editorial style is maintained on small and large screens.
+                </p>
+                <h3>
+                  Challenge
+                </h3>
+                <p>
+                  Some components, or pairs of components, need to fit on screen to fill up as much space as possible without scrolling.
+                </p>
+                <h3>
+                  Strategy
+                </h3>
+                <p>
+                  Determine the current viewport height in JavaScript, ignoring the chrome frame of the browser, and provide it in CSS as a variable/custom property.
+                </p>
+                <h3>
+                  Result
+                </h3>
+                <ul class="no-bullet">
+                  <li>
+                    <figure>
+                      <img src="pride_spaces_1.jpg" alt="On both vertical and horizontal screen sizes, the intro section fits everything into view." />
+                      <figcaption>
+                        The intro headline, video, text, and share bar all fit in the initial viewport.
+                      </figcaption>
+                    </figure>
+                  </li>
+                  <li>
+                    <figure>
+                      <img src="pride_spaces_2.jpg" alt="On both vertical and horizontal screens, an asymmetrical layout is preserved." />
+                      <figcaption>
+                        The asymmetrical layout is preserved through grid spacing and the viewport height variable.
+                      </figcaption>
+                    </figure>
+                  </li>
+                </ul>
+              </div>
             </details>
-          </div>
-        </section>
-        
-        <section aria-labelledby="section-header-pride-spaces">
-          <h2 id="section-header-pride-spaces">
-            <a href="https://pride.google/space-to-belong/" target="_blank">
-              pride.google
-            </a>
-          </h2>
-          <div role="region" aria-labelledby="region-header-responsive-editorial-layouts">
-            <h3 id="region-header-responsive-editorial-layouts">
-              Responsive Editorial Layouts
-            </h3>
-            <dl>
-              <dt>
-                Spec
-              </dt>
-              <dd>
-                Content is featured in magazine/editorial style, with roomy white space, asymmetrical layouts, and a focus on imagery. The dynamism of the editorial style is maintained on small and large screens.
-              </dd>
-              <dt>
-                Challenge
-              </dt>
-              <dd>
-                Some components, or pairs of components, need to fit on screen to fill up as much space as possible without scrolling.
-              </dd>
-              <dt>
-                Strategy
-              </dt>
-              <dd>
-                Determine the current viewport height in JavaScript, ignoring the chrome frame of the browser, and provide it in CSS as a variable/custom property.
-              </dd>
-            </dl>
-            <details>
-              <summary>
-                Result
-              </summary>
-              <ul class="no-bullet">
-                <li>
-                  <figure>
-                    <img src="pride_spaces_1.jpg" alt="On both vertical and horizontal screen sizes, the intro section fits everything into view." />
-                    <figcaption>
-                      The intro headline, video, text, and share bar all fit in the initial viewport.
-                    </figcaption>
-                  </figure>
-                </li>
-                <li>
-                  <figure>
-                    <img src="pride_spaces_2.jpg" alt="On both vertical and horizontal screens, an asymmetrical layout is preserved." />
-                    <figcaption>
-                      The asymmetrical layout is preserved through grid spacing and the viewport height variable.
-                    </figcaption>
-                  </figure>
-                </li>
-              </ul>
-            </details>
-          </div>
-        </section>
+          </section>
+        </div>
       </main>
     </div>
     <script type="module">
