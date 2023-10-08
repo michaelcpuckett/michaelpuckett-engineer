@@ -1,0 +1,13 @@
+body:not(.is-loaded) .container {
+  display: grid;
+}
+expandable-card {
+  display: block;
+  margin: 1rem 0;
+}
+[slot="summary"] {
+  font-weight: bold;
+}
+[slot="start-date"]:after {
+  content: " –";
+}
