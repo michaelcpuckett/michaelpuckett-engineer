@@ -86,6 +86,7 @@ main {
 }
 header {
   display: grid;
+  margin: 1rem 0;
 }
 img {
   max-width: 100%;
