@@ -156,6 +156,7 @@ h2:has(a:hover) {
 }
 h3 {
   font-size: 1.3rem;
+  color: var(--swatch-gray);
 }
 hr {
   margin: 2rem 0;
@@ -175,5 +176,8 @@ dt {
   grid-gap: 2rem;
 }
 .projects details {
-  margin: .5rem 0;
+  margin: 1rem 0;
+}
+.projects summary {
+  font-weight: bold;
 }

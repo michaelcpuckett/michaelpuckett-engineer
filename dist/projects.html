@@ -21,7 +21,7 @@
       href="global.css"
     />
   </head>
-  <body>
+  <body class="is-loaded">
     <div class="container">
       <nav class="nav">
         <a href="mailto:michael@puckett.contact">michael@puckett.contact</a>
@@ -45,7 +45,7 @@
                 Google Year in Search 2021
               </a>
             </h2>
-            <details>
+            <details open>
               <summary>
                 Accessible Responsive Content Reveal
               </summary>
@@ -72,7 +72,9 @@
                     Result
                   </h3>
                   <figure>
-                    <img src="yis_2021_dialog_open.jpg" alt="The modal dialog shows in full screen on narrow screens, and to the left of the main content on wide screens." />
+                    <a href="yis_2021_dialog_open.jpg">
+                      <img src="yis_2021_dialog_open.jpg" alt="The modal dialog shows in full screen on narrow screens, and to the left of the main content on wide screens." />
+                    </a>
                     <figcaption>
                       Dialog modal open on mobile, and non-modal dialog open on desktop.
                     </figcaption>
@@ -88,7 +90,7 @@
                 belonging.google
               </a>
             </h2>
-            <details>
+            <details open>
               <summary>
                 2-Column Masonry Layout
               </summary>
@@ -118,14 +120,16 @@
                   Result
                 </h3>
                 <figure>
-                  <img src="belonging_cards.jpg" alt="On desktop, many cards are displayed into two columns." />
+                  <a href="belonging_cards.jpg">
+                    <img src="belonging_cards.jpg" alt="On desktop, many cards are displayed into two columns." />
+                  </a>
                   <figcaption>
                     Two equal-height columns of cards.
                   </figcaption>
                 </figure>
               </div>
             </details>
-            <details>
+            <details open>
               <summary>
                 Responsive Columns with Expandable Content
               </summary>
@@ -154,7 +158,9 @@
                 <ul class="no-bullet">
                   <li>
                     <figure>
-                      <img src="belonging_columns_closed.jpg" alt="On desktop, expandable widgets fill 3 columns." />
+                      <a href="belonging_columns_closed.jpg">
+                        <img src="belonging_columns_closed.jpg" alt="On desktop, expandable widgets fill 3 columns." />
+                      </a>
                       <figcaption>
                         The expandable widgets are closed.
                       </figcaption>
@@ -162,7 +168,9 @@
                   </li>
                   <li>
                     <figure>
-                      <img src="belonging_columns_open.jpg" alt="On desktop, expanded widgets fill 3 columns." />
+                      <a href="belonging_columns_open.jpg">
+                        <img src="belonging_columns_open.jpg" alt="On desktop, expanded widgets fill 3 columns." />
+                      </a>
                       <figcaption>
                         The expandable widgets are all open.
                       </figcaption>
@@ -171,7 +179,7 @@
                 </ul>
               </div>
             </details>
-            <details>
+            <details open>
               <summary>
                 Accessible Definition Tooltip
               </summary>
@@ -198,7 +206,9 @@
                   Result
                 </h3>
                 <figure>
-                  <img src="belonging_tooltip.jpg" alt="The definition tooltip shows underneath the term." />
+                  <a href="belonging_tooltip.jpg">
+                    <img src="belonging_tooltip.jpg" alt="The definition tooltip shows underneath the term." />
+                  </a>
                   <figcaption>
                     The definition tooltip opens on hover or click.
                   </figcaption>
@@ -213,7 +223,7 @@
                 pride.google
               </a>
             </h2>
-            <details>
+            <details open>
               <summary>
                 Responsive Editorial Layouts
               </summary>
@@ -242,7 +252,9 @@
                 <ul class="no-bullet">
                   <li>
                     <figure>
-                      <img src="pride_spaces_1.jpg" alt="On both vertical and horizontal screen sizes, the intro section fits everything into view." />
+                      <a href="pride_spaces_1.jpg">
+                        <img src="pride_spaces_1.jpg" alt="On both vertical and horizontal screen sizes, the intro section fits everything into view." />
+                      </a>
                       <figcaption>
                         The intro headline, video, text, and share bar all fit in the initial viewport.
                       </figcaption>
@@ -250,7 +262,9 @@
                   </li>
                   <li>
                     <figure>
-                      <img src="pride_spaces_2.jpg" alt="On both vertical and horizontal screens, an asymmetrical layout is preserved." />
+                      <a href="pride_spaces_2.jpg">
+                        <img src="pride_spaces_2.jpg" alt="On both vertical and horizontal screens, an asymmetrical layout is preserved." />
+                      </a>
                       <figcaption>
                         The asymmetrical layout is preserved through grid spacing and the viewport height variable.
                       </figcaption>
@@ -263,10 +277,6 @@
         </div>
       </main>
     </div>
-    <script type="module">
-      import './expandable-card.js';
-      window.document.body.classList.add('is-loaded');
-    </script>
     <noscript>
       <link rel="stylesheet" href="noscript.css" />
     </noscript>
