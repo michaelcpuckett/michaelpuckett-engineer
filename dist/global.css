@@ -149,12 +149,6 @@ h2 {
   border-bottom: 2px solid;
   padding-bottom: 0.25em;
 }
-h2 a {
-  text-decoration: none;
-}
-h2:has(a:hover) {
-  border-bottom-color: var(--swatch-interactive);
-}
 h3 {
   font-size: 1.3rem;
   color: var(--swatch-gray);
@@ -176,9 +170,11 @@ dt {
   display: grid;
   grid-gap: 2rem;
 }
-.projects details {
+details {
   margin: 1rem 0;
 }
-.projects summary {
+summary {
   font-weight: bold;
+  text-decoration: underline;
+  color: var(--swatch-interactive);
 }

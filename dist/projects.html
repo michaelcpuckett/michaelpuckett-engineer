@@ -41,20 +41,20 @@
         <div class="projects">
           <section aria-labelledby="section-header-yis-2021">
             <h2 id="section-header-yis-2021">
-              <a href="https://about.google/stories/year-in-search-2021/" target="_blank">
-                Google Year in Search 2021
-              </a>
+              Google Year in Search 2021
             </h2>
-            <details open>
-              <summary>
-                Accessible Responsive Content Reveal
-              </summary>
+            <p>
+              Google's annual exploration of search trends from the year.
+              (<a href="https://about.google/stories/year-in-search-2021/" target="_blank">Live Site</a>)
+            </p>
+            <details>
+              <summary>Accessible Responsive Content Reveal</summary>
               <div>
                   <h3>
                     Spec
                   </h3>
                   <p>
-                    Cards going down the page have preview snippets. When a card is clicked, its detailed view is revealed, with more information and shareable links. On small screens, the detailed view shows as a modal dialog. On wide screens, the detailed view opens to the left of the main content, and the main content remains interactive and independently scrollable while the detailed view is open.
+                    Cards are staggered down the page. When a card is clicked, its detailed view is revealed, with more information and shareable links. On small screens, the detailed view shows as a modal dialog. On wide screens, the detailed view opens to the left of the main content, and the main content remains interactive and independently scrollable while the detailed view is open.
                   </p>
                   <h3>
                     Challenge
@@ -86,14 +86,14 @@
 
           <section aria-labelledby="section-header-belonging">
             <h2 id="section-header-belonging">
-              <a href="https://belonging.google/" target="_blank">
-                belonging.google
-              </a>
+              belonging.google
             </h2>
-            <details open>
-              <summary>
-                2-Column Masonry Layout
-              </summary>
+            <p>
+              A collection of resources related to Google's diversity, equity, and inclusion initiatives.
+              (<a href="https://belonging.google/" target="_blank">Live Site</a>)
+            </p>
+            <details>
+              <summary>2-Column Masonry Layout</summary>
               <div>
                 <h3>
                   Spec
@@ -129,10 +129,8 @@
                 </figure>
               </div>
             </details>
-            <details open>
-              <summary>
-                Responsive Columns with Expandable Content
-              </summary>
+            <details>
+              <summary>Responsive Columns with Expandable Content</summary>
               <div>
                 <h3>
                   Spec
@@ -179,10 +177,8 @@
                 </ul>
               </div>
             </details>
-            <details open>
-              <summary>
-                Accessible Definition Tooltip
-              </summary>
+            <details>
+              <summary>Accessible Definition Tooltip</summary>
               <div>
                 <h3>
                   Spec
@@ -219,14 +215,14 @@
           
           <section aria-labelledby="section-header-pride-spaces">
             <h2 id="section-header-pride-spaces">
-              <a href="https://pride.google/space-to-belong/" target="_blank">
-                pride.google
-              </a>
+              pride.google
             </h2>
-            <details open>
-              <summary>
-                Responsive Editorial Layouts
-              </summary>
+            <p>
+              A celebration of LGBTQ communities around the world.
+              (<a href="https://pride.google/space-to-belong/" target="_blank">Live Site</a>)
+            </p>
+            <details>
+              <summary>Responsive Editorial Layouts</summary>
               <div>
                 <h3>
                   Spec
@@ -271,6 +267,53 @@
                     </figure>
                   </li>
                 </ul>
+              </div>
+            </details>
+          </section>
+
+          <section aria-labelledby="section-header-liveschool">
+            <h2 id="section-header-liveschool">
+                LiveSchool
+            </h2>
+            <p>
+              LiveSchool is an app and website that helps educators manage student behavior by awarding behavior points and allowing students to redeem their points for rewards. (<a href="https://liveschoolapp.com/" target="_blank">Live Site</a>)
+            </p>
+            <details>
+              <summary>Responsive App Interface</summary>
+              <div>
+                  <h3>
+                    Spec
+                  </h3>
+                  <p>
+                    The LiveSchool app is responsive and adaptable, ensuring a seamless user experience that doesn't require learning multiple interfaces when switching between devices.
+                  </p>
+                  <h3>
+                    Challenge
+                  </h3>
+                  <p>
+                    The app must deliver a uniform experience across devices, from smartphones to projected laptop screens. It showcases very long or very short student names, along with their behavior points; and features like student selection and viewing behavior history. Interface components must be performant and user-friendly, especially on touch devices.
+                  </p>
+                  <h3>
+                    Strategy
+                  </h3>
+                  <p>
+                    Flexbox wrapping efficiently organizes elements, such as student lists, adapting to varied screen widths. Text-overflow elision prevents text, like long student names, from overflowing by truncating it with an ellipsis ('...'). Breakpoints, applied selectively, adjust the design at specific screen dimensions for optimal viewing and, in rare cases, JavaScript is used to assess available display space.
+                  </p>
+                  <p>
+                    Long, scrollable lists of students are virtualized, ensuring the app runs smoothly, especially on older devices or slower networks.
+                  </p>
+                  <h3>
+                    Result
+                  </h3>
+                  <figure>
+                    <a href="liveschool.jpg">
+                      <img src="liveschool.jpg" alt="The LiveSchool app interface screen where educations can award points to any student in the current roster." />
+                    </a>
+                    <figcaption>
+                      The student selection screen is responsive across devices.
+                    </figcaption>
+                  </figure>
+                </dl>
               </div>
             </details>
           </section>
