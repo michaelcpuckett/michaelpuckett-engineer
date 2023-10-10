@@ -179,6 +179,6 @@ summary {
   color: var(--swatch-interactive);
   cursor: pointer;
 }
-summary:focus {
+summary:focus-visible {
   outline: 4px solid var(--swatch-interactive);
 }
