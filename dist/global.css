@@ -177,4 +177,8 @@ summary {
   font-weight: bold;
   text-decoration: underline;
   color: var(--swatch-interactive);
+  cursor: pointer;
+}
+summary:focus {
+  outline: 4px solid var(--swatch-interactive);
 }
