@@ -181,4 +181,5 @@ summary {
 }
 summary:focus-visible {
   outline: 4px solid var(--swatch-focused);
+  outline-offset: 4px;
 }
