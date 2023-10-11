@@ -117,14 +117,6 @@ a {
   -moz-user-select: none;
   user-select: none;
 }
-:focus {
-  outline: 0;
-}
-a:focus {
-  outline-offset: 4px;
-  outline: 4px solid Highlight;
-  outline: 4px solid var(--swatch-focused);
-}
 h1,
 h2 {
   font-weight: 400;
@@ -178,6 +170,16 @@ summary {
   text-decoration: underline;
   color: var(--swatch-interactive);
   cursor: pointer;
+}
+:focus {
+  outline: 0;
+}
+:focus-visible {
+  outline: 4px solid var(--swatch-focused);
+  outline-offset: 4px;
+}
+p :focus-visible {
+  outline-offset: 8px;
 }
 summary:focus-visible {
   outline: 4px solid var(--swatch-focused);
