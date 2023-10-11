@@ -11,3 +11,11 @@ expandable-card {
 [slot="start-date"]:after {
   content: " –";
 }
+
+ol li {
+  counter-increment: 1;
+}
+
+ol li:before {
+  content: 'Phase ' counter(item);
+}
