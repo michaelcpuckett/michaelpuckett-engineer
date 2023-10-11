@@ -8,7 +8,7 @@
   font-size: 100%;
   --swatch-text-color: CanvasText;
   --swatch-background-color: Canvas;
-  --swatch-gray: GrayText;
+  --swatch-gray: #636363;
   --swatch-interactive: LinkText;
   --swatch-interactive-completed: VisitedText;
   --swatch-focused: Highlight;
@@ -180,5 +180,5 @@ summary {
   cursor: pointer;
 }
 summary:focus-visible {
-  outline: 4px solid var(--swatch-interactive);
+  outline: 4px solid var(--swatch-focused);
 }
