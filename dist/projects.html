@@ -39,51 +39,6 @@
       <main>
         <h1 class="visually-hidden">Projects</h1>
         <div class="projects">
-          <section aria-labelledby="section-header-yis-2021">
-            <h2 id="section-header-yis-2021">
-              Google Year in Search 2021
-            </h2>
-            <p>
-              Google's annual exploration of search trends from the year.
-              (<a href="https://about.google/stories/year-in-search-2021/" target="_blank">Live Site</a>)
-            </p>
-            <details>
-              <summary>Accessible Responsive Content Reveal</summary>
-              <div>
-                  <h3>
-                    Spec
-                  </h3>
-                  <p>
-                    Cards are staggered down the page. When a card is clicked, its detailed view is revealed, with more information and shareable links. On small screens, the detailed view shows as a modal dialog. On wide screens, the detailed view opens to the left of the main content, and the main content remains interactive and independently scrollable while the detailed view is open.
-                  </p>
-                  <h3>
-                    Challenge
-                  </h3>
-                  <p>
-                    The modal dialog is straightforward, but its relationship to the view that opens to the left side and the mechanism for transitioning between the two in a responsive manner are unclear.
-                  </p>
-                  <h3>
-                    Strategy
-                  </h3>
-                  <p>
-                    The detailed view that opens on the left side should be considered a non-modal dialog, since it presents an additional interactive context without inhibiting interaction with the original context. As such, converting between the two requires flipping the aria-modal="true|false" state of the dialog and the inert="true|false" state of the main content.
-                  </p>
-                  <h3>
-                    Result
-                  </h3>
-                  <figure>
-                    <a href="yis_2021_dialog_open.jpg">
-                      <img src="yis_2021_dialog_open.jpg" alt="The modal dialog shows in full screen on narrow screens, and to the left of the main content on wide screens." />
-                    </a>
-                    <figcaption>
-                      Dialog modal open on mobile, and non-modal dialog open on desktop.
-                    </figcaption>
-                  </figure>
-                </dl>
-              </div>
-            </details>
-          </section>
-
           <section aria-labelledby="section-header-belonging">
             <h2 id="section-header-belonging">
               belonging.google
@@ -213,6 +168,52 @@
             </details>
           </section>
           
+
+          <section aria-labelledby="section-header-yis-2021">
+            <h2 id="section-header-yis-2021">
+              Google Year in Search 2021
+            </h2>
+            <p>
+              Google's annual exploration of search trends from the year.
+              (<a href="https://about.google/stories/year-in-search-2021/" target="_blank">Live Site</a>)
+            </p>
+            <details>
+              <summary>Accessible Responsive Content Reveal</summary>
+              <div>
+                  <h3>
+                    Spec
+                  </h3>
+                  <p>
+                    Cards are staggered down the page. When a card is clicked, its detailed view is revealed, with more information and shareable links. On small screens, the detailed view shows as a modal dialog. On wide screens, the detailed view opens to the left of the main content, and the main content remains interactive and independently scrollable while the detailed view is open.
+                  </p>
+                  <h3>
+                    Challenge
+                  </h3>
+                  <p>
+                    The modal dialog is straightforward, but its relationship to the view that opens to the left side and the mechanism for transitioning between the two in a responsive manner are unclear.
+                  </p>
+                  <h3>
+                    Strategy
+                  </h3>
+                  <p>
+                    The detailed view that opens on the left side should be considered a non-modal dialog, since it presents an additional interactive context without inhibiting interaction with the original context. As such, converting between the two requires flipping the aria-modal="true|false" state of the dialog and the inert="true|false" state of the main content.
+                  </p>
+                  <h3>
+                    Result
+                  </h3>
+                  <figure>
+                    <a href="yis_2021_dialog_open.jpg">
+                      <img src="yis_2021_dialog_open.jpg" alt="The modal dialog shows in full screen on narrow screens, and to the left of the main content on wide screens." />
+                    </a>
+                    <figcaption>
+                      Dialog modal open on mobile, and non-modal dialog open on desktop.
+                    </figcaption>
+                  </figure>
+                </dl>
+              </div>
+            </details>
+          </section>
+
           <section aria-labelledby="section-header-pride-spaces">
             <h2 id="section-header-pride-spaces">
               pride.google
@@ -318,12 +319,12 @@
             </details>
           </section>
 
-          <section aria-labelledby="section-header-liveschool">
-            <h2 id="section-header-liveschool">
-              Apple
+          <section aria-labelledby="section-header-apple">
+            <h2 id="section-header-apple">
+              Apple Online Store
             </h2>
             <p>
-              The Apple Online Store pages include the buy flow, cart, and checkout. (<a href="https://www.apple.com/store" target="_blank">Live Site</a>)
+              The Online Store pages include the buy flow, cart, and checkout. (<a href="https://www.apple.com/store" target="_blank">Live Site</a>)
             </p>
             <details>
               <summary>CSS Architecture and Migration to SCSS</summary>
