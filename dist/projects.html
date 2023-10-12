@@ -1,25 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Projects - Michael Puckett - UX Engineer</title>
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1"
-    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
       content="I’m a creative technologist with over 10 years of professional JavaScript experience and an educational background in graphic design."
     />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/favicon.svg"
-    />
-    <link
-      rel="stylesheet"
-      href="global.css"
-    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="global.css" />
   </head>
   <body class="is-loaded">
     <div class="container">
@@ -40,79 +29,100 @@
         <h1 class="visually-hidden">Projects</h1>
         <div class="projects">
           <section aria-labelledby="section-header-belonging">
-            <h2 id="section-header-belonging">
-              belonging.google
-            </h2>
+            <h2 id="section-header-belonging">belonging.google</h2>
             <p>
-              A collection of resources related to Google's diversity, equity, and inclusion initiatives.
-              (<a href="https://belonging.google/" target="_blank">Live Site</a>)
+              A collection of resources related to Google's diversity, equity,
+              and inclusion initiatives. (<a
+                href="https://belonging.google/"
+                target="_blank"
+                >Live Site</a
+              >)
             </p>
             <details>
               <summary>2-Column Masonry Layout</summary>
               <div>
-                <h3>
-                  Spec
-                </h3>
+                <h3>Spec</h3>
                 <p>
-                  Cards are arranged into two columns of equal height. Consistent spacing is maintained between the cards, but the cards themselves may grow in height to fit. Keyboard users traverse the cards using the tab key, progressing from left-to-right, top-to-bottom.
+                  Cards are arranged into two columns of equal height.
+                  Consistent spacing is maintained between the cards, but the
+                  cards themselves may grow in height to fit. Keyboard users
+                  traverse the cards using the tab key, progressing from
+                  left-to-right, top-to-bottom.
                 </p>
-                <h3>
-                  Challenge
-                </h3>
+                <h3>Challenge</h3>
                 <p>
-                  The challenge is maintaining equal height columns. CSS masonry layout support is still experimental and extremely limited. CSS multicolumn layout would place cards into columns and the focus order would be top-to-bottom, left-to-right instead of the intuitive order. With CSS flexbox, the focus order could get muddled if a card in one column is much bigger than one in the other column.
+                  The challenge is maintaining equal height columns. CSS masonry
+                  layout support is still experimental and extremely limited.
+                  CSS multicolumn layout would place cards into columns and the
+                  focus order would be top-to-bottom, left-to-right instead of
+                  the intuitive order. With CSS flexbox, the focus order could
+                  get muddled if a card in one column is much bigger than one in
+                  the other column.
                 </p>
-                <h3>
-                  Strategy
-                </h3>
+                <h3>Strategy</h3>
                 <p>
-                  Starting with a CSS grid layout of 2 equal-width columns ensures that the focus order is maintained even if JavaScript is not enabled.
+                  Starting with a CSS grid layout of 2 equal-width columns
+                  ensures that the focus order is maintained even if JavaScript
+                  is not enabled.
                 </p>
                 <p>
-                  Then, using JavaScript, calculate the heights of the cards in each column. For the shorter column, evenly distribute the difference in height relative to the other column among the cards. Render the result with fixed heights and absolute positioning. The total height must be applied to the container since its children are all absolutely positioned. Recalculate upon throttled window resize.
+                  Then, using JavaScript, calculate the heights of the cards in
+                  each column. For the shorter column, evenly distribute the
+                  difference in height relative to the other column among the
+                  cards. Render the result with fixed heights and absolute
+                  positioning. The total height must be applied to the container
+                  since its children are all absolutely positioned. Recalculate
+                  upon throttled window resize.
                 </p>
-                <h3>
-                  Result
-                </h3>
+                <h3>Result</h3>
                 <figure>
                   <a href="belonging_cards.jpg">
-                    <img src="belonging_cards.jpg" alt="On desktop, many cards are displayed into two columns." />
+                    <img
+                      src="belonging_cards.jpg"
+                      alt="On desktop, many cards are displayed into two columns."
+                    />
                   </a>
-                  <figcaption>
-                    Two equal-height columns of cards.
-                  </figcaption>
+                  <figcaption>Two equal-height columns of cards.</figcaption>
                 </figure>
               </div>
             </details>
             <details>
               <summary>Responsive Columns with Expandable Content</summary>
               <div>
-                <h3>
-                  Spec
-                </h3>
+                <h3>Spec</h3>
                 <p>
-                  Expandable disclosure widgets are broken up evenly into columns. The space is distributed evenly such that the columns have similar heights when all the expandable widgets are closed. Multiple disclosure widgets can be open at once. When expanded, the widgets must not shift to different columns. The number of columns displayed varies based on screen size.
+                  Expandable disclosure widgets are broken up evenly into
+                  columns. The space is distributed evenly such that the columns
+                  have similar heights when all the expandable widgets are
+                  closed. Multiple disclosure widgets can be open at once. When
+                  expanded, the widgets must not shift to different columns. The
+                  number of columns displayed varies based on screen size.
                 </p>
-                <h3>
-                  Challenge
-                </h3>
+                <h3>Challenge</h3>
                 <p>
-                  The CSS multicolumn layout algorithm is the best option, but the layout gets recalculated when the expandable widgets are opened. The challenge is preventing the items from moving between columns as they are expanded.
+                  The CSS multicolumn layout algorithm is the best option, but
+                  the layout gets recalculated when the expandable widgets are
+                  opened. The challenge is preventing the items from moving
+                  between columns as they are expanded.
                 </p>
-                <h3>
-                  Strategy
-                </h3>
+                <h3>Strategy</h3>
                 <p>
-                  First, use CSS `columns` to determine the best way to distribute the closed disclosure widgets into columns. If JavaScript is not enabled, the cards will move between columns, but the layout is functional. Then, with JavaScript, determine column order for each item and manually apply the groupings into columns, using flexbox layout for positioning.
+                  First, use CSS `columns` to determine the best way to
+                  distribute the closed disclosure widgets into columns. If
+                  JavaScript is not enabled, the cards will move between
+                  columns, but the layout is functional. Then, with JavaScript,
+                  determine column order for each item and manually apply the
+                  groupings into columns, using flexbox layout for positioning.
                 </p>
-                <h3>
-                  Result
-                </h3>
+                <h3>Result</h3>
                 <ul class="no-bullet">
                   <li>
                     <figure>
                       <a href="belonging_columns_closed.jpg">
-                        <img src="belonging_columns_closed.jpg" alt="On desktop, expandable widgets fill 3 columns." />
+                        <img
+                          src="belonging_columns_closed.jpg"
+                          alt="On desktop, expandable widgets fill 3 columns."
+                        />
                       </a>
                       <figcaption>
                         The expandable widgets are closed.
@@ -122,7 +132,10 @@
                   <li>
                     <figure>
                       <a href="belonging_columns_open.jpg">
-                        <img src="belonging_columns_open.jpg" alt="On desktop, expanded widgets fill 3 columns." />
+                        <img
+                          src="belonging_columns_open.jpg"
+                          alt="On desktop, expanded widgets fill 3 columns."
+                        />
                       </a>
                       <figcaption>
                         The expandable widgets are all open.
@@ -135,30 +148,32 @@
             <details>
               <summary>Accessible Definition Tooltip</summary>
               <div>
-                <h3>
-                  Spec
-                </h3>
+                <h3>Spec</h3>
                 <p>
-                  Certain words within a headline or paragraph are terms that have definitions that should show as popups on hover.
+                  Certain words within a headline or paragraph are terms that
+                  have definitions that should show as popups on hover.
                 </p>
-                <h3>
-                  Challenge
-                </h3>
+                <h3>Challenge</h3>
                 <p>
-                  The ARIA tooltip role seems like a good match, but it works similar to aria-describedby. The length of the definition, especially when in the middle of a paragraph, could make the flow confusing if read along with the rest of the content.
+                  The ARIA tooltip role seems like a good match, but it works
+                  similar to aria-describedby. The length of the definition,
+                  especially when in the middle of a paragraph, could make the
+                  flow confusing if read along with the rest of the content.
                 </p>
-                <h3>
-                  Strategy
-                </h3>
+                <h3>Strategy</h3>
                 <p>
-                  Particularly because the definition is ancillary and could be skipped over without being announced automatically, it should also be revealed on keyboard focus, and overall treated like an expandable disclosure widget.
+                  Particularly because the definition is ancillary and could be
+                  skipped over without being announced automatically, it should
+                  also be revealed on keyboard focus, and overall treated like
+                  an expandable disclosure widget.
                 </p>
-                <h3>
-                  Result
-                </h3>
+                <h3>Result</h3>
                 <figure>
                   <a href="belonging_tooltip.jpg">
-                    <img src="belonging_tooltip.jpg" alt="The definition tooltip shows underneath the term." />
+                    <img
+                      src="belonging_tooltip.jpg"
+                      alt="The definition tooltip shows underneath the term."
+                    />
                   </a>
                   <figcaption>
                     The definition tooltip opens on hover or click.
@@ -169,100 +184,116 @@
           </section>
 
           <section aria-labelledby="section-header-yis-2021">
-            <h2 id="section-header-yis-2021">
-              Google Year in Search 2021
-            </h2>
+            <h2 id="section-header-yis-2021">Google Year in Search 2021</h2>
             <p>
-              Google's annual exploration of search trends from the year.
-              (<a href="https://about.google/stories/year-in-search-2021/" target="_blank">Live Site</a>)
+              Google's annual exploration of search trends from the year. (<a
+                href="https://about.google/stories/year-in-search-2021/"
+                target="_blank"
+                >Live Site</a
+              >)
             </p>
             <details>
               <summary>Accessible Responsive Content Reveal</summary>
               <div>
-                  <h3>
-                    Spec
-                  </h3>
-                  <p>
-                    Cards are staggered down the page. When a card is clicked, its detailed view is revealed, with more information and shareable links. On small screens, the detailed view shows as a modal dialog. On wide screens, the detailed view opens to the left of the main content, and the main content remains interactive and independently scrollable while the detailed view is open.
-                  </p>
-                  <h3>
-                    Challenge
-                  </h3>
-                  <p>
-                    The modal dialog is straightforward, but its relationship to the view that opens to the left side and the mechanism for transitioning between the two in a responsive manner are unclear.
-                  </p>
-                  <h3>
-                    Strategy
-                  </h3>
-                  <p>
-                    The detailed view that opens on the left side should be considered a non-modal dialog, since it presents an additional interactive context without inhibiting interaction with the original context. As such, converting between the two requires flipping the aria-modal="true|false" state of the dialog and the inert="true|false" state of the main content.
-                  </p>
-                  <h3>
-                    Result
-                  </h3>
-                  <figure>
-                    <a href="yis_2021_dialog_open.jpg">
-                      <img src="yis_2021_dialog_open.jpg" alt="The modal dialog shows in full screen on narrow screens, and to the left of the main content on wide screens." />
-                    </a>
-                    <figcaption>
-                      Dialog modal open on mobile, and non-modal dialog open on desktop.
-                    </figcaption>
-                  </figure>
-                </dl>
+                <h3>Spec</h3>
+                <p>
+                  Cards are staggered down the page. When a card is clicked, its
+                  detailed view is revealed, with more information and shareable
+                  links. On small screens, the detailed view shows as a modal
+                  dialog. On wide screens, the detailed view opens to the left
+                  of the main content, and the main content remains interactive
+                  and independently scrollable while the detailed view is open.
+                </p>
+                <h3>Challenge</h3>
+                <p>
+                  The modal dialog is straightforward, but its relationship to
+                  the view that opens to the left side and the mechanism for
+                  transitioning between the two in a responsive manner are
+                  unclear.
+                </p>
+                <h3>Strategy</h3>
+                <p>
+                  The detailed view that opens on the left side should be
+                  considered a non-modal dialog, since it presents an additional
+                  interactive context without inhibiting interaction with the
+                  original context. As such, converting between the two requires
+                  flipping the aria-modal="true|false" state of the dialog and
+                  the inert="true|false" state of the main content.
+                </p>
+                <h3>Result</h3>
+                <figure>
+                  <a href="yis_2021_dialog_open.jpg">
+                    <img
+                      src="yis_2021_dialog_open.jpg"
+                      alt="The modal dialog shows in full screen on narrow screens, and to the left of the main content on wide screens."
+                    />
+                  </a>
+                  <figcaption>
+                    Dialog modal open on mobile, and non-modal dialog open on
+                    desktop.
+                  </figcaption>
+                </figure>
               </div>
             </details>
           </section>
 
           <section aria-labelledby="section-header-pride-spaces">
-            <h2 id="section-header-pride-spaces">
-              pride.google
-            </h2>
+            <h2 id="section-header-pride-spaces">pride.google</h2>
             <p>
-              A celebration of LGBTQ communities around the world.
-              (<a href="https://pride.google/space-to-belong/" target="_blank">Live Site</a>)
+              A celebration of LGBTQ communities around the world. (<a
+                href="https://pride.google/space-to-belong/"
+                target="_blank"
+                >Live Site</a
+              >)
             </p>
             <details>
               <summary>Responsive Editorial Layouts</summary>
               <div>
-                <h3>
-                  Spec
-                </h3>
+                <h3>Spec</h3>
                 <p>
-                  Content is featured in magazine/editorial style, with roomy white space, asymmetrical layouts, and a focus on imagery. The dynamism of the editorial style is maintained on small and large screens.
+                  Content is featured in magazine/editorial style, with roomy
+                  white space, asymmetrical layouts, and a focus on imagery. The
+                  dynamism of the editorial style is maintained on small and
+                  large screens.
                 </p>
-                <h3>
-                  Challenge
-                </h3>
+                <h3>Challenge</h3>
                 <p>
-                  Some components, or pairs of components, need to fit on screen to fill up as much space as possible without scrolling.
+                  Some components, or pairs of components, need to fit on screen
+                  to fill up as much space as possible without scrolling.
                 </p>
-                <h3>
-                  Strategy
-                </h3>
+                <h3>Strategy</h3>
                 <p>
-                  Determine the current viewport height in JavaScript, ignoring the chrome frame of the browser, and provide it in CSS as a variable/custom property.
+                  Determine the current viewport height in JavaScript, ignoring
+                  the chrome frame of the browser, and provide it in CSS as a
+                  variable/custom property.
                 </p>
-                <h3>
-                  Result
-                </h3>
+                <h3>Result</h3>
                 <ul class="no-bullet">
                   <li>
                     <figure>
                       <a href="pride_spaces_1.jpg">
-                        <img src="pride_spaces_1.jpg" alt="On both vertical and horizontal screen sizes, the intro section fits everything into view." />
+                        <img
+                          src="pride_spaces_1.jpg"
+                          alt="On both vertical and horizontal screen sizes, the intro section fits everything into view."
+                        />
                       </a>
                       <figcaption>
-                        The intro headline, video, text, and share bar all fit in the initial viewport.
+                        The intro headline, video, text, and share bar all fit
+                        in the initial viewport.
                       </figcaption>
                     </figure>
                   </li>
                   <li>
                     <figure>
                       <a href="pride_spaces_2.jpg">
-                        <img src="pride_spaces_2.jpg" alt="On both vertical and horizontal screens, an asymmetrical layout is preserved." />
+                        <img
+                          src="pride_spaces_2.jpg"
+                          alt="On both vertical and horizontal screens, an asymmetrical layout is preserved."
+                        />
                       </a>
                       <figcaption>
-                        The asymmetrical layout is preserved through grid spacing and the viewport height variable.
+                        The asymmetrical layout is preserved through grid
+                        spacing and the viewport height variable.
                       </figcaption>
                     </figure>
                   </li>
@@ -272,84 +303,145 @@
           </section>
 
           <section aria-labelledby="section-header-liveschool">
-            <h2 id="section-header-liveschool">
-              LiveSchool
-            </h2>
+            <h2 id="section-header-liveschool">LiveSchool</h2>
             <p>
-              LiveSchool is an app and website that helps educators manage student behavior by awarding behavior points and allowing students to redeem their points for rewards. (<a href="https://liveschoolapp.com/" target="_blank">Live Site</a>)
+              LiveSchool is an app and website that helps educators manage
+              student behavior by awarding behavior points and allowing students
+              to redeem their points for rewards. (<a
+                href="https://liveschoolapp.com/"
+                target="_blank"
+                >Live Site</a
+              >)
             </p>
             <details>
               <summary>Responsive App Interface</summary>
               <div>
-                  <h3>
-                    Spec
-                  </h3>
-                  <p>
-                    The LiveSchool app is responsive and adaptable, ensuring a seamless user experience that doesn't require learning multiple interfaces when switching between devices.
-                  </p>
-                  <h3>
-                    Challenge
-                  </h3>
-                  <p>
-                    The app must deliver a uniform experience across devices, from smartphones to projected laptop screens. It showcases very long or very short student names, along with their behavior points; and features like student selection and viewing behavior history. Interface components must be performant and user-friendly, especially on touch devices.
-                  </p>
-                  <h3>
-                    Strategy
-                  </h3>
-                  <p>
-                    Flexbox wrapping efficiently organizes elements, such as student lists, adapting to varied screen widths. Text-overflow elision prevents text, like long student names, from overflowing by truncating it with an ellipsis ('...'). Breakpoints, applied selectively, adjust the design at specific screen dimensions for optimal viewing and, in rare cases, JavaScript is used to assess available display space.
-                  </p>
-                  <p>
-                    Long, scrollable lists of students are virtualized, ensuring the app runs smoothly, especially on older devices or slower networks.
-                  </p>
-                  <h3>
-                    Result
-                  </h3>
-                  <figure>
-                    <a href="liveschool.jpg">
-                      <img src="liveschool.jpg" alt="The LiveSchool app interface screen where educations can award points to any student in the current roster." />
-                    </a>
-                    <figcaption>
-                      The student selection screen is responsive across devices.
-                    </figcaption>
-                  </figure>
-                </dl>
+                <h3>Spec</h3>
+                <p>
+                  The LiveSchool app is responsive and adaptable, ensuring a
+                  seamless user experience that doesn't require learning
+                  multiple interfaces when switching between devices.
+                </p>
+                <h3>Challenge</h3>
+                <p>
+                  The app must deliver a uniform experience across devices, from
+                  smartphones to projected laptop screens. It showcases very
+                  long or very short student names, along with their behavior
+                  points; and features like student selection and viewing
+                  behavior history. Interface components must be performant and
+                  user-friendly, especially on touch devices.
+                </p>
+                <h3>Strategy</h3>
+                <p>
+                  Flexbox wrapping efficiently organizes elements, such as
+                  student lists, adapting to varied screen widths. Text-overflow
+                  elision prevents text, like long student names, from
+                  overflowing by truncating it with an ellipsis ('...').
+                  Breakpoints, applied selectively, adjust the design at
+                  specific screen dimensions for optimal viewing and, in rare
+                  cases, JavaScript is used to assess available display space.
+                </p>
+                <p>
+                  Long, scrollable lists of students are virtualized, ensuring
+                  the app runs smoothly, especially on older devices or slower
+                  networks.
+                </p>
+                <h3>Result</h3>
+                <figure>
+                  <a href="liveschool.jpg">
+                    <img
+                      src="liveschool.jpg"
+                      alt="The LiveSchool app interface screen where educations can award points to any student in the current roster."
+                    />
+                  </a>
+                  <figcaption>
+                    The student selection screen is responsive across devices.
+                  </figcaption>
+                </figure>
               </div>
             </details>
           </section>
 
           <section aria-labelledby="section-header-apple">
-            <h2 id="section-header-apple">
-              Apple Online Store
-            </h2>
+            <h2 id="section-header-apple">Apple Online Store</h2>
             <p>
-              The Online Store pages include the buy flow, cart, and checkout. (<a href="https://www.apple.com/store" target="_blank">Live Site</a>)
+              The Online Store pages include the buy flow, cart, and checkout.
+              (<a href="https://www.apple.com/store" target="_blank"
+                >Live Site</a
+              >)
             </p>
             <details>
               <summary>CSS Architecture and Migration to SCSS</summary>
               <div>
                 <p>
-                  I spearheaded a significant re-architecture of the CSS codebase for the Apple Online Store. I was entrusted with the lead role for the three distinct phases of the project:
+                  I spearheaded a significant re-architecture of the CSS
+                  codebase for the Apple Online Store. I was entrusted with the
+                  lead role for the three distinct phases of the project:
                 </p>
 
                 <ol>
-                  <li>Leading the core team, conducting research, sharing knowledge, creating prototypes, and making pivotal decisions.</li>
-                  <li>Architecting the build system, envisioning the entire pipeline, managing offshore work, and ensuring seamless integration into our main codebase.</li>
-                  <li>Creating a style guide and linter, and supporting project teams with adoption.</li>
+                  <li>
+                    Leading the core team, conducting research, sharing
+                    knowledge, creating prototypes, and making pivotal
+                    decisions.
+                  </li>
+                  <li>
+                    Architecting the build system, envisioning the entire
+                    pipeline, managing offshore work, and ensuring seamless
+                    integration into our main codebase.
+                  </li>
+                  <li>
+                    Creating a style guide and linter, and supporting project
+                    teams with adoption.
+                  </li>
                 </ol>
 
                 <p>
-                  As a team, we researched CSS patterns and preprocessing/postprocessing frameworks. The ultimate decision to adopt SCSS was strategic, aligning with the Marketing department's tools and facilitating code sharing. This emphasized the crucial nature of UI parity between Marketing and Online Store sections of the website, and positioned us as partners who could contribute to the ecosystem.
+                  As a team, we researched CSS patterns and
+                  preprocessing/postprocessing frameworks. The ultimate decision
+                  to adopt SCSS was strategic, aligning with the Marketing
+                  department's tools and facilitating code sharing. This
+                  emphasized the crucial nature of UI parity between Marketing
+                  and Online Store sections of the website, and positioned us as
+                  partners who could contribute to the ecosystem.
                 </p>
               </div>
             </details>
 
-            
             <details>
               <summary>Apple Watch Launch</summary>
               <div>
                 <p>
-                  For the September 2014 launch of the iPhone 6 and the new Apple Watch, I worked under secrecy constraints, received security training, and was placed in a sequestered office alongside Marketing team designers, engineers, and PMs. I prototyped and delivered the final version of what would become the public's first glimpse at the Apple Watch.
+                  For the September 2014 launch of the iPhone 6 and the new
+                  Apple Watch, I worked under secrecy constraints, received
+                  security training, and was placed in a sequestered office
+                  alongside Marketing team designers, engineers, and PMs. I
+                  prototyped and delivered the final version of what would
+                  become the public's first glimpse at the Apple Watch.
+                </p>
+              </div>
+            </details>
+          </section>
+
+          <section aria-labelledby="section-header-apple">
+            <h2 id="section-header-apple">CNN Next</h2>
+            <p>
+              The 2014 redesign and replatforming of CNN.com. (<a
+                href="https://www.cnn.com"
+                target="_blank"
+                >Live Site</a
+              >)
+            </p>
+            <details>
+              <summary>Isomorphic Templating</summary>
+              <div>
+                <p>
+                  I created Node.js endpoints for CNN's server-generated pages,
+                  dynamically pulling from a content CMS. For lazy-loading, I
+                  created AJAX requests to fetch content as JSON. To reduce code
+                  duplication, the templating engine was the same regardless of
+                  whether the content HTML was rendered on the server or the
+                  client.
                 </p>
               </div>
             </details>
