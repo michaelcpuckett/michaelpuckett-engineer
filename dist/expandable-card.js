@@ -2,9 +2,17 @@ import {LitElement, html, createRef, nothing, ref} from './lit.all.min.js';
 
 const cardStyles = new CSSStyleSheet();
 cardStyles.replaceSync(`
+  * {
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
   :host {
     display: block;
     margin: 1em 0;
+  }
+  :focus {
+    outline: 0;
   }
   details {
     cursor: pointer;
@@ -18,19 +26,36 @@ cardStyles.replaceSync(`
     font-weight: 700;
     color: LinkText;
     color: var(--swatch-interactive);
+    display: flex;
+    gap: 8px;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::marker {
+    display: none;
+  }
+  summary:before {
+    content: "";
+    position: relative;
+    top: .4em;
+    width: 0; 
+    height: 0; 
+    border-top: .333em solid transparent;
+    border-bottom: .333em solid transparent;
+    border-left: .667em solid var(--swatch-interactive);
+  }
+  details[open] summary:before {
+    transform: rotate(90deg);
   }
   summary ::slotted(span) {
     color: CanvasText;
     color: var(--swatch-text-color);
   }
-  summary:focus {
-    outline: 0;
-  }
   details:hover {
-    box-shadow: 0 0 1px 4px var(--swatch-focused);
+    outline: 4px solid var(--swatch-focused);
   }
-  details:focus-within {
-    outline: 4px solid Highlight;
+  details:has(summary:focus-visible) {
     outline: 4px solid var(--swatch-focused);
   }
   [role="list"] {
