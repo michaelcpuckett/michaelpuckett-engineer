@@ -26,9 +26,8 @@ cardStyles.replaceSync(`
   summary:focus {
     outline: 0;
   }
-  details[focus-within] {
-    outline: 4px solid Highlight;
-    outline: 4px solid var(--swatch-focused);
+  details:hover {
+    box-shadow: 0 0 1px 4px var(--swatch-interactive);
   }
   details:focus-within {
     outline: 4px solid Highlight;

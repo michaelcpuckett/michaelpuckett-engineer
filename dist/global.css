@@ -100,6 +100,10 @@ a {
   text-align: center;
   font-weight: 700;
 }
+a:hover {
+  text-decoration: none;
+  box-shadow: 0 0 1px 4px currentColor;
+}
 [hidden] {
   display: none !important;
 }
@@ -169,6 +173,10 @@ summary {
   text-decoration: underline;
   color: var(--swatch-interactive);
   cursor: pointer;
+}
+summary:hover {
+  text-decoration: none;
+  box-shadow: 0 0 1px 4px currentColor;
 }
 :focus {
   outline: 0;
