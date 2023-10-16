@@ -1,0 +1,5 @@
+User-agent: Googlebot
+Disallow: /mentor.html
+
+User-agent: *
+Allow: /
