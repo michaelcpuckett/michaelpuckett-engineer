@@ -19,12 +19,10 @@ cardStyles.replaceSync(`
     border-radius: 1em;
     padding: 1.5em;
     box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.25);
-    background-color: #f0f0f0;
     background-color: var(--swatch-button-face);
   }
   summary {
     font-weight: 700;
-    color: LinkText;
     color: var(--swatch-interactive);
     display: flex;
     gap: 8px;
@@ -49,7 +47,6 @@ cardStyles.replaceSync(`
     transform: rotate(90deg);
   }
   summary ::slotted(span) {
-    color: CanvasText;
     color: var(--swatch-text-color);
   }
   details:hover {

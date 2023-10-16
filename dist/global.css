@@ -7,6 +7,7 @@
   font-family: system-ui, sans-serif;
   line-height: 1.4;
   font-size: 100%;
+  color-scheme: dark light;
   --swatch-text-color: CanvasText;
   --swatch-background-color: Canvas;
   --swatch-gray: #636363;
@@ -16,6 +17,16 @@
   --swatch-button-text: CanvasText;
   --swatch-page: #242424;
   --swatch-button-face: #f0f0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --swatch-page: Canvas;
+    --swatch-gray: #a0a0a0;
+    --swatch-background-color: #1e1e20;
+    --swatch-interactive: deepskyblue;
+    --swatch-button-face: Canvas;
+    --swatch-focused: CanvasText;
+  }
 }
 @media (forced-colors: active) {
   :root {
