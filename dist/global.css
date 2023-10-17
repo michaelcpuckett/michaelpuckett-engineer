@@ -20,11 +20,11 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --swatch-page: Canvas;
+    --swatch-page: black;
     --swatch-gray: #a0a0a0;
     --swatch-background-color: #1e1e20;
     --swatch-interactive: deepskyblue;
-    --swatch-button-face: Canvas;
+    --swatch-button-face: black;
     --swatch-focused: CanvasText;
   }
 }
