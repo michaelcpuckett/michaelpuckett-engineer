@@ -24,20 +24,27 @@
           <span class="h1-name">Hi!</span>
           <span class="h1-name">I'm Michael.</span>
         </div>
+        <img
+          alt="Headshot of Michael Puckett, wearing a hat and a plaid shirt."
+          class="avatar"
+          src="avatar.png"
+          width="1"
+          height="1"
+        />
       </header>
       <main>
         <h1 class="visually-hidden">Mentorship</h1>
         <div class="projects">
-          <section aria-labelledby="section-header-belonging">
-            <h2 id="section-header-belonging">I'm a Code:You Mentor!</h2>
+          <section aria-labelledby="section-header-overview">
+            <h2 id="section-header-overview">I'm a Code:You Mentor!</h2>
             <p>
               I'm very excited to be a mentor for
               <a href="https://codelouisville.org/" target="_blank">Code:You</a
               >, an organization that provides free coding classes.
             </p>
           </section>
-          <section aria-labelledby="section-header-belonging">
-            <h2 id="section-header-belonging">About Me</h2>
+          <section aria-labelledby="section-header-about">
+            <h2 id="section-header-about">About Me</h2>
             <p></p>
             <p>
               I was born and raised in Louisville. I went to Manual High School
@@ -53,8 +60,8 @@
             </p>
           </section>
 
-          <section aria-labelledby="section-header-yis-2021">
-            <h2 id="section-header-yis-2021">Contacting Me</h2>
+          <section aria-labelledby="section-header-contact">
+            <h2 id="section-header-contact">Contacting Me</h2>
             <p>
               Feel free to get in touch with me for advice, questions, or just
               to say hi!
@@ -78,9 +85,48 @@
               </li>
             </ul>
           </section>
+          <!--
+          <section aria-labelledby="section-header-notes">
+            <h2 id="section-header-notes">Weekly Notes</h2>
+
+            <details id="week-1">
+              <summary>Week 1</summary>
+              <div>
+                <h3>What is HTML?</h3>
+                <p>
+                  Cards are arranged into two columns of equal height.
+                  Consistent spacing is maintained between the cards, but the
+                  cards themselves may grow in height to fit. Keyboard users
+                  traverse the cards using the tab key, progressing from
+                  left-to-right, top-to-bottom.
+                </p>
+                <h3>What is CSS?</h3>
+                <p>
+                  The challenge is maintaining equal height columns. CSS masonry
+                  layout support is still experimental and extremely limited.
+                  CSS multicolumn layout would place cards into columns and the
+                  focus order would be top-to-bottom, left-to-right instead of
+                  the intuitive order. With CSS flexbox, the focus order could
+                  get muddled if a card in one column is much bigger than one in
+                  the other column.
+                </p>
+                <h3>What is JavaScript?</h3>
+                <p>
+                  Starting with a CSS grid layout of 2 equal-width columns
+                  ensures that the focus order is maintained even if JavaScript
+                  is not enabled.
+                </p>
+              </div>
+            </details>
+          </section>-->
         </div>
       </main>
     </div>
+    <script type="module">
+      window.document
+        .querySelector("details[id]:target")
+        ?.setAttribute("open", "");
+    </script>
     <noscript>
       <link rel="stylesheet" href="noscript.css" />
     </noscript>

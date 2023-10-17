@@ -100,6 +100,37 @@ header {
   display: grid;
   margin: 1rem 0;
 }
+header:has(img) {
+  width: 100%;
+  gap: 1em;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: auto auto;
+  grid-template-rows: max-content;
+}
+@media (max-width: 959px) {
+  header:has(img) {
+    grid-auto-flow: row;
+    justify-content: center;
+    text-align: center;
+    grid-template-rows: auto;
+    grid-template-columns: 100%;
+  }
+}
+header img {
+  width: 100%;
+  justify-self: flex-end;
+  height: auto;
+  max-width: min(320px, 50%);
+  aspect-ratio: 1;
+  border: 4px solid var(--swatch-text-color);
+}
+@media (max-width: 959px) {
+  header img {
+    justify-self: center;
+  }
+}
 img {
   max-width: 100%;
 }
@@ -213,4 +244,7 @@ summary:hover {
 :focus-visible {
   outline: 4px solid var(--swatch-focused);
   outline-offset: 4px;
+}
+.avatar {
+  border-radius: 50%;
 }
