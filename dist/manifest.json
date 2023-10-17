@@ -1,3 +1,7 @@
 {
-  "display": "standalone"
+  "short_name": "Michael Puckett",
+  "name": "Michael Puckett - UX Engineer",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000"
 }
