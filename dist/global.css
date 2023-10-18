@@ -18,17 +18,28 @@
   --swatch-page: #242424;
   --swatch-button-face: #f0f0f0;
 }
-@media (prefers-color-scheme: dark) {
+@media print {
+  :root {
+    color-scheme: light;
+    --swatch-page: Canvas;
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
   :root {
     --swatch-page: black;
     --swatch-gray: #a0a0a0;
     --swatch-background-color: #1e1e20;
     --swatch-interactive: deepskyblue;
-    --swatch-button-face: black;
-    --swatch-focused: CanvasText;
+    --swatch-button-face: rgb(43, 43, 43);
+    --swatch-focused: Canvas;
   }
 }
-@media (forced-colors: active) {
+@media print, screen and (prefers-contrast: more) {
+  :root {
+    --swatch-button-face: transparent;
+  }
+}
+@media screen and (forced-colors: active) {
   :root {
     --swatch-page: Canvas;
     --swatch-button-face: Canvas;
@@ -58,6 +69,16 @@ body {
   box-shadow: 0 0 2em rgba(0, 0, 0, 0.125);
   grid-template-columns: 100%;
 }
+@media print {
+  .container {
+    max-width: 100%;
+  }
+}
+@media print, screen and (prefers-contrast: more), screen and (forced-colors: active) {
+  .container {
+    box-shadow: none;
+  }
+}
 @media (max-width: 959px) {
   .container {
     margin: 0 auto;
@@ -69,6 +90,11 @@ body {
 @media (min-width: 960px) {
   .container {
     margin-top: 5em;
+  }
+}
+@media print, (forced-colors: active) {
+  .container {
+    margin-top: 0;
   }
 }
 body:not(.is-loaded) .container {
@@ -184,6 +210,12 @@ h2 {
   border-bottom: 2px solid;
   padding-bottom: 0.25em;
 }
+@media print, screen and (prefers-contrast: more), screen and (forced-colors: active) {
+  h2 {
+    border-bottom: 0;
+    font-weight: bold;
+  }
+}
 h3 {
   font-size: 1.3rem;
   color: var(--swatch-gray);
@@ -203,7 +235,7 @@ dt {
 }
 .projects {
   display: grid;
-  grid-gap: 2rem;
+  grid-gap: var(--gap);
 }
 details {
   margin: 1rem 0;

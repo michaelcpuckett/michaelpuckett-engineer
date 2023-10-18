@@ -18,6 +18,14 @@ cardStyles.replaceSync(`
     box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.25);
     background-color: var(--swatch-button-face);
   }
+  @media print, screen and (prefers-contrast: more), screen and (forced-colors: active) {
+    :host {
+      padding: 1em 0 2em;
+      border-radius: 0;
+      box-shadow: none;
+      border-bottom: 1px solid var(--swatch-text-color);
+    }
+  }
   h3 {
     font-size: inherit;
     font-weight: 700;
@@ -48,6 +56,20 @@ cardStyles.replaceSync(`
   }
 `);
 
+/**
+ * @element region-card
+ * 
+ * @slot summary - The summary of the region.
+ * @slot start-date - The start date of the region.
+ * @slot end-date - The end date of the region.
+ * 
+ * @cssprop --swatch-button-face - The background color of the card.
+ * @cssprop --swatch-text-color - The text color of the card.
+ * 
+ * @description
+ * A card that displays as a region in a document, meaning it is a container for
+ * related content. The slot summary is the heading of the region.
+ */
 class RegionCard extends LitElement {
   static styles = [cardStyles];
   static properties = {
