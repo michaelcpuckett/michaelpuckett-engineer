@@ -229,6 +229,9 @@ hr {
 dt {
   font-weight: bold;
 }
+figcaption {
+  font-size: 0.875em;
+}
 .no-bullet {
   margin: 0;
   padding: 0;
