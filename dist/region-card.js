@@ -32,27 +32,22 @@ cardStyles.replaceSync(`
     display: flex;
     gap: 8px;
     margin: 0;
+    page-break-after: avoid;
   }
   summary ::slotted(span) {
     color: var(--swatch-text-color);
   }
-  [role="list"] {
-    display: flex;
-  }
-  [role="term"] {
+  .visually-hidden {
     clip: rect(1px, 1px, 1px, 1px);
     height: 1px;
     overflow: hidden;
     position: absolute;
     width: 1px;
   }
-  [role="definition"] {
+  .dates {
     padding: 0;
     margin: 0;
     font-size: 0.875em;
-  }
-  [role="definition"]:not(:last-of-type):after {
-    content: "–\\00a0";
   }
 `);
 
@@ -102,16 +97,18 @@ class RegionCard extends LitElement {
         <h3 ${ref(this.headingElement)}>
           <slot name="summary"></slot>
         </h3>
-        <div role="list">
+        ${(this.isShowingStartDate || this.isShowingEndDate) ? html`<div class="dates">
           ${this.isShowingStartDate ? html`
-            <span role="term">Start Date</span>
-            <span role="definition"><slot ${ref(this.startDateSlotElement)} name="start-date"></slot></span>
+            <slot ${ref(this.startDateSlotElement)} name="start-date"></slot>
+            ` : nothing}
+          ${this.isShowingStartDate && this.isShowingEndDate ? html`
+            <span aria-hidden="true">–</span>
+            <span class="visually-hidden">through</span>
           ` : nothing}
           ${this.isShowingEndDate ? html`
-            <span role="term">End Date</span>
-            <span role="definition"><slot ${ref(this.endDateSlotElement)} name="end-date"></slot></span>
+            <slot ${ref(this.endDateSlotElement)} name="end-date"></slot>
           ` : nothing}
-        </div>
+        </div>` : nothing}
         <slot></slot>
       </div>
     `;

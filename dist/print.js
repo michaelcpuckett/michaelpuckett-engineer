@@ -1,7 +1,6 @@
 const detailsElements = Array.from(window.document.querySelectorAll('details'));
-const printMediaQuery = window.matchMedia('print');
 
-if (printMediaQuery.matches) {
+window.addEventListener('beforeprint', () => {
   detailsElements.forEach((detailsElement) => {
     if (detailsElement.hasAttribute('open')) {
       detailsElement.setAttribute('data-open', '');
@@ -9,24 +8,14 @@ if (printMediaQuery.matches) {
       detailsElement.setAttribute('open', '');
     }
   });
-}
+});
 
-printMediaQuery.addEventListener(({matches}) => {
-  if (matches) {
-    detailsElements.forEach((detailsElement) => {
-      if (detailsElement.hasAttribute('open')) {
-        detailsElement.setAttribute('data-open', '');
-      } else {
-        detailsElement.setAttribute('open', '');
-      }
-    });
-  } else {
-    detailsElements.forEach((detailsElement) => {
-      if (detailsElement.hasAttribute('data-open')) {
-        detailsElement.removeAttribute('data-open');
-      } else {
-        detailsElement.removeAttribute('open');
-      }
-    });
-  }
+window.addEventListener('afterprint', () => {
+  detailsElements.forEach((detailsElement) => {
+    if (detailsElement.hasAttribute('data-open')) {
+      detailsElement.removeAttribute('data-open');
+    } else {
+      detailsElement.removeAttribute('open');
+    }
+  });
 });
