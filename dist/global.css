@@ -229,6 +229,10 @@ hr {
 dt {
   font-weight: bold;
 }
+figure img {
+  border-radius: .5em;
+  overflow: hidden;
+}
 figcaption {
   font-size: 0.875em;
 }
