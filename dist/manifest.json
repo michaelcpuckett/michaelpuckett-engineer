@@ -3,5 +3,16 @@
   "name": "Michael Puckett - UX Engineer",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#000000"
+  "background_color": "#000000",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any"
+    }
+  ]
 }
