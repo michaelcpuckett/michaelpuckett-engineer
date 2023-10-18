@@ -102,7 +102,7 @@ class RegionCard extends LitElement {
             <slot ${ref(this.startDateSlotElement)} name="start-date"></slot>
             ` : nothing}
           ${this.isShowingStartDate && this.isShowingEndDate ? html`
-            <span aria-hidden="true">–</span>
+            <span aria-hidden="true"> – </span>
             <span class="visually-hidden">through</span>
           ` : nothing}
           ${this.isShowingEndDate ? html`
