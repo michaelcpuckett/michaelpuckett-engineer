@@ -145,72 +145,6 @@
             </details>
           </section>
 
-          <section aria-labelledby="section-header-pride-spaces">
-            <h2 id="section-header-pride-spaces">pride.google</h2>
-            <p>
-              A celebration of LGBTQ communities around the world. (<a
-                href="https://pride.google/space-to-belong/"
-                target="_blank"
-                >Live Site</a
-              >)
-            </p>
-            <details>
-              <summary>Responsive Editorial Layouts</summary>
-              <div>
-                <h3>Spec</h3>
-                <p>
-                  Content is featured in magazine/editorial style, with roomy
-                  white space, asymmetrical layouts, and a focus on imagery. The
-                  dynamism of the editorial style is maintained on small and
-                  large screens.
-                </p>
-                <h3>Challenge</h3>
-                <p>
-                  Some components, or pairs of components, need to fit on screen
-                  to fill up as much space as possible without scrolling.
-                </p>
-                <h3>Strategy</h3>
-                <p>
-                  Determine the current available space in JavaScript by taking
-                  the viewport height and subtracting the chrome frame of the
-                  browser, along with the header, footer, and share bar and
-                  provide it in CSS as a variable/custom property.
-                </p>
-                <h3>Result</h3>
-                <ul class="no-bullet">
-                  <li>
-                    <figure>
-                      <a href="pride_spaces_1.jpg">
-                        <img
-                          src="pride_spaces_1.jpg"
-                          alt="On both vertical and horizontal screen sizes, the intro section fits everything into view."
-                        />
-                      </a>
-                      <figcaption>
-                        The intro headline, video, text, and share bar all fit
-                        in the initial viewport.
-                      </figcaption>
-                    </figure>
-                  </li>
-                  <li>
-                    <figure>
-                      <a href="pride_spaces_2.jpg">
-                        <img
-                          src="pride_spaces_2.jpg"
-                          alt="On both vertical and horizontal screens, an asymmetrical layout is preserved."
-                        />
-                      </a>
-                      <figcaption>
-                        The asymmetrical layout is preserved through grid
-                        spacing and the viewport height variable.
-                      </figcaption>
-                    </figure>
-                  </li>
-                </ul>
-              </div>
-            </details>
-          </section>
-
           <section aria-labelledby="section-header-liveschool">
             <h2 id="section-header-liveschool">LiveSchool app</h2>
             <p>
@@ -227,79 +161,52 @@
               <summary>Realtime Event System</summary>
               <div>
                 <p>
-                  The LiveSchool app tracks student behavior in realtime using
-                  Firebase, allowing educators to award points to students and
-                  view their behavior history. If a teacher is logged in from
-                  multiple devices, then the app synchronizes data instantly
-                  across all devices. The use case was that a teacher would
-                  award points on their phone and the points would increment or
-                  decrement on a projected laptop screen.
+                  The LiveSchool app allows teachers to track student behavior
+                  in real-time, synchronizing data seamlessly across devices.
+                  For instance, when a teacher assigns points on their phone,
+                  it's instantly shown to students via projected laptop screens.
+                  This real-time approach extends throughout the app, including
+                  to settings tweaks like visually resizing student cards.
                 </p>
                 <p>
-                  My role was to key off of Firebase events and update the Vue
-                  interface accordingly. The data was stored in Vuex, which
-                  would be updated with mutations. The state changes would
-                  trigger the interface to update.
-                </p>
-                <p>
-                  Users came to expect that all aspects of the app experience
-                  would update instantaneously across devices, including their
-                  settings. For example, if a teacher changed the relative size
-                  of the student cards, then the change would be reflected on
-                  other devices. This required throttling the events to prevent
-                  the app from becoming sluggish, while still maintaining smooth
-                  animations. Moreover, the number of realtime events made the
-                  app far more complex than it appeared on the surface, but the
-                  overall experience was highly useful to educators.
+                  Using Firebase web socket events, which were converted to Vuex
+                  mutations, any changes would be instantly reflected in the
+                  Vue-based interface. To optimize responsiveness, I employed
+                  techniques such as throttling/debouncing, minimizing data sent
+                  over the wire, optimistic updates, and providing visual
+                  feedback when necessary.
                 </p>
               </div>
             </details>
 
             <details>
-              <summary>Responsive App Interface</summary>
+              <summary>Virtual List Recycler Pattern</summary>
               <div>
                 <h3>Spec</h3>
                 <p>
-                  The LiveSchool app is responsive and adaptable, ensuring a
-                  seamless user experience that doesn't require learning
-                  multiple interfaces when switching between devices.
+                  Interface components must be performant and user-friendly,
+                  especially on touch devices. The app showcases features like
+                  student selection, roster selection, and viewing behavior
+                  history.
                 </p>
                 <h3>Challenge</h3>
-                <p>
-                  The app must deliver a uniform experience across devices, from
-                  smartphones to projected laptop screens. It showcases very
-                  long or very short student names, along with their behavior
-                  points; and features like student selection and viewing
-                  behavior history. Interface components must be performant and
-                  user-friendly, especially on touch devices.
-                </p>
+                <p>These lists can grow to thousands of items per school.</p>
                 <h3>Strategy</h3>
                 <p>
-                  Flexbox wrapping efficiently organizes elements, such as
-                  student lists, adapting to varied screen widths. Text-overflow
-                  elision prevents text, like long student names, from
-                  overflowing by truncating it with an ellipsis ('...').
-                  Breakpoints, applied selectively, adjust the design at
-                  specific screen dimensions for optimal viewing and, in rare
-                  cases, JavaScript is used to assess available display space.
+                  Long, scrollable lists virtualized using a recycler pattern,
+                  ensuring the app runs smoothly, especially on older devices.
+                  The entire list is virtually represented as JSON, but only a
+                  subset is rendered in the DOM. This reduces the memory
+                  footprint and the initial rendering time.
                 </p>
                 <p>
-                  Long, scrollable lists of students are virtualized, ensuring
-                  the app runs smoothly, especially on older devices or slower
-                  networks.
+                  The basic idea behind this pattern is to only render the items
+                  that are currently visible on the screen. As the user scrolls,
+                  items that go offscreen are "recycled" or reused to display
+                  new content that comes into view. This way, the total number
+                  of DOM nodes remains relatively constant and small, regardless
+                  of the length of the list.
                 </p>
-                <h3>Result</h3>
-                <figure>
-                  <a href="liveschool.jpg">
-                    <img
-                      src="liveschool.jpg"
-                      alt="The LiveSchool app interface screen where educations can award points to any student in the current roster."
-                    />
-                  </a>
-                  <figcaption>
-                    The student selection screen is responsive across devices.
-                  </figcaption>
-                </figure>
               </div>
             </details>
           </section>
@@ -356,10 +263,10 @@
                 <p>
                   For the September 2014 launch of the iPhone 6 and the new
                   Apple Watch, I worked under secrecy constraints, received
-                  security training, and was placed in a sequestered office
-                  alongside Marketing team designers, engineers, and PMs. I
-                  prototyped and delivered the final version of what would
-                  become the public's first glimpse at the Apple Watch.
+                  security training, and was placed in an office alongside
+                  Marketing team designers, engineers, and PMs. I prototyped and
+                  delivered the final version of what would become the public's
+                  first glimpse at the Apple Watch.
                 </p>
               </div>
             </details>
