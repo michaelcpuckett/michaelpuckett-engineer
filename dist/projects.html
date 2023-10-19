@@ -89,101 +89,6 @@
                 </figure>
               </div>
             </details>
-            <details>
-              <summary>Responsive Columns with Expandable Content</summary>
-              <div>
-                <h3>Spec</h3>
-                <p>
-                  Expandable disclosure widgets are broken up evenly into
-                  columns. The space is distributed evenly such that the columns
-                  have similar heights when all the expandable widgets are
-                  closed. Multiple disclosure widgets can be open at once. When
-                  expanded, the widgets must not shift to different columns. The
-                  number of columns displayed varies based on screen size.
-                </p>
-                <h3>Challenge</h3>
-                <p>
-                  The CSS multicolumn layout algorithm is the best option, but
-                  the layout gets recalculated when the expandable widgets are
-                  opened. The challenge is preventing the items from moving
-                  between columns as they are expanded.
-                </p>
-                <h3>Strategy</h3>
-                <p>
-                  First, use CSS `columns` to determine the best way to
-                  distribute the closed disclosure widgets into columns. If
-                  JavaScript is not enabled, the cards will move between
-                  columns, but the layout is functional. Then, with JavaScript,
-                  determine column order for each item and manually apply the
-                  groupings into columns, using flexbox layout for positioning.
-                </p>
-                <h3>Result</h3>
-                <ul class="no-bullet">
-                  <li>
-                    <figure>
-                      <a href="belonging_columns_closed.jpg">
-                        <img
-                          src="belonging_columns_closed.jpg"
-                          alt="On desktop, expandable widgets fill 3 columns."
-                        />
-                      </a>
-                      <figcaption>
-                        The expandable widgets are closed.
-                      </figcaption>
-                    </figure>
-                  </li>
-                  <li>
-                    <figure>
-                      <a href="belonging_columns_open.jpg">
-                        <img
-                          src="belonging_columns_open.jpg"
-                          alt="On desktop, expanded widgets fill 3 columns."
-                        />
-                      </a>
-                      <figcaption>
-                        The expandable widgets are all open.
-                      </figcaption>
-                    </figure>
-                  </li>
-                </ul>
-              </div>
-            </details>
-            <details>
-              <summary>Accessible Definition Tooltip</summary>
-              <div>
-                <h3>Spec</h3>
-                <p>
-                  Certain words within a headline or paragraph are terms that
-                  have definitions that should show as popups on hover.
-                </p>
-                <h3>Challenge</h3>
-                <p>
-                  The ARIA tooltip role seems like a good match, but it works
-                  similar to aria-describedby. The length of the definition,
-                  especially when in the middle of a paragraph, could make the
-                  flow confusing if read along with the rest of the content.
-                </p>
-                <h3>Strategy</h3>
-                <p>
-                  Particularly because the definition is ancillary and could be
-                  skipped over without being announced automatically, it should
-                  also be revealed on keyboard focus, and overall treated like
-                  an expandable disclosure widget.
-                </p>
-                <h3>Result</h3>
-                <figure>
-                  <a href="belonging_tooltip.jpg">
-                    <img
-                      src="belonging_tooltip.jpg"
-                      alt="The definition tooltip shows underneath the term."
-                    />
-                  </a>
-                  <figcaption>
-                    The definition tooltip opens on hover or click.
-                  </figcaption>
-                </figure>
-              </div>
-            </details>
           </section>
 
           <section aria-labelledby="section-header-yis-2021">
@@ -266,9 +171,10 @@
                 </p>
                 <h3>Strategy</h3>
                 <p>
-                  Determine the current viewport height in JavaScript, ignoring
-                  the chrome frame of the browser, and provide it in CSS as a
-                  variable/custom property.
+                  Determine the current available space in JavaScript by taking
+                  the viewport height and subracting the chrome frame of the
+                  browser, along with the header, footer, and share bar — and
+                  provide it in CSS as a variable/custom property.
                 </p>
                 <h3>Result</h3>
                 <ul class="no-bullet">
@@ -316,6 +222,39 @@
                 >Live Site</a
               >)
             </p>
+
+            <details>
+              <summary>Realtime Event System</summary>
+              <div>
+                <p>
+                  The LiveSchool app tracks student behavior in realtime using
+                  Firebase, allowing educators to award points to students and
+                  view their behavior history. If a teacher is logged in from
+                  multiple devices, then the app synchronizes data instantly
+                  across all devices. The use case was that a teacher would
+                  award points on their phone and the points would increment or
+                  decrement on a projected laptop screen.
+                </p>
+                <p>
+                  My role was to key off of Firebase events and update the Vue
+                  interface accordingly. The data was stored in Vuex, which
+                  would be updated with mutations. The state changes would
+                  trigger the interface to update.
+                </p>
+                <p>
+                  Users came to expect that all aspects of the app experience
+                  would update instantaneously across devices, including their
+                  settings. For example, if a teacher changed the relative size
+                  of the student cards, then the change would be reflected on
+                  other devices. This required throttling the events to prevent
+                  the app from becoming sluggish, while still maintaining smooth
+                  animations. Moreover, the number of realtime events made the
+                  app far more complex than it appeared on the surface, but the
+                  overall experience was highly useful to educators.
+                </p>
+              </div>
+            </details>
+
             <details>
               <summary>Responsive App Interface</summary>
               <div>
@@ -368,8 +307,8 @@
           <section aria-labelledby="section-header-apple">
             <h2 id="section-header-apple">Apple Online Store</h2>
             <p>
-              The Online Store pages include the buy flow, cart, and checkout.
-              (<a href="https://www.apple.com/store" target="_blank"
+              The Apple.com Store pages include the buy flow, cart, and
+              checkout. (<a href="https://www.apple.com/store" target="_blank"
                 >Live Site</a
               >)
             </p>

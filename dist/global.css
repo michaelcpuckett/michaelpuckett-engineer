@@ -112,6 +112,11 @@ main {
   gap: 1em;
   justify-content: space-between;
 }
+@media print {
+  .nav {
+    display: none;
+  }
+}
 .h1-name {
   font-size: 2em;
   font-weight: 700;
