@@ -93,7 +93,7 @@ body {
     border-radius: 0;
   }
 }
-@media (min-width: 960px) {
+@media screen and (min-width: 960px) {
   .container {
     margin-top: 5rem;
   }
@@ -222,6 +222,27 @@ h2 {
   line-height: 1.25;
   font-size: 1.5rem;
 }
+@media print {
+  body:has(.projects) .h1 {
+    text-align: right;
+  }
+  body:has(.projects) .h1-name {
+    font-size: 1.6rem;
+  }
+  body:has(.projects) .h1-title {
+    letter-spacing: 0;
+    font-size: 1.4rem;
+    text-transform: none;
+  }
+  body:has(.projects) h1.visually-hidden {
+    position: relative;
+    clip: none;
+    margin: 0 0 var(--gap);
+    text-align: center;
+    width: 100%;
+    height: auto;
+  }
+}
 h2 {
   line-height: 1;
   letter-spacing: -0.025rem;
@@ -237,16 +258,17 @@ h2 {
   }
 }
 h3 {
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: var(--swatch-gray);
+  page-break-after: avoid;
 }
 hr {
   margin: 2rem 0;
   border: 0;
   border-top: 1px solid currentColor;
 }
-dt {
-  font-weight: bold;
+region-card {
+  page-break-inside: avoid;
 }
 figure img {
   border-radius: .5rem;
@@ -254,6 +276,11 @@ figure img {
 }
 figcaption {
   font-size: 0.875rem;
+}
+@media print {
+  figure img {
+    max-height: 3.75in;
+  }
 }
 .no-bullet {
   margin: 0;
@@ -290,6 +317,16 @@ summary:before {
   border-top: .333em solid transparent;
   border-bottom: .333em solid transparent;
   border-left: .667em solid var(--swatch-interactive);
+}
+@media print {
+  summary {
+    color: var(--swatch-text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  summary:before {
+    content: none;
+  }
 }
 details[open] summary:before {
   transform: rotate(90deg);
