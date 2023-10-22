@@ -136,6 +136,11 @@ header {
   margin: 1rem 0;
   gap: var(--gap);
 }
+@media print {
+  header {
+    margin-top: 0;
+  }
+}
 header:has(img) {
   width: 100%;
   gap: 1rem;
