@@ -38,7 +38,7 @@
     --swatch-background-color: #1e1e20;
     --swatch-interactive: deepskyblue;
     --swatch-button-face: rgb(43, 43, 43);
-    --swatch-focused: Canvas;
+    --swatch-focused: CanvasText;
   }
 }
 @media print, screen and (prefers-contrast: more) {
