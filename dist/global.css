@@ -6,7 +6,7 @@
 :root {
   font-family: system-ui, sans-serif;
   line-height: 1.4;
-  font-size: 100%;
+  font-size: 18px;
   color-scheme: dark light;
   --swatch-text-color: CanvasText;
   --swatch-background-color: #e5e5e5;
@@ -18,8 +18,14 @@
   --swatch-page: #242424;
   --swatch-button-face: #f0f0f0;
 }
+@media (min-width: 960px) {
+  :root {
+    font-size: 20px;
+  }
+}
 @media print {
   :root {
+    font-size: 16px;
     color-scheme: light;
     --swatch-page: Canvas;
     --swatch-background-color: Canvas;
@@ -53,21 +59,20 @@ body {
   color: var(--swatch-text-color);
   margin: 0;
   padding: 0;
-  font-size: 20px;
 }
 .container {
-  --gap: 2.5em;
+  --gap: 2rem;
   background: Canvas;
   background: var(--swatch-background-color);
   width: 100%;
-  max-width: min(calc(100% - 2em), 860px);
+  max-width: min(calc(100% - 2rem), 860px);
   margin: 0 auto var(--gap);
-  padding: 3em;
+  padding: 3.5rem;
   display: grid;
   grid-gap: calc(var(--gap) / 2);
-  border-radius: 1em;
+  border-radius: 1rem;
   justify-self: center;
-  box-shadow: 0 0 2em rgba(0, 0, 0, 0.125);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.125);
   grid-template-columns: 100%;
 }
 @media print {
@@ -83,14 +88,19 @@ body {
 @media (max-width: 959px) {
   .container {
     margin: 0 auto;
-    padding: 2em;
+    padding: 2rem;
     max-width: 100%;
     border-radius: 0;
   }
 }
 @media (min-width: 960px) {
   .container {
-    margin-top: 5em;
+    margin-top: 5rem;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: min(calc(100% - 25rem), 1280px);
   }
 }
 @media print, (forced-colors: active) {
@@ -108,8 +118,8 @@ main {
 .nav {
   display: flex;
   flex-wrap: wrap;
-  grid-gap: 1em;
-  gap: 1em;
+  grid-gap: 1rem;
+  gap: 1rem;
   justify-content: space-between;
 }
 @media print {
@@ -117,24 +127,14 @@ main {
     display: none;
   }
 }
-.h1-name {
-  font-size: 2em;
-  font-weight: 700;
-  line-height: 1;
-}
-.h1-title {
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  line-height: 1.25;
-  font-size: 1.25em;
-}
 header {
   display: grid;
   margin: 1rem 0;
+  gap: var(--gap);
 }
 header:has(img) {
   width: 100%;
-  gap: 1em;
+  gap: 1rem;
   grid-auto-flow: column;
   justify-content: space-between;
   align-items: center;
@@ -168,7 +168,10 @@ img {
   max-width: 100%;
 }
 p {
-  margin: 1em 0 0;
+  margin: 0;
+}
+section p {
+  margin: 1rem 0 0;
 }
 a {
   color: LinkText;
@@ -203,19 +206,29 @@ h2 {
   flex-direction: column;
   align-content: stretch;
   justify-self: flex-start;
-  font-size: 1.5rem;
-  row-gap: 0.5em;
-  column-gap: 1em;
+  row-gap: 0.5rem;
+  column-gap: 1rem;
   width: 100%;
   letter-spacing: -0.05rem;
+}
+.h1-name {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.h1-title {
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.25;
+  font-size: 1.5rem;
 }
 h2 {
   line-height: 1;
   letter-spacing: -0.025rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
   border-bottom: 2px solid;
   page-break-after: avoid;
-  padding-bottom: 0.25em;
+  padding-bottom: 0.5rem;
 }
 @media print, screen and (prefers-contrast: more), screen and (forced-colors: active) {
   h2 {
@@ -236,11 +249,11 @@ dt {
   font-weight: bold;
 }
 figure img {
-  border-radius: .5em;
+  border-radius: .5rem;
   overflow: hidden;
 }
 figcaption {
-  font-size: 0.875em;
+  font-size: 0.875rem;
 }
 .no-bullet {
   margin: 0;
