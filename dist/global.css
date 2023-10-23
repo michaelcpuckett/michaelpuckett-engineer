@@ -351,5 +351,5 @@ summary:hover {
   outline-offset: 4px;
 }
 .avatar {
-  border-radius: 24px;
+  border-radius: 50%;
 }
