@@ -88,7 +88,7 @@ class RegionCard extends LitElement {
     this.isShowingStartDate = !!this.startDateSlotElement.value?.assignedNodes().length;
     this.isShowingEndDate = !!this.endDateSlotElement.value?.assignedNodes().length;
     this.internals = this.attachInternals();
-    this.internals.role = 'region';
+    this.internals.role = 'group';
     this.internals.ariaLabel = this.querySelector('[slot="summary"]')?.textContent;
   }
 
