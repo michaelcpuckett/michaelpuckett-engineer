@@ -30,23 +30,23 @@
           <a adapt-symbol="26157" href="michael_puckett_resume.pdf">Résumé</a>
         </div>
       </nav>
+      <header>
+        <h1 class="h1">
+          <span class="h1-name">Michael Puckett</span>
+          <span adapt-symbol="23709+23587" class="h1-title">UX Engineer</span>
+        </h1>
+        <p>
+          Creative technologist with extensive experience building for the web
+          platform. Focused on crafting accessible, user-friendly digital
+          products and tools.
+        </p>
+      </header>
       <main>
-        <header>
-          <h1 class="h1">
-            <span class="h1-name">Michael Puckett</span>
-            <span adapt-symbol="23709+23587" class="h1-title">UX Engineer</span>
-          </h1>
-          <p>
-            Creative technologist with extensive experience building for the web
-            platform. Focused on crafting accessible, user-friendly digital
-            products and tools.
-          </p>
-        </header>
         <section aria-labelledby="section-header-skills">
           <h2 adapt-symbol="12322" id="section-header-skills">Skills</h2>
           <ul class="no-bullet">
             <li>
-              <region-card>
+              <card-group>
                 <span adapt-symbol="23664" slot="summary"
                   >JavaScript/<wbr />TypeScript</span
                 >
@@ -59,11 +59,11 @@
                   and similar reactive MVC frameworks. I also have a solid
                   understanding of the DOM and other native web APIs.
                 </p>
-              </region-card>
+              </card-group>
             </li>
 
             <li>
-              <region-card>
+              <card-group>
                 <span adapt-symbol="25002" slot="summary">Accessibility</span>
                 <p>
                   To accommodate all users, including those using assistive
@@ -81,11 +81,11 @@
                   any set of accessibility guidelines stems from a universal
                   right to information.
                 </p>
-              </region-card>
+              </card-group>
             </li>
 
             <li>
-              <region-card>
+              <card-group>
                 <span adapt-symbol="16194+23587" slot="summary"
                   >Design System Engineering</span
                 >
@@ -105,7 +105,7 @@
                   I have also led successful projects to define and standardize
                   coding guidelines for large engineering teams.
                 </p>
-              </region-card>
+              </card-group>
             </li>
           </ul>
         </section>
@@ -115,7 +115,7 @@
           </h2>
           <ol class="no-bullet">
             <li>
-              <region-card>
+              <card-group>
                 <span slot="summary">Google, UX Engineer</span>
                 <span slot="start-date">May 2021</span>
                 <span slot="end-date">Present</span>
@@ -125,11 +125,11 @@
                   production web experiences with clean, efficient, and
                   maintainable code.
                 </p>
-              </region-card>
+              </card-group>
             </li>
 
             <li>
-              <region-card>
+              <card-group>
                 <span slot="summary">LiveSchool, UI Architect</span>
                 <span slot="start-date">August 2018</span>
                 <span slot="end-date">May 2021</span>
@@ -137,11 +137,11 @@
                   I planned and built the front-end for LiveSchool's real-time
                   classroom behavior tracking mobile apps and website.
                 </p>
-              </region-card>
+              </card-group>
             </li>
 
             <li>
-              <region-card>
+              <card-group>
                 <span slot="summary">Humana, Web Developer</span>
                 <span slot="start-date">December 2016</span>
                 <span slot="end-date">July 2018</span>
@@ -150,11 +150,11 @@
                   across many enterprise products for the third largest health
                   insurer in the US.
                 </p>
-              </region-card>
+              </card-group>
             </li>
 
             <li>
-              <region-card>
+              <card-group>
                 <span slot="summary">Apple, UI Engineer</span>
                 <span slot="start-date">October 2013</span>
                 <span slot="end-date">June 2016</span>
@@ -163,11 +163,11 @@
                   transactions on apple.com. I was part of a team that created a
                   SCSS framework for the company-wide design system.
                 </p>
-              </region-card>
+              </card-group>
             </li>
 
             <li>
-              <region-card>
+              <card-group>
                 <span slot="summary">CNN, Web Developer</span>
                 <span slot="start-date">April 2013</span>
                 <span slot="end-date">October 2013</span>
@@ -175,11 +175,11 @@
                   I worked on a responsive redesign and replatforming of
                   CNN.com.
                 </p>
-              </region-card>
+              </card-group>
             </li>
 
             <li>
-              <region-card>
+              <card-group>
                 <span slot="summary">iostudio, Frontend Developer</span>
                 <span slot="start-date">January 2012</span>
                 <span slot="end-date">March 2013</span>
@@ -187,20 +187,20 @@
                   I built marketing websites and web apps for national clients,
                   including the National Guard.
                 </p>
-              </region-card>
+              </card-group>
             </li>
 
             <li>
-              <region-card>
+              <card-group>
                 <span slot="summary">Fruit of the Loom, Web Developer</span>
                 <span slot="start-date">October 2011</span>
                 <span slot="end-date">January 2012</span>
                 <p>I designed and developed a relaunch of Jerzees.com.</p>
-              </region-card>
+              </card-group>
             </li>
 
             <li>
-              <region-card>
+              <card-group>
                 <span slot="summary"
                   >Communication Components, Web Developer</span
                 >
@@ -210,23 +210,23 @@
                   I worked on a web app that generated print marketing materials
                   for small businesses.
                 </p>
-              </region-card>
+              </card-group>
             </li>
           </ol>
         </section>
         <section aria-labelledby="section-header-education">
           <h2 adapt-symbol="13908" id="section-header-education">Education</h2>
-          <region-card>
+          <card-group>
             <span slot="summary"> Western Kentucky University </span>
             <span slot="start-date">
               Bachelor of Arts, Advertising & Graphic Design
             </span>
-          </region-card>
+          </card-group>
         </section>
       </main>
     </div>
     <script type="module">
-      import "./region-card.js";
+      import "./card-group.js";
       window.document.body.classList.add("is-loaded");
     </script>
     <noscript>

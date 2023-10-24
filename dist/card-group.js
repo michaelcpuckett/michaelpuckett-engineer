@@ -11,19 +11,25 @@ cardStyles.replaceSync(`
     outline: 0;
   }
   :host {
-    margin: 1em 0;
-    border-radius: 1em;
-    padding: 1.5em;
+    margin: 1rem 0;
+    border-radius: 1rem;
+    padding: 1.5rem;
     display: block;
-    box-shadow: 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.25);
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
     background-color: var(--swatch-button-face);
   }
   @media print, screen and (prefers-contrast: more), screen and (forced-colors: active) {
     :host {
-      padding: 1em 0 2em;
+      padding: 1rem 0 2rem;
       border-radius: 0;
       box-shadow: none;
       border-bottom: 1px solid var(--swatch-text-color);
+    }
+
+    :host-context(li:last-child),
+    :host-context(:last-of-type:not(:first-of-type)) {
+      border-bottom: none;
+      padding-bottom: 0;
     }
   }
   h3 {
@@ -52,20 +58,19 @@ cardStyles.replaceSync(`
 `);
 
 /**
- * @element region-card
+ * A card that displays as an ARIA group in a document, meaning it is a
+ * container for related content. The slot summary is the heading of the group.
+ *
+ * @element card-group
  * 
- * @slot summary - The summary of the region.
- * @slot start-date - The start date of the region.
- * @slot end-date - The end date of the region.
+ * @slot summary - The summary of the group.
+ * @slot start-date - The start date of the group.
+ * @slot end-date - The end date of the group.
  * 
  * @cssprop --swatch-button-face - The background color of the card.
  * @cssprop --swatch-text-color - The text color of the card.
- * 
- * @description
- * A card that displays as a region in a document, meaning it is a container for
- * related content. The slot summary is the heading of the region.
  */
-class RegionCard extends LitElement {
+class CardGroup extends LitElement {
   static styles = [cardStyles];
   static properties = {
     isShowingStartDate: {type: Boolean, default: true},
@@ -102,7 +107,7 @@ class RegionCard extends LitElement {
             <slot ${ref(this.startDateSlotElement)} name="start-date"></slot>
             ` : nothing}
           ${this.isShowingStartDate && this.isShowingEndDate ? html`
-            <span aria-hidden="true"> – </span>
+            <span aria-hidden="true"> — </span>
             <span class="visually-hidden">through</span>
           ` : nothing}
           ${this.isShowingEndDate ? html`
@@ -115,4 +120,4 @@ class RegionCard extends LitElement {
   }
 }
 
-window.customElements.define('region-card', RegionCard);
+window.customElements.define('card-group', CardGroup);
