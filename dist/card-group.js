@@ -25,12 +25,6 @@ cardStyles.replaceSync(`
       box-shadow: none;
       border-bottom: 1px solid var(--swatch-text-color);
     }
-
-    :host-context(li:last-child),
-    :host-context(:last-of-type:not(:first-of-type)) {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
   }
   h3 {
     font-size: inherit;

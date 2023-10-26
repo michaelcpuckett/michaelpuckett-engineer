@@ -272,6 +272,14 @@ summary:hover {
 card-group {
   page-break-inside: avoid;
 }
+
+@media print, screen and (prefers-contrast: more), screen and (forced-colors: active) {
+  li:last-of-type > card-group,
+  section > card-group {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}
 figure img {
   border-radius: .5rem;
   overflow: hidden;
