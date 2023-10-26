@@ -272,7 +272,6 @@ summary:hover {
 card-group {
   page-break-inside: avoid;
 }
-
 @media print, screen and (prefers-contrast: more), screen and (forced-colors: active) {
   li:last-of-type > card-group,
   section > card-group {
