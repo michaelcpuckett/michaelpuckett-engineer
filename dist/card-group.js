@@ -33,6 +33,7 @@ cardStyles.replaceSync(`
     gap: 8px;
     margin: 0;
     page-break-after: avoid;
+    text-wrap: balance;
   }
   summary ::slotted(span) {
     color: var(--swatch-text-color);

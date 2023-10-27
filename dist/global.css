@@ -126,6 +126,7 @@ img {
 }
 p {
   margin: 0;
+  text-wrap: pretty;
 }
 main p {
   margin: 1rem 0 0;
