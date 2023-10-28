@@ -2,12 +2,13 @@
   "short_name": "Michael Puckett",
   "name": "Michael Puckett - UX Engineer",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#000000",
+  "theme_color": "deepskyblue",
+  "background_color": "rgb(15, 15, 15)",
+  "start_url": "/?homescreen",
   "icons": [
     {
       "src": "favicon.png",
-      "sizes": "48x48",
+      "sizes": "512x512",
       "type": "image/png"
     },
     {

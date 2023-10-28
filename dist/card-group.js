@@ -13,7 +13,7 @@ cardStyles.replaceSync(`
   :host {
     margin: 1rem 0;
     border-radius: 1rem;
-    padding: 1.5rem;
+    padding: 2rem;
     display: block;
     box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
     background-color: var(--swatch-button-face);
@@ -23,7 +23,7 @@ cardStyles.replaceSync(`
       padding: 1rem 0 2rem;
       border-radius: 0;
       box-shadow: none;
-      border-bottom: 1px solid var(--swatch-text-color);
+      border-bottom: 1px solid var(--swatch-text);
     }
   }
   h3 {
@@ -36,7 +36,7 @@ cardStyles.replaceSync(`
     text-wrap: balance;
   }
   summary ::slotted(span) {
-    color: var(--swatch-text-color);
+    color: var(--swatch-text);
   }
   .visually-hidden {
     clip: rect(1px, 1px, 1px, 1px);
@@ -63,7 +63,7 @@ cardStyles.replaceSync(`
  * @slot end-date - The end date of the group.
  * 
  * @cssprop --swatch-button-face - The background color of the card.
- * @cssprop --swatch-text-color - The text color of the card.
+ * @cssprop --swatch-text - The text color of the card.
  */
 class CardGroup extends LitElement {
   static styles = [cardStyles];
