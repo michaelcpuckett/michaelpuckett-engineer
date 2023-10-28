@@ -23,7 +23,7 @@ cardStyles.replaceSync(`
       padding: 1rem 0 2rem;
       border-radius: 0;
       box-shadow: none;
-      border-bottom: 1px solid var(--swatch-text);
+      border-bottom: .1rem solid var(--swatch-text);
     }
   }
   h3 {

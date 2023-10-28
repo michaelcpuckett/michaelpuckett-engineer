@@ -211,7 +211,7 @@ h2 {
   line-height: 1;
   letter-spacing: -0.025rem;
   font-size: 1.6rem;
-  border-bottom: 2px solid;
+  border-bottom: .1rem solid;
   page-break-after: avoid;
   padding-bottom: 0.5rem;
 }
@@ -234,7 +234,7 @@ h3 {
 hr {
   margin: 2rem 0;
   border: 0;
-  border-top: 1px solid currentColor;
+  border-top: .1rem solid currentColor;
 }
 details {
   margin: 1rem 0;
@@ -252,8 +252,20 @@ details {
     margin-top: 0;
   }
 }
+@media print, screen and (prefers-contrast: more), screen and (forced-colors: active) {
+  details {
+    box-shadow: none;
+    border-radius: 0;
+    margin: .5rem 0;
+    padding: 0;
+  }
+  details[open] > div {
+    padding: 0;
+  }
+}
 summary {
   font-weight: bold;
+  border-radius: 1rem;
   color: var(--swatch-text);
   cursor: pointer;
   gap: .5rem;
@@ -263,10 +275,14 @@ summary {
 details:has(summary:hover) {
   background-color: var(--swatch-button-face);
 }
+@media print, screen and (prefers-contrast: more), screen and (forced-colors: active) {
+  summary {
+    padding: .5rem 0;
+  }
+}
 @media print {
   summary {
     font-size: 1.2rem;
-    padding: 1.5rem 0;
   }
 }
 summary::-webkit-details-marker {
