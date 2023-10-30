@@ -375,19 +375,20 @@ main {
     border-radius: 0;
   }
 }
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 768px) {
   .container {
-    margin-top: 4rem;
+    margin-top: 1rem;
+  }
+}
+@media screen and (min-width: 920px) {
+  .container {
+    margin-top: 2rem;
   }
 }
 @media screen and (min-width: 1400px) {
   .container {
+    margin-top: 4rem;
     max-width: min(calc(100% - 2rem), 960px);
-  }
-}
-@media screen and (max-height: 600px) {
-  .container {
-    margin-top: 1rem;
   }
 }
 @media print, screen and (forced-colors: active), screen and (prefers-contrast: more) {
