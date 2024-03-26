@@ -6,8 +6,9 @@ export function IndexPage() {
   return (
     <html lang="en">
       <head>
-        <title>{data.name + " - " + data.title}</title>
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>{data.name + " - " + data.title}</title>
         <meta name="description" content={data.description} />
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <link rel="manifest" href="manifest.json" />
@@ -31,7 +32,7 @@ export function IndexPage() {
 function Nav() {
   return (
     <nav className="nav">
-      <div className="nav">
+      <div className="nav-region">
         <a href="mailto:michael@puckett.contact">Email</a>
         <a href="https://www.linkedin.com/in/michaelcpuckett" target="_blank">
           LinkedIn
@@ -40,7 +41,7 @@ function Nav() {
           Github
         </a>
       </div>
-      <div className="nav">
+      <div className="nav-region">
         <a href="michael_puckett_resume.pdf">Résumé</a>
       </div>
     </nav>
@@ -63,10 +64,10 @@ function SkillsSection() {
   return (
     <section aria-labelledby="section-header-skills">
       <h2 id="section-header-skills">Skills</h2>
-      <ul className="no-bullet">
+      <ul role="list" className="no-bullet">
         {data.skills.map((skill) => (
-          <li key={skill.label} className="card">
-            <Heading label={skill.label}>{skill.headingHtml}</Heading>
+          <li key={skill.headingLabel} className="card">
+            <Heading label={skill.headingLabel}>{skill.headingHtml}</Heading>
             {skill.contentHtml}
           </li>
         ))}
@@ -79,10 +80,12 @@ function ExperienceSection() {
   return (
     <section aria-labelledby="section-header-experience">
       <h2 id="section-header-experience">Experience</h2>
-      <ol className="no-bullet">
+      <ol role="list" className="no-bullet">
         {data.experience.map((experience) => (
-          <li key={experience.label} className="card">
-            <Heading label={experience.label}>{experience.headingHtml}</Heading>
+          <li key={experience.headingLabel} className="card">
+            <Heading label={experience.headingLabel}>
+              {experience.headingHtml}
+            </Heading>
             <Dates
               startDate={experience.startDate}
               endDate={experience.endDate}
@@ -99,10 +102,12 @@ function EducationSection() {
   return (
     <section aria-labelledby="section-header-education">
       <h2 id="section-header-education">Education</h2>
-      <ol className="no-bullet">
+      <ol role="list" className="no-bullet">
         {data.education.map((education) => (
-          <li key={education.label} className="card">
-            <Heading label={education.label}>{education.headingHtml}</Heading>
+          <li key={education.headingLabel} className="card">
+            <Heading label={education.headingLabel}>
+              {education.headingHtml}
+            </Heading>
             <Dates
               startDate={education.startDate}
               endDate={education.endDate}

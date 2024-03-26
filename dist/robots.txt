@@ -1,6 +1,10 @@
 User-agent: Googlebot
 Disallow: /mentor.html
 Disallow: /projects.html
+Allow: /
+Allow: /favicon.svg
+Allow: /manifest.json
+Allow: /michael_puckett_resume.pdf
 
 User-agent: *
 Allow: /

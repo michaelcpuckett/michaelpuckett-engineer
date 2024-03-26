@@ -83,13 +83,18 @@ export default `
     color: var(--swatch-text);
     margin: 0;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
   }
 
-  .nav {
+  .nav,
+  .nav-region {
     display: flex;
     flex-wrap: wrap;
     grid-gap: 1rem;
@@ -158,7 +163,6 @@ export default `
 
   p {
     margin: 0;
-    text-wrap: pretty;
   }
 
   main p {
@@ -329,7 +333,6 @@ export default `
     gap: 8px;
     margin: 0;
     page-break-after: avoid;
-    text-wrap: balance;
   }
 
   @media screen and (max-width: 320px) {
@@ -408,6 +411,7 @@ export default `
 
   @media screen and (max-width: 767px) {
     .container {
+      -webkit-hyphens: auto;
       hyphens: auto;
     }
   }

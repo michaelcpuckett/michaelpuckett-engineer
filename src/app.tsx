@@ -17,11 +17,6 @@ app.get("/", (req, res) => {
   res.send(htmlResult);
 });
 
-app.get("/test", async (req, res) => {
-  await fetch(`http://localhost:3000/index.html`);
-  res.send("done");
-});
-
 app.listen(3000, () => {
   console.log("Running on 3000");
 });

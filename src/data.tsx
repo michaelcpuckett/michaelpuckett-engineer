@@ -7,7 +7,7 @@ export default {
     "Creative technologist with extensive experience building for the web platform. Focused on crafting accessible, user-friendly digital products and tools.",
   skills: [
     {
-      label: "JavaScript/TypeScript",
+      headingLabel: "JavaScript/TypeScript",
       headingHtml: (
         <>
           JavaScript/
@@ -30,7 +30,7 @@ export default {
       ),
     },
     {
-      label: "Accessibility",
+      headingLabel: "Accessibility",
       headingHtml: (
         <>
           Access
@@ -59,7 +59,7 @@ export default {
       ),
     },
     {
-      label: "Design System Engineering",
+      headingLabel: "Design System Engineering",
       headingHtml: <>Design System Engineering</>,
       contentHtml: (
         <>
@@ -78,7 +78,7 @@ export default {
   ],
   experience: [
     {
-      label: "Google, UX Engineer",
+      headingLabel: "Google, UX Engineer",
       headingHtml: <>Google, UX Engineer</>,
       startDate: "May 2021",
       endDate: "December 2023",
@@ -91,7 +91,7 @@ export default {
       ),
     },
     {
-      label: "LiveSchool, UI Architect",
+      headingLabel: "LiveSchool, UI Architect",
       headingHtml: <>LiveSchool, UI Architect</>,
       startDate: "August 2018",
       endDate: "May 2021",
@@ -103,7 +103,7 @@ export default {
       ),
     },
     {
-      label: "Humana, Web Developer",
+      headingLabel: "Humana, Web Developer",
       headingHtml: <>Humana, Web Developer</>,
       startDate: "December 2016",
       endDate: "July 2018",
@@ -116,7 +116,7 @@ export default {
       ),
     },
     {
-      label: "Apple, UI Engineer",
+      headingLabel: "Apple, UI Engineer",
       headingHtml: <>Apple, UI Engineer</>,
       startDate: "October 2013",
       endDate: "June 2016",
@@ -129,7 +129,7 @@ export default {
       ),
     },
     {
-      label: "CNN, Web Developer",
+      headingLabel: "CNN, Web Developer",
       headingHtml: <>CNN, Web Developer</>,
       startDate: "April 2013",
       endDate: "October 2013",
@@ -142,7 +142,7 @@ export default {
       ),
     },
     {
-      label: "iostudio, Web Developer",
+      headingLabel: "iostudio, Web Developer",
       headingHtml: <>iostudio, Web Developer</>,
       startDate: "January 2012",
       endDate: "March 2013",
@@ -154,14 +154,14 @@ export default {
       ),
     },
     {
-      label: "Fruit of the Loom, Web Developer",
+      headingLabel: "Fruit of the Loom, Web Developer",
       headingHtml: <>Fruit of the Loom, Web Developer</>,
       startDate: "October 2011",
       endDate: "January 2012",
       contentHtml: <p>I designed and developed a relaunch of Jerzees.com.</p>,
     },
     {
-      label: "Communication Components, Web Developer",
+      headingLabel: "Communication Components, Web Developer",
       headingHtml: (
         <>
           Communi
@@ -181,7 +181,7 @@ export default {
   ],
   education: [
     {
-      label: "Western Kentucky University",
+      headingLabel: "Western Kentucky University",
       headingHtml: <>Western Kentucky University</>,
       startDate: "2005",
       endDate: "2009",
