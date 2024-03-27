@@ -1,6 +1,6 @@
 import React from "react";
 import data from "./data";
-import styles from "./styles";
+import { getStyles } from "./styles";
 
 export function IndexPage() {
   return (
@@ -12,7 +12,7 @@ export function IndexPage() {
         <meta name="description" content={data.description} />
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <link rel="manifest" href="manifest.json" />
-        <style dangerouslySetInnerHTML={{ __html: styles }} />
+        <style dangerouslySetInnerHTML={{ __html: getStyles() }} />
       </head>
       <body>
         <div className="container">
