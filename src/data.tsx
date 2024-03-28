@@ -9,17 +9,17 @@ export default {
     {
       headingLabel: "JavaScript/TypeScript",
       headingHtml: (
-        <>
+        <b>
           JavaScript/
           <wbr />
           TypeScript
-        </>
+        </b>
       ),
       contentHtml: (
         <>
           <p>
-            I have an advanced understanding of ES/JavaScript, along with a
-            strong familiarity with TypeScript.
+            I have an advanced understanding of ES/JavaScript, along with
+            TypeScript.
           </p>
           <p>
             I am highly efficient working with React, Lit, Vue, Svelte, and
@@ -32,11 +32,11 @@ export default {
     {
       headingLabel: "Accessibility",
       headingHtml: (
-        <>
+        <b>
           Access
           <wbr />
           ibility
-        </>
+        </b>
       ),
       contentHtml: (
         <>
@@ -60,7 +60,7 @@ export default {
     },
     {
       headingLabel: "Design System Engineering",
-      headingHtml: <>Design System Engineering</>,
+      headingHtml: <b>Design System Engineering</b>,
       contentHtml: (
         <>
           <p>
@@ -79,121 +79,240 @@ export default {
   experience: [
     {
       headingLabel: "Google, UX Engineer",
-      headingHtml: <>Google, UX Engineer</>,
+      headingHtml: (
+        <>
+          <b>Google</b>, UX Engineer
+        </>
+      ),
       startDate: "May 2021",
       endDate: "December 2023",
       contentHtml: (
-        <p>
-          I collaborated with UX designers to create delightful, user-friendly
-          interfaces for the Google brand. I developed production web
-          experiences with clean, efficient, and maintainable code.
-        </p>
+        <ul>
+          <li>
+            Developed production web interfaces with clean, efficient, and
+            maintainable TypeScript code, optimizing for performance and
+            scalability.
+          </li>
+          <li>
+            Subject Matter Expert (SME) for accessibility compliance,
+            championing inclusive design principles and ensuring that UIs met or
+            exceeded WCAG standards.
+          </li>
+          <li>
+            Played a pivotal role in the successful launch of the
+            belonging.google domain.
+          </li>
+          <li>
+            Helped create a TypeScript-aware flat-file CMS for content
+            internationalization.
+          </li>
+          <li>
+            Architected coding scaffolds to simplify the creation of new
+            projects.
+          </li>
+        </ul>
       ),
     },
     {
       headingLabel: "LiveSchool, UI Architect",
-      headingHtml: <>LiveSchool, UI Architect</>,
+      headingHtml: (
+        <>
+          <b>LiveSchool</b>, UI Architect
+        </>
+      ),
       startDate: "August 2018",
       endDate: "May 2021",
       contentHtml: (
-        <p>
-          I planned and built the front-end for LiveSchool's real-time classroom
-          behavior tracking mobile apps and website.
-        </p>
+        <ul>
+          <li>
+            Collaborated closely with designers and stakeholders to craft
+            architectural artifacts, including detailed documentation, diagrams,
+            and timelines, ensuring alignment with project goals and
+            requirements.
+          </li>
+          <li>
+            Leveraged Vue 2 to build features for both web applications and
+            web-based mobile apps, ensuring seamless user experiences across
+            platforms.
+          </li>
+          <li>
+            Debugged existing performance issues and implemented
+            performance-friendly components, including an infinite scroll view
+            that recycled DOM elements.
+          </li>
+          <li>
+            Integrated Firebase for authentication and real-time changes that
+            reflected immediately across open tabs and devices.
+          </li>
+        </ul>
       ),
     },
     {
       headingLabel: "Humana, Web Developer",
-      headingHtml: <>Humana, Web Developer</>,
+      headingHtml: (
+        <>
+          <b>Humana</b>, Web Developer
+        </>
+      ),
       startDate: "December 2016",
       endDate: "July 2018",
       contentHtml: (
-        <p>
-          I built a library of accessible web components that was used across
-          Humana's digital properties. I also worked on the company's main
-          website, building new features and fixing bugs.
-        </p>
+        <ul>
+          <li>
+            Built a library of accessible Vue 2 components for one of the
+            nation’s largest health insurance companies.
+          </li>
+          <li>
+            Responsible for evaluating React and other frameworks, leading to
+            the decision to go with Vue 2.
+          </li>
+        </ul>
       ),
     },
     {
       headingLabel: "Apple, UI Engineer",
-      headingHtml: <>Apple, UI Engineer</>,
+      headingHtml: (
+        <>
+          <b>Apple</b>, UI Engineer
+        </>
+      ),
       startDate: "October 2013",
       endDate: "June 2016",
       contentHtml: (
-        <p>
-          I built interfaces to support product launches, campaigns, and
-          transactions on apple.com. I was part of a team that created a SCSS
-          framework for the company-wide design system.
-        </p>
+        <ul>
+          <li>
+            Built interfaces to support product launches and transactions on
+            Apple.com.
+          </li>
+          <li>
+            Led a successful project to harmonize competing corporate design
+            systems and implemented a unified SCSS library.
+          </li>
+          <li>
+            Prepared coding guidelines for use by large engineering teams.
+          </li>
+          <li>
+            Directed offshore teams to implement core tools and libraries.
+          </li>
+        </ul>
       ),
     },
     {
       headingLabel: "CNN, Web Developer",
-      headingHtml: <>CNN, Web Developer</>,
+      headingHtml: (
+        <>
+          <b>CNN</b>, Web Developer
+        </>
+      ),
       startDate: "April 2013",
       endDate: "October 2013",
       contentHtml: (
-        <p>
-          I worked on a responsive redesign and replatforming of CNN.com. I
-          collaborated with a team of developers and designers to create a
-          modern, user-friendly news website.
-        </p>
+        <ul>
+          <li>
+            Helped to re-platform CNN.com from Java to Node.js, improving
+            feature velocity and resulting in more ergonomic and maintainable
+            code.
+          </li>
+          <li>
+            Created a responsive SCSS library for many possible page layouts.
+          </li>
+        </ul>
       ),
     },
     {
       headingLabel: "iostudio, Web Developer",
-      headingHtml: <>iostudio, Web Developer</>,
+      headingHtml: (
+        <>
+          <b>iostudio</b>, Web Developer
+        </>
+      ),
       startDate: "January 2012",
       endDate: "March 2013",
       contentHtml: (
-        <p>
-          I built marketing websites and web apps for national clients,
-          including the National Guard.
-        </p>
+        <ul>
+          <li>
+            Built client marketing websites and web apps for clients in an
+            advertising agency environment.
+          </li>
+          <li>
+            Implemented the first responsive redesign of NationalGuard.com.
+          </li>
+        </ul>
       ),
     },
     {
       headingLabel: "Fruit of the Loom, Web Developer",
-      headingHtml: <>Fruit of the Loom, Web Developer</>,
+      headingHtml: (
+        <>
+          <b>Fruit of the Loom</b>, Web Developer
+        </>
+      ),
       startDate: "October 2011",
       endDate: "January 2012",
-      contentHtml: <p>I designed and developed a relaunch of Jerzees.com.</p>,
+      contentHtml: (
+        <ul>
+          <li>Designed and developed a relaunch of Jerzees.com.</li>
+          <li>
+            Helped maintain all Fruit of the Loom websites, including Fruit.com.
+          </li>
+        </ul>
+      ),
     },
     {
       headingLabel: "Communication Components, Web Developer",
       headingHtml: (
         <>
-          Communi
-          <wbr />
-          cation Components, Web Developer
+          <b>
+            Communi
+            <wbr />
+            cation Components
+          </b>
+          , Web Developer
         </>
       ),
       startDate: "May 2010",
       endDate: "October 2011",
       contentHtml: (
-        <p>
-          I worked on a web app that generated print marketing materials for
-          small businesses.
-        </p>
+        <ul>
+          <li>
+            Helped build a web app that generated print marketing materials for
+            small businesses, using JavaScript and XML technologies.
+          </li>
+        </ul>
       ),
     },
   ],
   education: [
     {
       headingLabel: "Western Kentucky University",
-      headingHtml: <>Western Kentucky University</>,
+      headingHtml: (
+        <>
+          <b>Western Kentucky University</b>, Bachelor of Arts (Interactive
+          Advertising & Graphic Design)
+        </>
+      ),
       startDate: "2005",
       endDate: "2009",
-      degree: "Bachelor of Arts, Interactive Advertising & Graphic Design",
       contentHtml: (
         <>
-          <p>
-            I interned as a web developer at Imagewest, WKU's design studio; as
-            a print designer at the student newspaper; and as a web developer at
-            the City of Bowling Green.
-          </p>
-          <p>3.9 GPA.</p>
+          <ul>
+            <li>
+              Interned as a web developer at Imagewest, WKU's design studio.
+            </li>
+            <li>
+              Interned as a web developer for the municipal website for the City
+              of Bowling Green.
+            </li>
+            <li>
+              Interned as a print designer at the College Heights Herald, WKU's
+              newspaper.
+            </li>
+            <li>
+              Coursework included Digital Illustration, Motion Graphics,
+              Typography, Creative Strategy, Journalism, Copywriting, and PR.
+            </li>
+            <li>Graduated Summa Cum Laude, 3.9 GPA.</li>
+          </ul>
         </>
       ),
     },

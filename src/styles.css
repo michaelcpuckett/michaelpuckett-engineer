@@ -327,7 +327,7 @@ hr {
 
 h3 {
   font-size: inherit;
-  font-weight: 700;
+  font-weight: inherit;
   display: flex;
   gap: 8px;
   margin: 0;
@@ -373,6 +373,10 @@ figcaption {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+ol ul {
+  list-style: disc;
 }
 
 main {
