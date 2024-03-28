@@ -377,6 +377,14 @@ figcaption {
 
 ol ul {
   list-style: disc;
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 1em;
+}
+
+ol ul li {
+  margin: 0.25em 1em;
+  font-size: 0.875em;
 }
 
 main {
