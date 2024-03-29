@@ -96,9 +96,13 @@ body {
 .nav-region {
   display: flex;
   flex-wrap: wrap;
-  grid-gap: 1rem;
   gap: 1rem;
   justify-content: space-between;
+
+  @media screen and (max-width: 767px) {
+    font-size: 0.875em;
+    gap: 0.5rem;
+  }
 }
 
 @media print {
@@ -451,7 +455,7 @@ main {
 
 @media screen and (max-width: 320px) {
   .container {
-    max-width: calc(100% - 2rem);
+    max-width: 100%;
     background: none;
   }
 }
