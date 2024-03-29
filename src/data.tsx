@@ -94,10 +94,6 @@ export default {
             belonging.google domain.
           </li>
           <li>
-            Helped create a TypeScript-aware flat-file CMS for content
-            internationalization.
-          </li>
-          <li>
             Architected coding scaffolds to simplify the creation of new
             projects.
           </li>
