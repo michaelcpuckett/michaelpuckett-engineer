@@ -345,6 +345,9 @@ h3 {
   gap: 8px;
   margin: 0;
   page-break-after: avoid;
+  hyphens: none;
+  word-wrap: initial;
+  overflow-wrap: initial;
 }
 
 .card__heading {
@@ -364,7 +367,12 @@ h3 {
   grid-row: 1 / 3;
   flex: 0 0 auto;
   display: flex;
+  flex-wrap: wrap;
   align-content: end;
+}
+
+.dates time {
+  flex: 0 0 auto;
 }
 
 .pre {
@@ -432,7 +440,7 @@ main {
   grid-template-columns: 100%;
   max-width: min(calc(100% - 2rem), 860px);
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 @media print, screen and (forced-colors: active) {
@@ -443,8 +451,7 @@ main {
 
 @media screen and (max-width: 320px) {
   .container {
-    padding: 1rem;
-    max-width: calc(100% - 1rem);
+    max-width: calc(100% - 2rem);
     background: none;
   }
 }
@@ -453,6 +460,7 @@ main {
   .container {
     -webkit-hyphens: auto;
     hyphens: auto;
+    padding: 2rem;
   }
 }
 

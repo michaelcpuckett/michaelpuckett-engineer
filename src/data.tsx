@@ -8,7 +8,13 @@ export default {
   skills: [
     {
       id: "js-ts",
-      heading: "JavaScript/TypeScript",
+      heading: (
+        <>
+          JavaScript/
+          <wbr />
+          TypeScript
+        </>
+      ),
       contentHtml: (
         <>
           <p>
