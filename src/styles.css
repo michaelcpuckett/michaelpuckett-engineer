@@ -210,6 +210,9 @@ h2 {
   column-gap: 1rem;
   width: 100%;
   letter-spacing: -0.05rem;
+  hyphens: none;
+  word-wrap: initial;
+  overflow-wrap: initial;
 }
 
 .h1-name {
@@ -220,7 +223,7 @@ h2 {
 
 @media screen and (max-width: 320px) {
   .h1-name {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -301,9 +304,9 @@ hr {
   margin: 1rem 0;
   border-radius: 1rem;
   padding: 2rem;
-  display: block;
   box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
   background-color: var(--swatch-button-face);
+  display: block;
 }
 
 @media print, screen and (forced-colors: active) {
@@ -325,24 +328,50 @@ hr {
   }
 }
 
+.card__header {
+  display: flex;
+  column-gap: 1rem;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+}
+
 h3 {
   font-size: inherit;
-  font-weight: inherit;
+  font-weight: bold;
   display: flex;
   gap: 8px;
   margin: 0;
   page-break-after: avoid;
 }
 
-@media screen and (max-width: 320px) {
-  h3 {
-    font-size: 1.125rem;
-  }
+.card__heading {
+  flex: 1 1 auto;
+}
+
+.detail {
+  margin: 0;
+  font-size: 0.875em;
 }
 
 .dates {
   padding: 0;
   margin: 0;
+  font-size: 0.875em;
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  flex: 0 0 auto;
+  display: flex;
+  align-content: end;
+}
+
+.pre {
+  white-space: pre;
+}
+
+.card p {
   font-size: 0.875em;
 }
 
@@ -414,7 +443,7 @@ main {
 
 @media screen and (max-width: 320px) {
   .container {
-    padding: 0;
+    padding: 1rem;
     max-width: calc(100% - 1rem);
     background: none;
   }

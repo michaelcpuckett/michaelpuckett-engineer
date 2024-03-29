@@ -64,11 +64,15 @@ function SkillsSection() {
   return (
     <section aria-labelledby="section-header-skills">
       <h2 id="section-header-skills">Skills</h2>
-      <ul role="list" className="no-bullet">
-        {data.skills.map((skill) => (
-          <li key={skill.headingLabel} className="card">
-            <Heading label={skill.headingLabel}>{skill.headingHtml}</Heading>
-            {skill.contentHtml}
+      <ul
+        role="list"
+        className="no-bullet"
+        aria-labelledby="section-header-skills"
+      >
+        {data.skills.map((item) => (
+          <li key={item.id} className="card">
+            <h3 id={item.id}>{item.heading}</h3>
+            {item.contentHtml}
           </li>
         ))}
       </ul>
@@ -80,17 +84,21 @@ function ExperienceSection() {
   return (
     <section aria-labelledby="section-header-experience">
       <h2 id="section-header-experience">Experience</h2>
-      <ol role="list" className="no-bullet">
-        {data.experience.map((experience) => (
-          <li key={experience.headingLabel} className="card">
-            <Heading label={experience.headingLabel}>
-              {experience.headingHtml}
-            </Heading>
-            <Dates
-              startDate={experience.startDate}
-              endDate={experience.endDate}
-            />
-            {experience.contentHtml}
+      <ol
+        role="list"
+        className="no-bullet"
+        aria-labelledby="section-header-experience"
+      >
+        {data.experience.map((item) => (
+          <li key={item.id} className="card">
+            <div className="card__header">
+              <div className="card__heading">
+                <h3 id={item.id}>{item.heading}</h3>
+                <p className="detail">{item.detail}</p>
+              </div>
+              <Dates startDate={item.startDate} endDate={item.endDate} />
+            </div>
+            <ul aria-labelledby={item.id}>{item.listItemsHtml}</ul>
           </li>
         ))}
       </ol>
@@ -102,17 +110,21 @@ function EducationSection() {
   return (
     <section aria-labelledby="section-header-education">
       <h2 id="section-header-education">Education</h2>
-      <ol role="list" className="no-bullet">
-        {data.education.map((education) => (
-          <li key={education.headingLabel} className="card">
-            <Heading label={education.headingLabel}>
-              {education.headingHtml}
-            </Heading>
-            <Dates
-              startDate={education.startDate}
-              endDate={education.endDate}
-            />
-            {education.contentHtml}
+      <ol
+        role="list"
+        className="no-bullet"
+        aria-labelledby="section-header-education"
+      >
+        {data.education.map((item) => (
+          <li key={item.id} className="card">
+            <div className="card__header">
+              <div className="card__heading">
+                <h3 id={item.id}>{item.heading}</h3>
+                <p className="detail">{item.detail}</p>
+              </div>
+              <Dates startDate={item.startDate} endDate={item.endDate} />
+            </div>
+            <ul aria-labelledby={item.id}>{item.listItemsHtml}</ul>
           </li>
         ))}
       </ol>
@@ -120,19 +132,14 @@ function EducationSection() {
   );
 }
 
-function Heading({ label, children }) {
-  return (
-    <h3 aria-label={label}>
-      <span aria-hidden="true">{children}</span>
-    </h3>
-  );
-}
-
 function Dates({ startDate, endDate }) {
   return (
     <div className="dates">
       <time dateTime={startDate}>{startDate}</time>
-      <span aria-hidden="true"> — </span>
+      <span className="pre" aria-hidden="true">
+        {" "}
+        -{" "}
+      </span>
       <span className="visually-hidden">through</span>
       <time dateTime={endDate}>{endDate}</time>
     </div>

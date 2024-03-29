@@ -7,14 +7,8 @@ export default {
     "Creative technologist with extensive experience building for the web platform. Focused on crafting accessible, user-friendly digital products and tools.",
   skills: [
     {
-      headingLabel: "JavaScript/TypeScript",
-      headingHtml: (
-        <b>
-          JavaScript/
-          <wbr />
-          TypeScript
-        </b>
-      ),
+      id: "js-ts",
+      heading: "JavaScript/TypeScript",
       contentHtml: (
         <>
           <p>
@@ -30,14 +24,8 @@ export default {
       ),
     },
     {
-      headingLabel: "Accessibility",
-      headingHtml: (
-        <b>
-          Access
-          <wbr />
-          ibility
-        </b>
-      ),
+      id: "a11y",
+      heading: "Accessibility",
       contentHtml: (
         <>
           <p>
@@ -59,8 +47,8 @@ export default {
       ),
     },
     {
-      headingLabel: "Design System Engineering",
-      headingHtml: <b>Design System Engineering</b>,
+      id: "design-systems",
+      heading: "Design System Engineering",
       contentHtml: (
         <>
           <p>
@@ -78,16 +66,13 @@ export default {
   ],
   experience: [
     {
-      headingLabel: "Google, UX Engineer",
-      headingHtml: (
-        <>
-          <b>Google</b>, UX Engineer
-        </>
-      ),
+      id: "google",
+      heading: "Google",
+      detail: "UX Engineer",
       startDate: "May 2021",
       endDate: "December 2023",
-      contentHtml: (
-        <ul>
+      listItemsHtml: (
+        <>
           <li>
             Developed production web interfaces with clean, efficient, and
             maintainable TypeScript code, optimizing for performance and
@@ -110,20 +95,17 @@ export default {
             Architected coding scaffolds to simplify the creation of new
             projects.
           </li>
-        </ul>
+        </>
       ),
     },
     {
-      headingLabel: "LiveSchool, UI Architect",
-      headingHtml: (
-        <>
-          <b>LiveSchool</b>, UI Architect
-        </>
-      ),
+      id: "liveschool",
+      heading: "LiveSchool",
+      detail: "UI Architect",
       startDate: "August 2018",
       endDate: "May 2021",
-      contentHtml: (
-        <ul>
+      listItemsHtml: (
+        <>
           <li>
             Collaborated closely with designers and stakeholders to craft
             architectural artifacts, including detailed documentation, diagrams,
@@ -144,20 +126,17 @@ export default {
             Integrated Firebase for authentication and real-time changes that
             reflected immediately across open tabs and devices.
           </li>
-        </ul>
+        </>
       ),
     },
     {
-      headingLabel: "Humana, Web Developer",
-      headingHtml: (
-        <>
-          <b>Humana</b>, Web Developer
-        </>
-      ),
+      id: "humana",
+      heading: "Humana",
+      detail: "Web Developer",
       startDate: "December 2016",
       endDate: "July 2018",
-      contentHtml: (
-        <ul>
+      listItemsHtml: (
+        <>
           <li>
             Built a library of accessible Vue 2 components for one of the
             nation’s largest health insurance companies.
@@ -166,20 +145,17 @@ export default {
             Responsible for evaluating React and other frameworks, leading to
             the decision to go with Vue 2.
           </li>
-        </ul>
+        </>
       ),
     },
     {
-      headingLabel: "Apple, UI Engineer",
-      headingHtml: (
-        <>
-          <b>Apple</b>, UI Engineer
-        </>
-      ),
+      id: "apple",
+      heading: "Apple",
+      detail: "UI Engineer",
       startDate: "October 2013",
       endDate: "June 2016",
-      contentHtml: (
-        <ul>
+      listItemsHtml: (
+        <>
           <li>
             Built interfaces to support product launches and transactions on
             Apple.com.
@@ -194,20 +170,17 @@ export default {
           <li>
             Directed offshore teams to implement core tools and libraries.
           </li>
-        </ul>
+        </>
       ),
     },
     {
-      headingLabel: "CNN, Web Developer",
-      headingHtml: (
-        <>
-          <b>CNN</b>, Web Developer
-        </>
-      ),
+      id: "cnn",
+      heading: "CNN",
+      detail: "Web Developer",
       startDate: "April 2013",
       endDate: "October 2013",
-      contentHtml: (
-        <ul>
+      listItemsHtml: (
+        <>
           <li>
             Helped to re-platform CNN.com from Java to Node.js, improving
             feature velocity and resulting in more ergonomic and maintainable
@@ -216,20 +189,17 @@ export default {
           <li>
             Created a responsive SCSS library for many possible page layouts.
           </li>
-        </ul>
+        </>
       ),
     },
     {
-      headingLabel: "iostudio, Web Developer",
-      headingHtml: (
-        <>
-          <b>iostudio</b>, Web Developer
-        </>
-      ),
+      id: "iostudio",
+      heading: "iostudio",
+      detail: "Web Developer",
       startDate: "January 2012",
       endDate: "March 2013",
-      contentHtml: (
-        <ul>
+      listItemsHtml: (
+        <>
           <li>
             Built client marketing websites and web apps for clients in an
             advertising agency environment.
@@ -237,82 +207,65 @@ export default {
           <li>
             Implemented the first responsive redesign of NationalGuard.com.
           </li>
-        </ul>
+        </>
       ),
     },
     {
-      headingLabel: "Fruit of the Loom, Web Developer",
-      headingHtml: (
-        <>
-          <b>Fruit of the Loom</b>, Web Developer
-        </>
-      ),
+      id: "fruit",
+      heading: "Fruit of the Loom",
+      detail: "Web Developer",
       startDate: "October 2011",
       endDate: "January 2012",
-      contentHtml: (
-        <ul>
+      listItemsHtml: (
+        <>
           <li>Designed and developed a relaunch of Jerzees.com.</li>
           <li>
             Helped maintain all Fruit of the Loom websites, including Fruit.com.
           </li>
-        </ul>
+        </>
       ),
     },
     {
-      headingLabel: "Communication Components, Web Developer",
-      headingHtml: (
-        <>
-          <b>
-            Communi
-            <wbr />
-            cation Components
-          </b>
-          , Web Developer
-        </>
-      ),
+      id: "2-com",
+      heading: "Communication Components",
+      detail: "Web Developer",
       startDate: "May 2010",
       endDate: "October 2011",
-      contentHtml: (
-        <ul>
+      listItemsHtml: (
+        <>
           <li>
             Helped build a web app that generated print marketing materials for
             small businesses, using JavaScript and XML technologies.
           </li>
-        </ul>
+        </>
       ),
     },
   ],
   education: [
     {
-      headingLabel: "Western Kentucky University",
-      headingHtml: (
-        <>
-          <b>Western Kentucky University</b>, Bachelor of Arts (Interactive
-          Advertising & Graphic Design)
-        </>
-      ),
+      id: "wku",
+      heading: "Western Kentucky University",
+      detail: "Bachelor of Arts (Interactive Advertising & Graphic Design)",
       startDate: "2005",
       endDate: "2009",
-      contentHtml: (
+      listItemsHtml: (
         <>
-          <ul>
-            <li>
-              Interned as a web developer at Imagewest, WKU's design studio.
-            </li>
-            <li>
-              Interned as a web developer for the municipal website for the City
-              of Bowling Green.
-            </li>
-            <li>
-              Interned as a print designer at the College Heights Herald, WKU's
-              newspaper.
-            </li>
-            <li>
-              Coursework included Digital Illustration, Motion Graphics,
-              Typography, Creative Strategy, Journalism, Copywriting, and PR.
-            </li>
-            <li>Graduated Summa Cum Laude, 3.9 GPA.</li>
-          </ul>
+          <li>
+            Interned as a web developer at Imagewest, WKU's design studio.
+          </li>
+          <li>
+            Interned as a web developer for the municipal website for the City
+            of Bowling Green.
+          </li>
+          <li>
+            Interned as a print designer at the College Heights Herald, WKU's
+            newspaper.
+          </li>
+          <li>
+            Coursework included Digital Illustration, Motion Graphics,
+            Typography, Creative Strategy, Journalism, Copywriting, and PR.
+          </li>
+          <li>Graduated Summa Cum Laude, 3.9 GPA.</li>
         </>
       ),
     },
