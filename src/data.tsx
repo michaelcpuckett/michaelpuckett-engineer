@@ -228,10 +228,10 @@ export default {
       ),
     },
     {
-      id: "2-com",
+      id: "communication-components",
       heading: "Communication Components",
       detail: "Web Developer",
-      startDate: "May 2010",
+      startDate: "March 2010",
       endDate: "October 2011",
       listItemsHtml: (
         <>
