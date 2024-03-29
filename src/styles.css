@@ -372,7 +372,11 @@ h3 {
   flex: 0 0 auto;
   display: flex;
   flex-wrap: wrap;
-  align-content: end;
+  justify-content: end;
+
+  @media (max-width: 767px) {
+    justify-content: start;
+  }
 }
 
 .dates time {
