@@ -247,7 +247,7 @@ export default {
     {
       id: "wku",
       heading: "Western Kentucky University",
-      detail: "Bachelor of Arts (Interactive Advertising & Graphic Design)",
+      detail: "Bachelor of Arts, Interactive Advertising & Graphic Design",
       startDate: "2005",
       endDate: "2009",
       listItemsHtml: (
