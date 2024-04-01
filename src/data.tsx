@@ -253,21 +253,21 @@ export default {
       listItemsHtml: (
         <>
           <li>
-            Interned as a web developer at Imagewest, WKU's design studio.
+            Interned at Imagewest, WKU's design studio, as a web developer.
           </li>
           <li>
-            Interned as a web developer for the municipal website for the City
-            of Bowling Green.
+            Interned for the municipal website for the City of Bowling Green, as
+            a web developer.
           </li>
           <li>
-            Interned as a print designer at the College Heights Herald, WKU's
-            newspaper.
+            Interned at the College Heights Herald, WKU's newspaper, as a print
+            designer.
           </li>
           <li>
             Coursework included Digital Illustration, Motion Graphics,
             Typography, Creative Strategy, Journalism, Copywriting, and PR.
           </li>
-          <li>Graduated Summa Cum Laude, 3.9 GPA.</li>
+          <li>Graduated Summa Cum Laude (3.9 GPA).</li>
         </>
       ),
     },
