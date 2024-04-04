@@ -182,10 +182,6 @@ a {
   margin-bottom: calc((1em - 48px) / 2);
 }
 
-a:visited {
-  color: var(--swatch-interactive-completed);
-}
-
 a:hover {
   text-decoration: none;
 }

@@ -42,7 +42,9 @@ function Nav() {
         </a>
       </div>
       <div className="nav-region">
-        <a href="michael_puckett_resume.pdf">Résumé</a>
+        <a href="michael_puckett_resume.pdf" target="_blank">
+          Résumé
+        </a>
       </div>
     </nav>
   );
