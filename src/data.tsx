@@ -31,14 +31,13 @@ export default {
     },
     {
       id: "a11y",
-      heading: "Accessibility",
+      heading: "Web Accessibility",
       contentHtml: (
         <>
           <p>
-            I am a strong advocate for accessibility and have a deep
-            understanding of the Web Content Accessibility Guidelines (WCAG). I
-            have experience working with screen readers, voice recognition, and
-            other assistive technologies.
+            I have a deep understanding of the Web Content Accessibility
+            Guidelines (WCAG). I have experience working with screen readers,
+            voice recognition, and other assistive technologies.
           </p>
           <p>
             I have worked on websites subject to legal action on the grounds of
@@ -46,8 +45,9 @@ export default {
             and external audits.
           </p>
           <p>
-            I believe that any set of accessibility guidelines stems from a
-            universal right to information.
+            I am a strong advocate for accessibility and I believe that any set
+            of accessibility guidelines stems from a universal right to
+            information.
           </p>
         </>
       ),
@@ -72,6 +72,22 @@ export default {
   ],
   experience: [
     {
+      id: "both-and-yes",
+      heading: "Both&Yes",
+      detail: "UX Engineer",
+      startDate: "April 2024",
+      endDate: "Present",
+      listItemsHtml: (
+        <>
+          <li>
+            Building client websites and internal tools, primarily using
+            TypeScript and React/Next.js.
+          </li>
+          <li>Exploring AI solutions for clients.</li>
+        </>
+      ),
+    },
+    {
       id: "google",
       heading: "Google",
       detail: "UX Engineer",
@@ -90,8 +106,9 @@ export default {
             exceeded WCAG standards.
           </li>
           <li>
-            Played a pivotal role in the successful launch of the
-            belonging.google domain.
+            Played a pivotal role in multiple successful launches, including the
+            belonging.google domain, the pride.google domain, and the annual
+            Year in Search experience.
           </li>
           <li>
             Architected coding scaffolds to simplify the creation of new
@@ -109,24 +126,24 @@ export default {
       listItemsHtml: (
         <>
           <li>
+            Leveraged Vue 2 to build features for LiveSchool's suite of web
+            applications and web-based mobile apps, ensuring a seamless user
+            experience across platforms.
+          </li>
+          <li>
+            Utilized Firebase for authentication and real-time changes that
+            reflected immediately across open tabs and devices.
+          </li>
+          <li>
             Collaborated closely with designers and stakeholders to craft
             architectural artifacts, including detailed documentation, diagrams,
             and timelines, ensuring alignment with project goals and
             requirements.
           </li>
           <li>
-            Leveraged Vue 2 to build features for both web applications and
-            web-based mobile apps, ensuring seamless user experiences across
-            platforms.
-          </li>
-          <li>
             Debugged existing performance issues and implemented
             performance-friendly components, including an infinite scroll view
             that recycled DOM elements.
-          </li>
-          <li>
-            Integrated Firebase for authentication and real-time changes that
-            reflected immediately across open tabs and devices.
           </li>
         </>
       ),
