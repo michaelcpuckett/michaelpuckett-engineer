@@ -138,7 +138,7 @@ function Dates({ startDate, endDate }) {
   return (
     <div className="dates">
       <time dateTime={startDate}>{startDate}</time>
-      <span className="pre" aria-hidden="true">
+      <span className="dates__through" aria-hidden="true" hidden>
         {" "}
         -{" "}
       </span>
