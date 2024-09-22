@@ -12,12 +12,9 @@
     "jsx": "react-jsx",
     "noLib": false,
     "isolatedModules": true,
-    "lib": ["ESNext", "webworker", "DOM.Iterable"],
+    "lib": ["ESNext", "DOM.Iterable"],
     "target": "ESNext",
-    "outDir": "./",
+    "outDir": "./dist"
   },
-  "exclude": ["../../node_modules"],
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*"]
 }

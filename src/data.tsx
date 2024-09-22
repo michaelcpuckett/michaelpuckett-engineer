@@ -1,13 +1,21 @@
-import React from "react";
-
 export default {
   name: "Michael Puckett",
   title: "UX Engineer",
   description:
     "Creative technologist with extensive experience building for the web platform. Focused on crafting accessible, user-friendly digital products and tools.",
+  email: "michael@puckett.contact",
+  links: [
+    {
+      href: "https://www.linkedin.com/in/michaelcpuckett",
+      text: "LinkedIn",
+    },
+    {
+      href: "https://www.github.com/michaelcpuckett",
+      text: "Github",
+    },
+  ],
   skills: [
     {
-      id: "js-ts",
       heading: (
         <>
           JavaScript/
@@ -30,7 +38,6 @@ export default {
       ),
     },
     {
-      id: "a11y",
       heading: "Web Accessibility",
       contentHtml: (
         <>
@@ -53,7 +60,6 @@ export default {
       ),
     },
     {
-      id: "design-systems",
       heading: "Design System Engineering",
       contentHtml: (
         <>
@@ -72,23 +78,21 @@ export default {
   ],
   experience: [
     {
-      id: "both-and-yes",
-      heading: "Both&Yes",
+      heading: "Both & Yes",
       detail: "UX Engineer",
       startDate: "April 2024",
       endDate: "Present",
       listItemsHtml: (
         <>
           <li>
-            Building client websites and internal tools, primarily using
-            TypeScript and React/Next.js.
+            Building client websites and internal tools to support agency
+            projects.
           </li>
-          <li>Exploring AI solutions for clients.</li>
+          <li>TypeScript and React/Next.js.</li>
         </>
       ),
     },
     {
-      id: "google",
       heading: "Google",
       detail: "UX Engineer",
       startDate: "May 2021",
@@ -118,7 +122,6 @@ export default {
       ),
     },
     {
-      id: "liveschool",
       heading: "LiveSchool",
       detail: "UI Architect",
       startDate: "August 2018",
@@ -149,7 +152,6 @@ export default {
       ),
     },
     {
-      id: "humana",
       heading: "Humana",
       detail: "Web Developer",
       startDate: "December 2016",
@@ -168,7 +170,6 @@ export default {
       ),
     },
     {
-      id: "apple",
       heading: "Apple",
       detail: "UI Engineer",
       startDate: "October 2013",
@@ -193,7 +194,6 @@ export default {
       ),
     },
     {
-      id: "cnn",
       heading: "CNN",
       detail: "Web Developer",
       startDate: "April 2013",
@@ -212,7 +212,6 @@ export default {
       ),
     },
     {
-      id: "iostudio",
       heading: "iostudio",
       detail: "Web Developer",
       startDate: "January 2012",
@@ -230,7 +229,6 @@ export default {
       ),
     },
     {
-      id: "fruit",
       heading: "Fruit of the Loom",
       detail: "Web Developer",
       startDate: "October 2011",
@@ -245,7 +243,6 @@ export default {
       ),
     },
     {
-      id: "communication-components",
       heading: "Communication Components",
       detail: "Web Developer",
       startDate: "March 2010",
@@ -262,7 +259,6 @@ export default {
   ],
   education: [
     {
-      id: "wku",
       heading: "Western Kentucky University",
       detail: "Bachelor of Arts, Interactive Advertising & Graphic Design",
       startDate: "2005",

@@ -1,4 +1,4 @@
-import React from "react";
+import slugify from "react-slugify";
 import data from "./data";
 import { getStyles } from "./styles";
 
@@ -33,13 +33,12 @@ function Nav() {
   return (
     <nav className="nav">
       <div className="nav-region">
-        <a href="mailto:michael@puckett.contact">Email</a>
-        <a href="https://www.linkedin.com/in/michaelcpuckett" target="_blank">
-          LinkedIn
-        </a>
-        <a href="https://www.github.com/michaelcpuckett" target="_blank">
-          Github
-        </a>
+        <a href={"mailto:" + data.email}>Email</a>
+        {data.links.map((link) => (
+          <a key={link.href} href={link.href} target="_blank">
+            {link.text}
+          </a>
+        ))}
       </div>
       <div className="nav-region">
         <a href="michael_puckett_resume.pdf" target="_blank">
@@ -53,9 +52,10 @@ function Nav() {
 function Header() {
   return (
     <header>
-      <h1 className="h1">
-        <span className="h1-name">{data.name}</span>
-        <span className="h1-title">{data.title}</span>
+      <h1>
+        <span className="h1__name">{data.name}</span>
+        <span hidden>-</span>
+        <span className="h1__title">{data.title}</span>
       </h1>
       <p>{data.description}</p>
     </header>
@@ -66,17 +66,17 @@ function SkillsSection() {
   return (
     <section aria-labelledby="section-header-skills">
       <h2 id="section-header-skills">Skills</h2>
-      <ul
-        role="list"
-        className="no-bullet"
-        aria-labelledby="section-header-skills"
-      >
-        {data.skills.map((item) => (
-          <li key={item.id} className="card">
-            <h3 id={item.id}>{item.heading}</h3>
-            {item.contentHtml}
-          </li>
-        ))}
+      <ul role="list" aria-labelledby="section-header-skills">
+        {data.skills.map((item) => {
+          const id = slugify(item.heading);
+
+          return (
+            <li key={id} className="card" aria-labelledby={id}>
+              <h3 id={id}>{item.heading}</h3>
+              {item.contentHtml}
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
@@ -86,23 +86,23 @@ function ExperienceSection() {
   return (
     <section aria-labelledby="section-header-experience">
       <h2 id="section-header-experience">Experience</h2>
-      <ol
-        role="list"
-        className="no-bullet"
-        aria-labelledby="section-header-experience"
-      >
-        {data.experience.map((item) => (
-          <li key={item.id} className="card">
-            <div className="card__header">
-              <div className="card__heading">
-                <h3 id={item.id}>{item.heading}</h3>
-                <p className="detail">{item.detail}</p>
+      <ol role="list" aria-labelledby="section-header-experience">
+        {data.experience.map((item) => {
+          const id = slugify(item.heading);
+
+          return (
+            <li key={id} className="card" aria-labelledby={id}>
+              <div className="card__header">
+                <div className="card__heading">
+                  <h3 id={id}>{item.heading}</h3>
+                  <p className="card__detail">{item.detail}</p>
+                </div>
+                <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
-              <Dates startDate={item.startDate} endDate={item.endDate} />
-            </div>
-            <ul aria-labelledby={item.id}>{item.listItemsHtml}</ul>
-          </li>
-        ))}
+              <ul>{item.listItemsHtml}</ul>
+            </li>
+          );
+        })}
       </ol>
     </section>
   );
@@ -112,23 +112,23 @@ function EducationSection() {
   return (
     <section aria-labelledby="section-header-education">
       <h2 id="section-header-education">Education</h2>
-      <ol
-        role="list"
-        className="no-bullet"
-        aria-labelledby="section-header-education"
-      >
-        {data.education.map((item) => (
-          <li key={item.id} className="card">
-            <div className="card__header">
-              <div className="card__heading">
-                <h3 id={item.id}>{item.heading}</h3>
-                <p className="detail">{item.detail}</p>
+      <ol role="list" aria-labelledby="section-header-education">
+        {data.education.map((item) => {
+          const id = slugify(item.heading);
+
+          return (
+            <li key={id} className="card" aria-labelledby={id}>
+              <div className="card__header">
+                <div className="card__heading">
+                  <h3 id={id}>{item.heading}</h3>
+                  <p className="card__detail">{item.detail}</p>
+                </div>
+                <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
-              <Dates startDate={item.startDate} endDate={item.endDate} />
-            </div>
-            <ul aria-labelledby={item.id}>{item.listItemsHtml}</ul>
-          </li>
-        ))}
+              <ul>{item.listItemsHtml}</ul>
+            </li>
+          );
+        })}
       </ol>
     </section>
   );
