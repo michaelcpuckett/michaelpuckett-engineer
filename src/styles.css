@@ -15,7 +15,7 @@
     font-size: 20px;
     font: -apple-system-body;
     font-family: system-ui, sans-serif;
-    line-height: 1.45;
+    line-height: 1.5;
 
     color-scheme: light;
     --swatch-text: CanvasText;
@@ -301,7 +301,7 @@
     grid-template-columns: 100%;
     max-width: min(calc(100% - 2rem), 860px);
     margin: 0 auto;
-    padding: 1rem;
+    padding: 1rlh;
 
     @media print, screen and (forced-colors: active) {
       box-shadow: none;
@@ -316,13 +316,12 @@
 
     @media screen and (min-width: 768px) {
       border-radius: 1rlh;
-      margin: 1rlh auto var(--gap);
-      padding: var(--gap);
+      margin: 2rlh auto var(--gap);
+      padding: 2rlh;
       border: 2px solid var(--swatch-button-face);
     }
 
     @media screen and (min-width: 1400px) {
-      margin-top: calc(2 * var(--gap));
       max-width: min(calc(100% - var(--gap) * 2), 960px);
     }
 
@@ -337,26 +336,28 @@
     page-break-inside: avoid;
     margin: 0;
     border-radius: 1rlh;
-    padding: 2rem;
+    padding: 1rlh;
     box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
     background-color: var(--swatch-button-face);
     display: grid;
-    gap: 1rlh;
+    gap: 1em;
     border: 2px solid var(--swatch-page);
+
+    @media screen and (max-width: 320px) {
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      border-bottom: 0.1rem solid var(--swatch-text);
+    }
 
     @media print, screen and (forced-colors: active) {
       padding: 1rlh 0 2rlh;
       border-radius: 0;
       box-shadow: none;
       border: 0;
-      border-bottom: 0.1rem solid var(--swatch-text);
-    }
-
-    @media screen and (max-width: 320px) {
-      padding: 0 0 1rem;
-      background: none;
-      border-radius: 0;
-      box-shadow: none;
       border-bottom: 0.1rem solid var(--swatch-text);
     }
 
