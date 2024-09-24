@@ -13,6 +13,17 @@ export function IndexPage() {
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <link rel="manifest" href="manifest.json" />
         <style dangerouslySetInnerHTML={{ __html: getStyles() }} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.customElements.define("li-marker", class extends HTMLElement {
+                connectedCallback() {
+                  this.ariaHidden = true;
+                }
+              });
+            `,
+          }}
+        />
       </head>
       <body>
         <div className="container">

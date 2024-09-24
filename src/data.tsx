@@ -85,10 +85,14 @@ export default {
       listItemsHtml: (
         <>
           <li>
+            <li-marker />
             Building client websites and internal tools to support agency
             projects.
           </li>
-          <li>TypeScript and React/Next.js.</li>
+          <li>
+            <li-marker />
+            TypeScript and React/Next.js.
+          </li>
         </>
       ),
     },
@@ -100,21 +104,25 @@ export default {
       listItemsHtml: (
         <>
           <li>
+            <li-marker />
             Developed production web interfaces with clean, efficient, and
             maintainable TypeScript code, optimizing for performance and
             scalability.
           </li>
           <li>
+            <li-marker />
             Subject Matter Expert (SME) for accessibility compliance,
             championing inclusive design principles and ensuring that UIs met or
             exceeded WCAG standards.
           </li>
           <li>
+            <li-marker />
             Played a pivotal role in multiple successful launches, including the
             belonging.google domain, the pride.google domain, and the annual
             Year in Search experience.
           </li>
           <li>
+            <li-marker />
             Architected coding scaffolds to simplify the creation of new
             projects.
           </li>
@@ -129,21 +137,25 @@ export default {
       listItemsHtml: (
         <>
           <li>
+            <li-marker />
             Leveraged Vue 2 to build features for LiveSchool's suite of web
             applications and web-based mobile apps, ensuring a seamless user
             experience across platforms.
           </li>
           <li>
+            <li-marker />
             Utilized Firebase for authentication and real-time changes that
             reflected immediately across open tabs and devices.
           </li>
           <li>
+            <li-marker />
             Collaborated closely with designers and stakeholders to craft
             architectural artifacts, including detailed documentation, diagrams,
             and timelines, ensuring alignment with project goals and
             requirements.
           </li>
           <li>
+            <li-marker />
             Debugged existing performance issues and implemented
             performance-friendly components, including an infinite scroll view
             that recycled DOM elements.
@@ -159,10 +171,12 @@ export default {
       listItemsHtml: (
         <>
           <li>
+            <li-marker />
             Built a library of accessible Vue 2 components for one of the
             nation’s largest health insurance companies.
           </li>
           <li>
+            <li-marker />
             Responsible for evaluating React and other frameworks, leading to
             the decision to go with Vue 2.
           </li>
@@ -177,17 +191,21 @@ export default {
       listItemsHtml: (
         <>
           <li>
+            <li-marker />
             Built interfaces to support product launches and transactions on
             Apple.com.
           </li>
           <li>
+            <li-marker />
             Led a successful project to harmonize competing corporate design
             systems and implemented a unified SCSS library.
           </li>
           <li>
+            <li-marker />
             Prepared coding guidelines for use by large engineering teams.
           </li>
           <li>
+            <li-marker />
             Directed offshore teams to implement core tools and libraries.
           </li>
         </>
@@ -201,11 +219,13 @@ export default {
       listItemsHtml: (
         <>
           <li>
+            <li-marker />
             Helped to re-platform CNN.com from Java to Node.js, improving
             feature velocity and resulting in more ergonomic and maintainable
             code.
           </li>
           <li>
+            <li-marker />
             Created a responsive SCSS library for many possible page layouts.
           </li>
         </>
@@ -219,10 +239,12 @@ export default {
       listItemsHtml: (
         <>
           <li>
+            <li-marker />
             Built client marketing websites and web apps for clients in an
             advertising agency environment.
           </li>
           <li>
+            <li-marker />
             Implemented the first responsive redesign of NationalGuard.com.
           </li>
         </>
@@ -235,8 +257,12 @@ export default {
       endDate: "January 2012",
       listItemsHtml: (
         <>
-          <li>Designed and developed a relaunch of Jerzees.com.</li>
           <li>
+            <li-marker />
+            Designed and developed a relaunch of Jerzees.com.
+          </li>
+          <li>
+            <li-marker />
             Helped maintain all Fruit of the Loom websites, including Fruit.com.
           </li>
         </>
@@ -250,6 +276,7 @@ export default {
       listItemsHtml: (
         <>
           <li>
+            <li-marker />
             Helped build a web app that generated print marketing materials for
             small businesses, using JavaScript and XML technologies.
           </li>
@@ -266,23 +293,41 @@ export default {
       listItemsHtml: (
         <>
           <li>
+            <li-marker />
             Interned at Imagewest, WKU's design studio, as a web developer.
           </li>
           <li>
+            <li-marker />
             Interned for the municipal website for the City of Bowling Green, as
             a web developer.
           </li>
           <li>
+            <li-marker />
             Interned at the College Heights Herald, WKU's newspaper, as a print
             designer.
           </li>
           <li>
+            <li-marker />
             Coursework included Digital Illustration, Motion Graphics,
             Typography, Creative Strategy, Journalism, Copywriting, and PR.
           </li>
-          <li>Graduated Summa Cum Laude (3.9 GPA).</li>
+          <li>
+            <li-marker />
+            Graduated Summa Cum Laude (3.9 GPA).
+          </li>
         </>
       ),
     },
   ],
 };
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "li-marker": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
+}

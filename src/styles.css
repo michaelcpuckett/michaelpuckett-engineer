@@ -164,31 +164,37 @@
   main {
     display: grid;
     gap: var(--gap);
-
-    & p {
-      margin-top: 1rem;
-    }
   }
 
   section {
     display: grid;
+    gap: 0.5rlh;
 
     & > :is(ul, ol) {
       margin: 0;
       padding: 0;
       list-style: none;
+      display: grid;
+      gap: 1rlh;
     }
   }
 
   ol :not(ol, ul) ul {
     list-style: disc;
-    margin-left: 0;
-    padding-left: 0;
-    margin-top: 1em;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.125rlh;
 
     & > li {
-      margin: 0.25em 1em;
       font-size: 0.875em;
+      display: grid;
+      grid-template-columns: auto minmax(0px, 1fr);
+      column-gap: 0.5rlh;
+
+      & > li-marker:before {
+        content: "•";
+      }
     }
   }
 
@@ -311,7 +317,7 @@
     @media screen and (min-width: 768px) {
       border-radius: 1rlh;
       margin: 1rlh auto var(--gap);
-      padding: 3rlh;
+      padding: var(--gap);
       border: 2px solid var(--swatch-button-face);
     }
 
@@ -329,16 +335,17 @@
 
   .card {
     page-break-inside: avoid;
-    margin: 1rem 0;
-    border-radius: 1rem;
+    margin: 0;
+    border-radius: 1rlh;
     padding: 2rem;
     box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
     background-color: var(--swatch-button-face);
-    display: block;
+    display: grid;
+    gap: 1rlh;
     border: 2px solid var(--swatch-page);
 
     @media print, screen and (forced-colors: active) {
-      padding: 1rem 0 2rem;
+      padding: 1rlh 0 2rlh;
       border-radius: 0;
       box-shadow: none;
       border: 0;
