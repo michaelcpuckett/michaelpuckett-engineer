@@ -184,7 +184,6 @@
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 0.125rlh;
 
     & > li {
       font-size: 0.875em;
@@ -299,7 +298,7 @@
     justify-self: center;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.125);
     grid-template-columns: 100%;
-    max-width: min(calc(100% - 2rem), 860px);
+    max-width: min(calc(100% - 4rlh), 880px);
     margin: 0 auto;
     padding: 1rlh;
 
@@ -322,7 +321,6 @@
     }
 
     @media screen and (min-width: 1400px) {
-      max-width: min(calc(100% - var(--gap) * 2), 960px);
       padding: 2rlh;
     }
 
