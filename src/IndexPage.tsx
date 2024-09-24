@@ -31,8 +31,8 @@ export function IndexPage() {
 
 function Nav() {
   return (
-    <nav className="nav">
-      <div className="nav-region">
+    <nav>
+      <div className="nav__region">
         <a href={"mailto:" + data.email}>Email</a>
         {data.links.map((link) => (
           <a key={link.href} href={link.href} target="_blank">
@@ -40,7 +40,7 @@ function Nav() {
           </a>
         ))}
       </div>
-      <div className="nav-region">
+      <div className="nav__region">
         <a href="michael_puckett_resume.pdf" target="_blank">
           Résumé
         </a>
