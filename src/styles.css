@@ -315,7 +315,7 @@
 
     @media screen and (min-width: 768px) {
       border-radius: 1rlh;
-      margin: 2rlh auto var(--gap);
+      margin: 3rlh auto var(--gap);
       border: 2px solid var(--swatch-button-face);
       padding: var(--gap);
     }
