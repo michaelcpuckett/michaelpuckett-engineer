@@ -317,12 +317,13 @@
     @media screen and (min-width: 768px) {
       border-radius: 1rlh;
       margin: 2rlh auto var(--gap);
-      padding: 2rlh;
       border: 2px solid var(--swatch-button-face);
+      padding: var(--gap);
     }
 
     @media screen and (min-width: 1400px) {
       max-width: min(calc(100% - var(--gap) * 2), 960px);
+      padding: 2rlh;
     }
 
     @media print,
