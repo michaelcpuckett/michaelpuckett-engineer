@@ -150,10 +150,9 @@ function Dates({ startDate, endDate }) {
     <div className="dates">
       <time dateTime={startDate}>{startDate}</time>
       <span className="dates__through" aria-hidden="true" hidden>
-        {" "}
-        -{" "}
+        {" - "}
       </span>
-      <span className="visually-hidden">through</span>
+      <span className="visually-hidden"> through </span>
       <time dateTime={endDate}>{endDate}</time>
     </div>
   );
