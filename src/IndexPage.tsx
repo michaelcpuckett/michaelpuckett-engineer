@@ -76,7 +76,10 @@ function Header() {
 function SkillsSection() {
   return (
     <section aria-labelledby="section-header-skills">
-      <h2 id="section-header-skills">Skills</h2>
+      <h2 id="section-header-skills">
+        <a id="skills" href="#skills" />
+        Skills
+      </h2>
       <ul role="list" aria-labelledby="section-header-skills">
         {data.skills.map((item) => {
           const id = slugify(item.heading);
@@ -96,7 +99,10 @@ function SkillsSection() {
 function ExperienceSection() {
   return (
     <section aria-labelledby="section-header-experience">
-      <h2 id="section-header-experience">Experience</h2>
+      <h2 id="section-header-experience">
+        <a id="experience" href="#experience" />
+        Experience
+      </h2>
       <ol role="list" aria-labelledby="section-header-experience">
         {data.experience.map((item) => {
           const id = slugify(item.heading);
@@ -122,7 +128,10 @@ function ExperienceSection() {
 function EducationSection() {
   return (
     <section aria-labelledby="section-header-education">
-      <h2 id="section-header-education">Education</h2>
+      <h2 id="section-header-education">
+        <a id="education" href="#education" />
+        Education
+      </h2>
       <ol role="list" aria-labelledby="section-header-education">
         {data.education.map((item) => {
           const id = slugify(item.heading);
@@ -156,4 +165,15 @@ function Dates({ startDate, endDate }) {
       <time dateTime={endDate}>{endDate}</time>
     </div>
   );
+}
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "section-marker": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
 }
