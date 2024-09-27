@@ -6,6 +6,7 @@
     "start": "ts-node ./src/app.tsx",
     "test-webkit": "npx playwright wk http://localhost:3000",
     "login": "firebase logout && firebase login",
+    "reauth": "firebase login --reauth",
     "deploy": "firebase deploy"
   },
   "dependencies": {
