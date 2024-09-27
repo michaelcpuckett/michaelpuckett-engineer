@@ -14,7 +14,8 @@
     "isolatedModules": true,
     "lib": ["ESNext", "DOM.Iterable"],
     "target": "ESNext",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "types": ["./src/customElements.d.ts"]
   },
   "include": ["src/**/*"]
 }

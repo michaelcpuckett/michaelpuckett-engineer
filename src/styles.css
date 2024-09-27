@@ -151,15 +151,16 @@
           outline: 0;
         }
 
-        &:hover {
-          text-decoration: underline;
-        }
-
-        &:before {
-          content: "#";
+        & section-marker {
           display: flex;
           height: 100%;
           place-items: end;
+        }
+      }
+
+      &:hover {
+        & a[id][href] {
+          text-decoration: underline;
         }
       }
     }
@@ -469,6 +470,10 @@
 
   li-marker:before {
     content: "•";
+  }
+
+  section-marker:before {
+    content: "#";
   }
 }
 

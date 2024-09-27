@@ -16,11 +16,14 @@ export function IndexPage() {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.customElements.define("li-marker", class extends HTMLElement {
+              class AriaHiddenHtmlElement extends HTMLElement {
                 connectedCallback() {
                   this.ariaHidden = true;
                 }
-              });
+              }
+
+              window.customElements.define("section-marker", AriaHiddenHtmlElement);
+              window.customElements.define("list-marker", AriaHiddenHtmlElement);
             `,
           }}
         />
@@ -77,7 +80,9 @@ function SkillsSection() {
   return (
     <section aria-labelledby="section-header-skills">
       <h2 id="section-header-skills">
-        <a id="skills" href="#skills" />
+        <a id="skills" href="#skills" title="Skills section">
+          <section-marker />
+        </a>
         Skills
       </h2>
       <ul role="list" aria-labelledby="section-header-skills">
@@ -100,7 +105,9 @@ function ExperienceSection() {
   return (
     <section aria-labelledby="section-header-experience">
       <h2 id="section-header-experience">
-        <a id="experience" href="#experience" />
+        <a id="experience" href="#experience" title="Experience section">
+          <section-marker />
+        </a>
         Experience
       </h2>
       <ol role="list" aria-labelledby="section-header-experience">
@@ -129,7 +136,9 @@ function EducationSection() {
   return (
     <section aria-labelledby="section-header-education">
       <h2 id="section-header-education">
-        <a id="education" href="#education" />
+        <a id="education" href="#education" title="Education section">
+          <section-marker />
+        </a>
         Education
       </h2>
       <ol role="list" aria-labelledby="section-header-education">
