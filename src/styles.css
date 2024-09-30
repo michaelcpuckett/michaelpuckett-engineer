@@ -421,7 +421,6 @@
 
     & .card__header {
       column-gap: 1rlh;
-      row-gap: 0.5rlh;
       display: grid;
 
       @media (min-width: 768px) {
