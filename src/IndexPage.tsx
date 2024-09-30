@@ -17,13 +17,28 @@ export function IndexPage() {
           dangerouslySetInnerHTML={{
             __html: `
               class AriaHiddenHtmlElement extends HTMLElement {
+                constructor() {
+                  super();
+                }
+
                 connectedCallback() {
                   this.ariaHidden = true;
                 }
               }
 
-              window.customElements.define("section-marker", AriaHiddenHtmlElement);
-              window.customElements.define("list-marker", AriaHiddenHtmlElement);
+              class ListMarkerHtmlElement extends AriaHiddenHtmlElement {
+                constructor() {
+                  super();
+                }
+              }
+              class SectionMarkerHtmlElement extends AriaHiddenHtmlElement {
+                constructor() {
+                  super();
+                }
+              }
+
+              window.customElements.define("list-marker", ListMarkerHtmlElement);
+              window.customElements.define("section-marker", SectionMarkerHtmlElement);
             `,
           }}
         />

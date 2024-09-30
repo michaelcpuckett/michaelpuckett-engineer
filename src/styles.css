@@ -115,7 +115,7 @@
 
   h2 {
     line-height: 1rlh;
-    letter-spacing: -0.025rem;
+    letter-spacing: -0.025em;
     font-weight: 200;
     font-size: 1.25rlh;
     margin: 0;
@@ -131,7 +131,7 @@
     &:has(a[id][href]) {
       display: flex;
       gap: 0.25rlh;
-      margin-left: -0.75rlh;
+      margin-left: -0.875rlh;
 
       &:focus-within {
         outline: 4px solid var(--swatch-focused);
@@ -226,20 +226,6 @@
     }
   }
 
-  ol :not(ol, ul) ul {
-    list-style: disc;
-    padding: 0;
-    margin: 0;
-    display: grid;
-
-    & > li {
-      font-size: 0.875em;
-      display: grid;
-      grid-template-columns: auto minmax(0px, 1fr);
-      column-gap: 0.5rlh;
-    }
-  }
-
   figure img {
     border-radius: 0.5rem;
     overflow: hidden;
@@ -294,9 +280,7 @@
     flex-direction: column;
     justify-self: flex-start;
     row-gap: 0.25rlh;
-    column-gap: 1rlh;
     width: 100%;
-    letter-spacing: -0.05em;
     hyphens: none;
     word-wrap: initial;
     overflow-wrap: initial;
@@ -306,25 +290,29 @@
     }
 
     & .h1__name {
-      font-size: 2.8rem;
       font-weight: 700;
-      line-height: 1;
+      font-size: 2.875rem;
+      line-height: 1.675rlh;
+      margin-top: -0.25rlh;
+      letter-spacing: -0.025em;
 
       @media screen and (max-width: 320px) {
         font-size: 1.5rem;
+        line-height: 1.25rlh;
       }
 
       @media print {
-        font-size: 1.6rem;
+        font-size: 1.75rem;
+        line-height: 1.5rlh;
       }
     }
 
     & .h1__title {
-      letter-spacing: 2px;
       text-transform: uppercase;
       line-height: 1;
       font-size: 1.5rem;
       font-weight: 200;
+      letter-spacing: 0.05em;
 
       @media screen and (max-width: 320px) {
         font-size: 1rem;
@@ -338,7 +326,10 @@
     }
 
     & ~ p {
-      text-wrap: balance;
+      @media print, screen and (max-width: 767px) {
+        text-wrap: balance;
+        padding: 0 0.5rlh;
+      }
     }
   }
 
@@ -409,13 +400,27 @@
       border-bottom: 0.1rem solid var(--swatch-text);
     }
 
-    & p {
-      font-size: 0.875em;
+    & :is(p, ul > li) {
+      font-size: 0.875rem;
+      line-height: 0.875rlh;
+    }
+
+    & ul {
+      list-style: disc;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      row-gap: 0.25rlh;
+
+      & > li {
+        display: grid;
+        grid-template-columns: auto minmax(0px, 1fr);
+        column-gap: 0.5rlh;
+      }
     }
 
     & .card__header {
       column-gap: 1rlh;
-      row-gap: 0.5rlh;
       display: grid;
 
       @media (min-width: 768px) {
@@ -440,23 +445,19 @@
 
     & .card__detail {
       margin: 0;
-      font-size: 0.875em;
     }
   }
 
   .dates {
     padding: 0;
     margin: 0;
-    font-size: 0.75em;
-    line-height: 1;
+    font-size: 0.875rem;
     flex: 0 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: end;
-
-    @media (max-width: 767px) {
-      justify-content: start;
-    }
+    align-items: start;
+    height: 100%;
 
     & time {
       flex: 0 0 auto;

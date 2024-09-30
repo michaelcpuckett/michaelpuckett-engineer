@@ -9,5 +9,10 @@ namespace JSX {
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
     >;
+
+    "justify-lines": React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLElement>,
+      HTMLElement
+    >;
   }
 }

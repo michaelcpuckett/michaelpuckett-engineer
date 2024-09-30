@@ -86,12 +86,11 @@ export default {
         <>
           <li>
             <li-marker />
-            Building client websites and internal tools to support agency
-            projects.
+            Building client websites with TypeScript and React/Next.js.
           </li>
           <li>
             <li-marker />
-            TypeScript and React/Next.js.
+            Architecting internal tools to support agency projects.
           </li>
         </>
       ),
