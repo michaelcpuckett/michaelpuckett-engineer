@@ -84,14 +84,12 @@ export default {
       endDate: "Present",
       listItemsHtml: (
         <>
-          <li>
-            <li-marker />
+          <list-item>
             Building client websites with TypeScript and React/Next.js.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Architecting internal tools to support agency projects.
-          </li>
+          </list-item>
         </>
       ),
     },
@@ -102,29 +100,25 @@ export default {
       endDate: "December 2023",
       listItemsHtml: (
         <>
-          <li>
-            <li-marker />
+          <list-item>
             Developed production web interfaces with clean, efficient, and
             maintainable TypeScript code, optimizing for performance and
             scalability.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Subject Matter Expert (SME) for accessibility compliance,
             championing inclusive design principles and ensuring that UIs met or
             exceeded WCAG standards.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Played a pivotal role in multiple successful launches, including the
             belonging.google domain, the pride.google domain, and the annual
             Year in Search experience.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Architected coding scaffolds to simplify the creation of new
             projects.
-          </li>
+          </list-item>
         </>
       ),
     },
@@ -135,30 +129,26 @@ export default {
       endDate: "May 2021",
       listItemsHtml: (
         <>
-          <li>
-            <li-marker />
+          <list-item>
             Leveraged Vue 2 to build features for LiveSchool's suite of web
             applications and web-based mobile apps, ensuring a seamless user
             experience across platforms.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Utilized Firebase for authentication and real-time changes that
             reflected immediately across open tabs and devices.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Collaborated closely with designers and stakeholders to craft
             architectural artifacts, including detailed documentation, diagrams,
             and timelines, ensuring alignment with project goals and
             requirements.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Debugged existing performance issues and implemented
             performance-friendly components, including an infinite scroll view
             that recycled DOM elements.
-          </li>
+          </list-item>
         </>
       ),
     },
@@ -169,16 +159,14 @@ export default {
       endDate: "July 2018",
       listItemsHtml: (
         <>
-          <li>
-            <li-marker />
+          <list-item>
             Built a library of accessible Vue 2 components for one of the
             nation’s largest health insurance companies.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Responsible for evaluating React and other frameworks, leading to
             the decision to go with Vue 2.
-          </li>
+          </list-item>
         </>
       ),
     },
@@ -189,24 +177,20 @@ export default {
       endDate: "June 2016",
       listItemsHtml: (
         <>
-          <li>
-            <li-marker />
+          <list-item>
             Built interfaces to support product launches and transactions on
             Apple.com.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Led a successful project to harmonize competing corporate design
             systems and implemented a unified SCSS library.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Prepared coding guidelines for use by large engineering teams.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Directed offshore teams to implement core tools and libraries.
-          </li>
+          </list-item>
         </>
       ),
     },
@@ -217,16 +201,14 @@ export default {
       endDate: "October 2013",
       listItemsHtml: (
         <>
-          <li>
-            <li-marker />
+          <list-item>
             Helped to re-platform CNN.com from Java to Node.js, improving
             feature velocity and resulting in more ergonomic and maintainable
             code.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Created a responsive SCSS library for many possible page layouts.
-          </li>
+          </list-item>
         </>
       ),
     },
@@ -237,15 +219,13 @@ export default {
       endDate: "March 2013",
       listItemsHtml: (
         <>
-          <li>
-            <li-marker />
+          <list-item>
             Built client marketing websites and web apps for clients in an
             advertising agency environment.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Implemented the first responsive redesign of NationalGuard.com.
-          </li>
+          </list-item>
         </>
       ),
     },
@@ -256,14 +236,12 @@ export default {
       endDate: "January 2012",
       listItemsHtml: (
         <>
-          <li>
-            <li-marker />
+          <list-item>
             Designed and developed a relaunch of Jerzees.com.
-          </li>
-          <li>
-            <li-marker />
+          </list-item>
+          <list-item>
             Helped maintain all Fruit of the Loom websites, including Fruit.com.
-          </li>
+          </list-item>
         </>
       ),
     },
@@ -274,11 +252,10 @@ export default {
       endDate: "October 2011",
       listItemsHtml: (
         <>
-          <li>
-            <li-marker />
+          <list-item>
             Helped build a web app that generated print marketing materials for
             small businesses, using JavaScript and XML technologies.
-          </li>
+          </list-item>
         </>
       ),
     },
@@ -286,47 +263,29 @@ export default {
   education: [
     {
       heading: "Western Kentucky University",
-      detail: "Bachelor of Arts, Interactive Advertising & Graphic Design",
-      startDate: "2005",
-      endDate: "2009",
+      detail: <>B.A., Interactive Advertising & Graphic Design</>,
+      startDate: "August 2005",
+      endDate: "December 2009",
       listItemsHtml: (
         <>
-          <li>
-            <li-marker />
-            Interned at Imagewest, WKU's design studio, as a web developer.
-          </li>
-          <li>
-            <li-marker />
-            Interned for the municipal website for the City of Bowling Green, as
-            a web developer.
-          </li>
-          <li>
-            <li-marker />
-            Interned at the College Heights Herald, WKU's newspaper, as a print
-            designer.
-          </li>
-          <li>
-            <li-marker />
+          <list-item>
             Coursework included Digital Illustration, Motion Graphics,
             Typography, Creative Strategy, Journalism, Copywriting, and PR.
-          </li>
-          <li>
-            <li-marker />
-            Graduated Summa Cum Laude (3.9 GPA).
-          </li>
+          </list-item>
+          <list-item>
+            Interned at Imagewest, WKU's design studio, as a web developer.
+          </list-item>
+          <list-item>
+            Interned for the municipal website for the City of Bowling Green, as
+            a web developer.
+          </list-item>
+          <list-item>
+            Interned at the College Heights Herald, WKU's newspaper, as a print
+            designer.
+          </list-item>
+          <list-item>Graduated Summa Cum Laude (3.9 GPA).</list-item>
         </>
       ),
     },
   ],
 };
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "li-marker": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-    }
-  }
-}

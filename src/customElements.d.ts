@@ -10,7 +10,12 @@ namespace JSX {
       HTMLElement
     >;
 
-    "justify-lines": React.DetailedHTMLProps<
+    "list-item": React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLElement>,
+      HTMLElement
+    >;
+
+    "unordered-list": React.DetailedHTMLProps<
       React.HTMLAttributes<HTMLElement>,
       HTMLElement
     >;

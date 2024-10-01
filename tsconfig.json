@@ -17,5 +17,5 @@
     "outDir": "./dist",
     "types": ["./src/customElements.d.ts"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/*.tsx"]
 }

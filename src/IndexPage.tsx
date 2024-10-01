@@ -17,28 +17,43 @@ export function IndexPage() {
           dangerouslySetInnerHTML={{
             __html: `
               class AriaHiddenHtmlElement extends HTMLElement {
-                constructor() {
-                  super();
-                }
-
                 connectedCallback() {
                   this.ariaHidden = true;
                 }
               }
 
+              const listMarkerStyleSheet = new CSSStyleSheet();
+              listMarkerStyleSheet.replaceSync(\`:host::before { content: "•"; }\`);
+
               class ListMarkerHtmlElement extends AriaHiddenHtmlElement {
                 constructor() {
                   super();
-                }
-              }
-              class SectionMarkerHtmlElement extends AriaHiddenHtmlElement {
-                constructor() {
-                  super();
+                  this.attachShadow({ mode: "open" }).adoptedStyleSheets.push(listMarkerStyleSheet);
                 }
               }
 
               window.customElements.define("list-marker", ListMarkerHtmlElement);
+
+              class SectionMarkerHtmlElement extends AriaHiddenHtmlElement {}
+
               window.customElements.define("section-marker", SectionMarkerHtmlElement);
+
+              class ListItemHtmlElement extends HTMLElement {
+                connectedCallback() {
+                  this.prepend(window.document.createElement('list-marker'));
+                  this.role = "listitem";
+                }
+              }
+
+              window.customElements.define("list-item", ListItemHtmlElement);
+
+              class UnorderedListHtmlElement extends HTMLElement {
+                connectedCallback() {
+                  this.role = "list";
+                }
+              }
+
+              window.customElements.define("unordered-list", UnorderedListHtmlElement);
             `,
           }}
         />
@@ -100,7 +115,7 @@ function SkillsSection() {
         </a>
         Skills
       </h2>
-      <ul role="list" aria-labelledby="section-header-skills">
+      <unordered-list aria-labelledby="section-header-skills">
         {data.skills.map((item) => {
           const id = slugify(item.heading);
 
@@ -111,7 +126,7 @@ function SkillsSection() {
             </li>
           );
         })}
-      </ul>
+      </unordered-list>
     </section>
   );
 }
@@ -138,7 +153,7 @@ function ExperienceSection() {
                 </div>
                 <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
-              <ul>{item.listItemsHtml}</ul>
+              <unordered-list>{item.listItemsHtml}</unordered-list>
             </li>
           );
         })}
@@ -169,7 +184,7 @@ function EducationSection() {
                 </div>
                 <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
-              <ul>{item.listItemsHtml}</ul>
+              <unordered-list>{item.listItemsHtml}</unordered-list>
             </li>
           );
         })}
@@ -179,14 +194,67 @@ function EducationSection() {
 }
 
 function Dates({ startDate, endDate }) {
+  const isPresent = endDate === "Present";
+
+  const dateFormatter = Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric",
+  });
+
+  const startDateParts = dateFormatter.formatToParts(new Date(startDate));
+  const endDateParts = dateFormatter.formatToParts(
+    isPresent ? new Date() : new Date(endDate)
+  );
+
+  const getDisplayFormat = (parts: Intl.DateTimeFormatPart[]) => {
+    const month = parts.find((part) => part.type === "month");
+    const year = parts.find((part) => part.type === "year");
+
+    if (!month || !year) {
+      return <></>;
+    }
+
+    return (
+      <>
+        <span className="dates__date__month">{month.value}</span>{" "}
+        <span className="dates__date__year">{year.value}</span>
+      </>
+    );
+  };
+
+  const getMachineFormat = (parts: Intl.DateTimeFormatPart[]) => {
+    const month = parts.find((part) => part.type === "month");
+    const year = parts.find((part) => part.type === "year");
+
+    if (!month || !year) {
+      return "";
+    }
+
+    return `${year.value}-${month.value}`;
+  };
+
+  const startDateDisplay = getDisplayFormat(startDateParts);
+  const endDateDisplay = isPresent ? (
+    <span className="dates__date__month">Present</span>
+  ) : (
+    getDisplayFormat(endDateParts)
+  );
+
+  const startDateMachine = getMachineFormat(startDateParts);
+  const endDateMachine = getMachineFormat(endDateParts);
+
   return (
     <div className="dates">
-      <time dateTime={startDate}>{startDate}</time>
+      <time className="dates__date" dateTime={startDateMachine}>
+        {startDateDisplay}
+      </time>
       <span className="dates__through" aria-hidden="true" hidden>
-        {" - "}
+        <>&ndash;</>
       </span>
-      <span className="visually-hidden"> through </span>
-      <time dateTime={endDate}>{endDate}</time>
+      <span className="visually-hidden">{" through "}</span>
+      <time className="dates__date" dateTime={endDateMachine}>
+        {endDateDisplay}
+      </time>
     </div>
   );
 }

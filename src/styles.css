@@ -130,7 +130,7 @@
 
     &:has(a[id][href]) {
       display: flex;
-      gap: 0.25rlh;
+      gap: calc((1 / 3) * 1rlh);
       margin-left: -0.875rlh;
 
       &:focus-within {
@@ -167,7 +167,7 @@
   }
 
   h3 {
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: normal;
     font-weight: bold;
     display: flex;
@@ -217,7 +217,7 @@
     display: grid;
     gap: 0.5rlh;
 
-    & > :is(ul, ol) {
+    & > :is(unordered-list, ol) {
       margin: 0;
       padding: 0;
       list-style: none;
@@ -243,19 +243,25 @@
     :is(&, & .nav__region) {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rlh;
+      column-gap: 1rlh;
+      row-gap: 0.5rlh;
       justify-content: space-between;
       font-size: 0.95rem;
 
       @media screen and (max-width: 320px) {
         font-size: 0.875rem;
         gap: 0.5rlh;
+        justify-content: center;
       }
     }
-  }
 
-  @media print {
-    nav {
+    & .nav__region {
+      @media screen and (max-width: 767px) {
+        display: contents;
+      }
+    }
+
+    @media print {
       display: none;
     }
   }
@@ -279,7 +285,7 @@
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
-    row-gap: 0.25rlh;
+    row-gap: 0.5rlh;
     width: 100%;
     hyphens: none;
     word-wrap: initial;
@@ -291,8 +297,8 @@
 
     & .h1__name {
       font-weight: 700;
-      font-size: 2.875rem;
-      line-height: 1.675rlh;
+      font-size: 3rem;
+      line-height: 1.75rlh;
       margin-top: -0.25rlh;
       letter-spacing: -0.025em;
 
@@ -400,19 +406,19 @@
       border-bottom: 0.1rem solid var(--swatch-text);
     }
 
-    & :is(p, ul > li) {
+    & :is(p, unordered-list > list-item) {
       font-size: 0.875rem;
       line-height: 0.875rlh;
     }
 
-    & ul {
+    & unordered-list {
       list-style: disc;
       padding: 0;
       margin: 0;
       display: grid;
-      row-gap: 0.25rlh;
+      row-gap: 0.5rlh;
 
-      & > li {
+      & > list-item {
         display: grid;
         grid-template-columns: auto minmax(0px, 1fr);
         column-gap: 0.5rlh;
@@ -445,36 +451,33 @@
 
     & .card__detail {
       margin: 0;
+      font-variant: all-small-caps;
+      font-size: 1.0125rem;
+      letter-spacing: 0.01em;
     }
   }
 
   .dates {
     padding: 0;
     margin: 0;
-    font-size: 0.875rem;
     flex: 0 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: start;
+    display: block;
     height: 100%;
-    justify-content: end;
 
-    @media (max-width: 767px) {
-      justify-content: start;
+    & .dates__date__month {
+      font-variant: all-small-caps;
     }
 
-    & time {
-      flex: 0 0 auto;
+    & .dates__date__year {
+      font-variant-numeric: proportional-nums;
+      font-size: 0.75rem;
     }
 
     & .dates__through[hidden] {
       display: inline;
-      white-space: pre;
+      padding: 0 0.25ch;
+      vertical-align: text-top;
     }
-  }
-
-  li-marker:before {
-    content: "•";
   }
 
   section-marker:before {
