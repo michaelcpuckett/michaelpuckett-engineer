@@ -217,7 +217,7 @@
     display: grid;
     gap: 0.5rlh;
 
-    & > :is(unordered-list, ol) {
+    & > :is(unordered-list, [role="list"]) {
       margin: 0;
       padding: 0;
       list-style: none;
@@ -377,7 +377,7 @@
     }
   }
 
-  .card {
+  card-item {
     page-break-inside: avoid;
     margin: 0;
     border-radius: 1rlh;
@@ -406,19 +406,20 @@
       border-bottom: 0.1rem solid var(--swatch-text);
     }
 
-    & :is(p, unordered-list > list-item) {
+    & :is(p, :is([role="list"], unordered-list) > :is(li, list-item)) {
       font-size: 0.875rem;
       line-height: 0.875rlh;
     }
 
-    & unordered-list {
+    & :is([role="list"], unordered-list) {
       list-style: disc;
       padding: 0;
       margin: 0;
       display: grid;
       row-gap: 0.5rlh;
+      padding-left: 0.25rlh;
 
-      & > list-item {
+      & > :is(li, list-item) {
         display: grid;
         grid-template-columns: auto minmax(0px, 1fr);
         column-gap: 0.5rlh;

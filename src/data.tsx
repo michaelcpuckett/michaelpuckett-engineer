@@ -82,15 +82,15 @@ export default {
       detail: "UX Engineer",
       startDate: "April 2024",
       endDate: "Present",
-      listItemsHtml: (
-        <>
+      contentHtml: (
+        <unordered-list>
           <list-item>
-            Building client websites with TypeScript and React/Next.js.
+            Building client websites with React, Next.js and TypeScript.
           </list-item>
           <list-item>
             Architecting internal tools to support agency projects.
           </list-item>
-        </>
+        </unordered-list>
       ),
     },
     {
@@ -98,8 +98,8 @@ export default {
       detail: "UX Engineer",
       startDate: "May 2021",
       endDate: "December 2023",
-      listItemsHtml: (
-        <>
+      contentHtml: (
+        <unordered-list>
           <list-item>
             Developed production web interfaces with clean, efficient, and
             maintainable TypeScript code, optimizing for performance and
@@ -119,7 +119,7 @@ export default {
             Architected coding scaffolds to simplify the creation of new
             projects.
           </list-item>
-        </>
+        </unordered-list>
       ),
     },
     {
@@ -127,8 +127,8 @@ export default {
       detail: "UI Architect",
       startDate: "August 2018",
       endDate: "May 2021",
-      listItemsHtml: (
-        <>
+      contentHtml: (
+        <unordered-list>
           <list-item>
             Leveraged Vue 2 to build features for LiveSchool's suite of web
             applications and web-based mobile apps, ensuring a seamless user
@@ -149,7 +149,7 @@ export default {
             performance-friendly components, including an infinite scroll view
             that recycled DOM elements.
           </list-item>
-        </>
+        </unordered-list>
       ),
     },
     {
@@ -157,8 +157,8 @@ export default {
       detail: "Web Developer",
       startDate: "December 2016",
       endDate: "July 2018",
-      listItemsHtml: (
-        <>
+      contentHtml: (
+        <unordered-list>
           <list-item>
             Built a library of accessible Vue 2 components for one of the
             nation’s largest health insurance companies.
@@ -167,7 +167,7 @@ export default {
             Responsible for evaluating React and other frameworks, leading to
             the decision to go with Vue 2.
           </list-item>
-        </>
+        </unordered-list>
       ),
     },
     {
@@ -175,8 +175,8 @@ export default {
       detail: "UI Engineer",
       startDate: "October 2013",
       endDate: "June 2016",
-      listItemsHtml: (
-        <>
+      contentHtml: (
+        <unordered-list>
           <list-item>
             Built interfaces to support product launches and transactions on
             Apple.com.
@@ -189,9 +189,10 @@ export default {
             Prepared coding guidelines for use by large engineering teams.
           </list-item>
           <list-item>
-            Directed offshore teams to implement core tools and libraries.
+            Directed offshore teams to implement tools and libraries that
+            improved engineer efficiency.
           </list-item>
-        </>
+        </unordered-list>
       ),
     },
     {
@@ -199,8 +200,8 @@ export default {
       detail: "Web Developer",
       startDate: "April 2013",
       endDate: "October 2013",
-      listItemsHtml: (
-        <>
+      contentHtml: (
+        <unordered-list>
           <list-item>
             Helped to re-platform CNN.com from Java to Node.js, improving
             feature velocity and resulting in more ergonomic and maintainable
@@ -209,7 +210,7 @@ export default {
           <list-item>
             Created a responsive SCSS library for many possible page layouts.
           </list-item>
-        </>
+        </unordered-list>
       ),
     },
     {
@@ -217,8 +218,8 @@ export default {
       detail: "Web Developer",
       startDate: "January 2012",
       endDate: "March 2013",
-      listItemsHtml: (
-        <>
+      contentHtml: (
+        <unordered-list>
           <list-item>
             Built client marketing websites and web apps for clients in an
             advertising agency environment.
@@ -226,7 +227,7 @@ export default {
           <list-item>
             Implemented the first responsive redesign of NationalGuard.com.
           </list-item>
-        </>
+        </unordered-list>
       ),
     },
     {
@@ -234,15 +235,15 @@ export default {
       detail: "Web Developer",
       startDate: "October 2011",
       endDate: "January 2012",
-      listItemsHtml: (
-        <>
+      contentHtml: (
+        <unordered-list>
           <list-item>
             Designed and developed a relaunch of Jerzees.com.
           </list-item>
           <list-item>
             Helped maintain all Fruit of the Loom websites, including Fruit.com.
           </list-item>
-        </>
+        </unordered-list>
       ),
     },
     {
@@ -250,13 +251,13 @@ export default {
       detail: "Web Developer",
       startDate: "March 2010",
       endDate: "October 2011",
-      listItemsHtml: (
-        <>
+      contentHtml: (
+        <unordered-list>
           <list-item>
             Helped build a web app that generated print marketing materials for
             small businesses, using JavaScript and XML technologies.
           </list-item>
-        </>
+        </unordered-list>
       ),
     },
   ],
@@ -266,8 +267,8 @@ export default {
       detail: <>B.A., Interactive Advertising & Graphic Design</>,
       startDate: "August 2005",
       endDate: "December 2009",
-      listItemsHtml: (
-        <>
+      contentHtml: (
+        <unordered-list>
           <list-item>
             Coursework included Digital Illustration, Motion Graphics,
             Typography, Creative Strategy, Journalism, Copywriting, and PR.
@@ -284,7 +285,7 @@ export default {
             designer.
           </list-item>
           <list-item>Graduated Summa Cum Laude (3.9 GPA).</list-item>
-        </>
+        </unordered-list>
       ),
     },
   ],

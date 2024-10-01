@@ -1,5 +1,6 @@
 import slugify from "react-slugify";
 import data from "./data";
+import { getScripts } from "./scripts";
 import { getStyles } from "./styles";
 
 export function IndexPage() {
@@ -13,50 +14,7 @@ export function IndexPage() {
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <link rel="manifest" href="manifest.json" />
         <style dangerouslySetInnerHTML={{ __html: getStyles() }} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              class AriaHiddenHtmlElement extends HTMLElement {
-                connectedCallback() {
-                  this.ariaHidden = true;
-                }
-              }
-
-              const listMarkerStyleSheet = new CSSStyleSheet();
-              listMarkerStyleSheet.replaceSync(\`:host::before { content: "•"; }\`);
-
-              class ListMarkerHtmlElement extends AriaHiddenHtmlElement {
-                constructor() {
-                  super();
-                  this.attachShadow({ mode: "open" }).adoptedStyleSheets.push(listMarkerStyleSheet);
-                }
-              }
-
-              window.customElements.define("list-marker", ListMarkerHtmlElement);
-
-              class SectionMarkerHtmlElement extends AriaHiddenHtmlElement {}
-
-              window.customElements.define("section-marker", SectionMarkerHtmlElement);
-
-              class ListItemHtmlElement extends HTMLElement {
-                connectedCallback() {
-                  this.prepend(window.document.createElement('list-marker'));
-                  this.role = "listitem";
-                }
-              }
-
-              window.customElements.define("list-item", ListItemHtmlElement);
-
-              class UnorderedListHtmlElement extends HTMLElement {
-                connectedCallback() {
-                  this.role = "list";
-                }
-              }
-
-              window.customElements.define("unordered-list", UnorderedListHtmlElement);
-            `,
-          }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: getScripts() }} />
       </head>
       <body>
         <div className="container">
@@ -109,24 +67,24 @@ function Header() {
 function SkillsSection() {
   return (
     <section aria-labelledby="section-header-skills">
-      <h2 id="section-header-skills">
-        <a id="skills" href="#skills" title="Skills section">
+      <h2 aria-labelledby="section-header-skills">
+        <a id="skills" href="#skills" aria-label="Skills section">
           <section-marker />
         </a>
-        Skills
+        <span id="section-header-skills">Skills</span>
       </h2>
-      <unordered-list aria-labelledby="section-header-skills">
+      <card-list aria-labelledby="section-header-skills">
         {data.skills.map((item) => {
           const id = slugify(item.heading);
 
           return (
-            <li key={id} className="card" aria-labelledby={id}>
+            <card-item key={id} aria-labelledby={id}>
               <h3 id={id}>{item.heading}</h3>
               {item.contentHtml}
-            </li>
+            </card-item>
           );
         })}
-      </unordered-list>
+      </card-list>
     </section>
   );
 }
@@ -134,18 +92,18 @@ function SkillsSection() {
 function ExperienceSection() {
   return (
     <section aria-labelledby="section-header-experience">
-      <h2 id="section-header-experience">
-        <a id="experience" href="#experience" title="Experience section">
+      <h2 aria-labelledby="section-header-experience">
+        <a id="experience" href="#experience" aria-label="Experience section">
           <section-marker />
         </a>
-        Experience
+        <span id="section-header-experience">Experience</span>
       </h2>
-      <ol role="list" aria-labelledby="section-header-experience">
+      <card-list aria-labelledby="section-header-experience">
         {data.experience.map((item) => {
           const id = slugify(item.heading);
 
           return (
-            <li key={id} className="card" aria-labelledby={id}>
+            <card-item key={id} aria-labelledby={id}>
               <div className="card__header">
                 <div className="card__heading">
                   <h3 id={id}>{item.heading}</h3>
@@ -153,11 +111,11 @@ function ExperienceSection() {
                 </div>
                 <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
-              <unordered-list>{item.listItemsHtml}</unordered-list>
-            </li>
+              {item.contentHtml}
+            </card-item>
           );
         })}
-      </ol>
+      </card-list>
     </section>
   );
 }
@@ -165,18 +123,18 @@ function ExperienceSection() {
 function EducationSection() {
   return (
     <section aria-labelledby="section-header-education">
-      <h2 id="section-header-education">
-        <a id="education" href="#education" title="Education section">
+      <h2 aria-labelledby="section-header-education">
+        <a id="education" href="#education" aria-label="Education section">
           <section-marker />
         </a>
-        Education
+        <span id="section-header-education">Education</span>
       </h2>
-      <ol role="list" aria-labelledby="section-header-education">
+      <card-list aria-labelledby="section-header-education">
         {data.education.map((item) => {
           const id = slugify(item.heading);
 
           return (
-            <li key={id} className="card" aria-labelledby={id}>
+            <card-item key={id} aria-labelledby={id}>
               <div className="card__header">
                 <div className="card__heading">
                   <h3 id={id}>{item.heading}</h3>
@@ -184,11 +142,11 @@ function EducationSection() {
                 </div>
                 <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
-              <unordered-list>{item.listItemsHtml}</unordered-list>
-            </li>
+              {item.contentHtml}
+            </card-item>
           );
         })}
-      </ol>
+      </card-list>
     </section>
   );
 }
@@ -196,41 +154,72 @@ function EducationSection() {
 function Dates({ startDate, endDate }) {
   const isPresent = endDate === "Present";
 
-  const dateFormatter = Intl.DateTimeFormat("en-US", {
+  const shortMonthFormatter = Intl.DateTimeFormat("en-US", {
     month: "short",
+  });
+
+  const longMonthFormatter = Intl.DateTimeFormat("en-US", {
+    month: "long",
+  });
+
+  const numericMonthFormatter = Intl.DateTimeFormat("en-US", {
+    month: "2-digit",
+  });
+
+  const numericYearFormatter = Intl.DateTimeFormat("en-US", {
     year: "numeric",
   });
 
-  const startDateParts = dateFormatter.formatToParts(new Date(startDate));
-  const endDateParts = dateFormatter.formatToParts(
-    isPresent ? new Date() : new Date(endDate)
-  );
+  const startDateParts = [
+    shortMonthFormatter
+      .formatToParts(new Date(startDate))
+      .find((part) => part.type === "month")?.value ?? "",
+    longMonthFormatter
+      .formatToParts(new Date(startDate))
+      .find((part) => part.type === "month")?.value ?? "",
+    numericMonthFormatter
+      .formatToParts(new Date(startDate))
+      .find((part) => part.type === "month")?.value ?? "",
+    numericYearFormatter
+      .formatToParts(new Date(startDate))
+      .find((part) => part.type === "year")?.value ?? "",
+  ];
 
-  const getDisplayFormat = (parts: Intl.DateTimeFormatPart[]) => {
-    const month = parts.find((part) => part.type === "month");
-    const year = parts.find((part) => part.type === "year");
+  const endDateParts = isPresent
+    ? ["Present", "Present", "", ""]
+    : [
+        shortMonthFormatter
+          .formatToParts(new Date(endDate))
+          .find((part) => part.type === "month")?.value ?? "",
+        longMonthFormatter
+          .formatToParts(new Date(endDate))
+          .find((part) => part.type === "month")?.value ?? "",
+        numericMonthFormatter
+          .formatToParts(new Date(endDate))
+          .find((part) => part.type === "month")?.value ?? "",
+        numericYearFormatter
+          .formatToParts(new Date(endDate))
+          .find((part) => part.type === "year")?.value ?? "",
+      ];
 
-    if (!month || !year) {
-      return <></>;
-    }
-
+  const getDisplayFormat = ([shortMonth, longMonth, _, year]: string[]) => {
     return (
-      <>
-        <span className="dates__date__month">{month.value}</span>{" "}
-        <span className="dates__date__year">{year.value}</span>
-      </>
+      <span aria-hidden="true">
+        <span className="dates__date__month" aria-hidden="true">
+          {shortMonth}
+        </span>
+        <span className="visually-hidden">{longMonth}</span>{" "}
+        <span className="dates__date__year">{year}</span>
+      </span>
     );
   };
 
-  const getMachineFormat = (parts: Intl.DateTimeFormatPart[]) => {
-    const month = parts.find((part) => part.type === "month");
-    const year = parts.find((part) => part.type === "year");
+  const getMachineFormat = ([_, __, numericalMonth, year]: string[]) => {
+    return `${year}-${numericalMonth}`;
+  };
 
-    if (!month || !year) {
-      return "";
-    }
-
-    return `${year.value}-${month.value}`;
+  const getAriaFormat = ([_, longMonth, __, year]: string[]) => {
+    return `${longMonth}${year ? `, ${year}` : ""}`;
   };
 
   const startDateDisplay = getDisplayFormat(startDateParts);
@@ -243,16 +232,27 @@ function Dates({ startDate, endDate }) {
   const startDateMachine = getMachineFormat(startDateParts);
   const endDateMachine = getMachineFormat(endDateParts);
 
+  const startDateAria = getAriaFormat(startDateParts);
+  const endDateAria = getAriaFormat(endDateParts);
+
   return (
-    <div className="dates">
-      <time className="dates__date" dateTime={startDateMachine}>
+    <div className="dates" role="group" aria-label="Start and End Dates">
+      <time
+        className="dates__date"
+        dateTime={startDateMachine}
+        aria-label={startDateAria}
+      >
         {startDateDisplay}
       </time>
       <span className="dates__through" aria-hidden="true" hidden>
         <>&ndash;</>
       </span>
       <span className="visually-hidden">{" through "}</span>
-      <time className="dates__date" dateTime={endDateMachine}>
+      <time
+        className="dates__date"
+        dateTime={endDateMachine}
+        aria-label={endDateAria}
+      >
         {endDateDisplay}
       </time>
     </div>
