@@ -105,8 +105,12 @@ function ExperienceSection() {
             <card-item key={id} aria-labelledby={id}>
               <div className="card__header">
                 <div className="card__heading">
-                  <h3 id={id}>{item.heading}</h3>
-                  <p className="card__detail">{item.detail}</p>
+                  <h3 id={id} aria-owns={id + " " + id + "-detail"}>
+                    {item.heading}
+                  </h3>
+                  <p className="card__detail" id={id + "-detail"}>
+                    {item.detail}
+                  </p>
                 </div>
                 <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
@@ -136,8 +140,12 @@ function EducationSection() {
             <card-item key={id} aria-labelledby={id}>
               <div className="card__header">
                 <div className="card__heading">
-                  <h3 id={id}>{item.heading}</h3>
-                  <p className="card__detail">{item.detail}</p>
+                  <h3 id={id} aria-owns={id + " " + id + "-detail"}>
+                    {item.heading}
+                  </h3>
+                  <p className="card__detail" id={id + "-detail"}>
+                    {item.detail}
+                  </p>
                 </div>
                 <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
@@ -169,64 +177,95 @@ function Dates({ startDate, endDate }) {
     year: "numeric",
   });
 
-  const startDateParts = [
-    shortMonthFormatter
-      .formatToParts(new Date(startDate))
-      .find((part) => part.type === "month")?.value ?? "",
-    longMonthFormatter
-      .formatToParts(new Date(startDate))
-      .find((part) => part.type === "month")?.value ?? "",
-    numericMonthFormatter
-      .formatToParts(new Date(startDate))
-      .find((part) => part.type === "month")?.value ?? "",
-    numericYearFormatter
-      .formatToParts(new Date(startDate))
-      .find((part) => part.type === "year")?.value ?? "",
-  ];
+  type DateParts = {
+    isPresent: boolean;
+    shortMonth: string;
+    longMonth: string;
+    numericMonth: string;
+    year: string;
+  };
 
-  const endDateParts = isPresent
-    ? ["Present", "Present", "", ""]
-    : [
-        shortMonthFormatter
-          .formatToParts(new Date(endDate))
-          .find((part) => part.type === "month")?.value ?? "",
-        longMonthFormatter
-          .formatToParts(new Date(endDate))
-          .find((part) => part.type === "month")?.value ?? "",
-        numericMonthFormatter
-          .formatToParts(new Date(endDate))
-          .find((part) => part.type === "month")?.value ?? "",
-        numericYearFormatter
-          .formatToParts(new Date(endDate))
-          .find((part) => part.type === "year")?.value ?? "",
-      ];
+  const startDateParts: DateParts = {
+    isPresent: false,
+    shortMonth:
+      shortMonthFormatter
+        .formatToParts(new Date(startDate))
+        .find((part) => part.type === "month")?.value ?? "",
+    longMonth:
+      longMonthFormatter
+        .formatToParts(new Date(startDate))
+        .find((part) => part.type === "month")?.value ?? "",
+    numericMonth:
+      numericMonthFormatter
+        .formatToParts(new Date(startDate))
+        .find((part) => part.type === "month")?.value ?? "",
+    year:
+      numericYearFormatter
+        .formatToParts(new Date(startDate))
+        .find((part) => part.type === "year")?.value ?? "",
+  };
 
-  const getDisplayFormat = ([shortMonth, longMonth, _, year]: string[]) => {
+  const endDateParts: DateParts = {
+    isPresent,
+    ...(isPresent
+      ? {
+          shortMonth: "",
+          longMonth: "",
+          numericMonth: "",
+          year: "",
+        }
+      : {
+          shortMonth:
+            shortMonthFormatter
+              .formatToParts(new Date(endDate))
+              .find((part) => part.type === "month")?.value ?? "",
+          longMonth:
+            longMonthFormatter
+              .formatToParts(new Date(endDate))
+              .find((part) => part.type === "month")?.value ?? "",
+          numericMonth:
+            numericMonthFormatter
+              .formatToParts(new Date(endDate))
+              .find((part) => part.type === "month")?.value ?? "",
+          year:
+            numericYearFormatter
+              .formatToParts(new Date(endDate))
+              .find((part) => part.type === "year")?.value ?? "",
+        }),
+  };
+
+  const getDisplayFormat = ({ isPresent, shortMonth, year }: DateParts) => {
     return (
       <span aria-hidden="true">
-        <span className="dates__date__month" aria-hidden="true">
-          {shortMonth}
+        <span className="dates__date__month">
+          {isPresent ? "Present" : shortMonth}
         </span>
-        <span className="visually-hidden">{longMonth}</span>{" "}
-        <span className="dates__date__year">{year}</span>
+        {isPresent ? (
+          <></>
+        ) : (
+          <>
+            {" "}
+            <span className="dates__date__year">{year}</span>
+          </>
+        )}
       </span>
     );
   };
 
-  const getMachineFormat = ([_, __, numericalMonth, year]: string[]) => {
-    return `${year}-${numericalMonth}`;
+  const getMachineFormat = ({ numericMonth, year }: DateParts) => {
+    return isPresent ? "" : `${year}-${numericMonth}`;
   };
 
-  const getAriaFormat = ([_, longMonth, __, year]: string[]) => {
-    return `${longMonth}${year ? `, ${year}` : ""}`;
+  const getAriaFormat = ({ isPresent, longMonth, year }: DateParts) => {
+    return (
+      <span className="visually-hidden">
+        {isPresent ? "Present" : `${longMonth} ${year}`}
+      </span>
+    );
   };
 
   const startDateDisplay = getDisplayFormat(startDateParts);
-  const endDateDisplay = isPresent ? (
-    <span className="dates__date__month">Present</span>
-  ) : (
-    getDisplayFormat(endDateParts)
-  );
+  const endDateDisplay = getDisplayFormat(endDateParts);
 
   const startDateMachine = getMachineFormat(startDateParts);
   const endDateMachine = getMachineFormat(endDateParts);
@@ -236,24 +275,30 @@ function Dates({ startDate, endDate }) {
 
   return (
     <div className="dates" role="group" aria-label="Start and End Dates">
-      <time
-        className="dates__date"
-        dateTime={startDateMachine}
-        aria-label={startDateAria}
-      >
+      <span className="visually-hidden">Started in</span>
+      <time className="dates__date" dateTime={startDateMachine}>
         {startDateDisplay}
+        {startDateAria}
       </time>
       <span className="dates__through" aria-hidden="true" hidden>
         <>&ndash;</>
       </span>
-      <span className="visually-hidden">{" through "}</span>
-      <time
-        className="dates__date"
-        dateTime={endDateMachine}
-        aria-label={endDateAria}
-      >
-        {endDateDisplay}
-      </time>
+      {isPresent ? (
+        <>
+          <span className="visually-hidden">
+            {" and currently working here"}
+          </span>
+          <span className="dates__date">{endDateDisplay}</span>
+        </>
+      ) : (
+        <>
+          <span className="visually-hidden">{" and ended in "}</span>
+          <time className="dates__date" dateTime={endDateMachine}>
+            {endDateDisplay}
+            {endDateAria}
+          </time>
+        </>
+      )}
     </div>
   );
 }

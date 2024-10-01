@@ -378,51 +378,26 @@
   }
 
   card-item {
-    page-break-inside: avoid;
-    margin: 0;
-    border-radius: 1rlh;
-    padding: 1rlh;
-    box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
-    background-color: var(--swatch-button-face);
-    display: grid;
-    gap: 0.5rlh;
-    border: 2px solid var(--swatch-page);
-
-    @media screen and (max-width: 320px) {
-      padding-top: 0;
-      padding-left: 0;
-      padding-right: 0;
-      background: none;
-      border-radius: 0;
-      box-shadow: none;
-      border-bottom: 0.1rem solid var(--swatch-text);
-    }
-
-    @media print, screen and (forced-colors: active) {
-      padding: 1rlh 0 2rlh;
-      border-radius: 0;
-      box-shadow: none;
-      border: 0;
-      border-bottom: 0.1rem solid var(--swatch-text);
-    }
-
-    & :is(p, :is([role="list"], unordered-list) > :is(li, list-item)) {
-      font-size: 0.875rem;
-      line-height: 0.875rlh;
-    }
-
-    & :is([role="list"], unordered-list) {
-      list-style: disc;
+    & .dates {
       padding: 0;
       margin: 0;
-      display: grid;
-      row-gap: 0.5rlh;
-      padding-left: 0.25rlh;
+      flex: 0 0 auto;
+      display: block;
+      height: 100%;
 
-      & > :is(li, list-item) {
-        display: grid;
-        grid-template-columns: auto minmax(0px, 1fr);
-        column-gap: 0.5rlh;
+      & .dates__date__month {
+        font-variant: all-small-caps;
+      }
+
+      & .dates__date__year {
+        font-variant-numeric: proportional-nums;
+        font-size: calc((2 / 3) * 1rem);
+      }
+
+      & .dates__through[hidden] {
+        display: inline;
+        padding: 0 0.25ch;
+        vertical-align: text-top;
       }
     }
 
@@ -455,29 +430,6 @@
       font-variant: all-small-caps;
       font-size: 1.0125rem;
       letter-spacing: 0.01em;
-    }
-  }
-
-  .dates {
-    padding: 0;
-    margin: 0;
-    flex: 0 0 auto;
-    display: block;
-    height: 100%;
-
-    & .dates__date__month {
-      font-variant: all-small-caps;
-    }
-
-    & .dates__date__year {
-      font-variant-numeric: proportional-nums;
-      font-size: 0.75rem;
-    }
-
-    & .dates__through[hidden] {
-      display: inline;
-      padding: 0 0.25ch;
-      vertical-align: text-top;
     }
   }
 }
