@@ -245,13 +245,13 @@
       flex-wrap: wrap;
       column-gap: 1rlh;
       row-gap: 0.5rlh;
-      justify-content: space-between;
       font-size: 0.95rem;
+      justify-content: space-between;
 
-      @media screen and (max-width: 320px) {
+      @media screen and (max-width: 767px) {
         font-size: 0.875rem;
         gap: 0.5rlh;
-        justify-content: center;
+        justify-content: space-around;
       }
     }
 
