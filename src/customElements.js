@@ -18,7 +18,17 @@ class ListMarkerHtmlElement extends AriaHiddenHtmlElement {
 
 window.customElements.define("list-marker", ListMarkerHtmlElement);
 
-class SectionMarkerHtmlElement extends AriaHiddenHtmlElement {}
+const sectionMarkerStyleSheet = new CSSStyleSheet();
+sectionMarkerStyleSheet.replaceSync(`:host::before { content: "#"; }`);
+
+class SectionMarkerHtmlElement extends AriaHiddenHtmlElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" }).adoptedStyleSheets.push(
+      sectionMarkerStyleSheet
+    );
+  }
+}
 
 window.customElements.define("section-marker", SectionMarkerHtmlElement);
 

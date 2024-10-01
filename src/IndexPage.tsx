@@ -12,7 +12,6 @@ export function IndexPage() {
         <title>{data.name + " - " + data.title}</title>
         <meta name="description" content={data.description} />
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-        <link rel="manifest" href="manifest.json" />
         <style dangerouslySetInnerHTML={{ __html: getStyles() }} />
         <script dangerouslySetInnerHTML={{ __html: getScripts() }} />
       </head>
