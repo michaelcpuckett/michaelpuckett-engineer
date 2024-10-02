@@ -52,7 +52,7 @@ function Nav() {
 
 function Header() {
   return (
-    <header>
+    <header role="banner">
       <h1>
         <span className="h1__name">{data.name}</span>
         <span hidden>-</span>
@@ -236,23 +236,25 @@ function Dates({ startDate, endDate }) {
 
   const getDisplayFormat = ({ isPresent, shortMonth, year }: DateParts) => {
     return (
-      <span aria-hidden="true">
-        <span className="dates__date__month">
+      <>
+        <span className="dates__date__month" aria-hidden="true">
           {isPresent ? "Present" : shortMonth}
         </span>
         {isPresent ? (
           <></>
         ) : (
           <>
-            {" "}
-            <span className="dates__date__year">{year}</span>
+            <span className="dates__date__year" aria-hidden="true">
+              {" "}
+              {year}
+            </span>
           </>
         )}
-      </span>
+      </>
     );
   };
 
-  const getMachineFormat = ({ numericMonth, year }: DateParts) => {
+  const getMachineFormat = ({ isPresent, numericMonth, year }: DateParts) => {
     return isPresent ? "" : `${year}-${numericMonth}`;
   };
 
@@ -274,7 +276,7 @@ function Dates({ startDate, endDate }) {
   const endDateAria = getAriaFormat(endDateParts);
 
   return (
-    <div className="dates" role="group" aria-label="Start and End Dates">
+    <p className="dates">
       <span className="visually-hidden">Started in</span>
       <time className="dates__date" dateTime={startDateMachine}>
         {startDateDisplay}
@@ -288,7 +290,9 @@ function Dates({ startDate, endDate }) {
           <span className="visually-hidden">
             {" and currently working here"}
           </span>
-          <span className="dates__date">{endDateDisplay}</span>
+          <span className="dates__date" aria-hidden="true">
+            {endDateDisplay}
+          </span>
         </>
       ) : (
         <>
@@ -299,6 +303,6 @@ function Dates({ startDate, endDate }) {
           </time>
         </>
       )}
-    </div>
+    </p>
   );
 }

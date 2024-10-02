@@ -1,32 +1,37 @@
-class AriaHiddenHtmlElement extends HTMLElement {
+const markerStyleSheet = new CSSStyleSheet();
+markerStyleSheet.replaceSync(`:host::before { content: var(--marker); }`);
+
+class MarkerHtmlElement extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.adoptedStyleSheets.push(markerStyleSheet);
+  }
+
   connectedCallback() {
     this.ariaHidden = true;
   }
 }
 
 const listMarkerStyleSheet = new CSSStyleSheet();
-listMarkerStyleSheet.replaceSync(`:host::before { content: "•"; }`);
+listMarkerStyleSheet.replaceSync(`:host { --marker: "•"; }`);
 
-class ListMarkerHtmlElement extends AriaHiddenHtmlElement {
+class ListMarkerHtmlElement extends MarkerHtmlElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" }).adoptedStyleSheets.push(
-      listMarkerStyleSheet
-    );
+    this.shadowRoot.adoptedStyleSheets.push(listMarkerStyleSheet);
   }
 }
 
 window.customElements.define("list-marker", ListMarkerHtmlElement);
 
 const sectionMarkerStyleSheet = new CSSStyleSheet();
-sectionMarkerStyleSheet.replaceSync(`:host::before { content: "#"; }`);
+sectionMarkerStyleSheet.replaceSync(`:host { --marker: "#"; }`);
 
-class SectionMarkerHtmlElement extends AriaHiddenHtmlElement {
+class SectionMarkerHtmlElement extends MarkerHtmlElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" }).adoptedStyleSheets.push(
-      sectionMarkerStyleSheet
-    );
+    this.shadowRoot.adoptedStyleSheets.push(sectionMarkerStyleSheet);
   }
 }
 
@@ -50,12 +55,12 @@ listItemStyleSheet.replaceSync(`
 `);
 
 class ListItemHtmlElement extends AbstractListItemHtmlElement {
-  connectedCallback() {
-    super.connectedCallback();
-    const shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.adoptedStyleSheets.push(listItemStyleSheet);
-    shadowRoot.append(window.document.createElement("list-marker"));
-    shadowRoot.append(window.document.createElement("slot"));
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.adoptedStyleSheets.push(listItemStyleSheet);
+    this.shadowRoot.append(window.document.createElement("list-marker"));
+    this.shadowRoot.append(window.document.createElement("slot"));
   }
 }
 
@@ -101,18 +106,13 @@ cardItemStyleSheet.replaceSync(`
 `);
 
 class CardItemHtmlElement extends AbstractListItemHtmlElement {
-  connectedCallback() {
-    super.connectedCallback();
-    const index = Array.from(this.parentElement.children).findIndex(
-      (child) => child === this
-    );
-    const ariaPosInSet = `${index + 1}`;
-    this.setAttribute("aria-posinset", ariaPosInSet);
-    const shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.adoptedStyleSheets.push(cardItemStyleSheet);
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.adoptedStyleSheets.push(cardItemStyleSheet);
     const articleElement = window.document.createElement("article");
     articleElement.append(window.document.createElement("slot"));
-    shadowRoot.append(articleElement);
+    this.shadowRoot.append(articleElement);
   }
 }
 
@@ -137,25 +137,16 @@ unorderedListStyleSheet.replaceSync(`
 `);
 
 class UnorderedListHtmlElement extends AbstractListHtmlElement {
-  connectedCallback() {
-    super.connectedCallback();
+  constructor() {
+    super();
     const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.adoptedStyleSheets.push(unorderedListStyleSheet);
     shadowRoot.append(window.document.createElement("slot"));
   }
 }
+
 window.customElements.define("unordered-list", UnorderedListHtmlElement);
 
-class CardListHtmlElement extends AbstractListHtmlElement {
-  connectedCallback() {
-    super.connectedCallback();
-
-    new Promise(window.requestAnimationFrame).then(() => {
-      const children = Array.from(this.children);
-      const ariaSetSize = `${children.length}`;
-      this.setAttribute("aria-setsize", ariaSetSize);
-    });
-  }
-}
+class CardListHtmlElement extends AbstractListHtmlElement {}
 
 window.customElements.define("card-list", CardListHtmlElement);
