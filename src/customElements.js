@@ -103,6 +103,11 @@ cardItemStyleSheet.replaceSync(`
 class CardItemHtmlElement extends AbstractListItemHtmlElement {
   connectedCallback() {
     super.connectedCallback();
+    const index = Array.from(this.parentElement.children).findIndex(
+      (child) => child === this
+    );
+    const ariaPosInSet = `${index + 1}`;
+    this.setAttribute("aria-posinset", ariaPosInSet);
     const shadowRoot = this.attachShadow({ mode: "open" });
     shadowRoot.adoptedStyleSheets.push(cardItemStyleSheet);
     const articleElement = window.document.createElement("article");
@@ -141,5 +146,16 @@ class UnorderedListHtmlElement extends AbstractListHtmlElement {
 }
 window.customElements.define("unordered-list", UnorderedListHtmlElement);
 
-class CardListHtmlElement extends AbstractListHtmlElement {}
+class CardListHtmlElement extends AbstractListHtmlElement {
+  connectedCallback() {
+    super.connectedCallback();
+
+    new Promise(window.requestAnimationFrame).then(() => {
+      const children = Array.from(this.children);
+      const ariaSetSize = `${children.length}`;
+      this.setAttribute("aria-setsize", ariaSetSize);
+    });
+  }
+}
+
 window.customElements.define("card-list", CardListHtmlElement);
