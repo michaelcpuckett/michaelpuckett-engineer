@@ -96,11 +96,11 @@ cardItemStyleSheet.replaceSync(`
       border-radius: 0;
       box-shadow: none;
     }
+  }
 
-    & article {
-      display: grid;
-      gap: 0.5rlh;
-    }
+  article {
+    display: grid;
+    gap: 0.5rlh;
   }
 `);
 

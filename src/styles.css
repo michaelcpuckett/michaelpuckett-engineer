@@ -366,16 +366,13 @@
     max-width: min(calc(100% - 4rlh), 880px);
     margin: 0 auto;
     --container-padding: 1rlh;
+    padding: max(var(--container-padding), env(safe-area-inset-top, 0px))
+      max(var(--container-padding), env(safe-area-inset-right, 0px))
+      max(var(--container-padding), env(safe-area-inset-bottom, 0px))
+      max(var(--container-padding), env(safe-area-inset-left, 0px));
 
     @media print, screen and (forced-colors: active) {
       box-shadow: none;
-    }
-
-    @media screen {
-      padding: calc(var(--container-padding) + env(safe-area-inset-top, 0px))
-        calc(var(--container-padding) + env(safe-area-inset-right, 0px))
-        calc(var(--container-padding) + env(safe-area-inset-bottom, 0px))
-        calc(var(--container-padding) + env(safe-area-inset-left, 0px));
     }
 
     @media screen and (max-width: 767px) {
