@@ -8,7 +8,10 @@ export function IndexPage() {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,viewport-fit=cover"
+        />
         <title>{data.name + " - " + data.title}</title>
         <meta name="description" content={data.description} />
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />

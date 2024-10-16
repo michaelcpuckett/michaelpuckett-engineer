@@ -91,7 +91,6 @@ cardItemStyleSheet.replaceSync(`
     }
 
     @media print, screen and (forced-colors: active) {
-      page-break-inside: avoid;
       padding: 1rlh 0 2rlh;
       border: 0 0 0.1rem solid var(--swatch-text);
       border-radius: 0;
