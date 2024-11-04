@@ -12,52 +12,47 @@
     font-family: system-ui, sans-serif;
     line-height: 1.5;
     color-scheme: light;
-    --primary--100: #dfeae8;
-    --primary--100: oklab(92.913% -0.01079 -0.00175);
-
-    --primary--200: #b1cbc8;
-    --primary--200: oklab(82.283% -0.02704 -0.00441);
-
-    --primary--300: #9ebebb;
-    --primary--300: oklab(77.854% -0.03381 -0.00552);
-
-    --primary--400: #79a5a1;
-    --primary--400: oklab(68.996% -0.04735 -0.00774);
-
-    --primary--500: #669894;
-    --primary--500: oklab(64.567% -0.05412 -0.00885);
-
-    --primary--600: #547f7b;
-    --primary--600: oklab(56.496% -0.04736 -0.00774);
-
-    --primary--700: #426663;
-    --primary--700: oklab(48.425% -0.04059 -0.00664);
-
-    --primary--800: #324e4c;
-    --primary--800: oklab(40.354% -0.03383 -0.00553);
-
-    --primary--900: #223836;
-    --primary--900: oklab(32.283% -0.02706 -0.00442);
-
-    --swatch-text: CanvasText;
-    --swatch-interactive: LinkText;
-    --swatch-interactive-completed: VisitedText;
-    --swatch-focused: Highlight;
-    --swatch-button-text: CanvasText;
-    --swatch-text: var(--primary--900);
-    --swatch-page: var(--primary--600);
-    --swatch-background: var(--primary--100);
-    --swatch-button-face: var(--primary--800);
-    --swatch-gray: var(--primary--400);
-    --swatch-interactive: var(--primary--700);
+    --swatch--text: initial;
     --gap: 1.5rlh;
     --min-touch-dimension: 48px;
 
-    @media print {
-      font-size: 14pt;
-      color-scheme: light;
-      --swatch-page: Canvas;
-      --swatch-background: Canvas;
+    @media screen and (prefers-color-scheme: light) {
+      --primary--100: #dfeae8;
+      --primary--100: oklab(92.913% -0.01079 -0.00175);
+
+      --primary--200: #b1cbc8;
+      --primary--200: oklab(82.283% -0.02704 -0.00441);
+
+      --primary--300: #9ebebb;
+      --primary--300: oklab(77.854% -0.03381 -0.00552);
+
+      --primary--400: #79a5a1;
+      --primary--400: oklab(68.996% -0.04735 -0.00774);
+
+      --primary--500: #669894;
+      --primary--500: oklab(64.567% -0.05412 -0.00885);
+
+      --primary--600: #547f7b;
+      --primary--600: oklab(56.496% -0.04736 -0.00774);
+
+      --primary--700: #426663;
+      --primary--700: oklab(48.425% -0.04059 -0.00664);
+
+      --primary--800: #324e4c;
+      --primary--800: oklab(40.354% -0.03383 -0.00553);
+
+      --primary--900: #223836;
+      --primary--900: oklab(32.283% -0.02706 -0.00442);
+
+      --swatch-page: var(--primary--300);
+      --swatch-background: var(--primary--100);
+      --swatch-button-face: var(--primary--800);
+      --swatch-gray: var(--primary--400);
+      --swatch-interactive: var(--primary--800);
+
+      @media (min-width: 768px) {
+        --swatch-text: var(--primary--900);
+      }
     }
 
     @media screen and (prefers-color-scheme: dark) {
@@ -67,16 +62,24 @@
       --swatch-button-face: #003c55;
       --swatch-gray: #aebbc1;
       --swatch-interactive: #78ddff;
-      --swatch-text: initial;
+      --swatch-text: CanvasText;
       --swatch-focused: CanvasText;
       --swatch-interactive-completed: #dfc0f3;
     }
 
     @media print, screen and (forced-colors: active) {
+      color-scheme: light;
       --swatch-page: Canvas;
       --swatch-gray: CanvasText;
-      --swatch-background: transparent;
-      --swatch-button-face: transparent;
+      --swatch-background: Canvas;
+      --swatch-button-face: Canvas;
+      --swatch-text: CanvasText;
+      --swatch-interactive: LinkText;
+      --swatch-button-text: CanvasText;
+    }
+
+    @media print {
+      font-size: 14pt;
     }
   }
 
@@ -91,7 +94,7 @@
 
   @page {
     size: letter portrait;
-    margin: 1in;
+    margin: calc((2 / 3) * 1in);
   }
 
   img {
@@ -453,6 +456,7 @@
     & .card__header {
       column-gap: 1rlh;
       display: grid;
+      page-break-inside: avoid;
 
       @media (min-width: 768px) {
         grid-template-columns: 1fr auto;

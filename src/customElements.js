@@ -69,8 +69,11 @@ window.customElements.define("list-item", ListItemHtmlElement);
 const cardItemStyleSheet = new CSSStyleSheet();
 cardItemStyleSheet.replaceSync(`
   :host {
-    color-scheme: dark;
-    color: initial;
+    @media screen {
+      color-scheme: dark;
+      color: initial;
+    }
+
     display: grid;
     font-size: 0.875rem;
     line-height: 0.875rlh;
