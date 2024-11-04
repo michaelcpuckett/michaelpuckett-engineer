@@ -69,15 +69,21 @@ window.customElements.define("list-item", ListItemHtmlElement);
 const cardItemStyleSheet = new CSSStyleSheet();
 cardItemStyleSheet.replaceSync(`
   :host {
+    color-scheme: dark;
+    color: initial;
     display: grid;
     font-size: 0.875rem;
     line-height: 0.875rlh;
     margin: 0;
     padding: 1rlh;
     border: 2px solid var(--swatch-page);
+
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
+    }
+
     border-radius: 1rlh;
     background-color: var(--swatch-button-face);
-    box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
     list-style: none;
 
     @media screen and (max-width: 320px) {

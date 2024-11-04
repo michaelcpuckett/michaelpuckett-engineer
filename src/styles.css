@@ -12,15 +12,44 @@
     font-family: system-ui, sans-serif;
     line-height: 1.5;
     color-scheme: light;
+    --primary--100: #dfeae8;
+    --primary--100: oklab(92.913% -0.01079 -0.00175);
+
+    --primary--200: #b1cbc8;
+    --primary--200: oklab(82.283% -0.02704 -0.00441);
+
+    --primary--300: #9ebebb;
+    --primary--300: oklab(77.854% -0.03381 -0.00552);
+
+    --primary--400: #79a5a1;
+    --primary--400: oklab(68.996% -0.04735 -0.00774);
+
+    --primary--500: #669894;
+    --primary--500: oklab(64.567% -0.05412 -0.00885);
+
+    --primary--600: #547f7b;
+    --primary--600: oklab(56.496% -0.04736 -0.00774);
+
+    --primary--700: #426663;
+    --primary--700: oklab(48.425% -0.04059 -0.00664);
+
+    --primary--800: #324e4c;
+    --primary--800: oklab(40.354% -0.03383 -0.00553);
+
+    --primary--900: #223836;
+    --primary--900: oklab(32.283% -0.02706 -0.00442);
+
     --swatch-text: CanvasText;
-    --swatch-background: #f0f1f5;
-    --swatch-gray: #636363;
     --swatch-interactive: LinkText;
     --swatch-interactive-completed: VisitedText;
     --swatch-focused: Highlight;
     --swatch-button-text: CanvasText;
-    --swatch-page: #202024;
-    --swatch-button-face: #e0e0e3;
+    --swatch-text: var(--primary--900);
+    --swatch-page: var(--primary--600);
+    --swatch-background: var(--primary--100);
+    --swatch-button-face: var(--primary--800);
+    --swatch-gray: var(--primary--400);
+    --swatch-interactive: var(--primary--700);
     --gap: 1.5rlh;
     --min-touch-dimension: 48px;
 
@@ -34,16 +63,11 @@
     @media screen and (prefers-color-scheme: dark) {
       color-scheme: dark;
       --swatch-page: #001117;
-      /* Text contrast: 17:1 */
-      /* Link contrast: 8:1 */
-      /* Gray contrast: 8:1 */
       --swatch-background: #001e27;
-      /* Text contrast: 14:1 */
-      /* Link contrast: 6:1 */
-      /* Gray contrast: 7:1 */
       --swatch-button-face: #003c55;
       --swatch-gray: #aebbc1;
       --swatch-interactive: #78ddff;
+      --swatch-text: initial;
       --swatch-focused: CanvasText;
       --swatch-interactive-completed: #dfc0f3;
     }
@@ -364,6 +388,7 @@
     grid-template-columns: 100%;
     max-width: min(calc(100% - 4rlh), 880px);
     margin: 0 auto;
+    color: var(--swatch-text);
     --container-padding: 1rlh;
     padding: max(var(--container-padding), env(safe-area-inset-top, 0px))
       max(var(--container-padding), env(safe-area-inset-right, 0px))
@@ -384,7 +409,7 @@
     @media screen and (min-width: 768px) {
       border-radius: 1rlh;
       margin: 2rlh auto var(--gap);
-      border: 2px solid var(--swatch-button-face);
+      border: 1px solid var(--swatch-button-face);
       --container-padding: 2rlh;
     }
 

@@ -81,14 +81,32 @@ export default {
       heading: "Both & Yes",
       detail: "UX Engineer",
       startDate: "April 2024",
-      endDate: "Present",
+      endDate: "October 2024",
       contentHtml: (
         <unordered-list>
           <list-item>
-            Building client websites with React, Next.js and TypeScript.
+            Built client websites with React, Next.js and TypeScript.
           </list-item>
           <list-item>
-            Architecting internal tools to support agency projects.
+            Architected internal tools to support agency projects.
+          </list-item>
+        </unordered-list>
+      ),
+    },
+    {
+      heading: "Code Louisville",
+      detail: "Volunteer Mentor",
+      startDate: "October 2023",
+      endDate: "October 2024",
+      contentHtml: (
+        <unordered-list>
+          <list-item>
+            Taught adult students the basics of client-side web development,
+            including HTML, CSS, and JavaScript.
+          </list-item>
+          <list-item>
+            Created presentations, assignments, and quizzes to help educate
+            students.
           </list-item>
         </unordered-list>
       ),
