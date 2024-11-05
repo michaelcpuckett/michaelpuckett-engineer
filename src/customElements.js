@@ -78,7 +78,7 @@ cardItemStyleSheet.replaceSync(`
     font-size: 0.875rem;
     line-height: 0.875rlh;
     margin: 0;
-    padding: 1rlh;
+    padding: 1.25rlh;
     border: 2px solid var(--swatch-page);
 
     @media (prefers-color-scheme: dark) {
