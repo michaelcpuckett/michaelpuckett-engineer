@@ -23,38 +23,40 @@
     --primary--700: #00a6c0;
     --primary--800: #272343;
     --primary--900: #1a1a2e;
-    --swatch-page: var(--primary--300);
-    --swatch-background: var(--primary--100);
-    --swatch-button-face: var(--primary--800);
-    --swatch-gray: var(--primary--400);
-    --swatch-interactive: var(--primary--800);
+    --swatch--page: var(--primary--300);
+    --swatch--background: var(--primary--100);
+    --swatch--button-face: var(--primary--800);
+    --swatch--gray: var(--primary--400);
+    --swatch--interactive: var(--primary--800);
+    --swatch--interactive-completed: var(--primary--600);
+    --swatch--focused: var(--swatch--interactive);
 
     @media (min-width: 768px) {
-      --swatch-text: var(--primary--900);
+      --swatch--text: var(--primary--900);
     }
   }
 
   @media screen and (prefers-color-scheme: dark) {
     color-scheme: dark;
-    --swatch-page: #001117;
-    --swatch-background: #001e27;
-    --swatch-button-face: #003c55;
-    --swatch-gray: #aebbc1;
-    --swatch-interactive: #78ddff;
-    --swatch-text: CanvasText;
-    --swatch-focused: CanvasText;
-    --swatch-interactive-completed: #dfc0f3;
+    --swatch--page: #001117;
+    --swatch--background: #001e27;
+    --swatch--button-face: #003c55;
+    --swatch--gray: #aebbc1;
+    --swatch--interactive: #78ddff;
+    --swatch--interactive-completed: #dfc0f3;
+    --swatch--text: CanvasText;
+    --swatch--focused: CanvasText;
   }
 
   @media print, screen and (forced-colors: active) {
     color-scheme: light;
-    --swatch-page: Canvas;
-    --swatch-gray: CanvasText;
-    --swatch-background: Canvas;
-    --swatch-button-face: Canvas;
-    --swatch-text: CanvasText;
-    --swatch-interactive: LinkText;
-    --swatch-button-text: CanvasText;
+    --swatch--page: Canvas;
+    --swatch--gray: CanvasText;
+    --swatch--background: Canvas;
+    --swatch--button-face: Canvas;
+    --swatch--text: CanvasText;
+    --swatch--interactive: LinkText;
+    --swatch--button-text: CanvasText;
   }
 
   @media print {
@@ -67,7 +69,7 @@
 }
 
 :focus-visible {
-  outline: 4px solid var(--swatch-focused);
+  outline: 4px solid var(--swatch--focused);
   outline-offset: 4px;
 }
 
@@ -87,7 +89,7 @@ p {
 a {
   :where(&:any-link) {
     color: LinkText;
-    color: var(--swatch-interactive);
+    color: var(--swatch--interactive);
     font-weight: 700;
     display: inline-flex;
     align-items: center;
@@ -144,7 +146,7 @@ h2 {
     margin-left: -0.875rlh;
 
     &:focus-within {
-      outline: 4px solid var(--swatch-focused);
+      outline: 4px solid var(--swatch--focused);
     }
 
     & a[id][href] {
@@ -193,7 +195,7 @@ h3 {
 
   @media print {
     page-break-after: avoid;
-    color: var(--swatch-gray);
+    color: var(--swatch--gray);
   }
 }
 
@@ -204,8 +206,8 @@ hr {
 }
 
 body {
-  background: var(--swatch-page);
-  color: var(--swatch-text);
+  background: var(--swatch--page);
+  color: var(--swatch--text);
   line-height: 1rlh;
   margin: 0;
   overflow-x: hidden;
@@ -359,7 +361,7 @@ h1 {
 
 .container {
   background: Canvas;
-  background: var(--swatch-background);
+  background: var(--swatch--background);
   width: 100%;
   display: grid;
   gap: var(--gap);
@@ -368,7 +370,7 @@ h1 {
   grid-template-columns: 100%;
   max-width: min(calc(100% - 4rlh), 880px);
   margin: 0 auto;
-  color: var(--swatch-text);
+  color: var(--swatch--text);
   --container-padding: 1rlh;
   padding: max(var(--container-padding), env(safe-area-inset-top, 0px))
     max(var(--container-padding), env(safe-area-inset-right, 0px))
@@ -389,7 +391,7 @@ h1 {
   @media screen and (min-width: 768px) {
     border-radius: 1rlh;
     margin: 2rlh auto var(--gap);
-    border: 1px solid var(--swatch-button-face);
+    border: 1px solid var(--swatch--button-face);
     --container-padding: 2rlh;
   }
 

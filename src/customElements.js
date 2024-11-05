@@ -79,14 +79,14 @@ cardItemStyleSheet.replaceSync(`
     line-height: 0.875rlh;
     margin: 0;
     padding: 1.25rlh;
-    border: 2px solid var(--swatch-page);
+    border: 2px solid var(--swatch--page);
 
     @media (prefers-color-scheme: dark) {
       box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
     }
 
     border-radius: 1rlh;
-    background-color: var(--swatch-button-face);
+    background-color: var(--swatch--button-face);
     list-style: none;
 
     @media screen and (max-width: 320px) {
@@ -95,13 +95,13 @@ cardItemStyleSheet.replaceSync(`
       padding-right: 0;
       background: none;
       box-shadow: none;
-      border-bottom: 0.1rem solid var(--swatch-text);
+      border-bottom: 0.1rem solid var(--swatch--text);
       border-radius: 0;
     }
 
     @media print, screen and (forced-colors: active) {
       padding: 1rlh 0 2rlh;
-      border: 0 0 0.1rem solid var(--swatch-text);
+      border: 0 0 0.1rem solid var(--swatch--text);
       border-radius: 0;
       box-shadow: none;
     }
