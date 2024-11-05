@@ -13,37 +13,19 @@
     line-height: 1.5;
     color-scheme: light;
     --swatch--text: initial;
-    --gap: 1.5rlh;
+    --gap: 1.25rlh;
     --min-touch-dimension: 48px;
 
     @media screen and (prefers-color-scheme: light) {
-      --primary--100: #dfeae8;
-      --primary--100: oklab(92.913% -0.01079 -0.00175);
-
-      --primary--200: #b1cbc8;
-      --primary--200: oklab(82.283% -0.02704 -0.00441);
-
-      --primary--300: #9ebebb;
-      --primary--300: oklab(77.854% -0.03381 -0.00552);
-
-      --primary--400: #79a5a1;
-      --primary--400: oklab(68.996% -0.04735 -0.00774);
-
-      --primary--500: #669894;
-      --primary--500: oklab(64.567% -0.05412 -0.00885);
-
-      --primary--600: #547f7b;
-      --primary--600: oklab(56.496% -0.04736 -0.00774);
-
-      --primary--700: #426663;
-      --primary--700: oklab(48.425% -0.04059 -0.00664);
-
-      --primary--800: #324e4c;
-      --primary--800: oklab(40.354% -0.03383 -0.00553);
-
-      --primary--900: #223836;
-      --primary--900: oklab(32.283% -0.02706 -0.00442);
-
+      --primary--100: #ffffff;
+      --primary--200: #e3f6f5;
+      --primary--300: #c5e9e9;
+      --primary--400: #bae8e8;
+      --primary--500: #78ddff;
+      --primary--600: #3ec6e0;
+      --primary--700: #00a6c0;
+      --primary--800: #272343;
+      --primary--900: #1a1a2e;
       --swatch-page: var(--primary--300);
       --swatch-background: var(--primary--100);
       --swatch-button-face: var(--primary--800);
