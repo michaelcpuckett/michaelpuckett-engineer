@@ -23,11 +23,11 @@
     --primary--700: #00a6c0;
     --primary--800: #272343;
     --primary--900: #1a1a2e;
-    --swatch--page: var(--primary--300);
-    --swatch--background: var(--primary--100);
-    --swatch--button-face: var(--primary--800);
+    --swatch--page: var(--primary--100);
+    --swatch--background: #ffffff;
+    --swatch--button-face: var(--primary--300);
     --swatch--gray: var(--primary--400);
-    --swatch--interactive: var(--primary--800);
+    --swatch--interactive: var(--primary--700);
     --swatch--interactive-completed: var(--primary--600);
     --swatch--focused: var(--swatch--interactive);
 
