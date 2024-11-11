@@ -62,6 +62,10 @@ function Nav() {
           itemType="http://schema.org/DigitalDocument"
         >
           <span itemProp="name">Résumé</span>
+          <meta
+            itemProp="url"
+            content="https://michaelpuckett.engineer/michael_puckett_resume.pdf"
+          />
         </a>
       </div>
     </nav>
@@ -83,7 +87,7 @@ function Header() {
       <p itemProp="description">{data.description}</p>
       <div hidden data-print-only>
         <div itemProp="url">https://michaelpuckett.engineer</div>
-        <div itemProp="email">michael@puckett.contact</div>
+        <div itemProp="email">michael -at- puckett.contact</div>
         <div itemProp="telephone">615-209-1380</div>
         <div
           itemProp="address"
