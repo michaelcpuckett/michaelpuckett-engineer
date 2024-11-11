@@ -114,6 +114,40 @@ a {
   }
 }
 
+@media print {
+  [hidden][data-print-only] {
+    display: grid;
+    grid-row: 1 / 2;
+
+    & [itemprop="address"] {
+      display: grid;
+      grid-template-columns: auto auto minmax(0px, 1fr);
+      grid-template-rows: auto auto;
+      column-gap: 0.5ch;
+
+      & [itemprop="streetAddress"] {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+      }
+
+      & [itemprop="addressLocality"] {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+      }
+
+      & [itemprop="addressRegion"] {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+      }
+
+      & [itemprop="postalCode"] {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+      }
+    }
+  }
+}
+
 h1 {
   font-weight: 400;
   line-height: normal;
@@ -274,6 +308,10 @@ nav {
       font-size: 0.875rem;
       gap: 0.5rlh;
       justify-content: space-around;
+    }
+
+    @media print {
+      display: none;
     }
   }
 

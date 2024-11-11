@@ -282,6 +282,7 @@ export default {
   education: [
     {
       heading: "Western Kentucky University",
+      url: "https://www.wku.edu",
       detail: <>B.A., Interactive Advertising & Graphic Design</>,
       startDate: "August 2005",
       endDate: "December 2009",

@@ -19,7 +19,11 @@ export function IndexPage() {
         <script dangerouslySetInnerHTML={{ __html: getScripts() }} />
       </head>
       <body>
-        <div className="container">
+        <div
+          className="container"
+          itemScope
+          itemType="http://schema.org/Person"
+        >
           <Nav />
           <Header />
           <main>
@@ -39,14 +43,25 @@ function Nav() {
       <div className="nav__region">
         <a href={"mailto:" + data.email}>Email</a>
         {data.links.map((link) => (
-          <a key={link.href} href={link.href} target="_blank">
+          <a itemProp="sameAs" key={link.href} href={link.href} target="_blank">
             {link.text}
           </a>
         ))}
       </div>
-      <div className="nav__region">
-        <a href="michael_puckett_resume.pdf" target="_blank">
-          Résumé
+      <div
+        className="nav__region"
+        itemProp="potentialAction"
+        itemScope
+        itemType="http://schema.org/ReadAction"
+      >
+        <a
+          href="michael_puckett_resume.pdf"
+          target="_blank"
+          itemProp="object"
+          itemScope
+          itemType="http://schema.org/DigitalDocument"
+        >
+          <span itemProp="name">Résumé</span>
         </a>
       </div>
     </nav>
@@ -57,11 +72,36 @@ function Header() {
   return (
     <header role="banner">
       <h1>
-        <span className="h1__name">{data.name}</span>
+        <span className="h1__name" itemProp="name">
+          {data.name}
+        </span>
         <span hidden>-</span>
-        <span className="h1__title">{data.title}</span>
+        <span className="h1__title" itemProp="jobTitle">
+          {data.title}
+        </span>
       </h1>
-      <p>{data.description}</p>
+      <p itemProp="description">{data.description}</p>
+      <div hidden data-print-only>
+        <div itemProp="url">https://michaelpuckett.engineer</div>
+        <div itemProp="email">michael@puckett.contact</div>
+        <div itemProp="telephone">615-209-1380</div>
+        <div
+          itemProp="address"
+          itemScope
+          itemType="http://schema.org/PostalAddress"
+        >
+          <span itemProp="streetAddress">9709 Mary Dell Lane</span>
+          <span itemProp="addressLocality">Louisville</span>
+          <span itemProp="addressRegion">KY</span>
+          <span itemProp="postalCode">40291</span>
+        </div>
+      </div>
+      <img
+        hidden
+        itemProp="image"
+        alt="Headshot photo of Michael Puckett"
+        src="https://michaelpuckett.engineer/michael_puckett_avatar.png"
+      />
     </header>
   );
 }
@@ -81,7 +121,9 @@ function SkillsSection() {
 
           return (
             <card-item key={id} aria-labelledby={id}>
-              <h3 id={id}>{item.heading}</h3>
+              <h3 itemProp="knowsAbout" id={id}>
+                {item.heading}
+              </h3>
               {item.contentHtml}
             </card-item>
           );
@@ -105,19 +147,37 @@ function ExperienceSection() {
           const id = slugify(item.heading);
 
           return (
-            <card-item key={id} aria-labelledby={id}>
-              <div className="card__header">
-                <div className="card__heading">
-                  <h3 id={id} aria-owns={id + " " + id + "-detail"}>
-                    {item.heading}
-                  </h3>
-                  <p className="card__detail" id={id + "-detail"}>
-                    {item.detail}
-                  </p>
+            <card-item
+              key={id}
+              aria-labelledby={id}
+              itemProp="memberOf"
+              itemScope
+              itemType="http://schema.org/Organization"
+            >
+              <meta itemProp="name" content={item.heading} />
+              <div
+                style={{ display: "contents" }}
+                itemProp="member"
+                itemScope
+                itemType="https://schema.org/OrganizationRole"
+              >
+                <div className="card__header">
+                  <div className="card__heading">
+                    <h3 id={id} aria-owns={id + " " + id + "-detail"}>
+                      {item.heading}
+                    </h3>
+                    <p
+                      itemProp="roleName"
+                      className="card__detail"
+                      id={id + "-detail"}
+                    >
+                      {item.detail}
+                    </p>
+                  </div>
+                  <Dates startDate={item.startDate} endDate={item.endDate} />
                 </div>
-                <Dates startDate={item.startDate} endDate={item.endDate} />
+                <div itemProp="description">{item.contentHtml}</div>
               </div>
-              {item.contentHtml}
             </card-item>
           );
         })}
@@ -140,19 +200,38 @@ function EducationSection() {
           const id = slugify(item.heading);
 
           return (
-            <card-item key={id} aria-labelledby={id}>
-              <div className="card__header">
-                <div className="card__heading">
-                  <h3 id={id} aria-owns={id + " " + id + "-detail"}>
-                    {item.heading}
-                  </h3>
-                  <p className="card__detail" id={id + "-detail"}>
-                    {item.detail}
-                  </p>
+            <card-item
+              key={id}
+              aria-labelledby={id}
+              itemProp="alumniOf"
+              itemScope
+              itemType="http://schema.org/CollegeOrUniversity"
+            >
+              <meta itemProp="name" content={item.heading} />
+              <link itemProp="sameAs" href={item.url} />
+              <div
+                style={{ display: "contents" }}
+                itemProp="member"
+                itemScope
+                itemType="https://schema.org/OrganizationRole"
+              >
+                <div className="card__header">
+                  <div className="card__heading">
+                    <h3 id={id} aria-owns={id + " " + id + "-detail"}>
+                      {item.heading}
+                    </h3>
+                    <p
+                      className="card__detail"
+                      id={id + "-detail"}
+                      itemProp="roleName"
+                    >
+                      {item.detail}
+                    </p>
+                  </div>
+                  <Dates startDate={item.startDate} endDate={item.endDate} />
                 </div>
-                <Dates startDate={item.startDate} endDate={item.endDate} />
+                <div itemProp="description">{item.contentHtml}</div>
               </div>
-              {item.contentHtml}
             </card-item>
           );
         })}
@@ -281,7 +360,11 @@ function Dates({ startDate, endDate }) {
   return (
     <p className="dates">
       <span className="visually-hidden">Started in</span>
-      <time className="dates__date" dateTime={startDateMachine}>
+      <time
+        className="dates__date"
+        dateTime={startDateMachine}
+        itemProp="startDate"
+      >
         {startDateDisplay}
         {startDateAria}
       </time>
@@ -293,14 +376,18 @@ function Dates({ startDate, endDate }) {
           <span className="visually-hidden">
             {" and currently working here"}
           </span>
-          <span className="dates__date" aria-hidden="true">
+          <span className="dates__date" aria-hidden="true" itemProp="endDate">
             {endDateDisplay}
           </span>
         </>
       ) : (
         <>
           <span className="visually-hidden">{" and ended in "}</span>
-          <time className="dates__date" dateTime={endDateMachine}>
+          <time
+            className="dates__date"
+            dateTime={endDateMachine}
+            itemProp="endDate"
+          >
             {endDateDisplay}
             {endDateAria}
           </time>
