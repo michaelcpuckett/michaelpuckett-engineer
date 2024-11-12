@@ -48,7 +48,18 @@
     --swatch--focused: CanvasText;
   }
 
-  @media print, screen and (forced-colors: active) {
+  @media print {
+    color-scheme: light;
+    --swatch--page: white;
+    --swatch--gray: black;
+    --swatch--background: white;
+    --swatch--button-face: white;
+    --swatch--text: black;
+    --swatch--interactive: LinkText;
+    --swatch--button-text: black;
+  }
+
+  @media screen and (forced-colors: active) {
     color-scheme: light;
     --swatch--page: Canvas;
     --swatch--gray: CanvasText;
@@ -276,7 +287,7 @@ section {
     }
   }
 
-  @media print {
+  @media print, screen and (forced-colors: active) {
     border-bottom: 4px solid;
     padding-bottom: calc(1rlh + 4px);
   }
@@ -398,7 +409,6 @@ h1 {
 }
 
 .container {
-  background: Canvas;
   background: var(--swatch--background);
   width: 100%;
   display: grid;
@@ -523,11 +533,11 @@ card-item {
     }
   }
 
-  @media print {
+  @media print, screen and (forced-colors: active) {
     padding: 0;
 
     &:not(:first-of-type) {
-      border-top: 2px solid;
+      border-top: 1px solid;
       padding-top: 1rlh;
     }
   }
