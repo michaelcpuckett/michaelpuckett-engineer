@@ -443,9 +443,7 @@ h1 {
     --container-padding: 2rlh;
   }
 
-  @media print,
-    screen and (forced-colors: active),
-    screen and (prefers-contrast: more) {
+  @media print, screen and (forced-colors: active) {
     margin-top: 0;
   }
 
