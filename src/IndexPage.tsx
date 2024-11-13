@@ -5,36 +5,54 @@ import { getStyles } from "./styles";
 
 export function IndexPage() {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,viewport-fit=cover"
-        />
-        <title>{data.name + " - " + data.title}</title>
-        <meta name="description" content={data.description} />
-        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-        <style dangerouslySetInnerHTML={{ __html: getStyles() }} />
-        <script dangerouslySetInnerHTML={{ __html: getScripts() }} />
-      </head>
-      <body>
-        <div
-          className="container"
-          itemScope
-          itemType="http://schema.org/Person"
-        >
-          <Nav />
-          <Header />
-          <main>
-            <SkillsSection />
-            <ExperienceSection />
-            <EducationSection />
-          </main>
-        </div>
-      </body>
-    </html>
+    <Html>
+      <Head />
+      <Body>
+        <Nav />
+        <Header />
+        <Main>
+          <SkillsSection />
+          <ExperienceSection />
+          <EducationSection />
+        </Main>
+      </Body>
+    </Html>
   );
+}
+
+function Html({ children }: React.PropsWithChildren) {
+  return <html lang="en">{children}</html>;
+}
+
+function Head() {
+  return (
+    <head>
+      <meta charSet="utf-8" />
+      <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1,viewport-fit=cover"
+      />
+      <title>{data.name + " - " + data.title}</title>
+      <meta name="description" content={data.description} />
+      <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+      <style dangerouslySetInnerHTML={{ __html: getStyles() }} />
+      <script dangerouslySetInnerHTML={{ __html: getScripts() }} />
+    </head>
+  );
+}
+
+function Body({ children }: React.PropsWithChildren) {
+  return (
+    <body>
+      <div className="container" itemScope itemType="http://schema.org/Person">
+        {children}
+      </div>
+    </body>
+  );
+}
+
+function Main({ children }: React.PropsWithChildren) {
+  return <main>{children}</main>;
 }
 
 function Nav() {

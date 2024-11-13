@@ -332,7 +332,7 @@ nav {
 header {
   display: grid;
   gap: var(--gap);
-  margin: 0.5rlh 0;
+  margin: calc(var(--gap) / 2) 0;
 
   @media print, screen and (forced-colors: active) {
     border-bottom: 4px solid;
@@ -415,7 +415,7 @@ h1 {
   max-width: min(calc(100% - 4rlh), 880px);
   margin: 0 auto;
   color: var(--swatch--text);
-  --container-padding: 1rlh;
+  --container-padding: var(--gap);
   padding: max(var(--container-padding), env(safe-area-inset-top, 0px))
     max(var(--container-padding), env(safe-area-inset-right, 0px))
     max(var(--container-padding), env(safe-area-inset-bottom, 0px))
@@ -434,9 +434,9 @@ h1 {
 
   @media screen and (min-width: 768px) {
     border-radius: 1rlh;
-    margin: 2rlh auto var(--gap);
+    margin: var(--gap) auto;
     border: 1px solid var(--swatch--button-face);
-    --container-padding: 2rlh;
+    --container-padding: calc(2 * var(--gap));
   }
 
   @media print, screen and (forced-colors: active) {
