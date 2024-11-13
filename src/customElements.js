@@ -73,7 +73,7 @@ cardItemStyleSheet.replaceSync(`
     font-size: 0.875rem;
     line-height: 0.875rlh;
     margin: 0;
-    padding: 1.25rlh;
+    padding: var(--gap);
     border: 2px solid var(--swatch--page);
 
     @media (prefers-color-scheme: dark) {
@@ -135,7 +135,6 @@ unorderedListStyleSheet.replaceSync(`
     margin: 0;
     display: grid;
     row-gap: 0.5rlh;
-    padding-left: 0.25rlh;
   }
 `);
 
