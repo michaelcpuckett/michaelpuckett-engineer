@@ -5,6 +5,3 @@ Allow: /
 Allow: /favicon.svg
 Allow: /manifest.json
 Allow: /michael_puckett_resume.pdf
-
-User-agent: *
-Allow: /
