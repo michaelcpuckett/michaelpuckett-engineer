@@ -97,7 +97,7 @@ function Header() {
         <span className="h1__name" itemProp="name">
           {data.name}
         </span>
-        <span hidden>-</span>
+        <span className="visually-hidden"> &mdash; </span>
         <span className="h1__title" itemProp="jobTitle">
           {data.title}
         </span>
@@ -390,21 +390,20 @@ function Dates({ startDate, endDate }) {
         {startDateDisplay}
         {startDateAria}
       </time>
-      <span className="dates__through" aria-hidden="true" hidden>
-        <>&ndash;</>
+      <span aria-hidden="true" className="dates__through">
+        {" "}
+        &ndash;{" "}
       </span>
       {isPresent ? (
         <>
-          <span className="visually-hidden">
-            {" and currently working here"}
-          </span>
+          <span className="visually-hidden"> and currently working here</span>
           <span className="dates__date" aria-hidden="true" itemProp="endDate">
             {endDateDisplay}
           </span>
         </>
       ) : (
         <>
-          <span className="visually-hidden">{" and ended in "}</span>
+          <span className="visually-hidden"> and ended in </span>
           <time
             className="dates__date"
             dateTime={endDateMachine}

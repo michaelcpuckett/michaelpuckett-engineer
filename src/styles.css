@@ -457,6 +457,7 @@ card-item {
     flex: 0 0 auto;
     display: block;
     height: 100%;
+    letter-spacing: 1px;
 
     & .dates__date__month {
       font-variant: all-small-caps;
@@ -467,10 +468,8 @@ card-item {
       font-size: calc((2 / 3) * 1rem);
     }
 
-    & .dates__through[hidden] {
-      display: inline;
-      padding: 0 0.25ch;
-      vertical-align: text-top;
+    & .dates__through {
+      padding: 0.5ch 0;
     }
   }
 
