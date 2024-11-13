@@ -1,6 +1,7 @@
 export default {
   name: "Michael Puckett",
-  title: "UX Engineer",
+  jobTitle: "UX Engineer",
+  additionalTitle: "x-Google, x-Apple",
   description:
     "Creative technologist with extensive experience building for the web platform. Focused on crafting accessible, user-friendly digital products and tools.",
   email: "michael@puckett.contact",

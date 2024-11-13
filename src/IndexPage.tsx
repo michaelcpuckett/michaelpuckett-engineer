@@ -32,7 +32,9 @@ function Head() {
         name="viewport"
         content="width=device-width,initial-scale=1,viewport-fit=cover"
       />
-      <title>{data.name + " - " + data.title}</title>
+      <title>
+        {data.name + " - " + data.jobTitle + " | " + data.additionalTitle}
+      </title>
       <meta name="description" content={data.description} />
       <link rel="icon" type="image/svg+xml" href="favicon.svg" />
       <style dangerouslySetInnerHTML={{ __html: getStyles() }} />
@@ -98,8 +100,9 @@ function Header() {
           {data.name}
         </span>
         <span className="visually-hidden"> &mdash; </span>
-        <span className="h1__title" itemProp="jobTitle">
-          {data.title}
+        <span className="h1__title">
+          <span itemProp="jobTitle">{data.jobTitle}</span> |{" "}
+          <span>{data.additionalTitle}</span>
         </span>
       </h1>
       <p itemProp="description">{data.description}</p>

@@ -84,7 +84,7 @@ cardItemStyleSheet.replaceSync(`
     background-color: var(--swatch--button-face);
     list-style: none;
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 319px) {
       padding-top: 0;
       padding-left: 0;
       padding-right: 0;

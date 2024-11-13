@@ -11,43 +11,38 @@
   --swatch--text: initial;
   --gap: 1.25rlh;
   --min-touch-dimension: 48px;
+  --primary--100: #ffffff;
+  --primary--200: #e3f6f5;
+  --primary--300: #e9eff0;
+  --primary--400: #78ddff;
+  --primary--500: #3ec6e0;
+  --primary--600: #008ca2;
+  --primary--700: #003c55;
+  --primary--800: #001e27;
+  --primary--900: #001117;
 
   @media screen and (prefers-color-scheme: light) {
-    --primary--100: #ffffff;
-    --primary--200: #e3f6f5;
-    --primary--300: #e2e2e2;
-    --primary--400: #bae8e8;
-    --primary--500: #78ddff;
-    --primary--600: #3ec6e0;
-    --primary--700: #008ca2;
-    --primary--800: #272343;
-    --primary--900: #1a1a2e;
     --swatch--page: var(--primary--100);
-    --swatch--background: #ffffff;
+    --swatch--background: var(--primary--100);
     --swatch--button-face: var(--primary--300);
-    --swatch--gray: var(--primary--400);
-    --swatch--interactive: var(--primary--700);
-    --swatch--interactive-completed: var(--primary--600);
+    --swatch--interactive: var(--primary--600);
     --swatch--focused: var(--swatch--interactive);
     --swatch--text: var(--primary--900);
   }
 
   @media screen and (prefers-color-scheme: dark) {
     color-scheme: dark;
-    --swatch--page: #001117;
-    --swatch--background: #001e27;
-    --swatch--button-face: #003c55;
-    --swatch--gray: #aebbc1;
-    --swatch--interactive: #78ddff;
-    --swatch--interactive-completed: #dfc0f3;
-    --swatch--text: CanvasText;
-    --swatch--focused: CanvasText;
+    --swatch--page: var(--primary--900);
+    --swatch--background: var(--primary--800);
+    --swatch--button-face: var(--primary--700);
+    --swatch--interactive: var(--primary--500);
+    --swatch--text: var(--primary--100);
+    --swatch--focused: var(--primary--100);
   }
 
   @media print {
     color-scheme: light;
     --swatch--page: white;
-    --swatch--gray: black;
     --swatch--background: white;
     --swatch--button-face: white;
     --swatch--text: black;
@@ -58,7 +53,6 @@
   @media screen and (forced-colors: active) {
     color-scheme: light;
     --swatch--page: Canvas;
-    --swatch--gray: CanvasText;
     --swatch--background: Canvas;
     --swatch--button-face: Canvas;
     --swatch--text: CanvasText;
@@ -83,6 +77,11 @@
 @page {
   size: letter portrait;
   margin: calc((2 / 3) * 1in);
+}
+
+::selection {
+  background: var(--primary--500);
+  color: var(--primary--900);
 }
 
 img {
@@ -236,7 +235,7 @@ h3 {
 
   @media print {
     page-break-after: avoid;
-    color: var(--swatch--gray);
+    color: #aebbc1;
   }
 }
 
@@ -366,7 +365,7 @@ h1 {
     margin-top: -0.25rlh;
     letter-spacing: -0.025em;
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 319px) {
       font-size: 1.5rem;
       line-height: 1.25rlh;
     }
@@ -378,13 +377,12 @@ h1 {
   }
 
   & .h1__title {
-    text-transform: uppercase;
-    line-height: 1;
+    font-variant: small-caps;
     font-size: 28px;
     font-weight: 200;
     letter-spacing: 0.05em;
 
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 319px) {
       font-size: 1rem;
     }
 
@@ -393,6 +391,16 @@ h1 {
       font-size: 1.667rem;
       text-transform: none;
       font-weight: 400;
+    }
+
+    & span {
+      @media screen and (min-width: 320px) {
+        white-space: nowrap;
+      }
+
+      &:first-of-type {
+        font-variant: all-small-caps;
+      }
     }
   }
 
@@ -469,7 +477,10 @@ card-item {
     }
 
     & .dates__through {
-      padding: 0.5ch 0;
+      padding: 0 0.5ch;
+      display: inline-flex;
+      position: relative;
+      top: 0.1ch;
     }
   }
 
