@@ -4,9 +4,8 @@
 }
 
 :root {
-  font-size: 20px;
-  font: -apple-system-body;
   font-family: system-ui, sans-serif;
+  font-size: 20px;
   line-height: 1.5;
   color-scheme: light;
   --swatch--text: initial;
@@ -30,10 +29,7 @@
     --swatch--interactive: var(--primary--700);
     --swatch--interactive-completed: var(--primary--600);
     --swatch--focused: var(--swatch--interactive);
-
-    @media (min-width: 768px) {
-      --swatch--text: var(--primary--900);
-    }
+    --swatch--text: var(--primary--900);
   }
 
   @media screen and (prefers-color-scheme: dark) {
