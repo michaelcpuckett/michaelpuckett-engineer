@@ -236,7 +236,7 @@ h3 {
 
   @media print {
     page-break-after: avoid;
-    color: #aebbc1;
+    color: #7d7d7d;
   }
 }
 
