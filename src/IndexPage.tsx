@@ -107,6 +107,7 @@ function Header() {
       </h1>
       <p itemProp="description">{data.description}</p>
       <div hidden data-print-only>
+        <h2>Contact Information</h2>
         <div itemProp="url">https://michaelpuckett.engineer</div>
         <div itemProp="email">michael -at- puckett.contact</div>
         <div itemProp="telephone">615-209-1380</div>
@@ -115,6 +116,7 @@ function Header() {
           itemScope
           itemType="http://schema.org/PostalAddress"
         >
+          <meta itemProp="contactType" content="Home Address" />
           <span itemProp="streetAddress">9709 Mary Dell Lane</span>
           <span itemProp="addressLocality">Louisville</span>
           <span itemProp="addressRegion">KY</span>
@@ -199,7 +201,11 @@ function ExperienceSection() {
                       {item.detail}
                     </p>
                   </div>
-                  <Dates startDate={item.startDate} endDate={item.endDate} />
+                  <Dates
+                    useMicrodata
+                    startDate={item.startDate}
+                    endDate={item.endDate}
+                  />
                 </div>
                 <div itemProp="description">{item.contentHtml}</div>
               </div>
@@ -232,31 +238,22 @@ function EducationSection() {
               itemScope
               itemType="http://schema.org/CollegeOrUniversity"
             >
-              <meta itemProp="name" content={item.heading} />
-              <link itemProp="sameAs" href={item.url} />
-              <div
-                style={{ display: "contents" }}
-                itemProp="member"
-                itemScope
-                itemType="https://schema.org/OrganizationRole"
-              >
-                <div className="card__header">
-                  <div className="card__heading">
-                    <h3 id={id} aria-owns={id + " " + id + "-detail"}>
-                      {item.heading}
-                    </h3>
-                    <p
-                      className="card__detail"
-                      id={id + "-detail"}
-                      itemProp="roleName"
-                    >
-                      {item.detail}
-                    </p>
-                  </div>
-                  <Dates startDate={item.startDate} endDate={item.endDate} />
+              <div className="card__header">
+                <div className="card__heading">
+                  <h3
+                    itemProp="name"
+                    id={id}
+                    aria-owns={id + " " + id + "-detail"}
+                  >
+                    {item.heading}
+                  </h3>
+                  <p className="card__detail" id={id + "-detail"}>
+                    {item.detail}
+                  </p>
                 </div>
-                <div itemProp="description">{item.contentHtml}</div>
+                <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
+              <div>{item.contentHtml}</div>
             </card-item>
           );
         })}
@@ -265,7 +262,15 @@ function EducationSection() {
   );
 }
 
-function Dates({ startDate, endDate }) {
+function Dates({
+  useMicrodata,
+  startDate,
+  endDate,
+}: {
+  useMicrodata?: boolean;
+  startDate: string;
+  endDate: string;
+}) {
   const isPresent = endDate === "Present";
 
   const shortMonthFormatter = Intl.DateTimeFormat("en-US", {
@@ -388,7 +393,7 @@ function Dates({ startDate, endDate }) {
       <time
         className="dates__date"
         dateTime={startDateMachine}
-        itemProp="startDate"
+        itemProp={useMicrodata ? "startDate" : undefined}
       >
         {startDateDisplay}
         {startDateAria}
@@ -400,7 +405,11 @@ function Dates({ startDate, endDate }) {
       {isPresent ? (
         <>
           <span className="visually-hidden"> and currently working here</span>
-          <span className="dates__date" aria-hidden="true" itemProp="endDate">
+          <span
+            className="dates__date"
+            aria-hidden="true"
+            itemProp={useMicrodata ? "endDate" : undefined}
+          >
             {endDateDisplay}
           </span>
         </>
@@ -410,7 +419,7 @@ function Dates({ startDate, endDate }) {
           <time
             className="dates__date"
             dateTime={endDateMachine}
-            itemProp="endDate"
+            itemProp={useMicrodata ? "endDate" : undefined}
           >
             {endDateDisplay}
             {endDateAria}
