@@ -7,11 +7,11 @@ export default {
   email: "michael@puckett.contact",
   links: [
     {
-      href: "https://www.linkedin.com/in/michaelcpuckett",
+      href: "https://linkedin.com/in/michaelcpuckett",
       text: "LinkedIn",
     },
     {
-      href: "https://www.github.com/michaelcpuckett",
+      href: "https://github.com/michaelcpuckett",
       text: "Github",
     },
   ],
@@ -81,6 +81,7 @@ export default {
     {
       heading: "Both & Yes",
       detail: "UX Engineer",
+      url: "https://bothandyes.com",
       startDate: "April 2024",
       endDate: "October 2024",
       contentHtml: (
@@ -97,6 +98,7 @@ export default {
     {
       heading: "Code Louisville",
       detail: "Volunteer Mentor",
+      url: "https://code-you.org",
       startDate: "October 2023",
       endDate: "October 2024",
       contentHtml: (
@@ -115,6 +117,7 @@ export default {
     {
       heading: "Google",
       detail: "UX Engineer",
+      url: "https://google.com",
       startDate: "May 2021",
       endDate: "December 2023",
       contentHtml: (
@@ -143,6 +146,7 @@ export default {
     },
     {
       heading: "LiveSchool",
+      url: "https://whyliveschool.com",
       detail: "UI Architect",
       startDate: "August 2018",
       endDate: "May 2021",
@@ -173,6 +177,7 @@ export default {
     },
     {
       heading: "Humana",
+      url: "https://humana.com",
       detail: "Web Developer",
       startDate: "December 2016",
       endDate: "July 2018",
@@ -191,6 +196,7 @@ export default {
     },
     {
       heading: "Apple",
+      url: "https://apple.com",
       detail: "UI Engineer",
       startDate: "October 2013",
       endDate: "June 2016",
@@ -216,6 +222,7 @@ export default {
     },
     {
       heading: "CNN",
+      url: "https://cnn.com",
       detail: "Web Developer",
       startDate: "April 2013",
       endDate: "October 2013",
@@ -234,6 +241,7 @@ export default {
     },
     {
       heading: "iostudio",
+      url: "https://iostudio.com",
       detail: "Web Developer",
       startDate: "January 2012",
       endDate: "March 2013",
@@ -251,6 +259,7 @@ export default {
     },
     {
       heading: "Fruit of the Loom",
+      url: "https://fruit.com",
       detail: "Web Developer",
       startDate: "October 2011",
       endDate: "January 2012",
@@ -267,6 +276,7 @@ export default {
     },
     {
       heading: "Communication Components",
+      url: "https://2-com.net",
       detail: "Web Developer",
       startDate: "March 2010",
       endDate: "October 2011",
@@ -283,7 +293,7 @@ export default {
   education: [
     {
       heading: "Western Kentucky University",
-      url: "https://www.wku.edu",
+      url: "https://wku.edu",
       detail: <>B.A., Interactive Advertising & Graphic Design</>,
       startDate: "August 2005",
       endDate: "December 2009",

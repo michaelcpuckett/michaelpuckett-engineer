@@ -182,6 +182,7 @@ function ExperienceSection() {
               itemType="http://schema.org/Organization"
             >
               <meta itemProp="name" content={item.heading} />
+              <meta itemProp="sameAs" content={item.url} />
               <div
                 style={{ display: "contents" }}
                 itemProp="member"
@@ -252,6 +253,7 @@ function EducationSection() {
                   </p>
                 </div>
                 <Dates startDate={item.startDate} endDate={item.endDate} />
+                <meta itemProp="sameAs" content={item.url} />
               </div>
               <div>{item.contentHtml}</div>
             </card-item>
