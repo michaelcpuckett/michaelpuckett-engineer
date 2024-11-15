@@ -1,5 +1,7 @@
+import React from "react";
 import slugify from "react-slugify";
 import data from "./data";
+import jsonLd from "./getStructuredData";
 import { getScripts } from "./scripts";
 import { getStyles } from "./styles";
 
@@ -15,6 +17,7 @@ export function IndexPage() {
           <ExperienceSection />
           <EducationSection />
         </Main>
+        <StructuredData />
       </Body>
     </Html>
   );
@@ -46,9 +49,7 @@ function Head() {
 function Body({ children }: React.PropsWithChildren) {
   return (
     <body>
-      <div className="container" itemScope itemType="http://schema.org/Person">
-        {children}
-      </div>
+      <div className="container">{children}</div>
     </body>
   );
 }
@@ -63,29 +64,14 @@ function Nav() {
       <div className="nav__region">
         <a href={"mailto:" + data.email}>Email</a>
         {data.links.map((link) => (
-          <a itemProp="sameAs" key={link.href} href={link.href} target="_blank">
+          <a key={link.href} href={link.href} target="_blank">
             {link.text}
           </a>
         ))}
       </div>
-      <div
-        className="nav__region"
-        itemProp="potentialAction"
-        itemScope
-        itemType="http://schema.org/ReadAction"
-      >
-        <a
-          href="michael_puckett_resume.pdf"
-          target="_blank"
-          itemProp="object"
-          itemScope
-          itemType="http://schema.org/DigitalDocument"
-        >
-          <span itemProp="name">Résumé</span>
-          <meta
-            itemProp="url"
-            content="https://michaelpuckett.engineer/michael_puckett_resume.pdf"
-          />
+      <div className="nav__region">
+        <a href="michael_puckett_resume.pdf" target="_blank">
+          Résumé
         </a>
       </div>
     </nav>
@@ -96,36 +82,15 @@ function Header() {
   return (
     <header role="banner">
       <h1>
-        <span className="h1__name" itemProp="name">
-          {data.name}
-        </span>
+        <span className="h1__name">{data.name}</span>
         <span className="visually-hidden"> &mdash; </span>
         <span className="h1__title">
-          <span itemProp="jobTitle">{data.jobTitle}</span> |{" "}
-          <span>{data.additionalTitle}</span>
+          <span>{data.jobTitle}</span> | <span>{data.additionalTitle}</span>
         </span>
       </h1>
-      <p itemProp="description">{data.description}</p>
-      <div hidden data-print-only>
-        <h2>Contact Information</h2>
-        <div itemProp="url">https://michaelpuckett.engineer</div>
-        <div itemProp="email">michael -at- puckett.contact</div>
-        <div itemProp="telephone">615-209-1380</div>
-        <div
-          itemProp="address"
-          itemScope
-          itemType="http://schema.org/PostalAddress"
-        >
-          <meta itemProp="contactType" content="Home Address" />
-          <span itemProp="streetAddress">9709 Mary Dell Lane</span>
-          <span itemProp="addressLocality">Louisville</span>
-          <span itemProp="addressRegion">KY</span>
-          <span itemProp="postalCode">40291</span>
-        </div>
-      </div>
+      <p>{data.description}</p>
       <img
         hidden
-        itemProp="image"
         alt="Headshot photo of Michael Puckett"
         src="https://michaelpuckett.engineer/michael_puckett_avatar.png"
       />
@@ -148,8 +113,31 @@ function SkillsSection() {
 
           return (
             <card-item key={id} aria-labelledby={id}>
-              <h3 itemProp="knowsAbout" id={id}>
-                {item.heading}
+              <h3 id={id}>
+                {item.heading
+                  .split("/")
+                  .map(function splitOnHyphen(heading, index, parts) {
+                    if (index === 0) {
+                      return (
+                        <React.Fragment key="first-part">
+                          {heading}
+                          {parts.length > 1 ? (
+                            <>
+                              /<wbr />
+                            </>
+                          ) : (
+                            ""
+                          )}
+                        </React.Fragment>
+                      );
+                    }
+
+                    return (
+                      <React.Fragment key="second-part">
+                        {heading}
+                      </React.Fragment>
+                    );
+                  })}
               </h3>
               {item.contentHtml}
             </card-item>
@@ -174,42 +162,19 @@ function ExperienceSection() {
           const id = slugify(item.heading);
 
           return (
-            <card-item
-              key={id}
-              aria-labelledby={id}
-              itemProp="memberOf"
-              itemScope
-              itemType="http://schema.org/Organization"
-            >
-              <meta itemProp="name" content={item.heading} />
-              <meta itemProp="sameAs" content={item.url} />
-              <div
-                style={{ display: "contents" }}
-                itemProp="member"
-                itemScope
-                itemType="https://schema.org/OrganizationRole"
-              >
-                <div className="card__header">
-                  <div className="card__heading">
-                    <h3 id={id} aria-owns={id + " " + id + "-detail"}>
-                      {item.heading}
-                    </h3>
-                    <p
-                      itemProp="roleName"
-                      className="card__detail"
-                      id={id + "-detail"}
-                    >
-                      {item.detail}
-                    </p>
-                  </div>
-                  <Dates
-                    useMicrodata
-                    startDate={item.startDate}
-                    endDate={item.endDate}
-                  />
+            <card-item key={id} aria-labelledby={id}>
+              <div className="card__header">
+                <div className="card__heading">
+                  <h3 id={id} aria-owns={id + " " + id + "-detail"}>
+                    {item.heading}
+                  </h3>
+                  <p className="card__detail" id={id + "-detail"}>
+                    {item.detail}
+                  </p>
                 </div>
-                <div itemProp="description">{item.contentHtml}</div>
+                <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
+              <div>{item.contentHtml}</div>
             </card-item>
           );
         })}
@@ -232,20 +197,10 @@ function EducationSection() {
           const id = slugify(item.heading);
 
           return (
-            <card-item
-              key={id}
-              aria-labelledby={id}
-              itemProp="alumniOf"
-              itemScope
-              itemType="http://schema.org/CollegeOrUniversity"
-            >
+            <card-item key={id} aria-labelledby={id}>
               <div className="card__header">
                 <div className="card__heading">
-                  <h3
-                    itemProp="name"
-                    id={id}
-                    aria-owns={id + " " + id + "-detail"}
-                  >
+                  <h3 id={id} aria-owns={id + " " + id + "-detail"}>
                     {item.heading}
                   </h3>
                   <p className="card__detail" id={id + "-detail"}>
@@ -253,7 +208,7 @@ function EducationSection() {
                   </p>
                 </div>
                 <Dates startDate={item.startDate} endDate={item.endDate} />
-                <meta itemProp="sameAs" content={item.url} />
+                <meta content={item.url} />
               </div>
               <div>{item.contentHtml}</div>
             </card-item>
@@ -264,15 +219,7 @@ function EducationSection() {
   );
 }
 
-function Dates({
-  useMicrodata,
-  startDate,
-  endDate,
-}: {
-  useMicrodata?: boolean;
-  startDate: string;
-  endDate: string;
-}) {
+function Dates({ startDate, endDate }: { startDate: string; endDate: string }) {
   const isPresent = endDate === "Present";
 
   const shortMonthFormatter = Intl.DateTimeFormat("en-US", {
@@ -392,11 +339,7 @@ function Dates({
   return (
     <p className="dates">
       <span className="visually-hidden">Started in</span>
-      <time
-        className="dates__date"
-        dateTime={startDateMachine}
-        itemProp={useMicrodata ? "startDate" : undefined}
-      >
+      <time className="dates__date" dateTime={startDateMachine}>
         {startDateDisplay}
         {startDateAria}
       </time>
@@ -407,27 +350,30 @@ function Dates({
       {isPresent ? (
         <>
           <span className="visually-hidden"> and currently working here</span>
-          <span
-            className="dates__date"
-            aria-hidden="true"
-            itemProp={useMicrodata ? "endDate" : undefined}
-          >
+          <span className="dates__date" aria-hidden="true">
             {endDateDisplay}
           </span>
         </>
       ) : (
         <>
           <span className="visually-hidden"> and ended in </span>
-          <time
-            className="dates__date"
-            dateTime={endDateMachine}
-            itemProp={useMicrodata ? "endDate" : undefined}
-          >
+          <time className="dates__date" dateTime={endDateMachine}>
             {endDateDisplay}
             {endDateAria}
           </time>
         </>
       )}
     </p>
+  );
+}
+
+function StructuredData() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd),
+      }}
+    />
   );
 }
