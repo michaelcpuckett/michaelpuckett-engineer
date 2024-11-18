@@ -39,7 +39,9 @@ function Head() {
         {data.name + " - " + data.jobTitle + " | " + data.additionalTitle}
       </title>
       <meta name="description" content={data.description} />
-      <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+      <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+      <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="96x96" />
+      <link rel="icon" href="icon.png" type="image/png" sizes="144x144" />
       <style dangerouslySetInnerHTML={{ __html: getStyles() }} />
       <script dangerouslySetInnerHTML={{ __html: getScripts() }} />
     </head>
