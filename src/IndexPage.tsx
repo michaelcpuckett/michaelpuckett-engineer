@@ -2,8 +2,6 @@ import React from "react";
 import slugify from "react-slugify";
 import data from "./data";
 import jsonLd from "./getStructuredData";
-import { getScripts } from "./scripts";
-import { getStyles } from "./styles";
 
 export function IndexPage() {
   return (
@@ -31,19 +29,19 @@ function Head() {
   return (
     <head>
       <meta charSet="utf-8" />
-      <meta
-        name="viewport"
-        content="width=device-width,initial-scale=1,viewport-fit=cover"
-      />
       <title>
         {data.name + " - " + data.jobTitle + " | " + data.additionalTitle}
       </title>
       <meta name="description" content={data.description} />
-      <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-      <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="96x96" />
-      <link rel="icon" href="icon.png" type="image/png" sizes="144x144" />
-      <style dangerouslySetInnerHTML={{ __html: getStyles() }} />
-      <script dangerouslySetInnerHTML={{ __html: getScripts() }} />
+      <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1,viewport-fit=cover"
+      />
+      <link href="favicon.svg" rel="icon" type="image/svg+xml" />
+      <link href="favicon.ico" rel="icon" type="image/x-icon" sizes="96x96" />
+      <link href="icon.png" rel="icon" type="image/png" sizes="144x144" />
+      <link href="styles.css" rel="stylesheet" />
+      <script src="scripts.js"></script>
     </head>
   );
 }
