@@ -1,18 +1,19 @@
 @font-face {
   font-family: "Segoe UI";
-  src: local("Segoe UI"), url("segoe-ui.ttf");
-  font-weight: 400;
+  src: local("Segoe UI"), local("SegoeUI"), url("segoe-ui.ttf");
+  font-weight: normal;
 }
 
 @font-face {
   font-family: "Segoe UI";
-  src: local("Segoe UI Bold"), url("segoe-ui--bold.ttf");
-  font-weight: 700;
+  src: local("Segoe UI Bold"), local("SegoeUI-Bold"), url("segoe-ui--bold.ttf");
+  font-weight: bold;
 }
 
 @font-face {
   font-family: "Segoe UI";
-  src: local("Segoe UI Light"), url("segoe-ui--light.ttf");
+  src: local("Segoe UI Light"), local("SegoeUI-Light"),
+    url("segoe-ui--light.ttf");
   font-weight: 200;
 }
 
@@ -115,7 +116,7 @@ a {
   :where(&:any-link) {
     color: LinkText;
     color: var(--swatch--interactive);
-    font-weight: 700;
+    font-weight: bold;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -174,7 +175,7 @@ a {
 }
 
 h1 {
-  font-weight: 400;
+  font-weight: normal;
   line-height: normal;
   margin: 0;
 }
@@ -196,7 +197,7 @@ h2 {
 
   @media print {
     padding-bottom: 1rlh;
-    font-weight: 400;
+    font-weight: normal;
   }
 
   &:has(a[id][href]) {
@@ -244,7 +245,7 @@ h2 {
 h3 {
   font-size: 1.125rem;
   line-height: normal;
-  font-weight: 700;
+  font-weight: bold;
   display: flex;
   gap: 0.5rlh;
   margin: 0;
@@ -378,7 +379,7 @@ h1 {
   overflow-wrap: initial;
 
   & .h1__name {
-    font-weight: 700;
+    font-weight: bold;
     font-size: 3rem;
     line-height: 1.75rlh;
     margin-top: -0.25rlh;
@@ -409,7 +410,7 @@ h1 {
       letter-spacing: 0;
       font-size: 1.667rem;
       text-transform: none;
-      font-weight: 400;
+      font-weight: normal;
     }
 
     & span {
