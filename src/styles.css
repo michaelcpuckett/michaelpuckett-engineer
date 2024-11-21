@@ -1,19 +1,18 @@
 @font-face {
   font-family: "Segoe UI";
-  src: local("Segoe UI"), local("Segoe"), local("Segoe WP"), url("segoe-ui.ttf");
+  src: local("Segoe UI"), url("segoe-ui.ttf");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Segoe UI";
-  src: local("Segoe Bold"), local("Segoe WP Bold"), url("segoe-ui--bold.ttf");
+  src: local("Segoe UI Bold"), url("segoe-ui--bold.ttf");
   font-weight: 700;
 }
 
 @font-face {
   font-family: "Segoe UI";
-  src: local("Segoe UI Light"), local("Segoe WP Light"),
-    url("segoe-ui--light.ttf");
+  src: local("Segoe UI Light"), url("segoe-ui--light.ttf");
   font-weight: 200;
 }
 
