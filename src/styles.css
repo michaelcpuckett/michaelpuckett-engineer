@@ -24,7 +24,7 @@
 
 :root {
   font-family: "Segoe UI", system-ui, sans-serif;
-  font-size: 20px;
+  font-size: calc((20 / 16) * 100%);
   line-height: 1.5;
   color-scheme: light;
   display: grid;
@@ -144,33 +144,6 @@ a {
   [hidden][data-print-only] {
     display: grid;
     grid-row: 1 / 2;
-
-    & [itemprop="address"] {
-      display: grid;
-      grid-template-columns: auto auto minmax(0px, 1fr);
-      grid-template-rows: auto auto;
-      column-gap: 0.5ch;
-
-      & [itemprop="streetAddress"] {
-        grid-column: 1 / -1;
-        grid-row: 1 / 2;
-      }
-
-      & [itemprop="addressLocality"] {
-        grid-column: 1 / 2;
-        grid-row: 2 / 3;
-      }
-
-      & [itemprop="addressRegion"] {
-        grid-column: 2 / 3;
-        grid-row: 2 / 3;
-      }
-
-      & [itemprop="postalCode"] {
-        grid-column: 3 / 4;
-        grid-row: 2 / 3;
-      }
-    }
   }
 }
 
