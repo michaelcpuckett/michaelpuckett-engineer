@@ -103,16 +103,16 @@ function SkillsSection() {
     <section aria-labelledby="section-header-skills">
       <h2 aria-labelledby="section-header-skills">
         <a id="skills" href="#skills" aria-label="Skills section">
-          <section-marker />
+          <section-marker aria-hidden="true"></section-marker>
         </a>
         <span id="section-header-skills">Skills</span>
       </h2>
-      <card-list aria-labelledby="section-header-skills">
+      <card-list aria-labelledby="section-header-skills" role="list">
         {data.skills.map((item) => {
           const id = slugify(item.heading);
 
           return (
-            <card-item key={id} aria-labelledby={id}>
+            <card-item key={id} role="listitem">
               <h3 id={id}>
                 {item.heading
                   .split("/")
@@ -153,16 +153,16 @@ function ExperienceSection() {
     <section aria-labelledby="section-header-experience">
       <h2 aria-labelledby="section-header-experience">
         <a id="experience" href="#experience" aria-label="Experience section">
-          <section-marker />
+          <section-marker aria-hidden="true"></section-marker>
         </a>
         <span id="section-header-experience">Experience</span>
       </h2>
-      <card-list aria-labelledby="section-header-experience">
+      <card-list aria-labelledby="section-header-experience" role="list">
         {data.experience.map((item) => {
           const id = slugify(item.heading);
 
           return (
-            <card-item key={id} aria-labelledby={id}>
+            <card-item key={id} role="listitem">
               <div className="card__header">
                 <div className="card__heading">
                   <h3 id={id} aria-owns={id + " " + id + "-detail"}>
@@ -174,7 +174,7 @@ function ExperienceSection() {
                 </div>
                 <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
-              <div>{item.contentHtml}</div>
+              {item.contentHtml}
             </card-item>
           );
         })}
@@ -188,16 +188,16 @@ function EducationSection() {
     <section aria-labelledby="section-header-education">
       <h2 aria-labelledby="section-header-education">
         <a id="education" href="#education" aria-label="Education section">
-          <section-marker />
+          <section-marker aria-hidden="true"></section-marker>
         </a>
         <span id="section-header-education">Education</span>
       </h2>
-      <card-list aria-labelledby="section-header-education">
+      <card-list aria-labelledby="section-header-education" role="list">
         {data.education.map((item) => {
           const id = slugify(item.heading);
 
           return (
-            <card-item key={id} aria-labelledby={id}>
+            <card-item key={id} aria-labelledby={id} role="listitem">
               <div className="card__header">
                 <div className="card__heading">
                   <h3 id={id} aria-owns={id + " " + id + "-detail"}>
@@ -210,7 +210,7 @@ function EducationSection() {
                 <Dates startDate={item.startDate} endDate={item.endDate} />
                 <meta content={item.url} />
               </div>
-              <div>{item.contentHtml}</div>
+              {item.contentHtml}
             </card-item>
           );
         })}
