@@ -47,10 +47,10 @@ const listItemStyleSheet = new CSSStyleSheet();
 listItemStyleSheet.replaceSync(`
   :host {
     font-size: 0.875rem;
-    line-height: 0.875rlh;
+    line-height: calc(0.875rem * 1.5);
     display: grid;
     grid-template-columns: auto minmax(0px, 1fr);
-    column-gap: 0.5rlh;
+    column-gap: calc(0.5rem * 1.5);
   }
 `);
 
@@ -71,7 +71,7 @@ cardItemStyleSheet.replaceSync(`
   :host {
     display: grid;
     font-size: 0.875rem;
-    line-height: 0.875rlh;
+    line-height: calc(0.875rem * 1.5);
     margin: 0;
     padding: var(--gap);
     border: 2px solid var(--swatch--page);
@@ -80,7 +80,7 @@ cardItemStyleSheet.replaceSync(`
       box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
     }
 
-    border-radius: 1rlh;
+    border-radius: 1.5rem;
     background-color: var(--swatch--button-face);
     list-style: none;
 
@@ -95,7 +95,7 @@ cardItemStyleSheet.replaceSync(`
     }
 
     @media print, screen and (forced-colors: active) {
-      padding: 1rlh 0 2rlh;
+      padding: 1.5rem 0 calc(2rem * 1.5);
       border: 0 0 0.1rem solid var(--swatch--text);
       border-radius: 0;
       box-shadow: none;
@@ -104,7 +104,7 @@ cardItemStyleSheet.replaceSync(`
 
   article {
     display: grid;
-    gap: 0.5rlh;
+    gap: calc(0.5rem * 1.5);
   }
 `);
 
@@ -134,7 +134,7 @@ unorderedListStyleSheet.replaceSync(`
     padding: 0;
     margin: 0;
     display: grid;
-    row-gap: 0.5rlh;
+    row-gap: calc(0.5rem * 1.5);
   }
 `);
 
