@@ -93,7 +93,8 @@ function Header() {
         <span className="h1__name">{data.name}</span>
         <span className="visually-hidden"> &mdash; </span>
         <span className="h1__title">
-          <span>{data.jobTitle}</span> | <span>{data.additionalTitle}</span>
+          <span>{data.jobTitle}</span> <span className="h1__separator"></span>{" "}
+          <span>{data.additionalTitle}</span>
         </span>
       </h1>
       <p>{data.description}</p>

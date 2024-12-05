@@ -392,6 +392,14 @@ h1 {
     }
   }
 
+  & .h1__separator {
+    vertical-align: middle;
+    height: 1ex;
+    display: inline-flex;
+    border-right: 1px solid;
+    font-size: 1.5em;
+  }
+
   & ~ p {
     @media screen and (max-width: 767px) {
       text-wrap: balance;
