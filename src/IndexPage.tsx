@@ -37,6 +37,14 @@ function Head() {
         name="viewport"
         content="width=device-width,initial-scale=1,viewport-fit=cover"
       />
+      <link rel="preload" href="segoe-ui.ttf" as="font" type="font/ttf" />
+      <link rel="preload" href="segoe-ui--bold.ttf" as="font" type="font/ttf" />
+      <link
+        rel="preload"
+        href="segoe-ui--light.ttf"
+        as="font"
+        type="font/ttf"
+      />
       <link href="favicon.svg" rel="icon" type="image/svg+xml" />
       <link href="favicon.ico" rel="icon" type="image/x-icon" sizes="96x96" />
       <link href="icon.png" rel="icon" type="image/png" sizes="144x144" />

@@ -32,18 +32,3 @@ class SectionMarkerHtmlElement extends MarkerHtmlElement {
 }
 
 window.customElements.define("section-marker", SectionMarkerHtmlElement);
-
-class UnorderedListHtmlElement extends HTMLElement {
-  constructor() {
-    super();
-    const shadowRoot = this.attachShadow({ mode: "open" });
-    shadowRoot.adoptedStyleSheets.push(unorderedListStyleSheet);
-    shadowRoot.append(window.document.createElement("slot"));
-  }
-}
-
-window.customElements.define("unordered-list", UnorderedListHtmlElement);
-
-class CardListHtmlElement extends HTMLElement {}
-
-window.customElements.define("card-list", CardListHtmlElement);
