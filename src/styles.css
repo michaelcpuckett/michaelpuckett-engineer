@@ -390,14 +390,14 @@ h1 {
         white-space: nowrap;
       }
     }
-  }
 
-  & .h1__separator {
-    vertical-align: middle;
-    height: 1ex;
-    display: inline-flex;
-    border-right: 1px solid;
-    font-size: 1.5em;
+    & .h1__separator {
+      vertical-align: middle;
+      height: 1ex;
+      display: inline-flex;
+      border-right: 1px solid;
+      font-size: 1.5em;
+    }
   }
 
   & ~ p {
@@ -488,13 +488,16 @@ card-item {
     @media (min-width: 768px) {
       grid-template-columns: 1fr auto;
 
+      & > .card__heading {
+        grid-row: 1 / -1;
+      }
+
       @supports (grid-template-rows: subgrid) {
         grid-template-rows: auto auto;
 
         & > .card__heading {
           display: grid;
           grid-template-rows: subgrid;
-          grid-row: 1 / -1;
         }
 
         & > .dates {
