@@ -394,7 +394,7 @@ h1 {
       vertical-align: middle;
       height: 1ex;
       display: inline-flex;
-      border-right: 1px solid;
+      border-right: 2px solid;
       font-size: 1.5em;
     }
   }
