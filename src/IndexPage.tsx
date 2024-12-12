@@ -39,21 +39,21 @@ function Head() {
       />
       <link
         rel="preload"
-        href="segoe-ui.ttf"
+        href="hanken.ttf"
         as="font"
         type="font/ttf"
         crossOrigin=""
       />
       <link
         rel="preload"
-        href="segoe-ui--bold.ttf"
+        href="hanken--bold.ttf"
         as="font"
         type="font/ttf"
         crossOrigin=""
       />
       <link
         rel="preload"
-        href="segoe-ui--light.ttf"
+        href="hanken--light.ttf"
         as="font"
         type="font/ttf"
         crossOrigin=""

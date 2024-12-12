@@ -53,6 +53,18 @@ app.get("/scripts.js", async (req, res) => {
   res.send(scriptsResult);
 });
 
+app.get("*", async (req, res) => {
+  const url = path.resolve(__dirname, "../dist/", req.url.slice(1));
+
+  if (fs.existsSync(url)) {
+    res.setHeader("Content-Type", "font/ttf");
+    res.send(fs.readFileSync(url));
+  } else {
+    res.statusCode = 404;
+    res.send("");
+  }
+});
+
 app.listen(3000, () => {
   console.log("Running on 3000");
 });

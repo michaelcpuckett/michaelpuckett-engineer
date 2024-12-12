@@ -1,19 +1,18 @@
 @font-face {
-  font-family: "Segoe UI";
-  src: local("Segoe UI"), local("SegoeUI"), url("segoe-ui.ttf");
+  font-family: "Hanken Grotesk";
+  src: url("hanken.ttf");
   font-weight: normal;
 }
 
 @font-face {
-  font-family: "Segoe UI";
-  src: local("Segoe UI Bold"), local("SegoeUI-Bold"), url("segoe-ui--bold.ttf");
+  font-family: "Hanken Grotesk";
+  src: url("hanken--bold.ttf");
   font-weight: bold;
 }
 
 @font-face {
-  font-family: "Segoe UI";
-  src: local("Segoe UI Light"), local("SegoeUI-Light"),
-    url("segoe-ui--light.ttf");
+  font-family: "Hanken Grotesk";
+  src: url("hanken--light.ttf");
   font-weight: 200;
 }
 
@@ -23,7 +22,7 @@
 }
 
 :root {
-  font-family: "Segoe UI", system-ui, sans-serif;
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
   font-size: calc((20 / 16) * 100%);
   line-height: calc(1 + (1 / 3));
   color-scheme: light;
@@ -344,7 +343,6 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-self: flex-start;
-  row-gap: 0.5rem;
   width: 100%;
   hyphens: none;
   word-wrap: initial;
@@ -468,7 +466,7 @@ card-item {
 
     & .dates__date__year {
       font-variant-numeric: proportional-nums;
-      font-size: calc((2 / 3) * 1rem);
+      font-size: 0.6rem;
     }
 
     & .dates__through {
