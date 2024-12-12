@@ -464,6 +464,7 @@ card-item {
     display: block;
     height: 100%;
     letter-spacing: 1px;
+    font-weight: 200;
 
     & .dates__date {
       vertical-align: text-bottom;
@@ -520,7 +521,7 @@ card-item {
     margin: 0;
     font-weight: 200;
     font-variant: all-small-caps;
-    font-size: 1.125rem;
+    font-size: 1rem;
     letter-spacing: 0.05em;
 
     &:before,
