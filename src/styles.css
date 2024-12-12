@@ -343,6 +343,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-self: flex-start;
+  row-gap: 0.25rem;
   width: 100%;
   hyphens: none;
   word-wrap: initial;
@@ -371,6 +372,7 @@ h1 {
     font-size: 28px;
     letter-spacing: 0.05em;
     font-weight: normal;
+    line-height: 1;
 
     @media screen and (max-width: 319px) {
       font-size: 1rem;
@@ -383,6 +385,8 @@ h1 {
     }
 
     & span {
+      vertical-align: text-bottom;
+
       @media screen and (min-width: 320px) {
         white-space: nowrap;
       }
@@ -390,10 +394,11 @@ h1 {
 
     & .h1__separator {
       vertical-align: middle;
-      height: 1ex;
       display: inline-flex;
-      border-right: 2px solid;
-      font-size: 1.5em;
+
+      &:before {
+        content: "•";
+      }
     }
   }
 
@@ -460,20 +465,25 @@ card-item {
     height: 100%;
     letter-spacing: 1px;
 
+    & .dates__date {
+      vertical-align: text-bottom;
+    }
+
     & .dates__date__month {
+      vertical-align: text-bottom;
       font-variant: all-small-caps;
     }
 
     & .dates__date__year {
+      vertical-align: bottom;
       font-variant-numeric: proportional-nums;
       font-size: 0.6rem;
     }
 
     & .dates__through {
+      vertical-align: text-bottom;
       padding: 0 0.5ch;
       display: inline-flex;
-      position: relative;
-      top: 0.1ch;
     }
   }
 
@@ -487,6 +497,7 @@ card-item {
 
       & > .card__heading {
         grid-row: 1 / -1;
+        line-height: 1;
       }
 
       @supports (grid-template-rows: subgrid) {
@@ -507,9 +518,10 @@ card-item {
 
   & .card__detail {
     margin: 0;
+    font-weight: 200;
     font-variant: all-small-caps;
-    font-size: 1.0125rem;
-    letter-spacing: 0.01em;
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
 
     &:before,
     &:after {
