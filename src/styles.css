@@ -489,10 +489,10 @@ card-item {
 
   & .card__header {
     column-gap: 1.5rem;
+    row-gap: 0.125rem;
     display: grid;
 
     & > .card__heading {
-      line-height: 1;
       display: grid;
       row-gap: 0.125rem;
     }
@@ -525,7 +525,6 @@ card-item {
     font-variant: small-caps;
     text-transform: uppercase;
     font-size: 0.7rem;
-    line-height: 1.25;
     letter-spacing: 0.1em;
 
     &:before,
