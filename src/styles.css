@@ -204,7 +204,7 @@ h2 {
       display: flex;
       width: 0.75rem;
       font-size: calc((2 / 3) * 1em);
-      line-height: calc((2 / 3) * 100%);
+      line-height: 100%;
       align-self: end;
       place-items: end;
       height: 100%;
