@@ -178,7 +178,6 @@ h2 {
   font-size: calc(1.25rem * 1.5);
   margin: 0;
   padding: 0 0 calc(0.25rem * 1.5);
-  page-break-after: avoid;
 
   @media print, screen and (max-width: 767px) {
     display: grid;
@@ -246,7 +245,6 @@ h3 {
   overflow-wrap: initial;
 
   @media print {
-    page-break-after: avoid;
     color: #7d7d7d;
   }
 }
@@ -470,7 +468,7 @@ card-item {
     display: block;
     height: 100%;
     letter-spacing: 1px;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
 
     font-weight: 200;
 
@@ -492,7 +490,6 @@ card-item {
   & .card__header {
     column-gap: 1.5rem;
     display: grid;
-    page-break-inside: avoid;
 
     & > .card__heading {
       line-height: 1;
