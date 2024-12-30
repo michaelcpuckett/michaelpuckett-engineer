@@ -377,8 +377,8 @@ h1 {
     letter-spacing: -0.025em;
 
     @media screen and (max-width: 319px) {
-      font-size: 1.5rem;
-      line-height: calc(1.25rem * 1.5);
+      font-size: 2rem;
+      line-height: calc(2rem * 1.125);
     }
 
     @media print {
@@ -394,10 +394,6 @@ h1 {
     letter-spacing: 0.05em;
     font-weight: normal;
     line-height: 1;
-
-    @media screen and (max-width: 319px) {
-      font-size: 1rem;
-    }
 
     @media print {
       letter-spacing: 0;
@@ -450,6 +446,10 @@ h1 {
 
   @media print, screen and (forced-colors: active) {
     box-shadow: none;
+  }
+
+  @media screen and (max-width: 319px) {
+    gap: calc(var(--gap) / 2);
   }
 
   @media screen and (max-width: 767px) {
