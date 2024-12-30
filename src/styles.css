@@ -33,66 +33,127 @@
   --swatch--text: initial;
   --gap: calc(1.25rem * 1.5);
   --min-touch-dimension: 48px;
+  --primary--950: #00171d;
 
-  --primary--950: #00161d;
-  --primary--950: color(display-p3 0 0.08577 0.11105);
+  --primary--950: #00171d;
 
-  --primary--900: #002129;
-  --primary--900: color(display-p3 0 0.12804 0.15854);
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--950: color(display-p3 0 0.0861 0.10954);
+  }
+
+  --primary--900: #002229;
+
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--900: color(display-p3 0 0.12842 0.15667);
+  }
 
   --primary--850: #002d36;
-  --primary--850: color(display-p3 0 0.17233 0.20824);
 
-  --primary--800: #003944;
-  --primary--800: color(display-p3 0 0.21836 0.25981);
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--850: color(display-p3 0 0.17277 0.20599);
+  }
 
-  --primary--750: #004551;
-  --primary--750: color(display-p3 0 0.26601 0.31321);
+  --primary--800: #003943;
 
-  --primary--700: #00525f;
-  --primary--700: color(display-p3 0 0.31512 0.36822);
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--800: color(display-p3 0 0.21889 0.25725);
+  }
 
-  --primary--650: #005e6d;
-  --primary--650: color(display-p3 0 0.36555 0.42469);
+  --primary--750: #004550;
 
-  --primary--600: #006c7b;
-  --primary--600: color(display-p3 0 0.41723 0.48252);
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--750: color(display-p3 0 0.26661 0.31026);
+  }
 
-  --primary--550: #00798a;
-  --primary--550: color(display-p3 0 0.47005 0.54162);
+  --primary--700: #00525e;
 
-  --primary--500: #008798;
-  --primary--500: color(display-p3 0 0.52392 0.60182);
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--700: color(display-p3 0 0.3158 0.36491);
+  }
 
-  --primary--450: #0095a8;
-  --primary--450: color(display-p3 0 0.57884 0.66324);
+  --primary--650: #005f6c;
 
-  --primary--400: #00a3b7;
-  --primary--400: color(display-p3 0 0.63474 0.72573);
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--650: color(display-p3 0 0.3663 0.42096);
+  }
 
-  --primary--350: #00b1c7;
-  --primary--350: color(display-p3 0 0.69155 0.78924);
+  --primary--600: #006c7a;
 
-  --primary--300: #00c0d6;
-  --primary--300: color(display-p3 0 0.74924 0.85372);
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--600: color(display-p3 0 0.41804 0.47836);
+  }
 
-  --primary--250: #00cee6;
-  --primary--250: color(display-p3 0 0.80776 0.91913);
+  --primary--550: #007988;
 
-  --primary--200: #00ddf7;
-  --primary--200: color(display-p3 0 0.86705 0.98532);
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--550: color(display-p3 0 0.47093 0.53702);
+  }
 
-  --primary--150: #00ecfb;
-  --primary--150: color(display-p3 0 0.92415 1);
+  --primary--500: #008797;
 
-  --primary--100: #00f8ff;
-  --primary--100: color(display-p3 0.3957 0.95901 1);
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--500: color(display-p3 0 0.52491 0.59687);
+  }
 
-  --primary--50: #7fffff;
-  --primary--50: color(display-p3 0.62699 0.98908 1);
+  --primary--450: #0094a5;
 
-  --primary--0: #bfffff;
-  --primary--0: color(display-p3 0.80266 1 1);
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--450: color(display-p3 0 0.57748 0.65184);
+  }
+
+  --primary--400: #00a1b1;
+
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--400: color(display-p3 0 0.62929 0.70389);
+  }
+
+  --primary--350: #00afc0;
+
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--350: color(display-p3 0.09797 0.68177 0.75662);
+  }
+
+  --primary--300: #00bed0;
+
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--300: color(display-p3 0.19333 0.73488 0.81001);
+  }
+
+  --primary--250: #00ccdf;
+
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--250: color(display-p3 0.26606 0.78862 0.86403);
+  }
+
+  --primary--200: #00daed;
+
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--200: color(display-p3 0.33111 0.84296 0.91867);
+  }
+
+  --primary--150: #00e8fc;
+
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--150: color(display-p3 0.39249 0.89788 0.97391);
+  }
+
+  --primary--100: #18f7ff;
+
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--100: color(display-p3 0.45192 0.95338 1);
+  }
+
+  --primary--50: #79ffff;
+
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--50: color(display-p3 0.61535 0.99211 1);
+  }
+
+  --primary--0: #bdffff;
+
+  @supports (color: color(display-p3 0 0 1)) {
+    --primary--0: color(display-p3 0.79845 1 1);
+  }
 
   @media screen {
     color-scheme: dark;
