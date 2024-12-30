@@ -374,7 +374,6 @@ h1 {
     font-weight: bold;
     font-size: 3rem;
     line-height: calc(1.75rem * 1.5);
-    margin-top: calc(-0.25rem * 1.5);
     letter-spacing: -0.025em;
 
     @media screen and (max-width: 319px) {
