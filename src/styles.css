@@ -30,23 +30,41 @@
   --swatch--text: initial;
   --gap: calc(1.25rem * 1.5);
   --min-touch-dimension: 48px;
-  --primary--100: #ffffff;
-  --primary--200: #e3f6f5;
-  --primary--300: #e9eff0;
-  --primary--400: #78ddff;
-  --primary--500: #3ec6e0;
-  --primary--600: #008ca2;
-  --primary--700: #003c55;
-  --primary--800: #001e27;
-  --primary--900: #001117;
+
+  --primary--100: #fff;
+  --primary--100: oklch(1 0.1 210);
+
+  --primary--200: #8befff;
+  --primary--200: oklch(0.9 0.1 210);
+
+  --primary--300: #69cee6;
+  --primary--300: oklch(0.8 0.1 210);
+
+  --primary--400: #46aec5;
+  --primary--400: oklch(0.7 0.1 210);
+
+  --primary--500: #1b8fa5;
+  --primary--500: oklch(0.6 0.1 210);
+
+  --primary--600: #007187;
+  --primary--600: oklch(0.5 0.1 210);
+
+  --primary--700: #003644;
+  --primary--700: oklch(0.3 0.1 210);
+
+  --primary--800: #001b25;
+  --primary--800: oklch(0.2 0.1 210);
+
+  --primary--900: #00050a;
+  --primary--900: oklch(0.1 0.1 210);
 
   @media screen and (prefers-color-scheme: light) {
-    --swatch--page: var(--primary--100);
-    --swatch--background: var(--primary--100);
-    --swatch--button-face: var(--primary--300);
-    --swatch--interactive: var(--primary--600);
+    --swatch--page: var(--primary--400);
+    --swatch--background: white;
+    --swatch--button-face: var(--primary--100);
+    --swatch--interactive: var(--primary--500);
     --swatch--focused: var(--swatch--interactive);
-    --swatch--text: var(--primary--900);
+    --swatch--text: black;
   }
 
   @media screen and (prefers-color-scheme: dark) {
@@ -54,8 +72,8 @@
     --swatch--page: var(--primary--900);
     --swatch--background: var(--primary--800);
     --swatch--button-face: var(--primary--700);
-    --swatch--interactive: var(--primary--500);
-    --swatch--text: var(--primary--100);
+    --swatch--interactive: var(--primary--300);
+    --swatch--text: white;
     --swatch--focused: var(--primary--100);
   }
 
@@ -470,8 +488,6 @@ card-item {
     letter-spacing: 1px;
     font-size: 0.7rem;
 
-    font-weight: 200;
-
     & .dates__date__month {
       font-variant: small-caps;
       text-transform: uppercase;
@@ -521,7 +537,6 @@ card-item {
 
   & .card__detail {
     margin: 0;
-    font-weight: 200;
     font-variant: small-caps;
     text-transform: uppercase;
     font-size: 0.7rem;
@@ -574,7 +589,6 @@ card-item {
   line-height: calc(0.875rem * 1.5);
   margin: 0;
   padding: var(--gap);
-  border: 2px solid var(--swatch--page);
   gap: calc(0.5rem * 1.5);
 
   @media (prefers-color-scheme: dark) {
