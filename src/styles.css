@@ -231,7 +231,7 @@ p {
 }
 
 a {
-  :where(&:any-link) {
+  &:any-link {
     color: LinkText;
     color: var(--swatch--interactive);
     font-weight: bold;
@@ -244,7 +244,7 @@ a {
     text-decoration: underline;
   }
 
-  :where(&:not([id])) {
+  &:not([id]) {
     min-height: var(--min-touch-dimension);
     min-width: var(--min-touch-dimension);
     margin-top: calc((1em - var(--min-touch-dimension)) / 2);
@@ -253,7 +253,7 @@ a {
     margin-bottom: calc((1lh - var(--min-touch-dimension)) / 2);
   }
 
-  :where(&:hover) {
+  &:hover {
     text-decoration: none;
   }
 }
