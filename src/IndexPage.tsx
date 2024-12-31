@@ -231,7 +231,6 @@ function EducationSection() {
                   </p>
                 </div>
                 <Dates startDate={item.startDate} endDate={item.endDate} />
-                <meta content={item.url} />
               </div>
               {item.contentHtml}
             </card-item>
