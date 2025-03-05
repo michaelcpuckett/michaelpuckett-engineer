@@ -73,20 +73,16 @@ export default {
   ],
   experience: [
     {
-      heading: "Both & Yes",
-      detail: "UX Engineer",
-      url: "https://bothandyes.com",
-      startDate: "April 2024",
-      endDate: "October 2024",
+      heading: "Freelance Web Developer",
+      detail: "Self-Employed",
+      startDate: "January 2024",
+      endDate: "Present",
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>Built client websites
-            with React, Next.js and TypeScript.
-          </li>
-          <li>
-            <list-marker aria-hidden="true"></list-marker>Architected internal
-            tools to support agency projects.
+            <list-marker aria-hidden="true"></list-marker>Building websites and
+            apps for agencies and startups, using tools such as React/Next.js
+            and TypeScript.
           </li>
         </ul>
       ),
@@ -96,7 +92,7 @@ export default {
       detail: "Volunteer Mentor",
       url: "https://code-you.org",
       startDate: "October 2023",
-      endDate: "October 2024",
+      endDate: "Present",
       contentHtml: (
         <ul role="list">
           <li>
