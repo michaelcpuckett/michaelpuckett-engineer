@@ -73,7 +73,7 @@ export default {
   ],
   experience: [
     {
-      heading: "Freelance Web Developer",
+      heading: "Freelance Software Engineer",
       detail: "Self-Employed",
       startDate: "January 2024",
       endDate: "Present",
@@ -97,12 +97,12 @@ export default {
         <ul role="list">
           <li>
             <list-marker aria-hidden="true"></list-marker>
-            Taught adult students the basics of client-side web development,
+            Teaching adult students the basics of client-side web development,
             including HTML, CSS, and JavaScript.
           </li>
           <li>
             <list-marker aria-hidden="true"></list-marker>
-            Created presentations, assignments, and quizzes to help educate
+            Creating presentations, assignments, and quizzes to help educate
             students.
           </li>
         </ul>
