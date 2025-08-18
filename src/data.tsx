@@ -17,39 +17,31 @@ export default {
   ],
   skills: [
     {
-      heading: "JavaScript/TypeScript",
+      heading: "TypeScript, React & Next.js",
       contentHtml: (
         <>
           <p>
-            I have an advanced understanding of ES/JavaScript, along with
-            TypeScript.
+            I specialize in React and Next.js, powered by TypeScript, to build
+            scalable, performant, and maintainable web applications.
           </p>
           <p>
-            I am highly efficient working with React, Lit, Vue, Svelte, and
-            similar reactive MVC frameworks. I also have a solid understanding
-            of the DOM and other native web APIs.
+            I have deep expertise in modern JavaScript (ESNext), TypeScript's
+            type system, and the underlying web platform, including the DOM and
+            native APIs.
           </p>
         </>
       ),
     },
     {
-      heading: "Web Accessibility",
+      heading: "AI Integration & Applied Machine Learning",
       contentHtml: (
         <>
           <p>
-            I have a deep understanding of the Web Content Accessibility
-            Guidelines (WCAG). I have experience working with screen readers,
-            voice recognition, and other assistive technologies.
-          </p>
-          <p>
-            I have worked on websites subject to legal action on the grounds of
-            inaccessibility. The code I wrote needed to pass internal standards
-            and external audits.
-          </p>
-          <p>
-            I am a strong advocate for accessibility and I believe that any set
-            of accessibility guidelines stems from a universal right to
-            information.
+            I have delivered AI-powered features such as intelligent
+            suggestions, personalized recommendations, and dynamic content
+            generation. My work includes applying large language models (LLMs),
+            vector embeddings, and recommendation pipelines to create adaptive,
+            user-centered experiences.
           </p>
         </>
       ),
@@ -59,13 +51,27 @@ export default {
       contentHtml: (
         <>
           <p>
-            I have experience building and maintaining design systems for large
-            organizations. I have worked with designers to create reusable
-            components that are accessible and easy to use.
+            I have built and maintained design systems for large organizations,
+            collaborating closely with designers to deliver reusable,
+            accessible, and scalable component libraries.
           </p>
           <p>
-            My educational background in graphic design allows me to collaborate
-            closely with designers and translate their intent into code.
+            My background in graphic design enables me to bridge design intent
+            with engineering execution, producing clean, maintainable code.
+          </p>
+        </>
+      ),
+    },
+    {
+      heading: "Web Accessibility",
+      contentHtml: (
+        <>
+          <p>
+            I have a strong command of the Web Content Accessibility Guidelines
+            (WCAG) and extensive hands-on experience with assistive technologies
+            such as screen readers and voice recognition. I have contributed to
+            projects requiring strict compliance, passing both internal
+            standards and external audits, including cases with legal oversight.
           </p>
         </>
       ),
@@ -80,9 +86,16 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>Building websites and
-            apps for agencies and startups, using tools such as React/Next.js
-            and TypeScript.
+            <list-marker aria-hidden="true"></list-marker>
+            Engineering scalable web apps for startups using React, Next.js, and
+            TypeScript, with a focus on performance, maintainability, and
+            seamless user experiences.
+          </li>
+          <li>
+            <list-marker aria-hidden="true"></list-marker>
+            Integrating AI-driven capabilities including intelligent
+            suggestions, personalized recommendations, and dynamic content
+            generation, leveraging embeddings and large language models.
           </li>
         </ul>
       ),
@@ -92,7 +105,7 @@ export default {
       detail: "Volunteer Mentor",
       url: "https://code-you.org",
       startDate: "October 2023",
-      endDate: "Present",
+      endDate: "August 2025",
       contentHtml: (
         <ul role="list">
           <li>
