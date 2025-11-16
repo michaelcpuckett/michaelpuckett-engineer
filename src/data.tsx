@@ -17,17 +17,53 @@ export default {
   ],
   skills: [
     {
-      heading: "TypeScript, React & Next.js",
+      heading: "TypeScript",
       contentHtml: (
         <>
           <p>
-            I specialize in React and Next.js, powered by TypeScript, to build
-            scalable, performant, and maintainable web applications.
+            I leverage TypeScript to build robust, type-safe, and maintainable
+            codebases. Its static typing, generics, and advanced type system
+            allow me to architect applications that scale predictably and reduce
+            runtime errors.
           </p>
           <p>
-            I have deep expertise in modern JavaScript (ESNext), TypeScript's
-            type system, and the underlying web platform, including the DOM and
-            native APIs.
+            I'm highly experienced with modern JavaScript (ESNext) and how
+            TypeScript interacts with the underlying web platform, including the
+            DOM and native APIs.
+          </p>
+        </>
+      ),
+    },
+    {
+      heading: "React",
+      contentHtml: (
+        <>
+          <p>
+            I specialize in building scalable, performant user interfaces with
+            React. I follow best practices around component design, hooks, state
+            management, and rendering optimization.
+          </p>
+          <p>
+            My deep understanding of React’s architecture enables me to create
+            clean, reusable, and maintainable UI components for complex
+            applications.
+          </p>
+        </>
+      ),
+    },
+    {
+      heading: "Next.js",
+      contentHtml: (
+        <>
+          <p>
+            I build full-stack, production-ready applications using Next.js,
+            taking advantage of features like App Router, server components, API
+            routes, and first-class performance optimizations.
+          </p>
+          <p>
+            With expertise across SSR, SSG, ISR, routing, caching, and
+            deployment patterns, I craft highly performant and SEO-optimized web
+            experiences.
           </p>
         </>
       ),
@@ -80,7 +116,7 @@ export default {
   experience: [
     {
       heading: "Freelance Software Engineer",
-      detail: "Self-Employed",
+      detail: "Self-Employed (S-Corp)",
       startDate: "January 2024",
       endDate: "Present",
       contentHtml: (
@@ -99,6 +135,7 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["React", "Next.js", "TypeScript", "AI/ML"],
     },
     {
       heading: "Code Louisville",
@@ -120,6 +157,7 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["Mentorship"],
     },
     {
       heading: "Google",
@@ -154,6 +192,7 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["TypeScript"],
     },
     {
       heading: "LiveSchool",
@@ -189,6 +228,7 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["JavaScript", "Vue"],
     },
     {
       heading: "Humana",
@@ -210,6 +250,7 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["JavaScript", "Vue"],
     },
     {
       heading: "Apple",
@@ -240,6 +281,7 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["JavaScript"],
     },
     {
       heading: "CNN",
@@ -261,6 +303,7 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["JavaScript", "Node.js"],
     },
     {
       heading: "iostudio",
@@ -281,6 +324,7 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["JavaScript"],
     },
     {
       heading: "Fruit of the Loom",
@@ -300,11 +344,12 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["JavaScript"],
     },
     {
       heading: "Communication Components",
       url: "https://2-com.net",
-      detail: "Web Developer",
+      detail: "Designer/Developer",
       startDate: "March 2010",
       endDate: "October 2011",
       contentHtml: (
@@ -316,6 +361,7 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["JavaScript"],
     },
   ],
   education: [
@@ -352,6 +398,7 @@ export default {
           </li>
         </ul>
       ),
+      tags: ["JavaScript"],
     },
   ],
 };

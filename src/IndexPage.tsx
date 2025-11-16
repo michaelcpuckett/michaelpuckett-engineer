@@ -11,7 +11,6 @@ export function IndexPage() {
         <Nav />
         <Header />
         <Main>
-          <SkillsSection />
           <ExperienceSection />
           <EducationSection />
         </Main>
@@ -174,11 +173,11 @@ function SkillsSection() {
 function ExperienceSection() {
   return (
     <section aria-labelledby="section-header-experience">
-      <h2 aria-labelledby="section-header-experience">
-        <a id="experience" href="#experience" aria-label="Experience section">
-          <section-marker aria-hidden="true"></section-marker>
-        </a>
-        <span id="section-header-experience">Experience</span>
+      <h2
+        aria-labelledby="section-header-experience"
+        className="visually-hidden"
+      >
+        Experience
       </h2>
       <card-list aria-labelledby="section-header-experience" role="list">
         {data.experience.map((item) => {
@@ -198,6 +197,13 @@ function ExperienceSection() {
                 <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
               {item.contentHtml}
+              <ul className="tags">
+                {item.tags.map((tag) => (
+                  <li key={tag} className="tag" data-tag={tag.toLowerCase()}>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
             </card-item>
           );
         })}
@@ -209,11 +215,11 @@ function ExperienceSection() {
 function EducationSection() {
   return (
     <section aria-labelledby="section-header-education">
-      <h2 aria-labelledby="section-header-education">
-        <a id="education" href="#education" aria-label="Education section">
-          <section-marker aria-hidden="true"></section-marker>
-        </a>
-        <span id="section-header-education">Education</span>
+      <h2
+        aria-labelledby="section-header-education"
+        className="visually-hidden"
+      >
+        Education
       </h2>
       <card-list aria-labelledby="section-header-education" role="list">
         {data.education.map((item) => {
