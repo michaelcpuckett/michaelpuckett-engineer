@@ -123,9 +123,9 @@ export default {
         <ul role="list">
           <li>
             <list-marker aria-hidden="true"></list-marker>
-            Engineering scalable web apps for startups using React, Next.js, and
-            TypeScript, with a focus on performance, maintainability, and
-            seamless user experiences.
+            Engineering scalable, high-performance applications for startups,
+            including native mobile apps with React Native and web apps using
+            React, Next.js, and TypeScript.
           </li>
           <li>
             <list-marker aria-hidden="true"></list-marker>
@@ -268,7 +268,7 @@ export default {
           <li>
             <list-marker aria-hidden="true"></list-marker>
             Led a successful project to harmonize competing corporate design
-            systems and implemented a unified SCSS library.
+            systems and implemented a unified styling library.
           </li>
           <li>
             <list-marker aria-hidden="true"></list-marker>
@@ -299,7 +299,7 @@ export default {
           </li>
           <li>
             <list-marker aria-hidden="true"></list-marker>
-            Created a responsive SCSS library for many possible page layouts.
+            Created a responsive styling library for many possible page layouts.
           </li>
         </ul>
       ),
