@@ -104,13 +104,16 @@ function Header() {
       <h1>
         <span className="h1__name">{data.name}</span>
         <span className="visually-hidden"> &mdash; </span>
-        <span className="h1__title">
+        {/*<span className="h1__title">
           <span>{data.jobTitle}</span>{" "}
           <span className="h1__separator" aria-hidden="true"></span>{" "}
           <span>{data.additionalTitle}</span>
-        </span>
+        </span>*/}
       </h1>
-      <p>{data.description}</p>
+      <p>
+        I'm a <strong>creative technologist</strong> with extensive experience
+        building accessible, user-friendly digital products and tools.
+      </p>
       <img
         hidden
         alt="Headshot photo of Michael Puckett"
@@ -197,9 +200,14 @@ function ExperienceSection() {
                 <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
               {item.contentHtml}
-              <ul className="tags">
+              <ul className="tags" role="list">
                 {item.tags.map((tag) => (
-                  <li key={tag} className="tag" data-tag={tag.toLowerCase()}>
+                  <li
+                    key={tag}
+                    className="tag"
+                    role="listitem"
+                    data-tag={tag.toLowerCase()}
+                  >
                     {tag}
                   </li>
                 ))}

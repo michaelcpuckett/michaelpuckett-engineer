@@ -135,7 +135,7 @@ export default {
           </li>
         </ul>
       ),
-      tags: ["React", "Next.js", "TypeScript", "AI/ML"],
+      tags: ["React", "React Native", "Next.js", "TypeScript", "AI/ML"],
     },
     /*{
       heading: "Code Louisville",
