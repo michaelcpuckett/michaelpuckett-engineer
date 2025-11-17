@@ -5,7 +5,7 @@ import jsonLd from "./getStructuredData";
 
 export function IndexPage() {
   return (
-    <Html>
+    <>
       <Head />
       <Body>
         <Nav />
@@ -16,17 +16,13 @@ export function IndexPage() {
         </Main>
         <StructuredData />
       </Body>
-    </Html>
+    </>
   );
-}
-
-function Html({ children }: React.PropsWithChildren) {
-  return <html lang="en">{children}</html>;
 }
 
 function Head() {
   return (
-    <head>
+    <>
       <meta charSet="utf-8" />
       <title>
         {data.name + " - " + data.jobTitle + " | " + data.additionalTitle}
@@ -60,9 +56,8 @@ function Head() {
       <link href="favicon.svg" rel="icon" type="image/svg+xml" />
       <link href="favicon.ico" rel="icon" type="image/x-icon" sizes="96x96" />
       <link href="icon.png" rel="icon" type="image/png" sizes="144x144" />
-      <link href="styles.css" rel="stylesheet" />
       <script src="scripts.js"></script>
-    </head>
+    </>
   );
 }
 
@@ -103,8 +98,8 @@ function Header() {
     <header role="banner">
       <h1>
         <span className="h1__name">{data.name}</span>
-        <span className="visually-hidden"> &mdash; </span>
-        {/*<span className="h1__title">
+        {/*<span className="visually-hidden"> &mdash; </span>
+        <span className="h1__title">
           <span>{data.jobTitle}</span>{" "}
           <span className="h1__separator" aria-hidden="true"></span>{" "}
           <span>{data.additionalTitle}</span>
@@ -176,18 +171,15 @@ function SkillsSection() {
 function ExperienceSection() {
   return (
     <section aria-labelledby="section-header-experience">
-      <h2
-        aria-labelledby="section-header-experience"
-        className="visually-hidden"
-      >
+      <h2 id="section-header-experience" className="visually-hidden">
         Experience
       </h2>
-      <card-list aria-labelledby="section-header-experience" role="list">
+      <card-list role="list">
         {data.experience.map((item) => {
           const id = slugify(item.heading);
 
           return (
-            <card-item key={id} role="listitem">
+            <card-item key={id} aria-labelledby={id} role="listitem">
               <div className="card__header">
                 <div className="card__heading">
                   <h3 id={id} aria-owns={id + " " + id + "-detail"}>
@@ -200,6 +192,7 @@ function ExperienceSection() {
                 <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
               {item.contentHtml}
+              <h4 className="visually-hidden">Technologies Used</h4>
               <ul className="tags" role="list">
                 {item.tags.map((tag) => (
                   <li
@@ -223,13 +216,10 @@ function ExperienceSection() {
 function EducationSection() {
   return (
     <section aria-labelledby="section-header-education">
-      <h2
-        aria-labelledby="section-header-education"
-        className="visually-hidden"
-      >
+      <h2 id="section-header-education" className="visually-hidden">
         Education
       </h2>
-      <card-list aria-labelledby="section-header-education" role="list">
+      <card-list role="list">
         {data.education.map((item) => {
           const id = slugify(item.heading);
 

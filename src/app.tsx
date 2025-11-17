@@ -10,17 +10,7 @@ import { IndexPage } from "./IndexPage";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  const htmlResult = `<!doctype html>
-    ${ReactDOMServer.renderToString(<IndexPage />)}
-  `;
-
-  fs.writeFileSync(path.resolve("./dist/", "index.html"), htmlResult, "utf8");
-
-  res.send(htmlResult);
-});
-
-app.get("/styles.css", async (req, res) => {
+app.get("/", async (req, res) => {
   const authoredStyles = fs.readFileSync("src/styles.css", "utf8");
   const cssResult = await postcss([
     cssnano({
@@ -34,10 +24,14 @@ app.get("/styles.css", async (req, res) => {
       return result.css;
     });
 
-  fs.writeFileSync(path.resolve("./dist/", "styles.css"), cssResult, "utf8");
+  const htmlResult = `<!doctype html><html lang="en">
+  <style>${cssResult}</style>
+  ${ReactDOMServer.renderToString(<IndexPage />)}
+</html>`;
 
-  res.setHeader("Content-Type", "text/css");
-  res.send(cssResult);
+  fs.writeFileSync(path.resolve("./dist/", "index.html"), htmlResult, "utf8");
+
+  res.send(htmlResult);
 });
 
 app.get("/scripts.js", async (req, res) => {
