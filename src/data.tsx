@@ -1,9 +1,9 @@
 export default {
   name: "Michael Puckett",
-  jobTitle: "UX Engineer",
+  jobTitle: "Software Engineer",
   additionalTitle: "x-Google, x-Apple",
   description:
-    "Creative technologist with extensive experience building for the web platform. Focused on crafting accessible, user-friendly digital products and tools.",
+    "Creative technologist with extensive experience building accessible, user-friendly digital products and tools.",
   email: "michael@puckett.contact",
   links: [
     {
@@ -115,8 +115,8 @@ export default {
   ],
   experience: [
     {
-      heading: "Freelance Software Engineer",
-      detail: "Self-Employed (S-Corp)",
+      heading: "Self-Employed (S-Corp)",
+      detail: "Freelance Software Engineer",
       startDate: "January 2024",
       endDate: "Present",
       contentHtml: (
@@ -137,7 +137,7 @@ export default {
       ),
       tags: ["React", "Next.js", "TypeScript", "AI/ML"],
     },
-    {
+    /*{
       heading: "Code Louisville",
       detail: "Volunteer Mentor",
       url: "https://code-you.org",
@@ -158,7 +158,7 @@ export default {
         </ul>
       ),
       tags: ["Mentorship"],
-    },
+    },*/
     {
       heading: "Google",
       detail: "UX Engineer",

@@ -372,6 +372,8 @@ h1 {
   }
 
   & ~ p {
+    line-height: calc(1rem * 1.4);
+
     @media screen and (max-width: 799px) {
       text-wrap: balance;
       padding: 0 0.75rem;
