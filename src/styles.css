@@ -336,7 +336,7 @@ h1 {
       font-size: 3.25rem;
     }
 
-    @media screen and (max-width: 319px) {
+    @media screen and (max-width: 320px) {
       font-size: 2rem;
       line-height: calc(2rem * 1.125);
     }
@@ -363,7 +363,7 @@ h1 {
     & span {
       vertical-align: text-bottom;
 
-      @media screen and (min-width: 320px) {
+      @media screen and (min-width: 321px) {
         white-space: nowrap;
       }
     }
@@ -401,7 +401,7 @@ h1 {
 }
 
 .container {
-  @media screen {
+  @media screen and (min-width: 321px) {
     width: 100%;
     display: grid;
     gap: var(--gap);
@@ -417,13 +417,16 @@ h1 {
       max(var(--container-padding), env(safe-area-inset-left, 0px));
   }
 
-  @media screen and (max-width: 319px) {
+  @media screen and (max-width: 320px) {
     gap: calc(var(--gap) / 2);
+    padding: 0.5rem;
   }
 
   @media screen and (max-width: 799px) {
     -webkit-hyphens: auto;
     hyphens: auto;
+    word-wrap: break-all;
+    overflow-wrap: anywhere;
     max-width: 100%;
     background: none;
   }
@@ -558,13 +561,13 @@ card-item {
     border-radius: 1.5rem;
   }
 
-  @media screen and (max-width: 319px) {
+  @media screen and (max-width: 320px) {
     padding-top: 0;
     padding-left: 0;
     padding-right: 0;
     background: none;
     box-shadow: none;
-    border-bottom: 0.1rem solid var(--swatch--text);
+    border-bottom: 0.1rem solid var(--swatch--primary--300);
     border-radius: 0;
   }
 
@@ -599,10 +602,13 @@ card-item {
 .tags {
   display: flex;
   flex-wrap: wrap;
-  justify-content: end;
   gap: 0.5rem;
   margin: 0.5rem 0px 0px;
   padding: 0px;
+
+  @media screen and (min-width: 800px) {
+    justify-content: end;
+  }
 
   @media print {
     display: none;
@@ -672,12 +678,16 @@ nav .nav__region a {
 }
 
 .timeline-line {
+  flex-shrink: 0;
   width: 1px;
   background-color: var(--swatch--primary--200);
   margin-right: 2rem;
-  border-radius: 2px;
 
   @media print {
+    display: none;
+  }
+
+  @media screen and (max-width: 320px) {
     display: none;
   }
 }
@@ -696,6 +706,10 @@ card-item:before {
   background-color: var(--swatch--primary--200);
   border-radius: 50%;
   border: 6px solid var(--swatch--page);
+
+  @media screen and (max-width: 320px) {
+    display: none;
+  }
 }
 
 section:not(:first-of-type) {
