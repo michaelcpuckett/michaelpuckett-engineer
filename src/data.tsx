@@ -115,7 +115,7 @@ export default {
   ],
   experience: [
     {
-      heading: "Self-Employed (S-Corp)",
+      heading: "Self-Employed",
       detail: "Freelance Software Engineer",
       startDate: "January 2024",
       endDate: "Present",
@@ -123,9 +123,9 @@ export default {
         <ul role="list">
           <li>
             <list-marker aria-hidden="true"></list-marker>
-            Engineering scalable, high-performance applications for startups,
-            including native mobile apps with React Native and web apps using
-            React, Next.js, and TypeScript.
+            Engineering scalable, high-performance applications for startups and
+            agencies, including native mobile apps with React Native and web
+            apps using React/Next.js.
           </li>
           <li>
             <list-marker aria-hidden="true"></list-marker>
@@ -228,7 +228,7 @@ export default {
           </li>
         </ul>
       ),
-      tags: ["JavaScript", "Vue"],
+      tags: ["Vue"],
     },
     {
       heading: "Humana",
@@ -243,14 +243,9 @@ export default {
             Built a library of accessible Vue 2 components for one of the
             nation’s largest health insurance companies.
           </li>
-          <li>
-            <list-marker aria-hidden="true"></list-marker>
-            Responsible for evaluating React and other frameworks, leading to
-            the decision to go with Vue 2.
-          </li>
         </ul>
       ),
-      tags: ["JavaScript", "Vue"],
+      tags: ["Vue"],
     },
     {
       heading: "Apple",
@@ -347,7 +342,7 @@ export default {
       tags: ["JavaScript"],
     },
     {
-      heading: "Communication Components",
+      heading: "2-Com",
       url: "https://2-com.net",
       detail: "Designer/Developer",
       startDate: "March 2010",
@@ -398,7 +393,7 @@ export default {
           </li>
         </ul>
       ),
-      tags: ["JavaScript"],
+      tags: ["HTML", "CSS", "JavaScript"],
     },
   ],
 };

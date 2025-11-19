@@ -151,6 +151,11 @@ a {
     margin: 0;
     text-decoration: underline;
     text-underline-offset: 0.2rem;
+    transition: text-decoration-color 0.25s ease-in-out;
+
+    &:hover {
+      text-decoration-color: var(--swatch--page);
+    }
   }
 
   &:not([id]) {
@@ -160,10 +165,6 @@ a {
     margin-bottom: calc((1em - var(--min-touch-dimension)) / 2);
     margin-top: calc((1lh - var(--min-touch-dimension)) / 2);
     margin-bottom: calc((1lh - var(--min-touch-dimension)) / 2);
-  }
-
-  &:hover {
-    text-decoration: none;
   }
 }
 
@@ -186,20 +187,28 @@ h1 {
 
 h2 {
   @media screen {
-    display: grid;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    user-select: none;
   }
 
   @media print {
-    padding-bottom: 1.5rem;
-    font-weight: normal;
-    padding-bottom: 0;
+    padding: 0;
+    margin: 1rem 0 0;
+    text-decoration: underline;
   }
 }
 
 h3 {
   font-size: 1.333rem;
   line-height: normal;
-  font-weight: normal;
+  font-weight: bold;
   display: flex;
   gap: 0.75rem;
   margin: 0;
@@ -209,6 +218,7 @@ h3 {
 
   @media print {
     color: #7d7d7d;
+    font-size: 1.1rem;
   }
 }
 
@@ -391,19 +401,21 @@ h1 {
 }
 
 .container {
-  width: 100%;
-  display: grid;
-  gap: var(--gap);
-  justify-self: center;
-  grid-template-columns: 100%;
-  max-width: min(calc(100% - 6rem), 800px);
-  margin: 0 auto;
-  color: var(--swatch--text);
-  --container-padding: var(--gap);
-  padding: max(var(--container-padding), env(safe-area-inset-top, 0px))
-    max(var(--container-padding), env(safe-area-inset-right, 0px))
-    max(var(--container-padding), env(safe-area-inset-bottom, 0px))
-    max(var(--container-padding), env(safe-area-inset-left, 0px));
+  @media screen {
+    width: 100%;
+    display: grid;
+    gap: var(--gap);
+    justify-self: center;
+    grid-template-columns: 100%;
+    max-width: min(calc(100% - 6rem), 800px);
+    margin: 0 auto;
+    color: var(--swatch--text);
+    --container-padding: var(--gap);
+    padding: max(var(--container-padding), env(safe-area-inset-top, 0px))
+      max(var(--container-padding), env(safe-area-inset-right, 0px))
+      max(var(--container-padding), env(safe-area-inset-bottom, 0px))
+      max(var(--container-padding), env(safe-area-inset-left, 0px));
+  }
 
   @media screen and (max-width: 319px) {
     gap: calc(var(--gap) / 2);
@@ -436,23 +448,26 @@ card-item {
     padding: 0;
     margin: 0;
     flex: 0 0 auto;
-    display: block;
+    display: inline-flex;
+    width: max-content;
     height: 100%;
-    letter-spacing: 1px;
-    font-size: 0.7rem;
-    line-height: 1rem;
 
-    @media screen and (min-width: 800px) {
-      line-height: 1.667rem;
+    @media screen {
+      color: var(--swatch--primary--0);
+      background-color: var(--swatch--primary--700);
+      padding: 0.125rem 0.5rem;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      margin-left: -0.5rem;
     }
 
     & .dates__date__month {
-      font-variant: small-caps;
-      text-transform: uppercase;
+      font-size: 0.8rem;
     }
 
     & .dates__date__year {
       font-variant-numeric: proportional-nums;
+      font-size: 0.8rem;
     }
 
     & .dates__through {
@@ -469,36 +484,24 @@ card-item {
     & > .card__heading {
       display: grid;
       row-gap: 0.125rem;
+      grid-row: 2 / 3;
+
+      @media screen {
+        margin-top: 0.5rem;
+      }
     }
 
     @media (min-width: 800px) {
       grid-template-columns: 1fr auto;
-
-      & > .card__heading {
-        grid-row: 1 / -1;
-      }
-
-      @supports (grid-template-rows: subgrid) {
-        grid-template-rows: auto auto;
-
-        & > .card__heading {
-          grid-template-rows: subgrid;
-        }
-
-        & > .dates {
-          grid-row: 1 / 2;
-          align-self: center;
-        }
-      }
     }
   }
 
   & .card__detail {
     margin: 0;
-    font-variant: small-caps;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
+
+    @media screen {
+      letter-spacing: 0.025em;
+    }
 
     &:before,
     &:after {
@@ -546,12 +549,14 @@ card-item {
   font-size: 0.875rem;
   line-height: calc(0.875rem * 1.5);
   margin: 0;
-  padding: var(--gap);
   gap: calc(0.5rem * 1.5);
-  box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.25);
-  background: var(--swatch--button-face);
-  border-radius: 1.5rem;
   list-style: none;
+
+  @media screen {
+    padding: var(--gap);
+    background: var(--swatch--button-face);
+    border-radius: 1.5rem;
+  }
 
   @media screen and (max-width: 319px) {
     padding-top: 0;
@@ -580,11 +585,6 @@ card-item {
     margin: 0;
     display: grid;
     row-gap: calc(0.5rem * 1.5);
-
-    @media not (forced-colors: active) {
-      border-top: 1px solid var(--swatch--primary--400);
-      padding-top: calc(0.5rem * 1.5);
-    }
 
     & li {
       font-size: 0.875rem;
@@ -617,13 +617,85 @@ card-item {
   border-radius: 4px;
   padding: 4px 10px;
   white-space: nowrap;
-  background-color: white;
-  color: var(--swatch--primary--900);
-  border: 1px solid white;
+  background-color: var(--swatch--primary--700);
+  color: var(--swatch--primary--0);
 
   @media (forced-colors: active) {
     background-color: Canvas;
     color: CanvasText;
     border: 1px solid CanvasText;
   }
+}
+
+nav .nav__region a {
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav .nav__region a {
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+nav .nav__region:nth-child(1) a:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+nav .nav__region:nth-child(1) a:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+nav .nav__region:nth-child(1) a:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+nav .nav__region:nth-child(2) a:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.timeline {
+  display: flex;
+}
+
+.timeline-line {
+  width: 1px;
+  background-color: var(--swatch--primary--200);
+  margin-right: 2rem;
+  border-radius: 2px;
+
+  @media print {
+    display: none;
+  }
+}
+
+card-item {
+  position: relative;
+}
+
+card-item:before {
+  content: "";
+  position: absolute;
+  left: -2.525rem;
+  top: 2rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--swatch--primary--200);
+  border-radius: 50%;
+  border: 6px solid var(--swatch--page);
+}
+
+section:not(:first-of-type) {
+  margin-top: 1.5rem;
 }

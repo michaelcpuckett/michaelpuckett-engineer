@@ -11,8 +11,13 @@ export function IndexPage() {
         <Nav />
         <Header />
         <Main>
-          <ExperienceSection />
-          <EducationSection />
+          <div className="timeline">
+            <div className="timeline-line" aria-hidden="true"></div>
+            <div className="timeline-cards">
+              <ExperienceSection />
+              <EducationSection />
+            </div>
+          </div>
         </Main>
         <StructuredData />
       </Body>
@@ -171,9 +176,7 @@ function SkillsSection() {
 function ExperienceSection() {
   return (
     <section aria-labelledby="section-header-experience">
-      <h2 id="section-header-experience" className="visually-hidden">
-        Experience
-      </h2>
+      <h2 id="section-header-experience">Experience</h2>
       <card-list role="list">
         {data.experience.map((item) => {
           const id = slugify(item.heading);
@@ -216,9 +219,7 @@ function ExperienceSection() {
 function EducationSection() {
   return (
     <section aria-labelledby="section-header-education">
-      <h2 id="section-header-education" className="visually-hidden">
-        Education
-      </h2>
+      <h2 id="section-header-education">Education</h2>
       <card-list role="list">
         {data.education.map((item) => {
           const id = slugify(item.heading);
