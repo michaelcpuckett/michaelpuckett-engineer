@@ -371,10 +371,6 @@ h1 {
     & .h1__separator {
       vertical-align: middle;
       display: inline-flex;
-
-      &:before {
-        content: "•";
-      }
     }
   }
 
@@ -407,7 +403,7 @@ h1 {
     gap: var(--gap);
     justify-self: center;
     grid-template-columns: 100%;
-    max-width: min(calc(100% - 6rem), 800px);
+    max-width: min(calc(100% - 6rem), 880px);
     margin: 0 auto;
     color: var(--swatch--text);
     --container-padding: var(--gap);
@@ -558,7 +554,7 @@ card-item {
   @media screen {
     padding: var(--gap);
     background: var(--swatch--button-face);
-    border-radius: 1.5rem;
+    border-radius: 1rem;
   }
 
   @media screen and (max-width: 320px) {
@@ -678,6 +674,8 @@ nav .nav__region a {
 }
 
 .timeline-line {
+  top: 2rem;
+  position: relative;
   flex-shrink: 0;
   width: 1px;
   background-color: var(--swatch--primary--200);
@@ -700,12 +698,12 @@ card-item:before {
   content: "";
   position: absolute;
   left: -2.525rem;
-  top: 2rem;
+  top: calc(var(--gap) + 0.125rem);
   width: 0.5rem;
   height: 0.5rem;
   background-color: var(--swatch--primary--200);
   border-radius: 50%;
-  border: 6px solid var(--swatch--page);
+  border: 5px solid var(--swatch--page);
 
   @media screen and (max-width: 320px) {
     display: none;
