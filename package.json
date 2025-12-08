@@ -25,6 +25,7 @@
     "eslint": "^9.39.1",
     "firebase-tools": "^13.18.0",
     "postcss-nesting": "^13.0.1",
+    "prettier": "^3.7.4",
     "ts-node": "^10.9.2"
   }
 }
