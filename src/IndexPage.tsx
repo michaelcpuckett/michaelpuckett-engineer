@@ -226,6 +226,7 @@ function EducationSection() {
 
           return (
             <card-item key={id} aria-labelledby={id} role="listitem">
+              <Dates startDate={item.startDate} endDate={item.endDate} />
               <div className="card__header">
                 <div className="card__heading">
                   <h3 id={id} aria-owns={id + " " + id + "-detail"}>
@@ -235,7 +236,6 @@ function EducationSection() {
                     {item.detail}
                   </p>
                 </div>
-                <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
               {item.contentHtml}
             </card-item>
@@ -325,19 +325,10 @@ function Dates({ startDate, endDate }: { startDate: string; endDate: string }) {
   const getDisplayFormat = ({ isPresent, shortMonth, year }: DateParts) => {
     return (
       <>
-        <span className="dates__date__month" aria-hidden="true">
+        <span className="dates__date__month">
           {isPresent ? "Present" : shortMonth}
         </span>
-        {isPresent ? (
-          <></>
-        ) : (
-          <>
-            <span className="dates__date__year" aria-hidden="true">
-              {" "}
-              {year}
-            </span>
-          </>
-        )}
+        {isPresent ? null : <span className="dates__date__year"> {year}</span>}
       </>
     );
   };
@@ -346,49 +337,24 @@ function Dates({ startDate, endDate }: { startDate: string; endDate: string }) {
     return isPresent ? "" : `${year}-${numericMonth}`;
   };
 
-  const getAriaFormat = ({ isPresent, longMonth, year }: DateParts) => {
-    return (
-      <span className="visually-hidden">
-        {isPresent ? "Present" : `${longMonth} ${year}`}
-      </span>
-    );
-  };
-
   const startDateDisplay = getDisplayFormat(startDateParts);
   const endDateDisplay = getDisplayFormat(endDateParts);
 
   const startDateMachine = getMachineFormat(startDateParts);
   const endDateMachine = getMachineFormat(endDateParts);
 
-  const startDateAria = getAriaFormat(startDateParts);
-  const endDateAria = getAriaFormat(endDateParts);
-
   return (
     <p className="dates">
-      <span className="visually-hidden">Started in</span>
       <time className="dates__date" dateTime={startDateMachine}>
         {startDateDisplay}
-        {startDateAria}
       </time>
-      <span aria-hidden="true" className="dates__through">
-        {" "}
-        &ndash;{" "}
-      </span>
+      <span className="dates__through"> &ndash; </span>
       {isPresent ? (
-        <>
-          <span className="visually-hidden"> and currently working here</span>
-          <span className="dates__date" aria-hidden="true">
-            {endDateDisplay}
-          </span>
-        </>
+        <span className="dates__date">{endDateDisplay}</span>
       ) : (
-        <>
-          <span className="visually-hidden"> and ended in </span>
-          <time className="dates__date" dateTime={endDateMachine}>
-            {endDateDisplay}
-            {endDateAria}
-          </time>
-        </>
+        <time className="dates__date" dateTime={endDateMachine}>
+          {endDateDisplay}
+        </time>
       )}
     </p>
   );

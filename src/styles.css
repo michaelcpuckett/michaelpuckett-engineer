@@ -449,7 +449,6 @@ card-item {
     flex: 0 0 auto;
     display: inline-flex;
     width: max-content;
-    height: 100%;
 
     @media screen {
       color: var(--swatch--primary--0);
@@ -476,18 +475,14 @@ card-item {
   }
 
   & .card__header {
-    column-gap: 1.5rem;
-    row-gap: 0.125rem;
     display: grid;
+    align-items: start;
+    column-gap: 1.5rem;
+    row-gap: 0.5rem;
 
     & > .card__heading {
       display: grid;
       row-gap: 0.125rem;
-      grid-row: 2 / 3;
-
-      @media screen {
-        margin-top: 0.5rem;
-      }
     }
 
     @media (min-width: 800px) {
