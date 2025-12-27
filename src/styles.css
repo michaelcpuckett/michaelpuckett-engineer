@@ -675,6 +675,7 @@ nav .nav__region a {
   width: 1px;
   background-color: var(--swatch--primary--200);
   margin-right: 2rem;
+  transform: translateX(-0.5px);
 
   @media print {
     display: none;
