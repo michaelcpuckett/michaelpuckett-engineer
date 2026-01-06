@@ -19,9 +19,6 @@ export function IndexPage() {
             </div>
           </div>
         </Main>
-        <a href="https://puck.talk/@mike" rel="me" className="visually-hidden">
-          Mastodon Verification
-        </a>
         <StructuredData />
       </Body>
     </>
