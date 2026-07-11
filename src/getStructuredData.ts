@@ -1,38 +1,23 @@
 import data from "./data";
 
-const jsonLd: any = {
+const jsonLd: Record<string, unknown> = {
   "@context": {
     "@vocab": "http://schema.org/",
   },
   "@type": "Person",
 };
 
-jsonLd.name = {
-  "@language": "en",
-  "@value": data.name,
-};
+jsonLd.name = data.name;
 
-jsonLd.description = {
-  "@language": "en",
-  "@value": data.description,
-};
+jsonLd.description = data.description;
 
-jsonLd.url = {
-  "@language": "en",
-  "@value": "https://michaelpuckett.engineer",
-};
+jsonLd.url = "https://michaelpuckett.engineer";
 
 jsonLd.sameAs = data.links.map((link) => link.href);
 
-jsonLd.email = {
-  "@language": "en",
-  "@value": data.email,
-};
+jsonLd.email = data.email;
 
-jsonLd.telephone = {
-  "@language": "en",
-  "@value": "615-209-1380",
-};
+jsonLd.telephone = "615-209-1380";
 
 jsonLd.image = {
   "@type": "ImageObject",
@@ -40,32 +25,17 @@ jsonLd.image = {
   encodingFormat: "image/png",
 };
 
-jsonLd.jobTitle = {
-  "@language": "en",
-  "@value": data.jobTitle,
-};
+jsonLd.jobTitle = data.jobTitle;
 
-jsonLd.knowsAbout = data.skills.map((topic) => ({
-  "@language": "en",
-  "@value": topic.heading,
-}));
+jsonLd.knowsAbout = data.skills.map((topic) => topic.heading);
 
 jsonLd.memberOf = data.experience.map((experience) => ({
   "@type": "Organization",
-  name: {
-    "@language": "en",
-    "@value": experience.heading,
-  },
-  sameAs: {
-    "@language": "en",
-    "@value": experience.url,
-  },
+  name: experience.heading,
+  sameAs: experience.url,
   member: {
     "@type": "https://schema.org/OrganizationRole",
-    "https://schema.org/roleName": {
-      "@language": "en",
-      "@value": experience.detail,
-    },
+    "https://schema.org/roleName": experience.detail,
     "https://schema.org/startDate": {
       "@type": "http://www.w3.org/2001/XMLSchema#gYearMonth",
       "@value": experience.startDate,
@@ -79,28 +49,16 @@ jsonLd.memberOf = data.experience.map((experience) => ({
 
 jsonLd.alumniOf = data.education.map((education) => ({
   "@type": "CollegeOrUniversity",
-  name: {
-    "@language": "en",
-    "@value": education.heading,
-  },
-  sameAs: {
-    "@language": "en",
-    "@value": education.url,
-  },
+  name: education.heading,
+  sameAs: education.url,
 }));
 
 jsonLd.potentialAction = {
   "@type": "ReadAction",
   object: {
     "@type": "DigitalDocument",
-    name: {
-      "@language": "en",
-      "@value": "Résumé",
-    },
-    url: {
-      "@language": "en",
-      "@value": "https://michaelpuckett.engineer/michael_puckett_resume.pdf",
-    },
+    name: "Résumé",
+    url: "https://michaelpuckett.engineer/michael_puckett_resume.pdf",
   },
 };
 
