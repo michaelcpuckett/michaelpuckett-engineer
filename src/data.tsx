@@ -122,13 +122,11 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Engineering scalable, high-performance applications for startups and
             agencies, including native mobile apps with React Native and web
             apps using React/Next.js.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Integrating AI-driven capabilities including intelligent
             suggestions, personalized recommendations, and dynamic content
             generation, leveraging embeddings and large language models.
@@ -146,12 +144,10 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Teaching adult students the basics of client-side web development,
             including HTML, CSS, and JavaScript.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Creating presentations, assignments, and quizzes to help educate
             students.
           </li>
@@ -168,25 +164,21 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Developed production web interfaces with clean, efficient, and
             maintainable TypeScript code, optimizing for performance and
             scalability.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Subject Matter Expert (SME) for accessibility compliance,
             championing inclusive design principles and ensuring that UIs met or
             exceeded WCAG standards.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Played a pivotal role in multiple successful launches, including the
             belonging.google domain, the pride.google domain, and the annual
             Year in Search experience.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Architected coding scaffolds to simplify the creation of new
             projects.
           </li>
@@ -203,25 +195,21 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Leveraged Vue 2 to build features for LiveSchool's suite of web
             applications and web-based mobile apps, ensuring a seamless user
             experience across platforms.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Utilized Firebase for authentication and real-time changes that
             reflected immediately across open tabs and devices.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Collaborated closely with designers and stakeholders to craft
             architectural artifacts, including detailed documentation, diagrams,
             and timelines, ensuring alignment with project goals and
             requirements.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Debugged existing performance issues and implemented
             performance-friendly components, including an infinite scroll view
             that recycled DOM elements.
@@ -239,7 +227,6 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Built a library of accessible Vue 2 components for one of the
             nation’s largest health insurance companies.
           </li>
@@ -256,21 +243,17 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Built interfaces to support product launches and transactions on
             Apple.com.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Led a successful project to harmonize competing corporate design
             systems and implemented a unified styling library.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Prepared coding guidelines for use by large engineering teams.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Directed offshore teams to implement tools and libraries that
             improved engineer efficiency.
           </li>
@@ -287,13 +270,11 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Helped to re-platform CNN.com from Java to Node.js, improving
             feature velocity and resulting in more ergonomic and maintainable
             code.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Created a responsive styling library for many possible page layouts.
           </li>
         </ul>
@@ -309,12 +290,10 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Built client marketing websites and web apps for clients in an
             advertising agency environment.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Implemented the first responsive redesign of NationalGuard.com.
           </li>
         </ul>
@@ -329,12 +308,8 @@ export default {
       endDate: "January 2012",
       contentHtml: (
         <ul role="list">
+          <li>Designed and developed a relaunch of Jerzees.com.</li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>Designed and developed
-            a relaunch of Jerzees.com.
-          </li>
-          <li>
-            <list-marker aria-hidden="true"></list-marker>
             Helped maintain all Fruit of the Loom websites, including Fruit.com.
           </li>
         </ul>
@@ -350,7 +325,6 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Helped build a web app that generated print marketing materials for
             small businesses, using JavaScript and XML technologies.
           </li>
@@ -369,28 +343,21 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Coursework included Digital Illustration, Motion Graphics,
             Typography, Creative Strategy, Journalism, Copywriting, and PR.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Interned at Imagewest, WKU's design studio, as a web developer.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Interned for the municipal website for the City of Bowling Green, as
             a web developer.
           </li>
           <li>
-            <list-marker aria-hidden="true"></list-marker>
             Interned at the College Heights Herald, WKU's newspaper, as a print
             designer.
           </li>
-          <li>
-            <list-marker aria-hidden="true"></list-marker>Graduated Summa Cum
-            Laude (3.9 GPA).
-          </li>
+          <li>Graduated Summa Cum Laude (3.9 GPA).</li>
         </ul>
       ),
       tags: ["HTML", "CSS", "JavaScript"],

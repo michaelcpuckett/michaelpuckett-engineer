@@ -11,13 +11,8 @@ export function IndexPage() {
         <Nav />
         <Header />
         <Main>
-          <div className="timeline">
-            <div className="timeline-line" aria-hidden="true"></div>
-            <div className="timeline-cards">
-              <ExperienceSection />
-              <EducationSection />
-            </div>
-          </div>
+          <ExperienceSection />
+          <EducationSection />
         </Main>
         <StructuredData />
       </Body>
@@ -61,7 +56,6 @@ function Head() {
       <link href="favicon.svg" rel="icon" type="image/svg+xml" />
       <link href="favicon.ico" rel="icon" type="image/x-icon" sizes="96x96" />
       <link href="icon.png" rel="icon" type="image/png" sizes="144x144" />
-      <script src="scripts.js"></script>
     </>
   );
 }
@@ -69,6 +63,11 @@ function Head() {
 function Body({ children }: React.PropsWithChildren) {
   return (
     <body>
+      <div className="site-background" aria-hidden="true">
+        <span className="site-background__blob site-background__blob--one"></span>
+        <span className="site-background__blob site-background__blob--two"></span>
+        <span className="site-background__blob site-background__blob--three"></span>
+      </div>
       <div className="container">{children}</div>
     </body>
   );
@@ -103,16 +102,10 @@ function Header() {
     <header role="banner">
       <h1>
         <span className="h1__name">{data.name}</span>
-        {/*<span className="visually-hidden"> &mdash; </span>
-        <span className="h1__title">
-          <span>{data.jobTitle}</span>{" "}
-          <span className="h1__separator" aria-hidden="true"></span>{" "}
-          <span>{data.additionalTitle}</span>
-        </span>*/}
       </h1>
       <p>
         I'm a <strong>creative technologist</strong> with extensive experience
-        building accessible, user-friendly digital products and tools.
+        building user-friendly digital products and tools.
       </p>
       <img
         hidden
@@ -123,66 +116,16 @@ function Header() {
   );
 }
 
-function SkillsSection() {
-  return (
-    <section aria-labelledby="section-header-skills">
-      <h2 aria-labelledby="section-header-skills">
-        <a id="skills" href="#skills" aria-label="Skills section">
-          <section-marker aria-hidden="true"></section-marker>
-        </a>
-        <span id="section-header-skills">Skills</span>
-      </h2>
-      <card-list aria-labelledby="section-header-skills" role="list">
-        {data.skills.map((item) => {
-          const id = slugify(item.heading);
-
-          return (
-            <card-item key={id} role="listitem">
-              <h3 id={id}>
-                {item.heading
-                  .split("/")
-                  .map(function splitOnHyphen(heading, index, parts) {
-                    if (index === 0) {
-                      return (
-                        <React.Fragment key="first-part">
-                          {heading}
-                          {parts.length > 1 ? (
-                            <>
-                              /<wbr />
-                            </>
-                          ) : (
-                            ""
-                          )}
-                        </React.Fragment>
-                      );
-                    }
-
-                    return (
-                      <React.Fragment key="second-part">
-                        {heading}
-                      </React.Fragment>
-                    );
-                  })}
-              </h3>
-              {item.contentHtml}
-            </card-item>
-          );
-        })}
-      </card-list>
-    </section>
-  );
-}
-
 function ExperienceSection() {
   return (
     <section aria-labelledby="section-header-experience">
       <h2 id="section-header-experience">Experience</h2>
-      <card-list role="list">
+      <ul className="card-list" role="list">
         {data.experience.map((item) => {
           const id = slugify(item.heading);
 
           return (
-            <card-item key={id} aria-labelledby={id} role="listitem">
+            <li className="card-item" key={id} aria-labelledby={id}>
               <div className="card__header">
                 <div className="card__heading">
                   <h3 id={id} aria-owns={id + " " + id + "-detail"}>
@@ -198,20 +141,15 @@ function ExperienceSection() {
               <h4 className="visually-hidden">Technologies Used</h4>
               <ul className="tags" role="list">
                 {item.tags.map((tag) => (
-                  <li
-                    key={tag}
-                    className="tag"
-                    role="listitem"
-                    data-tag={tag.toLowerCase()}
-                  >
+                  <li key={tag} className="tag" data-tag={tag.toLowerCase()}>
                     {tag}
                   </li>
                 ))}
               </ul>
-            </card-item>
+            </li>
           );
         })}
-      </card-list>
+      </ul>
     </section>
   );
 }
@@ -220,13 +158,12 @@ function EducationSection() {
   return (
     <section aria-labelledby="section-header-education">
       <h2 id="section-header-education">Education</h2>
-      <card-list role="list">
+      <ul className="card-list" role="list">
         {data.education.map((item) => {
           const id = slugify(item.heading);
 
           return (
-            <card-item key={id} aria-labelledby={id} role="listitem">
-              <Dates startDate={item.startDate} endDate={item.endDate} />
+            <li className="card-item" key={id} aria-labelledby={id}>
               <div className="card__header">
                 <div className="card__heading">
                   <h3 id={id} aria-owns={id + " " + id + "-detail"}>
@@ -236,12 +173,13 @@ function EducationSection() {
                     {item.detail}
                   </p>
                 </div>
+                <Dates startDate={item.startDate} endDate={item.endDate} />
               </div>
               {item.contentHtml}
-            </card-item>
+            </li>
           );
         })}
-      </card-list>
+      </ul>
     </section>
   );
 }

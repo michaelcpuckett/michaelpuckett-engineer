@@ -34,19 +34,6 @@ app.get("/", async (req, res) => {
   res.send(htmlResult);
 });
 
-app.get("/scripts.js", async (req, res) => {
-  const scriptsResult = fs.readFileSync("src/customElements.js", "utf8");
-
-  fs.writeFileSync(
-    path.resolve("./dist/", "scripts.js"),
-    scriptsResult,
-    "utf8"
-  );
-
-  res.setHeader("Content-Type", "application/javascript");
-  res.send(scriptsResult);
-});
-
 app.get("*", async (req, res) => {
   const url = path.resolve(__dirname, "../dist/", req.url.slice(1));
 
