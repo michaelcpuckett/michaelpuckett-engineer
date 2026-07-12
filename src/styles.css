@@ -43,7 +43,7 @@
   --swatch--primary--200: #b3b0ff;
   --swatch--primary--100: #d6d7ff;
   --swatch--primary--0: #fcfdff;
-  --aurora-blob--one: var(--swatch--primary--700);
+  --aurora-blob--one: #143f74;
   --aurora-blob--two: rgba(18, 119, 111, 0.62);
 
   @supports (color: oklch(0 1 1)) {
