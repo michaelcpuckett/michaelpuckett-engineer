@@ -27,8 +27,6 @@ jsonLd.image = {
 
 jsonLd.jobTitle = data.jobTitle;
 
-jsonLd.knowsAbout = data.skills.map((topic) => topic.heading);
-
 jsonLd.memberOf = data.experience.map((experience) => ({
   "@type": "Organization",
   name: experience.heading,

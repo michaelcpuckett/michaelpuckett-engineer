@@ -105,7 +105,7 @@ function Header() {
       </h1>
       <p>
         I'm a <strong>creative technologist</strong> with extensive experience
-        building user-friendly digital products and tools.
+        building user-friendly digital products.
       </p>
       <img
         hidden

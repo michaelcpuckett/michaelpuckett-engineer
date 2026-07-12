@@ -3,7 +3,7 @@ export default {
   jobTitle: "Software Engineer",
   additionalTitle: "x-Google, x-Apple",
   description:
-    "Creative technologist with extensive experience building accessible, user-friendly digital products and tools.",
+    "Creative technologist with extensive experience building user-friendly digital products.",
   email: "michael@puckett.contact",
   links: [
     {
@@ -15,107 +15,9 @@ export default {
       text: "Github",
     },
   ],
-  skills: [
-    {
-      heading: "TypeScript",
-      contentHtml: (
-        <>
-          <p>
-            I leverage TypeScript to build robust, type-safe, and maintainable
-            codebases. Its static typing, generics, and advanced type system
-            allow me to architect applications that scale predictably and reduce
-            runtime errors.
-          </p>
-          <p>
-            I'm highly experienced with modern JavaScript (ESNext) and how
-            TypeScript interacts with the underlying web platform, including the
-            DOM and native APIs.
-          </p>
-        </>
-      ),
-    },
-    {
-      heading: "React",
-      contentHtml: (
-        <>
-          <p>
-            I specialize in building scalable, performant user interfaces with
-            React. I follow best practices around component design, hooks, state
-            management, and rendering optimization.
-          </p>
-          <p>
-            My deep understanding of React’s architecture enables me to create
-            clean, reusable, and maintainable UI components for complex
-            applications.
-          </p>
-        </>
-      ),
-    },
-    {
-      heading: "Next.js",
-      contentHtml: (
-        <>
-          <p>
-            I build full-stack, production-ready applications using Next.js,
-            taking advantage of features like App Router, server components, API
-            routes, and first-class performance optimizations.
-          </p>
-          <p>
-            With expertise across SSR, SSG, ISR, routing, caching, and
-            deployment patterns, I craft highly performant and SEO-optimized web
-            experiences.
-          </p>
-        </>
-      ),
-    },
-    {
-      heading: "AI Integration & Applied Machine Learning",
-      contentHtml: (
-        <>
-          <p>
-            I have delivered AI-powered features such as intelligent
-            suggestions, personalized recommendations, and dynamic content
-            generation. My work includes applying large language models (LLMs),
-            vector embeddings, and recommendation pipelines to create adaptive,
-            user-centered experiences.
-          </p>
-        </>
-      ),
-    },
-    {
-      heading: "Design System Engineering",
-      contentHtml: (
-        <>
-          <p>
-            I have built and maintained design systems for large organizations,
-            collaborating closely with designers to deliver reusable,
-            accessible, and scalable component libraries.
-          </p>
-          <p>
-            My background in graphic design enables me to bridge design intent
-            with engineering execution, producing clean, maintainable code.
-          </p>
-        </>
-      ),
-    },
-    {
-      heading: "Web Accessibility",
-      contentHtml: (
-        <>
-          <p>
-            I have a strong command of the Web Content Accessibility Guidelines
-            (WCAG) and extensive hands-on experience with assistive technologies
-            such as screen readers and voice recognition. I have contributed to
-            projects requiring strict compliance, passing both internal
-            standards and external audits, including cases with legal oversight.
-          </p>
-        </>
-      ),
-    },
-  ],
   experience: [
     {
-      heading: "Self-Employed",
+      heading: "Self-Employed (LLC)",
       detail: "Freelance Software Engineer",
       startDate: "January 2024",
       endDate: "Present",

@@ -22,13 +22,12 @@
 }
 
 :root {
-  font-family: "Hanken Grotesk", system-ui, sans-serif;
   font-size: calc((20 / 16) * 100%);
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
   line-height: calc(1 + (1 / 3));
   color-scheme: light;
   display: grid;
   -webkit-font-smoothing: subpixel-antialiased;
-  text-size-adjust: none;
   text-rendering: optimizeLegibility;
   --swatch--text: initial;
   --gap: calc(1.25rem * 1.5);
@@ -143,7 +142,9 @@ body {
   overflow: hidden;
   pointer-events: none;
 
-  @media print, screen and (forced-colors: active) {
+  @media print,
+    screen and (forced-colors: active),
+    screen and (prefers-contrast: more) {
     display: none;
   }
 }
@@ -177,6 +178,12 @@ body {
   mix-blend-mode: screen;
   opacity: 0.68;
   transform: translate3d(0, 0, 0);
+
+  @media print,
+    screen and (forced-colors: active),
+    screen and (prefers-contrast: more) {
+    display: none;
+  }
 }
 
 .site-background__blob--one {
@@ -401,8 +408,11 @@ h1 {
     line-height: 0.95;
     letter-spacing: -0.025em;
     font-weight: 600;
-    color: #fff;
-    filter: drop-shadow(0 0.12rem 0.45rem rgba(0, 0, 0, 0.35));
+
+    @media screen {
+      color: #fff;
+      filter: drop-shadow(0 0.12rem 0.45rem rgba(0, 0, 0, 0.35));
+    }
 
     @media screen and (min-width: 800px) {
       font-size: 4rem;
@@ -589,26 +599,30 @@ nav {
 
 .card-item {
   display: grid;
-  background-color: color-mix(
-    in srgb,
-    var(--swatch--primary--900) 50%,
-    transparent
-  );
   font-size: 0.875rem;
   line-height: calc(0.875rem * 1.5);
   margin: 0;
   gap: calc(0.5rem * 1.5);
   list-style: none;
-  box-shadow:
-    0 1.25rem 3rem rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.075);
+  padding: var(--gap);
 
   @media screen {
-    padding: var(--gap);
     border-radius: 0.4rem;
     border: 1px solid
       color-mix(in srgb, var(--swatch--primary--500) 40%, transparent);
     backdrop-filter: blur(18px);
+    background-color: color-mix(
+      in srgb,
+      var(--swatch--primary--900) 33%,
+      transparent
+    );
+    box-shadow:
+      0 1.25rem 3rem rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.075);
+  }
+
+  @media print, screen and (prefers-contrast: more) {
+    background-color: var(--swatch--primary--800);
   }
 
   @media screen and (max-width: 320px) {
@@ -622,14 +636,9 @@ nav {
   }
 
   @media print, screen and (forced-colors: active) {
-    padding: 0.5rem 0 1rem;
-    border-bottom: 0.1rem solid var(--swatch--text);
+    border: 0.1rem solid CanvasText;
     border-radius: 0;
     box-shadow: none;
-
-    &:last-of-type {
-      border-bottom: 0;
-    }
   }
 
   & ul:first-of-type {
