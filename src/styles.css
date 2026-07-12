@@ -1,18 +1,18 @@
 @font-face {
   font-family: "Hanken Grotesk";
-  src: url("hanken.ttf");
+  src: url("/hanken.ttf");
   font-weight: normal;
 }
 
 @font-face {
   font-family: "Hanken Grotesk";
-  src: url("hanken--bold.ttf");
+  src: url("/hanken--bold.ttf");
   font-weight: bold;
 }
 
 @font-face {
   font-family: "Hanken Grotesk";
-  src: url("hanken--light.ttf");
+  src: url("/hanken--light.ttf");
   font-weight: 200;
 }
 
@@ -126,7 +126,7 @@
 }
 
 body {
-  background-color: var(--swatch--page);
+  background-color: transparent;
   color: var(--swatch--text);
   margin: 0;
   min-height: 100vh;
@@ -209,8 +209,13 @@ hr {
 }
 
 .site-background {
-  position: fixed;
+  position: absolute;
+  background-color: var(--swatch--page);
   inset: 0;
+  inset: calc(0px - env(safe-area-inset-top, 0px))
+    calc(0px - env(safe-area-inset-right, 0px))
+    calc(0px - env(safe-area-inset-bottom, 0px))
+    calc(0px - env(safe-area-inset-left, 0px));
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
@@ -468,10 +473,13 @@ h3 {
 header {
   display: grid;
   gap: calc(var(--gap) / 2);
-  margin: var(--gap) 0;
 
   @media screen and (max-width: 799px) {
     text-align: center;
+  }
+
+  @media screen and (min-width: 800px) {
+    margin: var(--gap) 0;
   }
 
   @media print {
@@ -608,7 +616,7 @@ nav {
         color-mix(in srgb, var(--swatch--primary--300) 34%, transparent);
       padding: 0.125rem 0.5rem;
       border-radius: 0.5rem;
-      font-weight: bold;
+      font-weight: 200;
       margin-left: -0.5rem;
     }
 
@@ -666,8 +674,8 @@ nav {
 
 .tag {
   display: flex;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 200;
   line-height: 1.4;
   border-radius: 4px;
   padding: 4px 10px;

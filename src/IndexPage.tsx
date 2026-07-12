@@ -6,8 +6,12 @@ import jsonLd from "./getStructuredData";
 export function IndexPage() {
   return (
     <>
-      <Head />
-      <Body>
+      <div className="site-background" aria-hidden="true">
+        <span className="site-background__blob site-background__blob--one"></span>
+        <span className="site-background__blob site-background__blob--two"></span>
+        <span className="site-background__blob site-background__blob--three"></span>
+      </div>
+      <div className="container">
         <Nav />
         <Header />
         <Main>
@@ -15,12 +19,12 @@ export function IndexPage() {
           <EducationSection />
         </Main>
         <StructuredData />
-      </Body>
+      </div>
     </>
   );
 }
 
-function Head() {
+export function Head() {
   return (
     <>
       <meta charSet="utf-8" />
@@ -34,42 +38,29 @@ function Head() {
       />
       <link
         rel="preload"
-        href="hanken.ttf"
+        href="/hanken.ttf"
         as="font"
         type="font/ttf"
         crossOrigin=""
       />
       <link
         rel="preload"
-        href="hanken--bold.ttf"
+        href="/hanken--bold.ttf"
         as="font"
         type="font/ttf"
         crossOrigin=""
       />
       <link
         rel="preload"
-        href="hanken--light.ttf"
+        href="/hanken--light.ttf"
         as="font"
         type="font/ttf"
         crossOrigin=""
       />
-      <link href="favicon.svg" rel="icon" type="image/svg+xml" />
-      <link href="favicon.ico" rel="icon" type="image/x-icon" sizes="96x96" />
-      <link href="icon.png" rel="icon" type="image/png" sizes="144x144" />
+      <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+      <link href="/favicon.ico" rel="icon" type="image/x-icon" sizes="96x96" />
+      <link href="/favicon.png" rel="icon" type="image/png" sizes="144x144" />
     </>
-  );
-}
-
-function Body({ children }: React.PropsWithChildren) {
-  return (
-    <body>
-      <div className="site-background" aria-hidden="true">
-        <span className="site-background__blob site-background__blob--one"></span>
-        <span className="site-background__blob site-background__blob--two"></span>
-        <span className="site-background__blob site-background__blob--three"></span>
-      </div>
-      <div className="container">{children}</div>
-    </body>
   );
 }
 
@@ -89,7 +80,7 @@ function Nav() {
         ))}
       </div>
       <div className="nav__region">
-        <a href="michael_puckett_resume.pdf" target="_blank">
+        <a href="/michael_puckett_resume.pdf" target="_blank">
           Résumé
         </a>
       </div>
