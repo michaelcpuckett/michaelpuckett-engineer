@@ -1,3 +1,6 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss";
+
 @font-face {
   font-family: "Hanken Grotesk";
   src: url("/hanken.ttf");
@@ -101,23 +104,9 @@
   }
 }
 
-* {
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-}
-
 @page {
   size: letter portrait;
   margin: calc((2 / 3) * 1in);
-}
-
-:focus {
-  outline: 0;
-}
-
-:focus-visible {
-  outline: 4px solid var(--swatch--focused);
-  outline-offset: 4px;
 }
 
 ::selection {
@@ -126,54 +115,34 @@
 }
 
 body {
-  background-color: transparent;
-  color: var(--swatch--text);
-  margin: 0;
-  min-height: 100vh;
-  overscroll-behavior: none;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-  isolation: isolate;
-  position: relative;
-  overflow-x: hidden;
-  word-wrap: break-word;
-  overflow-wrap: anywhere;
-}
-
-img {
-  max-width: 100%;
-}
-
-p {
-  margin: 0;
+  @apply bg-none;
+  @apply text-(--swatch--text);
+  @apply relative;
+  @apply wrap-anywhere;
 }
 
 a {
   &:any-link {
     color: LinkText;
-    color: #fff;
+    @apply text-(--swatch--text);
     font-size: 0.825rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    text-decoration: underline;
-    text-underline-offset: 0.2rem;
+    @apply inline-flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply underline;
+    @apply underline-offset-[.2rem];
     transition:
       color 0.25s ease-in-out,
       text-decoration-color 0.25s ease-in-out;
 
     &:hover {
-      color: var(--swatch--primary--200);
-      text-decoration-color: var(--swatch--primary--200);
+      @apply text-(--swatch--primary--200);
     }
   }
 
   &:not([id]) {
-    min-height: var(--min-touch-dimension);
-    min-width: var(--min-touch-dimension);
+    @apply min-h-(--min-touch-dimension);
+    @apply min-w-(--min-touch-dimension);
     margin-top: calc((1em - var(--min-touch-dimension)) / 2);
     margin-bottom: calc((1em - var(--min-touch-dimension)) / 2);
     margin-top: calc((1lh - var(--min-touch-dimension)) / 2);
@@ -181,55 +150,34 @@ a {
   }
 }
 
-hr {
-  margin: 2rem 0;
-  border: 0;
-  border-top: 0.1rem solid currentColor;
-}
-
-[hidden][data-print-only] {
-  @media print {
-    display: grid;
-    grid-row: 1 / 2;
-  }
-}
-
 .visually-hidden,
 .card-item .card__detail::before,
 .card-item .card__detail::after {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  white-space: nowrap;
-  clip: rect(0 0 0 0);
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  user-select: none;
+  @apply sr-only;
 }
 
 .site-background {
-  position: absolute;
-  background-color: var(--swatch--page);
-  inset: 0;
+  @apply absolute;
+  @apply bg-(--swatch--page);
+  @apply inset-0;
   inset: calc(0px - env(safe-area-inset-top, 0px))
     calc(0px - env(safe-area-inset-right, 0px))
     calc(0px - env(safe-area-inset-bottom, 0px))
     calc(0px - env(safe-area-inset-left, 0px));
-  z-index: -1;
-  overflow: hidden;
-  pointer-events: none;
+  @apply z-[-1];
+  @apply overflow-hidden;
+  @apply pointer-events-none;
 
   @media print,
     screen and (forced-colors: active),
     screen and (prefers-contrast: more) {
-    display: none;
+    @apply hidden;
   }
 
   &::before {
     content: "";
-    position: absolute;
-    inset: 0;
+    @apply absolute;
+    @apply inset-0;
     background:
       radial-gradient(
         circle at 50% -10%,
@@ -243,10 +191,10 @@ hr {
 .site-background__blob {
   --aurora-blob-color: var(--aurora-blob--one);
   --aurora-blob-size: clamp(20rem, 55vw, 48rem);
-  position: absolute;
-  aspect-ratio: 1;
-  width: var(--aurora-blob-size);
-  border-radius: 50%;
+  @apply absolute;
+  @apply aspect-square;
+  @apply w-(--aurora-blob-size);
+  @apply rounded-full;
   background: radial-gradient(
     circle at center,
     var(--aurora-blob-color),
@@ -278,18 +226,17 @@ hr {
 }
 
 .container {
-  position: relative;
-  z-index: 1;
+  @apply relative;
+  @apply z-1;
 
   @media screen and (min-width: 321px) {
     width: 100%;
     display: grid;
     gap: var(--gap);
-    justify-self: center;
     grid-template-columns: 100%;
     max-width: min(calc(100% - 6rem), 880px);
-    margin: 0 auto;
-    color: var(--swatch--text);
+    @apply justify-self-center;
+    @apply mx-auto;
     --container-padding: var(--gap);
     padding: max(var(--container-padding), env(safe-area-inset-top, 0px))
       max(var(--container-padding), env(safe-area-inset-right, 0px))
@@ -303,12 +250,11 @@ hr {
   }
 
   @media screen and (max-width: 799px) {
-    -webkit-hyphens: auto;
-    hyphens: auto;
-    word-wrap: break-all;
-    overflow-wrap: anywhere;
-    max-width: 100%;
-    background: none;
+    @apply hyphens-auto;
+    @apply wrap-break-word;
+    @apply wrap-anywhere;
+    @apply max-w-full;
+    @apply bg-none;
   }
 
   @media screen and (min-width: 800px) {
@@ -317,12 +263,6 @@ hr {
 
   @media print, screen and (forced-colors: active) {
     margin-top: 0;
-  }
-
-  @media print {
-    padding: 0;
-    margin: 0;
-    max-width: 100%;
   }
 }
 

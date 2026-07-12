@@ -18,7 +18,7 @@ export default {
   experience: [
     {
       heading: "Self-Employed (LLC)",
-      detail: "Freelance Software Engineer",
+      detail: "Software Engineer",
       startDate: "January 2024",
       endDate: "Present",
       contentHtml: (

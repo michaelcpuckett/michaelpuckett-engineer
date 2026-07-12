@@ -1,4 +1,5 @@
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import { renderStaticPage } from "./src/renderStatic";
 
@@ -25,7 +26,7 @@ function staticHtmlPlugin(): Plugin {
 
 export default defineConfig({
   publicDir: "dist",
-  plugins: [react(), staticHtmlPlugin()],
+  plugins: [react(), tailwindcss(), staticHtmlPlugin()],
   build: {
     copyPublicDir: false,
     emptyOutDir: false,

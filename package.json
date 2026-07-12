@@ -19,6 +19,7 @@
     "react-slugify": "^4.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.2",
     "@types/node": "^26.1.1",
     "@types/react": "^18.2.67",
     "@types/react-dom": "^18.2.22",
@@ -26,6 +27,7 @@
     "eslint": "^9.39.1",
     "firebase-tools": "^13.18.0",
     "prettier": "^3.7.4",
+    "tailwindcss": "^4.3.2",
     "typescript": "^7.0.2",
     "vite": "^8.1.4"
   }
