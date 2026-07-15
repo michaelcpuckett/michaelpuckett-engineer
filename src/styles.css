@@ -208,7 +208,7 @@ a {
 
 .site-background__blob--one {
   top: -14rem;
-  left: clamp(-16rem, calc(50% - 52rem), -3rem);
+  left: max(-16rem, calc(50% - 52rem));
 }
 
 .site-background__blob--two {
@@ -222,7 +222,7 @@ a {
 
 .site-background__blob--three {
   top: 15.5rem;
-  right: clamp(-16rem, calc(50% - 52rem), -3rem);
+  right: max(-16rem, calc(50% - 52rem));
 }
 
 .container {
