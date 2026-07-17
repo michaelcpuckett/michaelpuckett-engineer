@@ -26,7 +26,7 @@ export default {
           <li>
             Engineering scalable, high-performance applications for startups and
             agencies, including native mobile apps with React Native and web
-            apps using React/Next.js.
+            apps using Next.js.
           </li>
           <li>
             Integrating AI-driven capabilities including intelligent
@@ -97,24 +97,13 @@ export default {
       contentHtml: (
         <ul role="list">
           <li>
-            Leveraged Vue 2 to build features for LiveSchool's suite of web
-            applications and web-based mobile apps, ensuring a seamless user
-            experience across platforms.
-          </li>
-          <li>
-            Utilized Firebase for authentication and real-time changes that
-            reflected immediately across open tabs and devices.
+            Upgraded a large codebase to Vue 2 and integrated Firebase for
+            real-time changes that reflected immediately across open tabs and
+            devices.
           </li>
           <li>
             Collaborated closely with designers and stakeholders to craft
-            architectural artifacts, including detailed documentation, diagrams,
-            and timelines, ensuring alignment with project goals and
-            requirements.
-          </li>
-          <li>
-            Debugged existing performance issues and implemented
-            performance-friendly components, including an infinite scroll view
-            that recycled DOM elements.
+            architectural artifacts, including diagrams and documentation.
           </li>
         </ul>
       ),
@@ -130,7 +119,7 @@ export default {
         <ul role="list">
           <li>
             Built a library of accessible Vue 2 components for one of the
-            nation’s largest health insurance companies.
+            nation's largest health insurance companies.
           </li>
         </ul>
       ),
@@ -150,15 +139,12 @@ export default {
           </li>
           <li>
             Led a successful project to harmonize competing corporate design
-            systems and implemented a unified styling library.
+            systems and implemented major pieces of a unified SCSS library.
           </li>
           <li>
             Prepared coding guidelines for use by large engineering teams.
           </li>
-          <li>
-            Directed offshore teams to implement tools and libraries that
-            improved engineer efficiency.
-          </li>
+          <li>Directed offshore teams to implement tools and libraries.</li>
         </ul>
       ),
       tags: ["JavaScript"],

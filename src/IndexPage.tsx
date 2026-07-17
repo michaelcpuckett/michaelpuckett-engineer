@@ -81,7 +81,7 @@ function Nav() {
       </div>
       <div className="nav__region">
         <a href="/michael_puckett_resume.pdf" target="_blank">
-          Résumé
+          PDF Résumé
         </a>
       </div>
     </nav>
