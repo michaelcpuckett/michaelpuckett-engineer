@@ -229,7 +229,7 @@ a {
   @apply relative;
   @apply z-1;
 
-  @media screen and (min-width: 321px) {
+  @media screen {
     width: 100%;
     display: grid;
     gap: var(--gap);
@@ -242,11 +242,6 @@ a {
       max(var(--container-padding), env(safe-area-inset-right, 0px))
       max(var(--container-padding), env(safe-area-inset-bottom, 0px))
       max(var(--container-padding), env(safe-area-inset-left, 0px));
-  }
-
-  @media screen and (max-width: 320px) {
-    gap: calc(var(--gap) / 2);
-    padding: 0.5rem;
   }
 
   @media screen and (max-width: 799px) {
@@ -338,11 +333,6 @@ h1 {
 
     @media screen and (min-width: 800px) {
       font-size: 4rem;
-    }
-
-    @media screen and (max-width: 320px) {
-      font-size: 2rem;
-      line-height: calc(2rem * 1.125);
     }
 
     @media print {
@@ -493,16 +483,6 @@ nav {
 
   @media screen and (prefers-contrast: more) {
     background-color: var(--swatch--primary--800);
-  }
-
-  @media screen and (max-width: 320px) {
-    padding-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-    background: none;
-    box-shadow: none;
-    border-bottom: 0.1rem solid var(--swatch--primary--300);
-    border-radius: 0;
   }
 
   @media print, screen and (forced-colors: active) {
